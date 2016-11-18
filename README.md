@@ -13,8 +13,7 @@ Food and You
 ## Environnement
 
 | Environnement             | Url                                                                       | Htaccess
-| --------------------------|-------------------------------------------------------------------------- | --------------------- |
-| **Recette**               | [http://foodandyou.soluti.fr/][recette]                                   | soluti / recette      |
+| --------------------------|-------------------------------------------------------------------------- | ------------     |
 | **Production**            | [http://www.foodandyou.fr/][prod]                                         |                       |
 
 ## Tasks
