@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="490aa6e856ccf208a054389e47ce0d06" resname="Id">
+        <source>Id</source>
+        <target>Id</target>
+      </trans-unit>
+      <trans-unit id="49ee3087348e8d44e1feda1917443987" resname="Name">
+        <source>Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="d29136246f8c4eca85d2e428f7321e88" resname="Owner Full Name">
+        <source>Owner Full Name</source>
+        <target>Propriétaire</target>
+      </trans-unit>
+      <trans-unit id="90c894942119b2be1119f3b54536b6fc" resname="Nr Events">
+        <source>Nr Events</source>
+        <target>Nr. événements</target>
+      </trans-unit>
+      <trans-unit id="ec53a8c4f07baed5d8825072c89799be" resname="Status">
+        <source>Status</source>
+        <target>Statut</target>
+      </trans-unit>
+      <trans-unit id="f0c14745f4495aaeeebd36f11da971d8" resname="Restaurant List">
+        <source>Restaurant List</source>
+        <target>Liste des restaurants</target>
+      </trans-unit>
+      <trans-unit id="6d4b62960a6aa2b1fff43a9c1d95f7b2" resname="restaurant">
+        <source>restaurant</source>
+        <target>Restaurant</target>
+      </trans-unit>
+      <trans-unit id="0db377921f4ce762c62526131097968f" resname="General">
+        <source>General</source>
+        <target>Général</target>
+      </trans-unit>
+      <trans-unit id="1c2800d2f280676b14d5c37c1f37b3e3" resname="Cuisine">
+        <source>Cuisine</source>
+        <target>Cuisine</target>
+      </trans-unit>
+      <trans-unit id="b6f4a2ec6356bbd56d49f2096bf9d3d3" resname="Owner">
+        <source>Owner</source>
+        <target>Propriétaire</target>
+      </trans-unit>
+      <trans-unit id="5c93310dd0291e121181e830cdda892e" resname="Gallery">
+        <source>Gallery</source>
+        <target>Galerie</target>
+      </trans-unit>
+      <trans-unit id="b34d7d1104dcd84591f591b131627cae" resname="Opening Date">
+        <source>Opening Date</source>
+        <target>Date d'ouverture</target>
+      </trans-unit>
+      <trans-unit id="b5a7adde1af5c87d7fd797b6245c2a39" resname="Description">
+        <source>Description</source>
+        <target>La description</target>
+      </trans-unit>
+      <trans-unit id="3a4967c25e5a504ea99fda9e9e0a1c0d" resname="Address info">
+        <source>Address info</source>
+        <target>Adresse</target>
+      </trans-unit>
+      <trans-unit id="d61ebdd8a0c0cd57c22455e9f0918c65" resname="Street">
+        <source>Street</source>
+        <target>Rue</target>
+      </trans-unit>
+      <trans-unit id="25f75488c91cb6c3bab92672e479619f" resname="Postal Code">
+        <source>Postal Code</source>
+        <target>Code postal</target>
+      </trans-unit>
+      <trans-unit id="57d056ed0984166336b7879c2af3657f" resname="City">
+        <source>City</source>
+        <target>Ville</target>
+      </trans-unit>
+      <trans-unit id="511cce4171282ee5a3a6730a543b0b8b" resname="Social info">
+        <source>Social info</source>
+        <target>Informations web</target>
+      </trans-unit>
+      <trans-unit id="620b64a867c5285339a8019f73e96e16" resname="Contact info">
+        <source>Contact info</source>
+        <target>Informations de contact</target>
+      </trans-unit>
+      <trans-unit id="c9e825f4641cd3bec0ba01a0c2d67755" resname="validated">
+        <source>validated</source>
+        <target>Validé</target>
+      </trans-unit>
+      <trans-unit id="7c6c2e5d48ab37a007cbf70d3ea25fa4" resname="pending">
+        <source>pending</source>
+        <target>En attendant</target>
+      </trans-unit>
+      <trans-unit id="c7537d6d48ecf261749c09a9f284bd45" resname="rejected">
+        <source>rejected</source>
+        <target>Rejeté</target>
+      </trans-unit>
+      <trans-unit id="5f2e65f22ca153e8cd66225c7fe39149" resname="view.bo">
+        <source>view.bo</source>
+        <target>Voir BO</target>
+      </trans-unit>
+      <trans-unit id="8e06e13275c8bf3d41c7013d3efa46d5" resname="restaurant.not_found">
+        <source>restaurant.not_found</source>
+        <target>Restaurant introuvable</target>
+      </trans-unit>
+      <trans-unit id="df40cf5a28339dcfe6e546b0d2f34929" resname="restaurant.rejected">
+        <source>restaurant.rejected</source>
+        <target>Restaurant rejeté</target>
+      </trans-unit>
+      <trans-unit id="ebf2c9ad46cdaf867fc2556ff0ab9cb0" resname="restaurant.validated">
+        <source>restaurant.validated</source>
+        <target>Restaurant validé</target>
+      </trans-unit>
+      <trans-unit id="e9cf7c47c5208a08b5fb9de544ae9030" resname="restaurant.reject">
+        <source>restaurant.reject</source>
+        <target>Rejeter</target>
+      </trans-unit>
+      <trans-unit id="117aa00bef8090ddb7d9a217d50571fc" resname="restaurant.validate">
+        <source>restaurant.validate</source>
+        <target>Valider</target>
+      </trans-unit>
+      <trans-unit id="b0d8913d4dfb85c2325c0773ff52ae98" resname="Bo">
+        <source>Bo</source>
+        <target>Bo</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

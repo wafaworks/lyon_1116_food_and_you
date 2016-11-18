@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="7773fc489c820527fc2ce5e8e60f22ef" resname="blog.list.title">
+        <source>blog.list.title</source>
+        <target><![CDATA[Le blog Food & You]]></target>
+      </trans-unit>
+      <trans-unit id="c33277903282de42c0ad3cb8826c0d55" resname="read_more">
+        <source>read_more</source>
+        <target>Lire la suite</target>
+      </trans-unit>
+      <trans-unit id="81f606b71d289f9565f98ab60dddae9a" resname="load_more">
+        <source>load_more</source>
+        <target>Plus d'articles</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

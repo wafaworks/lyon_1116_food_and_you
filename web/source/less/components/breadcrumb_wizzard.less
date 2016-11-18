@@ -1,0 +1,156 @@
+.BreadcrumbWizzard {
+    list-style: none;
+    overflow: hidden;
+    display: flex;
+    padding: 0;
+
+
+    li {
+        flex-grow: 1;
+        flex-basis: 0;
+
+        .BreadcrumbWizzard__item {
+            color: white;
+            text-decoration: none;
+            padding: 10px 0 10px 40px;
+            font-weight: bold;
+            background-color: @color-green-opaque;
+            position: relative;
+            display: flex;
+            text-align: center;
+            align-items: center;
+
+            &.active{
+                background-color: @color-green-dark2;
+            }
+
+            .number{
+                font-size: 48px;
+                padding: 0 0.25rem;
+            }
+            .text{
+                font-size: 18px;
+                flex-grow: 1;
+            }
+
+        }
+
+        &:first-child .BreadcrumbWizzard__item{
+            padding: 10px 0 10px 10px;
+        }
+
+        &:not(:last-child) .BreadcrumbWizzard__item {
+            &::after {
+                content: " ";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid @color-green-opaque;
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                left: 100%;
+                z-index: 2;
+            }
+            &.active:after{
+                border-left: 30px solid @color-green-dark2;
+            }
+            &::before {
+                content: " ";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent;
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid white;
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                margin-left: 1px;
+                left: 100%;
+                z-index: 1;
+            }
+
+        }
+    }
+
+    &--Level {
+        margin: 0;
+        li {
+            .BreadcrumbWizzard__item {
+                background-color: @color-pink-light;
+                padding: 10px 0 10px 10px;
+
+                &.active{
+                    background-color: @color-green;
+                }
+
+                &.completed {
+                    background-color: @color-pink;
+                }
+                .text{
+                    font-size: @text-xs;
+                    flex-grow: 1;
+                }
+            }
+
+
+            &:not(:last-child) .BreadcrumbWizzard__item{
+                border-right: 1px solid #FFF;
+                &::before, &::after {
+                    display: none;
+                }
+            }
+
+            &:first-child .BreadcrumbWizzard__item{
+                &::before, &::after {
+                    display: block;
+                }
+                &.active::after{
+                    border-left: 30px solid @color-green;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: @grid-sm-max) {
+    ul.BreadcrumbWizzard {
+        flex-wrap: wrap;
+
+        li {
+            flex-basis: 100%;
+            border-bottom: 1px solid #FFF;
+            .BreadcrumbWizzard__item {
+                padding: 10px 0 10px 10px;
+            }
+        }
+        &--Level {
+            li {
+                flex-basis: 100%;
+                .BreadcrumbWizzard__item {
+                    display: none;
+
+                    &.active{
+                        display: block;
+                    }
+                    &::before, &::after {
+                        display: none;
+                    }
+                }
+
+                &.current .BreadcrumbWizzard__item {
+                    display: block;
+                }
+                &:first-child .BreadcrumbWizzard__item {
+                    &::before, &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

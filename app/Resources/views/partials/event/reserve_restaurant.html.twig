@@ -1,0 +1,18 @@
+{% extends 'partials/event/reserve.html.twig' %}
+
+{% trans_default_domain "event_details" %}
+
+{% set isFull = (event.capacity.maximum) - (event.confirmedReservations) <= 0 %}
+
+{% block reserve_title %}
+    {% if isFull %}
+        <h3 class="h5">{{ "event.full"|trans }}</h3>
+    {% else %}
+        <span>{{ 'event.only.left' | trans }}</span>
+        <h3 class="h5">{{ (event.capacity.maximum) - (event.confirmedReservations) }} {{ 'event.places.left' | transchoice((event.capacity.maximum) - (event.confirmedReservations) ) }}</h3>
+    {% endif %}
+{% endblock %}
+
+{% block reserve_button_label %}
+    {{- 'reserve.quick' | trans({}, 'restaurant_details') | upper -}}
+{% endblock %}

@@ -1,0 +1,22 @@
+<header class="Site__header Site__header--benefits">
+    <div class="container">
+        <div class="row jc-center">
+            {% include ':partials/menu:desktop.html.twig' %}
+        </div>
+        {% include ':partials/menu:mobile.html.twig' %}
+        <div class="row jc-center Site__header--benefits__row">
+            <div class="col-sm-4">
+                <span class="Site__header--benefits__icon">
+                    <img src="{{ asset('images/benefits/chef.png') }}" alt="Chef">
+                </span>
+            </div>
+            <div class="col-sm-8 box Site__header--benefits__description">
+                <h3 class="h3 box">{{ 'main.title'|trans({}, "default_benefits") }}</h3>
+                <p>{{ 'main.description'|trans({}, "default_benefits") }}</p>
+                <a class="Btn green sxm border-white round-corners" href="{{ path('restaurateur_simulateur') }}">
+                    {{ 'main.button'|trans({}, "default_benefits") }}
+                </a>
+            </div>
+        </div>
+    </div>
+</header>

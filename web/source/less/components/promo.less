@@ -1,0 +1,158 @@
+.Promo {
+    overflow: hidden;
+    margin-bottom: -2.5rem;
+    .col-md-6 {
+        margin: 0;
+        padding: 0;
+    }
+    .Promo__chef {
+        background: url('/images/home/promo/findoutchef.png') no-repeat 0 0;
+        background-position: left;
+        .Promo__show, .Promo__hidden {
+            width: 100%;
+        }
+    }
+    .Promo__events {
+        background: url('/images/home/promo/findoutevents.png') no-repeat 0 0;
+        border-left: 1px solid rgba(255, 255, 255, .9);
+        background-position: right;
+        .Promo__show, .Promo__hidden {
+            width: 100%;
+        }
+        .Btn {
+            &.lg {
+                max-width: 28.125rem;
+            }
+        }
+        @media (max-width: @grid-lg) {
+            .Btn {
+                &.lg {
+                    width: 24.5rem;
+                }
+            }
+        }
+    }
+    .Promo__show {
+        background: rgba(0, 0, 0, 0.4);
+    }
+    .Promo__hidden {
+        background: fade(@color-green-opaque, 70%);;
+    }
+    .Promo__show, .Promo__hidden {
+        position: absolute;
+        top: 0;
+        height: 100%;
+    }
+    .Promo__events:hover, .Promo__chef:hover {
+        cursor: pointer;
+        .Promo__show {
+            display: none;
+        }
+        .Promo__hidden {
+            display: block;
+        }
+    }
+    .Promo__chef, .Promo__events {
+        height: 26.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, .9);
+        background-size: cover;
+        padding: 0;
+        p {
+            font-size: 1.25rem;
+            color: @color-white;
+            padding: 0 3.125rem;
+        }
+    }
+    .Promo__hidden {
+        display: none;
+    }
+    .Promo__content {
+        left: 50%;
+        top: 50%;
+        position: relative;
+        transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        width: 100%;
+    }
+    @media (max-width: @grid-lg) {
+        .no-wrap {
+            white-space: normal;
+        }
+    }
+}
+
+.Promo__community {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/home/promo/fyoucommunity.png');
+    background-size: cover;
+    width: 100%;
+    height: 30rem;
+    position: relative;
+    color: white;
+    background-position: top;
+
+    .Promo__community--logo-desktop {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+
+        span {
+            margin: 1rem;
+        }
+    }
+
+    .Promo__community--logo-mobile {
+        display: none;
+
+    }
+
+    /* Small devices (tablets, less than 768px) */
+    @media (max-width: @grid-md) {
+        .Promo__community--logo-desktop {
+            display: none;
+        }
+
+        .Promo__community--logo-mobile {
+            display: block;
+            & .Promo__community--logo-web {
+                & img {
+                    width: 10rem;
+                    padding: 1rem;
+                }
+            }
+            //justify-content: center;
+        }
+    }
+    .Promo__content {
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (max-width: @grid-sm) {
+    .Promo__community {
+        height: 34rem;
+    }
+}
+
+.Promo__chef--vie {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/restaurant/chef_vie.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 31rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Promo__chef--vie__text {
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 2rem;
+        max-width: 45rem;
+        text-align: center;
+    }
+}

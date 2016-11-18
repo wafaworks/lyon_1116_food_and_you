@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="96acceb37c7b0de31507e2d55e7b4578" resname="app.footer.title">
+        <source>app.footer.title</source>
+        <target>Suivez-nous sur les réseaux</target>
+      </trans-unit>
+      <trans-unit id="846516af70da86a285f934ad7b2bab74" resname="app.footer.company">
+        <source>app.footer.company</source>
+        <target>Vous êtes une entreprise</target>
+      </trans-unit>
+      <trans-unit id="980ada84c2356f098abe80c304c09981" resname="app.footer.who_we_are">
+        <source>app.footer.who_we_are</source>
+        <target>Qui sommes-nous ?</target>
+      </trans-unit>
+      <trans-unit id="ba03be242e3d6ac1921d9e87de277243" resname="app.footer.contact">
+        <source>app.footer.contact</source>
+        <target>Nous contacter</target>
+      </trans-unit>
+      <trans-unit id="4019214c75cc0755e355c644100364c9" resname="app.footer.rules">
+        <source>app.footer.rules</source>
+        <target>Règlement du jeu</target>
+      </trans-unit>
+      <trans-unit id="d26cae2763d01482599f5cce6450f415" resname="app.footer.legal_notice">
+        <source>app.footer.legal_notice</source>
+        <target><![CDATA[Credits & mentions légales]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,22 @@
+{% trans_default_domain "c_wizzard" %}
+
+<ul class="BreadcrumbWizzard">
+    <li>
+        <span class="BreadcrumbWizzard__item{% if step >= 1 %} active{% endif %}">
+            <span class="number">1</span>
+            <span class="text">{{ 'restaurateur.register.step1' | trans }}</span>
+        </span>
+    </li>
+    <li>
+        <span class="BreadcrumbWizzard__item{% if step >= 2 %} active{% endif %}">
+            <span class="number">2</span>
+            <span class="text">{{ 'restaurateur.register.step2' | trans }}</span>
+        </span>
+    </li>
+    <li>
+        <span class="BreadcrumbWizzard__item{% if step >= 3 %} active{% endif %}">
+            <span class="number">3</span>
+            <span class="text">{{ 'restaurateur.register.step3' | trans }}</span>
+        </span>
+    </li>
+</ul>

@@ -1,0 +1,26 @@
+{% trans_default_domain "member_profile" %}
+
+{% macro toString(level) %}
+    {{ ('member.level.' ~ level) | trans }}
+{% endmacro %}
+
+
+{% macro getNextLevelDescription(member) %}
+    {% import _self as member_level %}
+
+    {% set levels = constant('AppBundle\\Service\\LevelChecker::LEVEL_DEFINITION') %}
+    {% if member.level < 5 %}
+        {% set nextLevel = member.level + 1  %}
+        {% set participations = levels[nextLevel].participations - member.participations  %}
+        {% set neededRating = levels[nextLevel].rating  %}
+        {% set currentRating = member.rating|number_format(2)  %}
+        {% if participations > 0 and currentRating < neededRating %}
+            {{ 'member.level.requirement.rating_participations' | trans({'%participations%': participations, '%rating%': neededRating}) }}
+        {% elseif currentRating < neededRating %}
+            {{ 'member.level.requirement.rating' | trans({'%rating%': neededRating}) }}
+        {% elseif participations > 0 %}
+            {{ 'member.level.requirement.participations' | trans({'%participations%': participations}) }}
+        {% endif %}
+        <strong>{{ member_level.toString(nextLevel) }} !</strong>
+    {% endif %}
+{% endmacro %}

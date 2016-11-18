@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ 'blog.list.title' | trans }}{% endblock %}
+
+{% trans_default_domain 'blog' %}
+
+{% block body %}
+    <div class="container box-lg">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-left">{{ 'blog.list.title' | trans }}</h2>
+                <hr>
+            </div>
+        </div>
+        <div id="blogContainer" class="row" data-next-page="2" data-finished="false">
+            {% for post in posts %}
+                {% include 'XabenBlogBundle:Partials:post_list_item.html.twig' with {'post': post, 'loop': loop} only %}
+            {% endfor %}
+        </div>
+        {% if posts.pageCount > 1 %}
+            <div class="row box">
+                <div class="col-xs-12 text-center">
+                    <button id="loadMore" class="Btn md green wide">{{ 'load_more' | trans }}</button>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function () {
+            var blogContainer = $('#blogContainer');
+            var loadButton = $('#loadMore');
+
+            loadButton.click(function(){
+                $.ajax({
+                    type        : 'GET',
+                    url         : Routing.generate('xaben_blog_homepage', {page: parseInt(blogContainer.data('nextPage'))}),
+                    dataType    : "json",
+                    success     : function(data) {
+                        if (data.status === 'success') {
+                            blogContainer.append(data.content);
+                        }
+
+                        if (data.finished === true) {
+                            blogContainer.data('finished', true);
+                            loadButton.hide();
+                        }
+
+                        blogContainer.data('nextPage', parseInt(blogContainer.data('nextPage')) + 1 )
+                    },
+                    error: function(data){
+                        console.log(data.message);
+                    }
+                })
+            });
+        });
+    </script>
+{% endblock %}

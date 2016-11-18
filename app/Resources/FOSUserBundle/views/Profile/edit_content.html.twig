@@ -1,0 +1,41 @@
+{% trans_default_domain 'member_profile' %}
+
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+    <h2 class="pearl text-left">{{ "member.edit.modal.title"|trans }}</h2>
+    <hr>
+    <div class="row box">
+        <div class="col-sm-4">
+            <div class="fileUpload">
+                <div class="memberProfile__image" style="background-image: url({% if app.user.member.photo %}{% path app.user.member.photo, 'default' %}{% else %}{{ gravatar(app.user.member.authentication.email) }}{% endif %})"></div>
+                <div class="box text-center">
+                    <div class="fileSubmit Btn xs green">{{ "member.edit.photo.btn"|trans }}</div>
+                </div>
+                <ul class="text-sm">
+                    <li>{{ "member.edit.photo.rule1"|trans }}</li>
+                    <li>{{ "member.edit.photo.rule2"|trans }}</li>
+                </ul>
+                <div class="fileErrors"></div>
+                {{ form_row(form.member.uploaded_image, {'attr': {'class': 'hidden', 'accept': '.png,.gif,.jpeg,.jpg' }}) }}
+            </div>
+        </div>
+        <div class="col-sm-8">
+            {{ form_row(form.member.biography) }}
+            {{ form_row(form.member.profession) }}
+            {{ form_row(form.member.signature) }}
+        </div>
+    </div>
+
+    <h2 class="pearl text-left">{{ "member.edit.modal.password.title"|trans }}</h2>
+    <hr>
+    <div class="row box">
+        <div class="col-sm-8 col-sm-offset-4">
+            {{ form_row(form.plainPassword.second) }}
+            {{ form_row(form.plainPassword.first) }}
+        </div>
+    </div>
+
+    {{ form_rest(form) }}
+    <div class="text-center">
+        <input class="Btn xs green" type="submit" value="{{ 'member.edit.modal.submit'|trans }}" />
+    </div>
+</form>

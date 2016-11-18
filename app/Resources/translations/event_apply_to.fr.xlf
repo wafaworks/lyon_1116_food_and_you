@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="7c3f9826d956f3126a844bace924de9a" resname="event.apply_to.title">
+        <source>event.apply_to.title</source>
+        <target>Mon profil de cuisinier amateur</target>
+      </trans-unit>
+      <trans-unit id="1f0c2955297f2ca7f1e14ca28e03ac2f" resname="event.apply_to.image.title">
+        <source>event.apply_to.image.title</source>
+        <target>Ma photo vitaminée de profil</target>
+      </trans-unit>
+      <trans-unit id="8df6a6e2d36e0337a8f2c1e25ca3a129" resname="event.apply_to.image.subtitle">
+        <source>event.apply_to.image.subtitle</source>
+        <target>Ma pomme, ma fraise, ma poire !</target>
+      </trans-unit>
+      <trans-unit id="6841db3627261784b45d046caa6dc21f" resname="event.apply_to.image.size">
+        <source>event.apply_to.image.size</source>
+        <target>Taille recommandée 500 x 500 px minimum</target>
+      </trans-unit>
+      <trans-unit id="93cce85abd7b145ad161a7efc71fa469" resname="event.apply_to.image.format">
+        <source>event.apply_to.image.format</source>
+        <target>Format jpg ou png</target>
+      </trans-unit>
+      <trans-unit id="5a57ff5a670add4dbd45fcf8ef8b4597" resname="event.apply_to.image.choose">
+        <source>event.apply_to.image.choose</source>
+        <target>Choisissez votre photo</target>
+      </trans-unit>
+      <trans-unit id="ce4d3f37f3768f68d4b1f975442943ae" resname="event.apply_to.biography.title">
+        <source>event.apply_to.biography.title</source>
+        <target>Ma biographie décalée</target>
+      </trans-unit>
+      <trans-unit id="688e3a82cbc3fad4cc993012a313c488" resname="event.apply_to.biography.description">
+        <source>event.apply_to.biography.description</source>
+        <target><![CDATA[Notre conseil : laissez aller votre imagination comme vous pouvez le faire en cuisine et augmentez ainsi votre notoriété chez Food&You ! ]]></target>
+      </trans-unit>
+      <trans-unit id="cb1e1c3d568b250fdfbb4f57b39a7809" resname="event.apply_to.signature.title">
+        <source>event.apply_to.signature.title</source>
+        <target>Mon plat signature</target>
+      </trans-unit>
+      <trans-unit id="5e9b27d02ef168ea10cf3934aa80f341" resname="event.apply_to.profession.title">
+        <source>event.apply_to.profession.title</source>
+        <target>Dans la vie de tous les jours je suis</target>
+      </trans-unit>
+      <trans-unit id="a4f6ab07824ff977f40e299f2049c74e" resname="event.apply_to.phone.title">
+        <source>event.apply_to.phone.title</source>
+        <target>Numéro de téléphone où le chef peut me joindre</target>
+      </trans-unit>
+      <trans-unit id="71422c0fa7c354cbd507f90f8e1cacf7" resname="event.apply_to.submit">
+        <source>event.apply_to.submit</source>
+        <target>Postulez maintenant !</target>
+      </trans-unit>
+      <trans-unit id="13f6313a3a15053511a472f6b1863f6f" resname="event.apply_to.cook_with.title">
+        <source>event.apply_to.cook_with.title</source>
+        <target>J’aimerais cuisiner avec</target>
+      </trans-unit>
+      <trans-unit id="d6e3de88f2e72eb6bc4cc1a8283ced22" resname="event.apply_to.cook_with.description">
+        <source>event.apply_to.cook_with.description</source>
+        <target><![CDATA[Sélectionnez des cuisiniers amateurs inscrits au même événement pour partager avec eux cet atelier culinaire hors du commun.<br>
+          N’oubliez pas que pour la constitution des équipes et du menu, le chef a le dernier mot !]]></target>
+      </trans-unit>
+      <trans-unit id="269ce492e6383ea69ce4afa1483d85a5" resname="add.second.cook">
+        <source>add.second.cook</source>
+        <target><![CDATA[ajoutez une 2<sup>éme</sup> personne]]></target>
+      </trans-unit>
+      <trans-unit id="4fae10661d69e1996a1d14d3670a199e" resname="event.apply_to.recipe.box.title">
+        <source>event.apply_to.recipe.box.title</source>
+        <target>Vos propositions de plat !</target>
+      </trans-unit>
+      <trans-unit id="916f96949baced134ac1bc3bc24dc54c" resname="event.apply_to.recipe.box.propose.message">
+        <source>event.apply_to.recipe.box.propose.message</source>
+        <target>Argumentez vos chances d'être sélectionné !</target>
+      </trans-unit>
+      <trans-unit id="c61a17ffc2834df6c72cbd8133dba085" resname="event.apply_to.recipe.box.propose.2.plus">
+        <source>event.apply_to.recipe.box.propose.2.plus</source>
+        <target>proposez 2 plats de plus !</target>
+      </trans-unit>
+      <trans-unit id="83954a657ed11fa181b42a4e77dc3a7a" resname="event.apply_to.recipe.box.propose.list">
+        <source>event.apply_to.recipe.box.propose.list</source>
+        <target>choisissez parmi vos plats déjà proposés</target>
+      </trans-unit>
+      <trans-unit id="663d0580487889e4830590d25c817ce7" resname="event.apply_to.recipe.box.propose.or">
+        <source>event.apply_to.recipe.box.propose.or</source>
+        <target>OU</target>
+      </trans-unit>
+      <trans-unit id="bb74deae2360206b304c91c31ff14deb" resname="event.apply_to.recipe.box.propose.new">
+        <source>event.apply_to.recipe.box.propose.new</source>
+        <target>proposez un nouveau plat</target>
+      </trans-unit>
+      <trans-unit id="af1c65f801e0ea97f0b4a37d0e690a47" resname="event.apply_to.recipe.box.propose.select">
+        <source>event.apply_to.recipe.box.propose.select</source>
+        <target>Choisir</target>
+      </trans-unit>
+      <trans-unit id="f1004fc5d3b0cb092e0a388f00520d5d" resname="event.apply_to.recipe.box.propose.popup.title">
+        <source>event.apply_to.recipe.box.propose.popup.title</source>
+        <target>Mon nouveau plat</target>
+      </trans-unit>
+      <trans-unit id="40290907c2ebf06a29dc6d7dcf2fb236" resname="event.apply_to.recipe.box.propose.popup.type.ENTREE">
+        <source>event.apply_to.recipe.box.propose.popup.type.ENTREE</source>
+        <target>ENTREE</target>
+      </trans-unit>
+      <trans-unit id="422911b9e1470162ec250766db1611e2" resname="event.apply_to.recipe.box.propose.popup.type.PLAT">
+        <source>event.apply_to.recipe.box.propose.popup.type.PLAT</source>
+        <target>PLAT</target>
+      </trans-unit>
+      <trans-unit id="d786c92da7f5b856991b6a94545e1d44" resname="event.apply_to.recipe.box.propose.popup.type.DESERT">
+        <source>event.apply_to.recipe.box.propose.popup.type.DESERT</source>
+        <target>DESSERT</target>
+      </trans-unit>
+      <trans-unit id="8f5d13c94d0600c0614307fb30f84c3b" resname="event.apply_to.recipe.box.propose.popup.name">
+        <source>event.apply_to.recipe.box.propose.popup.name</source>
+        <target>Nom de votre plat</target>
+      </trans-unit>
+      <trans-unit id="e10c2ee8b3b8edfecaa1bc9e455509cc" resname="event.apply_to.recipe.box.propose.popup.privateDescription">
+        <source>event.apply_to.recipe.box.propose.popup.privateDescription</source>
+        <target>Description détaillée pour le chef restaurateur</target>
+      </trans-unit>
+      <trans-unit id="1e53aac3ab6ffbb574aede09a92d0abb" resname="event.apply_to.recipe.box.propose.popup.publicDescription">
+        <source>event.apply_to.recipe.box.propose.popup.publicDescription</source>
+        <target>Description simplifée pour la fiche publique</target>
+      </trans-unit>
+      <trans-unit id="919c12ec6d1bdc1a9d004f3a3e8757d4" resname="event.apply_to.recipe.box.propose.media.size">
+        <source>event.apply_to.recipe.box.propose.media.size</source>
+        <target>Taille 500x800 px</target>
+      </trans-unit>
+      <trans-unit id="92f18d9b7ece2a9acecfa23a8a52b5ae" resname="event.apply_to.recipe.box.propose.media.format">
+        <source>event.apply_to.recipe.box.propose.media.format</source>
+        <target>Format .jpg, .png</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

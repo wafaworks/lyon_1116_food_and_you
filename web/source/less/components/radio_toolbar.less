@@ -1,0 +1,32 @@
+.RadioToolbar  {
+    display: flex;
+    justify-content: space-between;
+
+    input[type="radio"] {
+/*        display:none;
+        float: left;
+        flex-basis: 1px;*/
+        flex-basis: 1px;
+        height: 1px;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        position: absolute;
+        width: 1px;
+    }
+
+    label {
+        margin: 0 0.1rem;
+        text-align: center;
+        flex-basis: 10rem;
+        //display:inline-block;
+        background-color: @color-green-dark2;
+        color: #FFF;
+        padding: 0.25rem 0.75rem;
+        cursor: pointer;
+    }
+
+    input[type="radio"]:checked + label {
+        background-color: @color-green-opaque;
+    }
+}

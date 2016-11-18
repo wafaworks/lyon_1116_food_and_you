@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="84b3febaba73548a4fd25b84bd4a39cb" resname="main.title">
+        <source>main.title</source>
+        <target>Développez le chiffre d’affaires de votre restaurant</target>
+      </trans-unit>
+      <trans-unit id="9d4d8855fe691cbe4e0e8b848fc93541" resname="main.description">
+        <source>main.description</source>
+        <target><![CDATA[Planifiez vos soirées Food&You, sélectionnez les candidats qui passeront en cuisine, et développez votre activité !  ]]></target>
+      </trans-unit>
+      <trans-unit id="550c6b8dbc6e19c8f642723c635f185a" resname="main.button">
+        <source>main.button</source>
+        <target><![CDATA[Devenez chef Food&You]]></target>
+      </trans-unit>
+      <trans-unit id="43de410b5608ad96be1e57a47af97f9b" resname="main1.title">
+        <source>main1.title</source>
+        <target><![CDATA[POURQUOI DEVENIR CHEF FOOD&YOU ?]]></target>
+      </trans-unit>
+      <trans-unit id="cde52b49e9a4f46fd4633cb279124c16" resname="main1.description">
+        <source>main1.description</source>
+        <target>Développez votre restaurant en partageant votre passion !</target>
+      </trans-unit>
+      <trans-unit id="7a5bf5427b6b15a0e24c0551adda29f6" resname="main2.title">
+        <source>main2.title</source>
+        <target>COMMENT ÇA MARCHE ?</target>
+      </trans-unit>
+      <trans-unit id="e9eb0b675876b89bc70d11f5c4edd8ce" resname="main2.description">
+        <source>main2.description</source>
+        <target>Organisez vos propres soirées</target>
+      </trans-unit>
+      <trans-unit id="340b2292f46d4b571b9bc4afe61ac9cc" resname="main3.title">
+        <source>main3.title</source>
+        <target>ILS VOUS ATTENDENT EN CUISINE</target>
+      </trans-unit>
+      <trans-unit id="69ba451e5bf3c89d9f6b28101d52782c" resname="main3.description">
+        <source>main3.description</source>
+        <target><![CDATA[Découvrez les témoignages de nos chefs Food&You !]]></target>
+      </trans-unit>
+      <trans-unit id="4a7464847fe79a378dcbfc605bdeccb3" resname="block1.title">
+        <source>block1.title</source>
+        <target><![CDATA[Augmentez votre <br>chiffre d’affaires ]]></target>
+      </trans-unit>
+      <trans-unit id="75d15c6f88a792db898edcaeb87a4911" resname="block1.description">
+        <source>block1.description</source>
+        <target>Découvrez un nouvel outil de remplissage pour les créneaux de votre choix, vous permettant d’augmenter votre chiffre d’affaires de manière ciblée</target>
+      </trans-unit>
+      <trans-unit id="3c324e3f4dc34ea8d643566951e8725e" resname="block2.title">
+        <source>block2.title</source>
+        <target><![CDATA[Partagez <br>et transmettez]]></target>
+      </trans-unit>
+      <trans-unit id="7a6e3f435c9f382318b040f63602876a" resname="block2.description">
+        <source>block2.description</source>
+        <target>Partagez votre savoir-faire et votre amour de la cuisine avec des amateurs passionnés prêts à vivre une expérience unique</target>
+      </trans-unit>
+      <trans-unit id="79b41d787276e75aa3014875dd06c10b" resname="block3.title">
+        <source>block3.title</source>
+        <target><![CDATA[Gagnez <br>en notoriété]]></target>
+      </trans-unit>
+      <trans-unit id="8b3458a8035aca83c86d81f105808d8a" resname="block3.description">
+        <source>block3.description</source>
+        <target><![CDATA[Communiquez autrement, gagnez en notoriété et attirez une nouvelle clientèle grâce aux soirées Food&You]]></target>
+      </trans-unit>
+      <trans-unit id="683d52b284acf6884ecb6b04d4906e55" resname="block4.title">
+        <source>block4.title</source>
+        <target><![CDATA[Planifiez<br>vos soirées Food&You]]></target>
+      </trans-unit>
+      <trans-unit id="6b3cd4291cccb85e9b35ef782c02c6f5" resname="block4.description">
+        <source>block4.description</source>
+        <target><![CDATA[Décidez des dates de vos prochaines soirées Food&You selon les créneaux que vous souhaitez dynamiser]]></target>
+      </trans-unit>
+      <trans-unit id="0d6ea8bb0c5623041f448f9db8e428c2" resname="block5.title">
+        <source>block5.title</source>
+        <target>Sélectionnez les meilleures recettes des candidats</target>
+      </trans-unit>
+      <trans-unit id="1a98b47d4ec166d5574d9a55afdcf64e" resname="block5.description">
+        <source>block5.description</source>
+        <target><![CDATA[Choisissez les recettes des cuisiniers amateurs qui vous plaisent et associez les afin de créer le menu Food&You]]></target>
+      </trans-unit>
+      <trans-unit id="1dee4ad96c7c3d930e806fe1950fe5f7" resname="block6.title">
+        <source>block6.title</source>
+        <target><![CDATA[Ouvrez votre cuisine <br>à la brigade Food&You]]></target>
+      </trans-unit>
+      <trans-unit id="7052aca5429aeaa984db15e42abbff5f" resname="block6.description">
+        <source>block6.description</source>
+        <target>Recevez les cuisiniers amateurs dans votre cuisine et partagez avec eux votre savoir-faire</target>
+      </trans-unit>
+      <trans-unit id="ed52b58bbd44e3fcb05ffd8c3ab11ff8" resname="block7.title">
+        <source>block7.title</source>
+        <target>Chef Alexandre, Restaurant  Le Moment</target>
+      </trans-unit>
+      <trans-unit id="18e9bfb2828ea9d1ef691f5efbf08e46" resname="block7.description">
+        <source>block7.description</source>
+        <target>« Au départ, je trouvais le concept étrange, mais l'idée de recevoir des amateurs passionnés dans ma cuisine m'a amusé. J'ai alors décidé de tenter le coup !
+Aurélie, Séverine et Kiki sont arrivés hyper motivés, prêts à relever le défi. Je me suis prêté au jeu à fond et je les ai considérés comme ma propre brigade. J'ai eu un déclic sur le principe de l'événement en voyant leurs yeux pétiller et j'ai compris qu'il se passait vraiment quelque chose lors de cours de cuisine pas comme les autres ! »</target>
+      </trans-unit>
+      <trans-unit id="5ff514959f8705b0d80e6a87c77c8ee3" resname="block8.title">
+        <source>block8.title</source>
+        <target>Chef Le M</target>
+      </trans-unit>
+      <trans-unit id="6857963c35df46da9a238725fb86a804" resname="block8.description">
+        <source>block8.description</source>
+        <target>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed ornare purus. Aenean mollis urna velit, ac ultrices est facilisis vitae.</target>
+      </trans-unit>
+      <trans-unit id="43d2d7406a920117da549de0e7927459" resname="block9.title">
+        <source>block9.title</source>
+        <target>Chef Les Saveurs de PY</target>
+      </trans-unit>
+      <trans-unit id="8f716c6836ef347967990b93e63651cd" resname="block9.description">
+        <source>block9.description</source>
+        <target>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed ornare purus. Aenean mollis urna velit, ac ultrices est facilisis vitae.</target>
+      </trans-unit>
+      <trans-unit id="aad5e851d04c06897a31b2936bb5df7a" resname="main1.button">
+        <source>main1.button</source>
+        <target>SIMULEZ VOTRE CHIFFRE D’AFFAIRES</target>
+      </trans-unit>
+      <trans-unit id="6d712381d59beb49337f77b8431c8f2b" resname="main2.button">
+        <source>main2.button</source>
+        <target>Organisez une soirée</target>
+      </trans-unit>
+      <trans-unit id="f48691816861eb658d7b0b11e52644df" resname="main3.button">
+        <source>main3.button</source>
+        <target><![CDATA[Devenez Chef Food&You]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

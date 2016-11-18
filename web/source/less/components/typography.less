@@ -1,0 +1,144 @@
+@import url(https://fonts.googleapis.com/css?family=Asap:400,700);
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+html, body {
+    font-size: 16px;
+    color: @color-pearl;
+    font-family: @droid-font;
+}
+
+p, .p {
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+
+    &.lh-normal {
+        line-height: normal;
+    }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    display: block;
+
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+h1, .h1 {
+    font-size: 4.125rem; //66px
+}
+
+h2, .h2 {
+    font-size: 3rem; //48px
+}
+
+h3, .h3 {
+    font-size: 2.25rem; //36px
+}
+
+h4, .h4 {
+    font-size: 1.875rem; //30px
+}
+
+h5, .h5 {
+    font-size: 1.625rem; //26px
+}
+
+/* Text size */
+.text-xxlg {
+    font-size: @text-xxlg; //24px
+}
+
+.text-xlg {
+    font-size: @text-xlg; //20px
+}
+
+.text-lg {
+    font-size: @text-lg; //18px
+}
+
+.text-sm {
+    font-size: @text-sm; //14px
+}
+
+.text-xs {
+    font-size: @text-xs; //10px
+}
+
+// Alignment
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+// Transformation
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+// Text styles
+.text-bold {
+    font-weight: bold
+}
+
+.text-italic {
+    font-style: italic
+}
+
+/* Medium devices (desktops, less than 992px) */
+@media (max-width: @grid-lg) {
+    html {
+        font-size: @base-font-size * 0.828;
+    }
+
+    body {
+        font-size: @base-font-size * 0.828;
+    }
+}
+
+/* Extra small devices (phones, less than 480px) */
+@media (max-width: @grid-sm) {
+    html {
+        font-size: @base-font-size * 0.75;
+    }
+
+    body {
+        font-size: @base-font-size * 0.75;
+    }
+}

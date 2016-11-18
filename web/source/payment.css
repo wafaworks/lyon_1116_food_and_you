@@ -1,0 +1,139 @@
+body {
+    width: 800px;
+    margin: 0 auto;
+    font-family: "Helvetica Neue", arial, sans-serif;
+    text-align: center
+}
+
+table {
+    border: 0 !important;
+}
+
+table.sips_shop_name_table td {
+    width: 33%
+}
+
+table.sips_trans_ref_table {
+    width: 100%;
+}
+
+table.sips_trans_ref_table td {
+    width: 50%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+table.sips_trans_ref_table td:first-child {
+    text-align: right;
+}
+
+table.sips_trans_ref_table td:nth-child(2) {
+    text-align: left;
+}
+
+.sips_secure_message {
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+}
+
+.sips_secure_message img {
+    vertical-align: top;
+}
+
+.sips_cryptogram_table {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.sips_cryptogram_table td {
+    border: 0;
+}
+
+.sips_cryptogram_message {
+    border: 0;
+    display: block;
+}
+
+input[type='submit'] {
+    background-color: rgb(0, 147, 140);
+
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: block;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+
+    padding: 8px 24px;
+
+    text-align: center;
+    text-transform: none;
+    vertical-align: middle;
+
+    border: 1px solid rgb(0, 147, 140);
+    border-radius: 4px;
+    margin: 20px auto;
+}
+
+input[type='text'] {
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: 1px solid rgb(204, 204, 204);
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    box-shadow: rgba(0, 0, 0, 0.075) 0 1px 1px 0 inset;
+    box-sizing: border-box;
+    color: rgb(85, 85, 85);
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    height: 34px;
+    line-height: 20px;
+    padding: 6px 12px;
+    transition-delay: 0s, 0s;
+    transition-duration: 0.15s, 0.15s;
+    transition-property: border-color, box-shadow;
+    transition-timing-function: ease-in-out, ease-in-out;
+    margin: 0 auto;
+}
+
+select {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    box-shadow: rgba(0, 0, 0, 0.075) 0 1px 1px 0 inset;
+    box-sizing: border-box;
+    color: rgb(85, 85, 85);
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    height: 34px;
+    line-height: 20px;
+    padding: 6px 12px;
+    transition-delay: 0s, 0s;
+    transition-duration: 0.15s, 0.15s;
+    transition-property: border-color, box-shadow;
+    transition-timing-function: ease-in-out, ease-in-out;
+}
+
+#span_sips_card_number_title, #ID_EXPIRE_FIN {
+    display: block;
+    margin: 20px auto 0 auto;
+}
+
+#CVV_KEY {
+    display: block;
+    margin: 10px auto;
+}

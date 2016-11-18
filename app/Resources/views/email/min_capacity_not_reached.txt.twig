@@ -1,0 +1,6 @@
+ATTENTION : événement pas assez rempli !
+
+Attention votre événement n'a pas encore atteint la capacité minimum enregistrée par le restaurateur :
+{{ event.restaurant.name }}
+{{ event.startDate|date('d') }} {{ event.startDate|date('M')|trans({}, 'messages') }} {{ event.startDate|date('Y') }}
+Réservations déjà effectuées : {{ event.confirmedReservations }}

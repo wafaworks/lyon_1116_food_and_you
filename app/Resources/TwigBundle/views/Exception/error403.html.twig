@@ -1,0 +1,7 @@
+{% extends '::error.html.twig' %}
+
+{% trans_default_domain 'error' %}
+
+{% block code %}403{% endblock %}
+
+{% block codeDescription %}{{ 'error403.desc'|trans }}{% endblock %}

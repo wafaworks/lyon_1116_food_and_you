@@ -1,0 +1,15 @@
+{% trans_default_domain 'modal' %}
+
+<modal-block>
+    <content>
+        <h5 class="box">{{ 'modal.applicant_success.title'|trans }}</h5>
+        <p>{{ 'modal.applicant_success.subtitle'|trans }}</p>
+        <p>{{ 'modal.applicant_success.text'|trans }}</p>
+
+    </content>
+    <script type="text/modal-template" language="JavaScript">
+        modal.$().on('click', '.close, .modal-close', function() {
+            history.pushState('', document.title, window.location.pathname);
+        });
+    </script>
+</modal-block>

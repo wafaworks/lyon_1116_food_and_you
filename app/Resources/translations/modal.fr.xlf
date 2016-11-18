@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="9e66ba94f1ff15b7f49afe190142b19d" resname="modal.reservation_cancelled.title">
+        <source>modal.reservation_cancelled.title</source>
+        <target>Paiement annulé, réservation non effectuée.</target>
+      </trans-unit>
+      <trans-unit id="e7004e0ab2121785d8145da4309383f9" resname="modal.reservation_cancelled.message">
+        <source>modal.reservation_cancelled.message</source>
+        <target>Un problème est survenu lors du paiement. Si vous n'êtes pas à l'origine de cette annulation, merci de réessayer ultérieurement ou contacter votre banque.</target>
+      </trans-unit>
+      <trans-unit id="294c3fa89086758ec75ad22dda72d9bd" resname="modal.reservation_confirmed.title">
+        <source>modal.reservation_confirmed.title</source>
+        <target><![CDATA[Réservation Food & You enregistrée !]]></target>
+      </trans-unit>
+      <trans-unit id="d949afe7332e9bb21979e24fcc92aa83" resname="modal.reservation_confirmed.message">
+        <source>modal.reservation_confirmed.message</source>
+        <target>Vous pouvez revoir votre réservation à tout moment en vous rendant sur votre page profil, section "J'y vais bientôt ".</target>
+      </trans-unit>
+      <trans-unit id="3b18a022fe69bd29087fd14b74f651bb" resname="modal.reservation_confirmed.message2">
+        <source>modal.reservation_confirmed.message2</source>
+        <target>Partagez une soirée insolite avec vos amis ! Invitez-les à votre table en partageant le code :</target>
+      </trans-unit>
+      <trans-unit id="3545a9049000ccb6de4e09e1f51893b3" resname="modal.applicant_success.title">
+        <source>modal.applicant_success.title</source>
+        <target>Félicitations !</target>
+      </trans-unit>
+      <trans-unit id="12c6b775b0e66579901dc8d0a4cf521b" resname="modal.applicant_success.subtitle">
+        <source>modal.applicant_success.subtitle</source>
+        <target>Votre candidature a bien été prise en compte</target>
+      </trans-unit>
+      <trans-unit id="57f68b694593dc2396d7b86a4580a3b9" resname="modal.applicant_success.text">
+        <source>modal.applicant_success.text</source>
+        <target>Faites voter tous vos amis pour votre recette, afin d'avoir le maximum de chances d’être sélectionné par le chef pour cuisiner à ses côtés !</target>
+      </trans-unit>
+      <trans-unit id="f8474b672b016f762b7da6af101070af" resname="modal.info_table_code.title">
+        <source>modal.info_table_code.title</source>
+        <target>Mon Code Table</target>
+      </trans-unit>
+      <trans-unit id="a4164a5d35ddb892970e909bef48adf8" resname="modal.info_table_code.text">
+        <source>modal.info_table_code.text</source>
+        <target>Donnez ce code table à vos amis qui souhaitent réserver avec leur compte et être placé à la même table que vous.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

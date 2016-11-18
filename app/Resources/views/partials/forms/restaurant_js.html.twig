@@ -1,0 +1,55 @@
+<script>
+    $(document).ready(function () {
+        $('.datePicker_trigger').datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "c-90:c",
+        });
+
+        var setElementPosition = function ($button, position) {
+            $button.parent().siblings('input[type=hidden]').val(position);
+            if (position === 0) {
+                $button.addClass('green-dark2');
+                $button.removeClass('green');
+            } else {
+                $button.addClass('green');
+                $button.removeClass('green-dark2');
+            }
+        };
+
+        $('.cover-button').click(function () {
+            var clickedButton = $(this),
+                    allButtons = $('.cover-button'),
+                    elementPosition = 1;
+
+            allButtons.each(function () {
+                var currentButton = $(this);
+                if (clickedButton.get(0) !== currentButton.get(0)) {
+                    setElementPosition(currentButton, elementPosition);
+                    elementPosition++;
+                } else {
+                    setElementPosition(currentButton, 0);
+                }
+            })
+        });
+
+        $('.RestaurantForm__media input[type=hidden]').filter(function() {
+            return this.value == 0;
+        }).eq(0).each(function(){
+            var button = $(this).parent().find('.cover-button').eq(0);
+            button.trigger('click');
+        });
+
+        $(document).on('change', 'input[type="file"]', function () {
+            var ext = this.value.match(/\.([^\.]+)$/)[1];
+            ext = ext.toLowerCase();
+            var input = $(this);
+            if(ext !== 'jpg' && ext !== 'png' && ext !== 'jpeg') {
+                return;
+            }
+            var url = URL.createObjectURL(this.files[0]);
+            input.siblings('.RestaurantForm__image').eq(0).css("background-image", "url(" + url + ")");
+        });
+
+    });
+</script>

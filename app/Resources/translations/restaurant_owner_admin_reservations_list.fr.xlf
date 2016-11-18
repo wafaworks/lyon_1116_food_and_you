@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="86ca0f04c1f753693a32885749ac4ef8" resname="app.owner_admin.reservations.list.title">
+        <source>app.owner_admin.reservations.list.title</source>
+        <target>Liste des réservations</target>
+      </trans-unit>
+      <trans-unit id="dd41fae1e5cad34ddabbd55507303ed1" resname="app.owner_admin.reservations.list.head.table_code">
+        <source>app.owner_admin.reservations.list.head.table_code</source>
+        <target>Table</target>
+      </trans-unit>
+      <trans-unit id="fa209863cc5032f5fb84771179dd244e" resname="app.owner_admin.reservations.list.head.firstname">
+        <source>app.owner_admin.reservations.list.head.firstname</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="a00064cced39fc12f2dae6e16ed36a2d" resname="app.owner_admin.reservations.list.head.lastname">
+        <source>app.owner_admin.reservations.list.head.lastname</source>
+        <target>Prénom</target>
+      </trans-unit>
+      <trans-unit id="3a9146a91147cafe231c5a4fc0c30b57" resname="app.owner_admin.reservations.list.head.places">
+        <source>app.owner_admin.reservations.list.head.places</source>
+        <target>Pers.</target>
+      </trans-unit>
+      <trans-unit id="d2287037320e2405c7d8613e9ff51955" resname="app.owner_admin.reservations.list.head.reservation">
+        <source>app.owner_admin.reservations.list.head.reservation</source>
+        <target>Annuler la réservation</target>
+      </trans-unit>
+      <trans-unit id="a1e08fcc5b9405fe56f71b836ce989e4" resname="app.owner_admin.reservations.list.buttons.cancel">
+        <source>app.owner_admin.reservations.list.buttons.cancel</source>
+        <target><![CDATA[Confirmer<br><strong>l’annulation</strong>]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

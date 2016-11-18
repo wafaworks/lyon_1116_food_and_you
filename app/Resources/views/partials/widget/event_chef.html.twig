@@ -1,0 +1,66 @@
+{% import ":macros:member_level.html.twig" as member_level %}
+
+{% trans_default_domain 'c_event_chef' %}
+
+<div class="Widget eventDetails__box">
+    <a class="no-decoration" href="{{ path('member_profile', {'slug': applicant.member.slug}) }}">
+        <div class="Sticker sm eventDetails__userPhoto">
+            <div class="Sticker__content" style="background-image: url({% if applicant.member.photo %}{% path applicant.member.photo, 'default' %}{% else %}{{ gravatar(applicant.member.authentication.email) }}{% endif %})"></div>
+            <div class="Sticker__overlay" style="">
+                <span>
+                    <i class="icon-vcard"></i><br>
+                    {{ 'view.profile'|trans }}
+                </span>
+            </div>
+        </div>
+    </a>
+    <div class="Widget__body bg-grey">
+        <div class="Widget__title">{{ applicant.member.firstName}}
+            {% if app.user is not null and app.user.member == applicant.member %}
+                {{ applicant.member.lastName }}
+            {% endif %}
+        </div>
+        <div class="Widget__subtitle Widget__subtitle--large">
+            {{ ('cooks.' ~ applicantRecipe.recipe.type) |trans }}
+        </div>
+        <hr class="bg-white" />
+        <div class="Widget__description">
+            <h4>{{ applicantRecipe.recipe.name }}</h4>
+            <p>{{ applicantRecipe.recipe.publicDescription }}</p>
+        </div>
+    </div>
+
+    <div style="background-image: url({% path applicantRecipe.recipe.photo, 'big' %})" class="Widget__header">
+        {% if applicantRecipe.winner %}
+        <div class="Sticker xs green right">
+            <div class="Sticker__content">
+                <img src="/images/badge/winner.png">
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="Widget__footer bg-grey">
+        <div class="Btn green block Btn--image eventDetails__votes no-click">
+            <div>{{ applicant.nrVotes }}</div>
+            <div>{{ 'votes'|transchoice(applicant.nrVotes, {}, 'base') }}</div>
+        </div>
+        <div class="eventDetails__info">
+            <span class="eventDetails__info_rating">
+                <span class="starrr" data-rating='{{ applicant.member.rating|number_format(2) }}'></span>
+            </span><br>
+            <div class="text-center">
+                <div class="member__status">
+                    {{ member_level.toString(applicant.member.level) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center box">
+        <a target="_blank" href="https://www.instagram.com/foodandyouofficiel/" class="social"><i class="fa fa-instagram"></i></a>
+        <a href="http://www.facebook.com/sharer.php?u={{ url('event_details', {'id': event.id }) }}%23applicants&title=Découvrez les cuisiniers amateurs du prochain évènement Food%26You ! {{ event.startDate|localizeddate('none', 'none', app.request.locale, null, "d-MMMM-Y") }} / {{ event.restaurant.name }}"
+           class="social"><i class="fa fa-facebook"></i></a>
+        <a href="https://twitter.com/share?url={{ url('event_details', {'id': event.id }) }}%2323applicants&text=Découvrez les cuisiniers amateurs du prochain évènement Food%26You ! {{ event.startDate|localizeddate('none', 'none', app.request.locale, null, "d-MMMM-Y") }} / {{ event.restaurant.name }}"
+           class="social"><i class="fa fa-twitter"></i></a>
+    </div>
+</div>

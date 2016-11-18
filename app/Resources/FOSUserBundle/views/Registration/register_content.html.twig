@@ -1,0 +1,32 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'attr': {'id': 'register_form'}}) }}
+    <h5 class="box">{{ 'header.register' | trans }}</h5>
+    <a class="Btn empty xs border-none Btn--icon green full-width" href="{{ path('hwi_oauth_service_redirect', {'service': "facebook"}) }}">
+        <i class="fa fa-facebook fa-2x"></i>
+        <span>{{ 'connect.facebook' | trans }}</span>
+    </a>
+    <div class="text-center box">
+        OU
+    </div>
+    {{ form_row(form.member.firstName, { 'attr': {'placeholder': 'form.firstName'|trans }, 'label': false }) }}
+    {{ form_row(form.member.lastName, { 'attr': {'placeholder': 'form.lastName'|trans }, 'label': false }) }}
+    {{ form_row(form.member.birthDate, { 'attr': {'placeholder': 'form.birthDate'|trans, 'class': 'datePicker_trigger', 'readonly': 'readonly' }, 'label': false }) }}
+    {{ form_row(form.email, { 'attr': {'placeholder': 'form.email'|trans }, 'label': false }) }}
+    {{ form_row(form.plainPassword.first, { 'attr': {'placeholder': 'form.password'|trans }, 'label': false }) }}
+    {{ form_row(form.plainPassword.second, { 'attr': {'placeholder': 'form.password_confirmation'|trans }, 'label': false }) }}
+    {{ form_row(form.cgu, {'label': 'cgu'|trans({'%url%': path('cgu')}) }) }}
+    {{ form_row(form.charte, {'label': 'accept'|trans({'%url%': path('charte')}) }) }}
+    <div class="hidden">
+        {{ form_row(form.member.uploaded_image) }}
+    </div>
+    {{ form_rest(form) }}
+
+    <div class="has-error">
+        <p class="help-block global-errors"></p>
+    </div>
+
+    <div class="box">
+        <input type="submit" value="{{ 'registration.submit'|trans }}" class="Btn green xs full-width round-corners" />
+    </div>
+{{ form_end(form) }}

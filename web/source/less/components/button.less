@@ -1,0 +1,236 @@
+.Btn {
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid transparent;
+    outline: none;
+    font-weight: bold;
+    border-radius: 2px;
+
+    /* States */
+    &:hover,
+    &:focus,
+    &.focus {
+        text-decoration: none;
+    }
+
+    &.disabled,
+    &[disabled] {
+        cursor: @cursor-disabled;
+        .opacity(.65);
+        .box-shadow(none);
+        pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+    }
+
+    &.no-click{
+        cursor: default;
+    }
+
+    &.block {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Button size*/
+    &.lg {
+        min-width: 24.5rem;
+        padding: 1.5rem;
+        font-size: 1.875rem;
+    }
+
+    &.md {
+        font-size: 1.375rem;
+        padding: 1rem 3.125rem;
+    }
+
+    &.sm {
+        font-size: 1.125rem;
+        padding: 0.75rem 1.5rem;
+    }
+    &.sxm {
+        //,.sxm:hover{
+        font-size: 0.875rem;
+        padding: 0.3125rem 0.9375rem;
+        line-height: 1.5625rem;
+        text-decoration: none;
+    }
+    &.xs {
+        font-size: 0.875rem;
+        padding: 0.625rem 1.25rem;
+    }
+
+    &.wide {
+        font-size: @text-sm;
+        font-weight: normal;
+        padding: 0.5rem;
+        width: 100%;
+        max-width: 14.375rem;
+    }
+
+    /* Button color */
+    &.red {
+        background-color: @color-red;
+        color: @color-white;
+
+        &.opaque {
+            background-color: @color-red-opaque;
+        }
+    }
+
+    &.green {
+        background-color: @color-green;
+        color: @color-white;
+
+        &.opaque {
+            background-color: @color-green-opaque;
+        }
+    }
+
+    &.green-dark2 {
+        background-color: @color-green-dark2;
+        color: @color-white;
+    }
+
+    &.brown {
+        background-color: @color-brown;
+        color: @color-white;
+
+        &.opaque {
+            background-color: @color-brown-opaque;
+        }
+    }
+
+    &.grey {
+        background-color: @color-grey;
+
+        &.opaque {
+            background-color: @color-grey-opaque;
+        }
+    }
+
+    &.empty {
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: auto 4.375rem;
+        color: @color-white;
+        white-space: nowrap;
+    }
+
+    &.empty-hover:hover {
+        background-color: #FFF;
+        color: @color-brown;
+    }
+
+    &.bordeaux {
+        background-color: @color-bordeaux;
+        color: @color-white;
+
+        &.opaque {
+            background-color: @color-bordeaux-opaque;
+        }
+    }
+
+    /* Button border */
+    &.border-white {
+        border: 1px solid @color-white;
+    }
+
+    &.border-black {
+        border: 1px solid @color-black;
+    }
+
+    &.border-red {
+        border: 1px solid @color-red;
+    }
+
+    &.border-green {
+        border: 1px solid @color-green;
+    }
+
+    &.border-none {
+        border: 0;
+    }
+
+    &.border-gray {
+        border: 1px solid #b7b7b7;
+    }
+
+    /* Button with round corners */
+    &.round-corners {
+        border-radius: 0.3125rem;
+    }
+
+    &.full-width {
+        width: 100%;
+    }
+
+    &.semi-transparent {
+        opacity: 0.8;
+    }
+
+    &.text-grey{
+        color: rgb(191, 191, 191);
+    }
+
+}
+
+.Btn--icon {
+    position: relative;
+
+    i {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2.5rem;
+        height: 100%;
+        border-right: 1px solid @color-white;
+        background-color: @color-green;
+
+        &:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    span {
+        margin-left: 2.5rem;
+    }
+
+    /* Button color */
+    .red {
+
+        i {
+            background-color: @color-red;
+            border-right: 1px solid @color-white;
+        }
+
+        span {
+            margin-left: 2.5rem;
+        }
+    }
+
+    .green {
+        i {
+            background-color: @color-green;
+            border-right: 1px solid @color-white;
+        }
+        span {
+            margin-left: 2.5rem;
+        }
+    }
+}
+
+.Btn--image {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+
+    & > span {
+        margin-left: 1rem;
+    }
+}

@@ -1,0 +1,67 @@
+{% trans_default_domain "contact" %}
+<modal-block>
+    <content>
+        <h5 class="box">{{ 'app.form.contact.title'|trans }}</h5>
+        {{ form_start(form, {'attr': {'method': 'post', 'id': 'contact_type'}}) }}
+            {{ form_row(form.mail) }}
+            {{ form_row(form.subject) }}
+            {{ form_row(form.message) }}
+            {{ form_row(form.submit, {'attr': {'class': 'Btn sm green'}}) }}
+        {{ form_end(form) }}
+    </content>
+    <script type="text/modal-template" language="JavaScript">
+        $(document).ready(function () {
+            $('#contact_type').validate(validatorTemplates({
+                submitHandler: function (formElement) {
+                    var form = $(formElement);
+                    $.ajax({
+                        type: form.attr('method'),
+                        url: '{{ path("contact") }}',
+                        data: form.serialize(),
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.status === 'success') {
+                                window.location.reload(false);
+                            } else {
+                                ajaxErrorHandler.display(form, data.errors);
+                            }
+                        }
+                    });
+                },
+                rules: {
+                    "app_contact[mail]": {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 254
+                    },
+                    "app_contact[subject]": {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 254
+                    },
+                    "app_contact[message]": {
+                        required: true,
+                        minlength: 3,
+                    },
+                },
+                messages: {
+                    "app_contact[mail]": {
+                        required: '{{ 'app.contact.mail.required'|trans({}, 'validators') }}',
+                        minlength: '{{ 'app.contact.mail.short'|trans({}, 'validators') }}',
+                        maxlength: '{{ 'app.contact.mail.long'|trans({}, 'validators') }}'
+                    },
+                    "app_contact[subject]": {
+                        required: '{{ 'app.contact.subject.required'|trans({}, 'validators') }}',
+                        minlength: '{{ 'app.contact.subject.short'|trans({}, 'validators') }}',
+                        maxlength: '{{ 'app.contact.subject.long'|trans({}, 'validators') }}'
+                    },
+                    "app_contact[message]": {
+                        required: '{{ 'app.contact.message.required'|trans({}, 'validators') }}',
+                        minlength: '{{ 'app.contact.message.short'|trans({}, 'validators') }}'
+                    }
+                }
+            }));
+        });
+    </script>
+</modal-block>
+

@@ -1,0 +1,53 @@
+<modal-block>
+    <content>
+        <div class="row Modal__connect Modal__resetting-request" id="Modal__resetting-request">
+            <div class="col-sm-12">
+                {{ render(controller('FOSUserBundle:Resetting:request')) }}
+            </div>
+        </div>
+    </content>
+    <script type="text/modal-template" language="JavaScript">
+        $(document).ready(function(){
+            $('#resetting_request_form').validate(validatorTemplates({
+                submitHandler: function (formElement) {
+                    var form = $(formElement);
+
+                    $.ajax({
+                        type        : form.attr( 'method' ),
+                        url         : form.attr( 'action' ),
+                        data        : form.serialize(),
+                        dataType    : "json",
+                        success     : function(data) {
+                            if (data.status === 'success') {
+                                form.closest('.modal').data('modal').hide();
+
+                                displayMessageModal(data.message);
+                            } else {
+                                ajaxErrorHandler.display(form, data.errors);
+                            }
+                        },
+                        error: function(data){
+                            console.log(data.message);
+                        }
+                    });
+                },
+                rules: {
+                    "username": {
+                        required: true,
+                        email: true,
+                        minlength: 5,
+                        maxlength: 254
+                    }
+                },
+                messages: {
+                    "_username": {
+                        required: '{{ 'fos_user.email.blank'|trans({}, 'validators') }}',
+                        email: '{{ 'fos_user.email.invalid'|trans({}, 'validators') }}',
+                        minlength: '{{ 'fos_user.email.short'|transchoice(0, {}, 'validators') }}',
+                        maxlength: '{{ 'fos_user.email.long'|transchoice(0, {}, 'validators') }}'
+                    }
+                }
+            }));
+        });
+    </script>
+</modal-block>

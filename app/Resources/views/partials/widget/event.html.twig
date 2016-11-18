@@ -1,0 +1,103 @@
+{# @var event \AppBundle\Entity\Event #}
+
+{% set labelClass = "white" %}
+{% set label = "" %}
+
+{% if widget_body_bg_color is not defined %}
+    {% set widget_body_bg_color = "bg-grey" %}
+{% endif %}
+
+{% if event.status is constant("AppBundle\\Entity\\Event::STATUS_RESERVATIONS_CLOSED") or
+event.status is constant("AppBundle\\Entity\\Event::STATUS_IN_PROGRESS") %}
+    {% set label = "event.status.reservation.closed"|trans({}, "event_details") %}
+{% endif %}
+
+{% if event.status is constant("AppBundle\\Entity\\Event::STATUS_RESERVATIONS_OPENED") %}
+    {% set placeLeft = event.capacity.maximum - event.confirmedReservations %}
+    {% if placeLeft <= 0 %}
+        {% set label = "event.full"|trans({}, "event_details") %}
+        {% set labelClass = "red" %}
+    {% elseif placeLeft <=3 %}
+        {% set label = "homepage.last.events.just.place-left"|transchoice(placeLeft, {"%placeLeft%": placeLeft}, "c_event") %}
+        {% set labelClass = "red" %}
+    {% elseif placeLeft <=7 %}
+        {% set label = "homepage.last.events.still.place-left"|transchoice(placeLeft, {"%placeLeft%": placeLeft}, "c_event") %}
+    {% else %}
+        {% set label = "homepage.last.events.more.place-left"|transchoice(placeLeft, {"%placeLeft%": placeLeft}, "c_event") %}
+    {% endif %}
+{% endif %}
+
+{% if event.status is constant("AppBundle\\Entity\\Event::STATUS_APPLICANT_REGISTRATION_CLOSED") %}
+    {% set label = "event.status.application.closed"|trans({}, "event_details") %}
+{% endif %}
+
+{% if event.status is constant("AppBundle\\Entity\\Event::STATUS_APPLICANT_REGISTRATION_OPENED") %}
+    {% set days = date(event.applicationEndDate).diff(date('now')).days %}
+    {% set label = "homepage.last.events.days-left"|transchoice(days,{"%days%": days}, "c_event") %}
+{% endif %}
+
+{% if event.restaurant.gallery and event.restaurant.gallery.getCover %}
+    {% set restaurantMedia = event.restaurant.gallery.getCover %}
+{% endif %}
+
+<div class="Widget">
+    <a href="{{ path('event_details', {'id': event.id}) }}" class="no-decoration">
+        <div class="Widget__header" style="background-image: url({% if restaurantMedia is defined %}{% path restaurantMedia, 'big' %}{% endif %})">
+            <div class="align_center_between">
+                <div class="Sticker sm green-opaque left">
+                    <div class="Sticker__content">
+                        <h3>{{ event.startDate|date('d') }}</h3>
+                        <div>{{ event.startDate|date('M')|trans({}, 'messages') }}</div>
+                    </div>
+                </div>
+                {% if event.applicants|length > 0 and event.applicants.first.recipes|length > 0 and event.applicants.first.recipes.first.winner %}
+                    <div class="Sticker xs green right">
+                        <div class="Sticker__content">
+                            <img src="{{ asset('images/badge/winner.png') }}">
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="Widget__body {{ widget_body_bg_color }}">
+            {% if star is defined %}
+                <div class="rating">
+                    <span class="starrr" data-rating='{{ star }}'></span>
+                </div>
+            {% endif %}
+            <div class="Widget__title">{{ event.restaurant.name }}</div>
+            <div class="Widget__subtitle">
+                {{ event.restaurant.street ~ ', ' ~ event.restaurant.city.name }}
+            </div>
+            {% if label %}
+                <div class="Widget__label {{ labelClass }}">
+                    {{ label|raw }}
+                </div>
+            {% endif %}
+        </div>
+    </a>
+    <div class="Widget__footer">
+        {% if event.status is constant("AppBundle\\Entity\\Event::STATUS_RESERVATIONS_OPENED") %}
+            <a href="{{ path('event_details', {'id': event.id}) }}" class="Btn green block Btn--image">
+                <span><img src="{{ asset('images/widget/cover.png') }}"></span>
+                <span>{{ "homepage.last.events.reserve"|trans({}, "c_event") }}</span>
+            </a>
+        {% elseif event.status is constant("AppBundle\\Entity\\Event::STATUS_RESERVATIONS_CLOSED") or
+        event.status is constant("AppBundle\\Entity\\Event::STATUS_IN_PROGRESS") %}
+            <a href="{{ path('event_details', {'id': event.id}) }}" class="Btn green block Btn--image disabled">
+                <span><img src="{{ asset('images/widget/cover.png') }}"></span>
+                <span>{{ "homepage.last.events.reserve"|trans({}, "c_event") }}</span>
+            </a>
+        {% elseif event.status is constant("AppBundle\\Entity\\Event::STATUS_APPLICANT_REGISTRATION_OPENED") %}
+            <a href="{{ path('event_details', {'id': event.id}) }}" class="Btn green-dark2 block Btn--image">
+                <span><img src="{{ asset('images/widget/apron.png') }}"></span>
+                <span>{{ "homepage.last.events.apply"|trans({}, "c_event") }}</span>
+            </a>
+        {% elseif event.status is constant("AppBundle\\Entity\\Event::STATUS_APPLICANT_REGISTRATION_CLOSED") %}
+            <a href="{{ path('event_details', {'id': event.id}) }}" class="Btn green-dark2 block Btn--image disabled">
+                <span><img src="{{ asset('images/widget/apron.png') }}"></span>
+                <span>{{ "homepage.last.events.apply"|trans({}, "c_event") }}</span>
+            </a>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="2938c7f7e560ed972f8a4f68e80ff834" resname="Dashboard">
+        <source>Dashboard</source>
+        <target>Tableau de bord</target>
+      </trans-unit>
+      <trans-unit id="be8df1f28c0abc85a0ed0c6860e5d832" resname="Blog">
+        <source>Blog</source>
+        <target>Blog</target>
+      </trans-unit>
+      <trans-unit id="98defd6ee70dfb1dea416cecdf391f58" resname="site">
+        <source>site</source>
+        <target>Site</target>
+      </trans-unit>
+      <trans-unit id="10c45737f8c7b02c70eac72d35f84bce" resname="action_refunded">
+        <source>action_refunded</source>
+        <target>Marquer comme remboursé</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

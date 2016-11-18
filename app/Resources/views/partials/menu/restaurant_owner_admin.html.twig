@@ -1,0 +1,35 @@
+{% trans_default_domain 'restaurant_owner_admin_index' %}
+
+<ul class="menu text-lg">
+    <li>
+        <a href="{{ path('member_profile',{'slug': app.user.member.slug}) }}">
+            {{ "app.owner_admin.index.menu.my.profile"|trans }}
+        </a>
+    </li>
+    <li class="{% if (app.request.get('_route')) == 'restaurant_owner_admin_event_list' %}active{% endif %}">
+        <a href="{{ path('restaurant_owner_admin_event_list') }}">
+            {{ "app.owner_admin.index.menu.events.list"|trans }}
+        </a>
+    </li>
+    <li class="{% if (app.request.get('_route')) == 'restaurant_owner_admin_event_new' %}active{% endif %}">
+        <a href="{{ path('restaurant_owner_admin_event_new') }}">
+            {{ "app.owner_admin.index.menu.events.new"|trans }}
+        </a>
+    </li>
+    {% if app.user.member.restaurants |length > 0 %}
+    <li>
+        <a href="{{ path('restaurant_details', {'id': app.user.member.restaurants.first.id}) }}">
+            {{ "app.owner_admin.index.menu.restaurant.view"|trans }}
+        </a>
+    </li>
+    {% endif %}
+    <li class="{% if (app.request.get('_route')) == 'restaurant_owner_restaurant_edit' %}active{% endif %}">
+        <a href="{{ path('restaurant_owner_restaurant_edit') }}">
+            {{ "app.owner_admin.index.menu.restaurant.edit"|trans }}
+        </a>
+    </li>
+    <li>
+        <a  href="javascript: void(0);" onclick="displayModal('modal_contact');">
+            {{ "app.owner_admin.index.menu.contact"|trans }}</a>
+    </li>
+</ul>

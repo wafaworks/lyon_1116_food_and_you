@@ -1,0 +1,14 @@
+{% trans_default_domain 'modal' %}
+
+<modal-block>
+    <content>
+        <h5 class="box">{{ 'modal.info_table_code.title'|trans }}</h5>
+        <p>{{ 'modal.info_table_code.text'|trans }}</p>
+
+    </content>
+    <script type="text/modal-template" language="JavaScript">
+        modal.$().on('click', '.close, .modal-close', function() {
+            history.pushState('', document.title, window.location.pathname);
+        });
+    </script>
+</modal-block>

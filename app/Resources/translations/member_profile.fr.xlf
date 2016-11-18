@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="ae2c362801617fa469468e36983e6e79" resname="welcome.to.my.page">
+        <source>welcome.to.my.page</source>
+        <target><![CDATA[Bienvenue sur ma page profil Food & You]]></target>
+      </trans-unit>
+      <trans-unit id="8748b3802aa69e6236db60f243dbbba5" resname="participations">
+        <source>participations</source>
+        <target>Participations</target>
+      </trans-unit>
+      <trans-unit id="420674622be1bde9e72cc41834127b0b" resname="my.signature">
+        <source>my.signature</source>
+        <target>Mon plat signature</target>
+      </trans-unit>
+      <trans-unit id="4d9e64e7a6b4913c70adb98a8f0ac2c1" resname="jy.vais">
+        <source>jy.vais</source>
+        <target>J'y vais bientôt</target>
+      </trans-unit>
+      <trans-unit id="7d76e0ca3609fd14d9df81fccbed0428" resname="jy.vais.reserver">
+        <source>jy.vais.reserver</source>
+        <target>Je Reserve Aussi !</target>
+      </trans-unit>
+      <trans-unit id="a824c2fb64ddb60d7b2fa0a2071b4d97" resname="jy.vais.desc">
+        <source>jy.vais.desc</source>
+        <target>Envie de jouer au critique gastronomique ? Réservez aussi :)</target>
+      </trans-unit>
+      <trans-unit id="4d5b3879684c3640245ce2b151ad42b5" resname="member.applicant-current-recipe.title">
+        <source>member.applicant-current-recipe.title</source>
+        <target>Votez pour moi</target>
+      </trans-unit>
+      <trans-unit id="d59685bde29e9c050c750900a77acaeb" resname="member.applicant-current-recipe.subtitle">
+        <source>member.applicant-current-recipe.subtitle</source>
+        <target>Je cuisine comme un chef (j’essaie) !</target>
+      </trans-unit>
+      <trans-unit id="a4622d06c5153d16c07e521ea0d79593" resname="member.applicant-current-recipe.my-recipe">
+        <source>member.applicant-current-recipe.my-recipe</source>
+        <target>Mes recettes en compétition</target>
+      </trans-unit>
+      <trans-unit id="8f723e45aedb81f2380ce70afa830c5d" resname="member.applicant-current-recipe.see.event.page">
+        <source>member.applicant-current-recipe.see.event.page</source>
+        <target><![CDATA[Voir la fiche événement>]]></target>
+      </trans-unit>
+      <trans-unit id="d4ce73238c296ea290d949658c74a3d2" resname="member.applicant-current-recipe.votes">
+        <source>member.applicant-current-recipe.votes</source>
+        <target>{0}votes|{1}vote|[2,Inf]votes</target>
+      </trans-unit>
+      <trans-unit id="60118da790d301b5009098e4b51c071c" resname="member.applicant-current-recipe.vote.me">
+        <source>member.applicant-current-recipe.vote.me</source>
+        <target>Votez pour moi !</target>
+      </trans-unit>
+      <trans-unit id="adc29a27c3fe14314a4b4d5ee1e7e633" resname="jy.etais">
+        <source>jy.etais</source>
+        <target>J'y étais</target>
+      </trans-unit>
+      <trans-unit id="3f4edca995cfae8c334b3f6029645823" resname="jy.etais.desc">
+        <source>jy.etais.desc</source>
+        <target><![CDATA[c’était fun & délicieux :)]]></target>
+      </trans-unit>
+      <trans-unit id="35227e04c98b9f2fe68b19c0970896bd" resname="member.events-where-member-cooked.title">
+        <source>member.events-where-member-cooked.title</source>
+        <target>J’ai cuisiné</target>
+      </trans-unit>
+      <trans-unit id="b87303550d8e57a6998e4492d9db6a81" resname="member.events-where-member-cooked.subtitle">
+        <source>member.events-where-member-cooked.subtitle</source>
+        <target>Et c’est à chaque fois une expérience culinaire inédite</target>
+      </trans-unit>
+      <trans-unit id="8bb36a6f1d3955a50f5a17e11c240b6e" resname="member.applicant-current-recipe.previous">
+        <source>member.applicant-current-recipe.previous</source>
+        <target>Précédent</target>
+      </trans-unit>
+      <trans-unit id="41e4b83413e06a497a10e2b39984b68f" resname="member.applicant-current-recipe.next">
+        <source>member.applicant-current-recipe.next</source>
+        <target>Prochaine</target>
+      </trans-unit>
+      <trans-unit id="a60f2e7a97ac40d64728b346a1e8e294" resname="member.edit">
+        <source>member.edit</source>
+        <target>Modifier</target>
+      </trans-unit>
+      <trans-unit id="efdea7b67ce2cdb002ceba2ae202747e" resname="member.edit.photo.rule1">
+        <source>member.edit.photo.rule1</source>
+        <target>Taille recommandée 500 x 500 px minimum</target>
+      </trans-unit>
+      <trans-unit id="db5d48d5143b08b3d61bf539305efe4e" resname="member.edit.photo.rule2">
+        <source>member.edit.photo.rule2</source>
+        <target>Format jpg ou png</target>
+      </trans-unit>
+      <trans-unit id="fc391245de9c31e23363e29c7cdfae70" resname="member.edit.photo.btn">
+        <source>member.edit.photo.btn</source>
+        <target>Choisissez votre photo</target>
+      </trans-unit>
+      <trans-unit id="7b5734c75f9d9d98eec82824ea6cafb8" resname="member.edit.modal.title">
+        <source>member.edit.modal.title</source>
+        <target>Mon profil de chef</target>
+      </trans-unit>
+      <trans-unit id="72d40f9898d65370080c1dc4a9d0ff04" resname="member.edit.modal.password.title">
+        <source>member.edit.modal.password.title</source>
+        <target>Changer votre mot de passe</target>
+      </trans-unit>
+      <trans-unit id="441e5b90b28d3dec552e9a5c44ec0f3d" resname="member.edit.modal.submit">
+        <source>member.edit.modal.submit</source>
+        <target>Enregistrer les modifications</target>
+      </trans-unit>
+      <trans-unit id="9d575039ba062f58baa6ec5c36f1f2c4" resname="table.code">
+        <source>table.code</source>
+        <target>Code table</target>
+      </trans-unit>
+      <trans-unit id="d4e865f684ca875ec1faeb742fb1e5c2" resname="member.level.0">
+        <source>member.level.0</source>
+        <target>Foodie</target>
+      </trans-unit>
+      <trans-unit id="9ceae4f44f27a7a0978c0b2f2b72073a" resname="member.level.1">
+        <source>member.level.1</source>
+        <target>Apprenti</target>
+      </trans-unit>
+      <trans-unit id="59b326fdf02103c481526eb8f7b03e40" resname="member.level.2">
+        <source>member.level.2</source>
+        <target>Commis</target>
+      </trans-unit>
+      <trans-unit id="5479124696e4ba569fd107f54973489e" resname="member.level.3">
+        <source>member.level.3</source>
+        <target>Chef de partie</target>
+      </trans-unit>
+      <trans-unit id="dd780a75837f97584c9b22f65be5c4d2" resname="member.level.4">
+        <source>member.level.4</source>
+        <target>Second de cuisine</target>
+      </trans-unit>
+      <trans-unit id="758ac3f4e009f6f2df0b927d7d88b10d" resname="member.level.5">
+        <source>member.level.5</source>
+        <target>Chef</target>
+      </trans-unit>
+      <trans-unit id="faf62a2510484a8baa2513f1a9c0332f" resname="member.my_level">
+        <source>member.my_level</source>
+        <target>Mon statut</target>
+      </trans-unit>
+      <trans-unit id="34dfd794a204c9a30326224727da87a8" resname="member.level.requirement.rating_participations">
+        <source>member.level.requirement.rating_participations</source>
+        <target>Encore %participations% participation(s) et une note moyenne de %rating%/5 pour devenir</target>
+      </trans-unit>
+      <trans-unit id="38ca925487e25fae4a1c3dd67c2ab579" resname="member.level.requirement.rating">
+        <source>member.level.requirement.rating</source>
+        <target>Encore une note moyenne de %rating%/5 pour devenir</target>
+      </trans-unit>
+      <trans-unit id="a1f34b1d3271cb4453ecc8f0dffa0cdb" resname="member.level.requirement.participations">
+        <source>member.level.requirement.participations</source>
+        <target>Encore %participations% participation(s) pour devenir</target>
+      </trans-unit>
+      <trans-unit id="29f0ccabd763d637b5d45e453396c18d" resname="member.events-where-member-will-cook.title">
+        <source>member.events-where-member-will-cook.title</source>
+        <target>Je vais cuisiner bientôt !</target>
+      </trans-unit>
+      <trans-unit id="01e160fa23da4d889914725e4ed744af" resname="member.events-where-member-will-cook.subtitle">
+        <source>member.events-where-member-will-cook.subtitle</source>
+        <target>Venez me voir en action. Un, deux, trois... Je serai derrière les fourneaux :)</target>
+      </trans-unit>
+      <trans-unit id="f01ba78adf6f2461fb83c15a467006c9" resname="je.reserve.vit">
+        <source>je.reserve.vit</source>
+        <target>Je reserve vite</target>
+      </trans-unit>
+      <trans-unit id="cdb0672f092e3737052498efd473728f" resname="ma.recette">
+        <source>ma.recette</source>
+        <target>Ma recette</target>
+      </trans-unit>
+      <trans-unit id="f4c5a08f847a119a866fd8be3a6df9ce" resname="jy.vais.reserver_cancel">
+        <source>jy.vais.reserver_cancel</source>
+        <target>Annuler</target>
+      </trans-unit>
+      <trans-unit id="043cdafa3b5aea9e91d1e079f9543e95" resname="i.am">
+        <source>i.am</source>
+        <target>Dans la vie de tous les jours je suis %profession%</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

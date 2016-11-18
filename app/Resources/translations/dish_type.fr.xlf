@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="ea54604e852b1bb963adfb672f7cfba9" resname="dish.type.entry">
+        <source>dish.type.entry</source>
+        <target>Entrée</target>
+      </trans-unit>
+      <trans-unit id="8da39bec1edbc1040bd18a91f4abe4b3" resname="dish.type.main">
+        <source>dish.type.main</source>
+        <target>Plat</target>
+      </trans-unit>
+      <trans-unit id="1267d75ec7a220af4b3273dc4bb2e979" resname="dish.type.dessert">
+        <source>dish.type.dessert</source>
+        <target>Dessert</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

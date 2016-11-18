@@ -1,0 +1,11 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% trans_default_domain 'SonataAdminRestaurant' %}
+
+{% block field %}
+    <div>
+        <a class="btn btn-sm btn-primary" href="{{ path('restaurant_owner_admin_event_list', {'_switch_user': object.owner.authentication.username}) }}">
+            {{ 'view.bo' | trans }}
+        </a>
+    </div>
+{% endblock %}

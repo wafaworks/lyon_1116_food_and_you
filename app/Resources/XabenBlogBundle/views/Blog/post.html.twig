@@ -1,0 +1,72 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ post.title }} - {{ 'blog.list.title' | trans }}{% endblock %}
+
+{% trans_default_domain 'blog' %}
+
+{% block meta %}
+    <meta property="og:description" content="{{ post.description | striptags | truncate(50) }}" />
+    {% if post.cover %}
+        <meta property="og:image" content="{{ app.request.getSchemeAndHttpHost() }}{%- path post.cover, 'default' -%}" />
+    {% endif %}
+
+    <meta property="og:locale" content="fr_FR"/>
+    <meta property="og:image:width" content="265"/>
+    <meta property="og:image:height" content="265"/>
+{% endblock %}
+
+{% block body %}
+<div class="container box-lg">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="text-left">{{ 'blog.list.title' | trans }}</h2>
+            <hr>
+            <article class="BlogPost box">
+                <header>
+                    {% if post.cover %}
+                        <img src="{% path post.cover, 'default' %}" class="BlogPost__image">
+                    {% endif %}
+                    <time datetime="{{ post.published | date("c") }}" class="BlogItem__time">{{ post.published |localizeddate('none', 'none', app.request.locale, null, "d-MMMM-Y") }}</time>
+                    <h2 class="BlogPost__title">{{ post.title }}</h2>
+                    <div>
+                        <hr class="light">
+                    </div>
+                </header>
+
+                <div class="BlogPost__body">
+                    {{ post.content|raw }}
+                </div>
+
+                <footer class="text-center box">
+                    <a target="_blank" href="https://www.instagram.com/foodandyouofficiel/" class="social"><i class="fa fa-instagram"></i></a>
+                    <a href="http://www.facebook.com/sharer.php?u={{ url('xaben_blog_post', {'id': post.id, 'slug': post.slug, 'month': post.published|date('m'), 'year': post.published|date('Y')}) }}&title={{ post.title }}"
+                       class="social"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/share?url={{ url('xaben_blog_post', {'id': post.id, 'slug': post.slug, 'month': post.published|date('m'), 'year': post.published|date('Y')}) }}&text={{ post.title }}"
+                       class="social"><i class="fa fa-twitter"></i></a>
+                </footer>
+            </article>
+            <hr class="light">
+        </div>
+    </div>
+    <div class="row box">
+        <div class="col-xs-4 text-left">
+            {% if previousPost %}
+                <a href="{{ path('xaben_blog_post', {'id': previousPost.id, 'slug': previousPost.slug, 'month': previousPost.published|date('m'), 'year': previousPost.published|date('Y')}) }}" class="Btn green sm wide">Previous</a>
+            {% endif %}
+        </div>
+
+        <div class="col-xs-4 text-center">
+            <a href="{{ path('xaben_blog_homepage') }}" class="Btn border-green sm wide">{{ 'load_more'|trans }}</a>
+        </div>
+        <div class="col-xs-4 text-right">
+            {% if nextPost %}
+                <a href="{{ path('xaben_blog_post', {'id': nextPost.id, 'slug': nextPost.slug, 'month': nextPost.published|date('m'), 'year': nextPost.published|date('Y')}) }}" class="Btn green sm wide">Next</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block description %}{% if post %}{{ post.seodesc }}{% endif %}{% endblock %}
+
+{% block keywords %}{% if post %}{{ post.keywords }}{% endif %}{% endblock %}

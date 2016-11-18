@@ -1,0 +1,6 @@
+rms_push_notifications:
+    ios:
+        timeout: 60 # Seconds to wait for connection timeout, default is 60
+        sandbox: %push.sandbox%
+        pem:  %push.certificates.ios%
+        passphrase: %push.certificates.passphrase.ios%

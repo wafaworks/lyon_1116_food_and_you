@@ -1,0 +1,131 @@
+{% trans_default_domain 'restaurant_create' %}
+
+{% if admin is not defined %}
+    {% set admin = false %}
+{% endif %}
+
+<div class="{% if not admin %}container box-lg{% else %}container-flex{% endif %}">
+    {% if not admin %}
+        <div class="row">
+            <div class="col-xs-12 box">
+                <h1 class="h2 text-left">{{ 'restaurant.title'|trans }}</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {% include ':partials/wizzard:restaurateur_register.html.twig' with {'step': 2} %}
+            </div>
+        </div>
+    {% else %}
+        <div class="text-xxlg h5 text-left">{{ 'restaurant.title'|trans }}</div>
+    {% endif %}
+
+    {{ form_start(form, {'attr': {'id': 'form_restaurant'}}) }}
+    <div class="row box">
+        <div class="col-sm-6{% if form.name.vars.errors|length > 0 %} has-error{% endif %}">
+            {{ form_label(form.name, null, {'label_attr': {'class': 'green'}}) }}
+            {{ form_widget(form.name) }}
+            {{ form_errors(form.name) }}
+        </div>
+    </div>
+    <div class="row box">
+        <div class="col-sm-6{% if form.openingDate.vars.errors|length > 0 %} has-error{% endif %}">
+            {{ form_label(form.openingDate, null, {'label_attr': {'class': 'green'}}) }}
+            {{ form_widget(form.openingDate, {'attr': {'class': 'datePicker_trigger'}}) }}
+            {{ form_errors(form.openingDate) }}
+        </div>
+    </div>
+    <div class="row box">
+        <div class="col-sm-6{% if form.cuisine.vars.errors|length > 0 %} has-error{% endif %}">
+            {{ form_label(form.cuisine, null, {'label_attr': {'class': 'green'}}) }}
+            {{ form_widget(form.cuisine, {'attr': {'class': 'gray-input'}}) }}
+            {{ form_errors(form.cuisine) }}
+        </div>
+    </div>
+    <div class="row box">
+        <div class="col-sm-6{% if form.description.vars.errors|length > 0 %} has-error{% endif %}">
+            {{ form_label(form.description, null, {'label_attr': {'class': 'green'}}) }}
+            {{ form_widget(form.description, {'attr': {'style': 'height: 200px', 'maxlength': 999}}) }}
+            {{ form_errors(form.description) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <hr>
+        </div>
+    </div>
+    <div class="row mb125">
+        <div class="col-sm-4">
+            <div class="box{% if form.socialInfo.site.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_label(form.socialInfo.site, null, {'label_attr': {'class': 'green'}}) }}
+                {{ form_widget(form.socialInfo.site) }}
+                {{ form_errors(form.socialInfo.site) }}
+            </div>
+            <div class="box{% if form.socialInfo.tripAdvisor.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_label(form.socialInfo.tripAdvisor, null, {'label_attr': {'class': 'green'}}) }}
+                {{ form_widget(form.socialInfo.tripAdvisor) }}
+                {{ form_errors(form.socialInfo.tripAdvisor) }}
+            </div>
+            <div class="box{% if form.socialInfo.facebook.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_label(form.socialInfo.facebook, null, {'label_attr': {'class': 'green'}}) }}
+                {{ form_widget(form.socialInfo.facebook) }}
+                {{ form_errors(form.socialInfo.facebook) }}
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="box{% if form.street.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_label(form.street, null, {'label_attr': {'class': 'green'}}) }}
+                {{ form_widget(form.street) }}
+                {{ form_errors(form.street) }}
+            </div>
+            <div class="box{% if form.postalCode.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_label(form.postalCode, null, {'label_attr': {'class': 'green'}}) }}
+                {{ form_widget(form.postalCode) }}
+                {{ form_errors(form.postalCode) }}
+            </div>
+            <div class="box{% if form.city.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_label(form.city, null, {'label_attr': {'class': 'green'}}) }}
+                {{ form_widget(form.city, {'attr': {'class': 'gray-input'}}) }}
+                {{ form_errors(form.city) }}
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="box{% if form.contactInfo.phone.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_label(form.contactInfo.phone, null, {'label_attr': {'class': 'green'}}) }}
+                {{ form_widget(form.contactInfo.phone) }}
+                {{ form_errors(form.contactInfo.phone) }}
+            </div>
+            <div class="box{% if form.contactInfo.mobilePhone.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_label(form.contactInfo.mobilePhone, null, {'label_attr': {'class': 'green'}}) }}
+                {{ form_widget(form.contactInfo.mobilePhone) }}
+                {{ form_errors(form.contactInfo.mobilePhone) }}
+            </div>
+            <div class="box{% if form.contactInfo.email.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_label(form.contactInfo.email, null, {'label_attr': {'class': 'green'}}) }}
+                {{ form_widget(form.contactInfo.email) }}
+                {{ form_errors(form.contactInfo.email) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <hr>
+        </div>
+    </div>
+    <div class="box">
+        {{ form_rest(form) }}
+    </div>
+    {{ form_errors(form) }}
+    <div class="text-center">
+        <button type="submit" class="Btn md green round-corners">
+            {% if not admin %}
+                {{ 'restaurant.button.submit' | trans }}
+            {% else %}
+                {{ 'restaurant.button.modify' | trans }}
+            {% endif %}
+        </button>
+    </div>
+
+    {{ form_end(form) }}
+</div>

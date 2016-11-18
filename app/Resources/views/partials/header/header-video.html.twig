@@ -1,0 +1,37 @@
+<header class="Site__header Site__header--video">
+    <div class="container">
+        <div class="row jc-center">
+            {% include ':partials/menu:desktop.html.twig' %}
+        </div>
+        {% include ':partials/menu:mobile.html.twig' %}
+        <div class="row jc-center">
+            <div class="Site__header-description">
+                <h1>{{ 'acc_h2'|trans({}, "base") }}</h1>
+                <h4>{{ 'acc_h4'|trans({}, "base") }}</h4>
+                <br>
+                <a class="Btn empty empty-hover sxm border-white mrg__50"
+                   href="#indexCommentCaMarche">{{ 'acc_concept'|trans({}, "base") }}</a>
+            </div>
+        </div>
+    </div>
+    <div class="Site__header--video-content" id="videos">
+        {% for homeVideo in homeVideos %}
+            <video
+                    id="videoPlayer_{{ loop.index }}"
+                    {% if loop.first %} autoplay="autoplay"{% endif %}
+                    preload="auto">
+                <source src="{{ asset('images/home/videos/' ~ homeVideo ~ '.mp4' ) }}"
+                        type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>
+                <source src="{{ asset('images/home/videos/' ~ homeVideo ~ '.ogv' ) }}" type="video/ogg">
+            </video>
+        {% endfor %}
+    </div>
+</header>
+<script>
+    $(document).ready(function () {
+        $('#videos').videoHeader();
+    });
+    if (/Mobi/.test(navigator.userAgent)) {
+        $('.Site__header--video').addClass('mobile');
+    }
+</script>

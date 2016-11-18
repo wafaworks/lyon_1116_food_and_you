@@ -1,0 +1,58 @@
+// Styles that are needed for all pages, but do not belong to a component
+
+img {
+    max-width: 100%;
+}
+
+hr {
+    height: 3px;
+    border: none;
+    background-color: @color-silver;
+    margin: 0.5rem 0;
+
+    &.at40 {
+        width: 40%;
+    }
+
+    &.dark-gray {
+        background-color: @color-grey-dark;
+    }
+    &.light {
+        height: 1px;
+    }
+}
+
+form {
+    width: 100%;
+}
+
+label {
+    font-weight: normal;
+
+    a {
+        font-weight: bold;
+    }
+}
+
+.box {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+
+    &-sm {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &-md{
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+
+    &-lg {
+        padding-top: 3.75rem;
+        padding-bottom: 3.75rem;
+    }
+    &-gray {
+        background-color: @color-grey;
+    }
+}

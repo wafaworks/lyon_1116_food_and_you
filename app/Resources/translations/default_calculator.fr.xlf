@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="50a9e3ccea49e7371156ce003bf3fb01" resname="calculator.title">
+        <source>calculator.title</source>
+        <target>Boostez votre chiffres d’affaires : inscrivez-vous !</target>
+      </trans-unit>
+      <trans-unit id="119767c0856098ddfe1475f05407c16d" resname="calculator.description">
+        <source>calculator.description</source>
+        <target><![CDATA[Food & You vous propose de<br><strong>BOOSTEZ VOTRE CHIFFRE D’AFFAIRES</strong><br>en optimisant vos <strong>périodes creuses</strong>]]></target>
+      </trans-unit>
+      <trans-unit id="1a9bde89a13738c42eb558b48b79bb37" resname="price.label">
+        <source>price.label</source>
+        <target><![CDATA[Tarif Food&You appliqué]]></target>
+      </trans-unit>
+      <trans-unit id="a73a6bf2d89983f2d75a4e7be04a62b5" resname="price.description">
+        <source>price.description</source>
+        <target>Choisissez le prix de votre menu en fonction de vos tarifs habituels</target>
+      </trans-unit>
+      <trans-unit id="ed704bc6752060648e1a4a3b78d95749" resname="frequency.label">
+        <source>frequency.label</source>
+        <target>Fréquence des soirées</target>
+      </trans-unit>
+      <trans-unit id="7cd53424262557b8044e22f173dae4e8" resname="frequency.description">
+        <source>frequency.description</source>
+        <target><![CDATA[Déterminez le nombre de soirées Food&You que vous souhaitez organiser]]></target>
+      </trans-unit>
+      <trans-unit id="fb7e915f67fe651710f50c9f21768109" resname="places.label">
+        <source>places.label</source>
+        <target>Capacité</target>
+      </trans-unit>
+      <trans-unit id="3206450c31d22bbc28192eb1b32aabe9" resname="places.description">
+        <source>places.description</source>
+        <target>Indiquez nous le nombre de couverts de votre restaurant</target>
+      </trans-unit>
+      <trans-unit id="90228062df36717a17f6376272aeadfa" resname="price1.value.label">
+        <source>price1.value.label</source>
+        <target><![CDATA[29,90 &euro;]]></target>
+      </trans-unit>
+      <trans-unit id="199a6b5c1395bc14522f952081197893" resname="price2.value.label">
+        <source>price2.value.label</source>
+        <target><![CDATA[34,90 &euro;]]></target>
+      </trans-unit>
+      <trans-unit id="d3be4b4f3ff3e220ea3ca7fae3653b64" resname="price3.value.label">
+        <source>price3.value.label</source>
+        <target><![CDATA[39,90 &euro;]]></target>
+      </trans-unit>
+      <trans-unit id="b7a21cbd48fcee2c24dfba67ccc05ebb" resname="frequncy1.value.label">
+        <source>frequncy1.value.label</source>
+        <target>1 /mois</target>
+      </trans-unit>
+      <trans-unit id="217bf28602c6a66815ed6930b631f6e8" resname="frequncy2.value.label">
+        <source>frequncy2.value.label</source>
+        <target>1 /trimestre</target>
+      </trans-unit>
+      <trans-unit id="7b60764152405e2d5719bf3a0e8633d1" resname="frequncy3.value.label">
+        <source>frequncy3.value.label</source>
+        <target>1 /semaine</target>
+      </trans-unit>
+      <trans-unit id="1f4454f2c4f42374a39baf1bbb1651f5" resname="price.ca.year">
+        <source>price.ca.year</source>
+        <target>C.A annuel généré</target>
+      </trans-unit>
+      <trans-unit id="3ead236afd4b769c1c0daca00c4f0be9" resname="price.by">
+        <source>price.by</source>
+        <target><![CDATA[par Food & You (*)]]></target>
+      </trans-unit>
+      <trans-unit id="d11f532d7fddf3d3fc7d8641127f2ae6" resname="price.calulated.desc">
+        <source>price.calulated.desc</source>
+        <target>(*) CA annuel TTC calculé sur la base de 47 semaines ou 11 mois en tenant compte d'un taux d'occupation de 80% et d’une consommation moyenne de boissons observée de 15€ TTC par personne</target>
+      </trans-unit>
+      <trans-unit id="d711b22c34fa1aa8955e3de68d8031b1" resname="calculator.button.login">
+        <source>calculator.button.login</source>
+        <target>Mon compte</target>
+      </trans-unit>
+      <trans-unit id="0aa39d0a93b6e037818dac5c7694afa7" resname="calculator.button.next">
+        <source>calculator.button.next</source>
+        <target>Etape suivante</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

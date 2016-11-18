@@ -1,0 +1,127 @@
+{% import "macros/dish_type.html.twig" as macroDishType %}
+
+{% trans_default_domain 'restaurant_owner_admin_applicants_list' %}
+
+{% set eventFinished = (event.status == constant('\\AppBundle\\Entity\\Event::STATUS_FINISHED')) %}
+
+{% if app.request.query.get('direction') is null or app.request.query.get('direction') == "DESC" %}
+    {% set direction = "ASC" %}
+{% else %}
+    {% set direction = "DESC" %}
+{% endif %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="text-xxlg h5 text-left">{{ "app.owner_admin.applicant.list.title"|trans({'%date%': event.startDate|localizeddate('none', 'none', app.request.locale, null, "d-MMMM-Y")}) }}</div>
+    </div>
+    <div class="col-md-6 text-right">
+        {% if event.status == constant("AppBundle\\Entity\\Event::STATUS_IN_PROGRESS") %}
+            <button class="Btn red wide close_event" data-id="{{ event.id }}">
+                {{ "app.owner_admin.applicant.list.buttons.close"|trans }}
+            </button>
+        {% endif %}
+    </div>
+</div>
+<div class="gray">{{ "app.owner_admin.applicant.list.subtitle"|trans }}</div>
+
+
+<div class="box">
+    <div class="table">
+        <table class="owner_table">
+            <thead>
+            <tr>
+                <td style="width: 10%"></td>
+                <td style="width: 10%">
+                    <a class="order_votes" href="{{ path('restaurant_owner_admin_applicants_list', {'event': event.id}) }}?direction={{ direction }}">
+                        {{ "app.owner_admin.applicant.list.head.votes"|trans }}
+                        {% if direction == "DESC" %}
+                            <i class="fa fa-chevron-up"></i>
+                        {% else %}
+                            <i class="fa fa-chevron-down"></i>
+                        {% endif %}
+                    </a>
+                </td>
+                <td>{{ "app.owner_admin.applicant.list.head.recipe"|trans }}</td>
+                <td style="width: 35%">{{ "app.owner_admin.applicant.list.head.info"|trans }}</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% set selectedApplicants = 0 %}
+            {# @var applicantRecipe \AppBundle\Entity\ApplicantRecipe #}
+            {% for applicantRecipe in applicantRecipes %}
+                {% set checked = null %}
+                {% if applicantRecipe.selected and applicantRecipe.applicant.status == constant('AppBundle\\Entity\\Applicant::STATUS_ACCEPTED')  %}
+                    {% set selectedApplicants = selectedApplicants + 1 %}
+                    {% set checked = 'checked="checked"' %}
+                {% endif %}
+
+                <tr>
+                    <td>
+                        <input class="applicant_select" type="checkbox" {{ checked }} data-id="{{ applicantRecipe.id }}" data-type="{{ applicantRecipe.recipe.type }}">
+                    </td>
+                    <td>{{ applicantRecipe.applicant.nrVotes }}</td>
+                    <td>
+                        <span class="Event__status green">
+                            {{ macroDishType.toString(applicantRecipe.recipe.type) }}
+                        </span>
+
+                        <div style="margin: 1rem 0;background-image: url({% path applicantRecipe.recipe.photo, 'big' %})" class="recipe_image"></div>
+                        <strong>{{ applicantRecipe.id }} / {{ applicantRecipe.recipe.name }}</strong><br>
+                        {{ applicantRecipe.recipe.publicDescription }}
+                    </td>
+                    <td class="va-top">
+                        {% if
+                            applicantRecipe.winner and
+                            event.status == constant('AppBundle\\Entity\\Event::STATUS_FINISHED')%}
+                            <span class="Event__status">{{ "app.owner_admin.applicant.list.winner"|trans }}</span>
+                            <div class="memberProfile__stars">
+                                <span class="starrr" data-rating='{{ applicantRecipe.rating|number_format(2) }}'></span>
+                            </div>
+                        {% endif %}
+                        <div class="position-middle">
+                        <div>
+                            <strong>
+                                <a target="_blank" href="{{ path('member_profile', {'slug': applicantRecipe.applicant.member.slug}) }}">
+                                    {{ applicantRecipe.applicant.member.fullName }}
+                                </a>
+                            </strong>
+                        </div>
+                        {% if applicantRecipe.applicant.member.phone %}
+                            <div><strong>{{ "app.owner_admin.applicant.list.phone"|trans }}</strong>: {{ applicantRecipe.applicant.member.phone }}</div>
+                        {% endif %}
+                        <div><strong>{{ "app.owner_admin.applicant.list.email"|trans }}</strong>: {{ applicantRecipe.applicant.member.authentication.email }}</div>
+                        <strong>{{ "app.owner_admin.applicant.list.head.appliedAt"|trans }}</strong>: {{ applicantRecipe.applicant.appliedAt|localizeddate('none', 'none', app.request.locale, null, "d-MMMM-Y") }}<br>
+                        {% if applicantRecipe.applicant.cookWith.count > 0 %}
+                            <strong>{{ "app.owner_admin.applicant.list.head.cookWith"|trans }}</strong>:
+                            {% for cook in applicantRecipe.applicant.cookWith %}
+                                {{ cook.member.fullName }}
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% if
+        event.status == constant('AppBundle\\Entity\\Event::STATUS_APPLICANT_REGISTRATION_OPENED') or
+        event.status == constant('AppBundle\\Entity\\Event::STATUS_APPLICANT_REGISTRATION_CLOSED') or
+        event.status == constant('AppBundle\\Entity\\Event::STATUS_RESERVATIONS_OPENED') or
+        event.status == constant('AppBundle\\Entity\\Event::STATUS_RESERVATIONS_CLOSED')
+    %}
+    <div class="box row control">
+        <div class="col-sm-6">
+            <button class="Btn wide red round-corners cancel {% if selectedApplicants == 0 %}{{ 'disabled' }}{% endif %}">
+                {{ "app.owner_admin.applicant.list.buttons.cancel"|trans|raw }}
+            </button>
+        </div>
+        <div class="col-sm-6 text-right">
+            <button class="Btn wide green round-corners validate
+                {% if selectedApplicants > 0 %}{{ 'disabled' }}{% endif %}" data-id="{{ event.id }}">
+                {{ "app.owner_admin.applicant.list.buttons.validate"|trans|raw }}
+            </button>
+        </div>
+    </div>
+    {% endif %}
+</div>

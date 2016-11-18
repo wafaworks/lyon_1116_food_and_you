@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="4e02771b55c0041180efc9fca6e04a77" resname="applicant">
+        <source>applicant</source>
+        <target>Candidats</target>
+      </trans-unit>
+      <trans-unit id="424aaf7002735e790154088002daee31" resname="applicant recipe">
+        <source>applicant recipe</source>
+        <target>Candidat recette</target>
+      </trans-unit>
+      <trans-unit id="858ba4765e53c712ef672a9570474b1d" resname="Member">
+        <source>Member</source>
+        <target>Membre</target>
+      </trans-unit>
+      <trans-unit id="49a9bb774e1dbe60a8cbd36cf719084a" resname="Applied At">
+        <source>Applied At</source>
+        <target>Appliqué au</target>
+      </trans-unit>
+      <trans-unit id="ec53a8c4f07baed5d8825072c89799be" resname="Status">
+        <source>Status</source>
+        <target>Statut</target>
+      </trans-unit>
+      <trans-unit id="3e4d891a5df3d6d0d7dd9432a1bc6470" resname="accepted">
+        <source>accepted</source>
+        <target>accepté</target>
+      </trans-unit>
+      <trans-unit id="c7537d6d48ecf261749c09a9f284bd45" resname="rejected">
+        <source>rejected</source>
+        <target>rejeté</target>
+      </trans-unit>
+      <trans-unit id="7c6c2e5d48ab37a007cbf70d3ea25fa4" resname="pending">
+        <source>pending</source>
+        <target>en attendant</target>
+      </trans-unit>
+      <trans-unit id="490aa6e856ccf208a054389e47ce0d06" resname="Id">
+        <source>Id</source>
+        <target>Id</target>
+      </trans-unit>
+      <trans-unit id="a4ecfc70574394990cf17bd83df499f7" resname="Event">
+        <source>Event</source>
+        <target>Événement</target>
+      </trans-unit>
+      <trans-unit id="f6838deccbefed9f78d9e9acefda2d9c" resname="Member Full Name">
+        <source>Member Full Name</source>
+        <target>Candidat nom</target>
+      </trans-unit>
+      <trans-unit id="7c69aca8383ec5e03f2dc8c50c150aae" resname="Nr Recipes">
+        <source>Nr Recipes</source>
+        <target>Nombre de Recettes</target>
+      </trans-unit>
+      <trans-unit id="818835c539bf44d39e2bddaa9915af03" resname="Nr Votes">
+        <source>Nr Votes</source>
+        <target>Nombre de Votes</target>
+      </trans-unit>
+      <trans-unit id="9d0c03fd364d153a576f14f3e339548e" resname="Event Id">
+        <source>Event Id</source>
+        <target>Événement Id</target>
+      </trans-unit>
+      <trans-unit id="ec15f822edbe627194d0b366e8b587de" resname="Applicant List">
+        <source>Applicant List</source>
+        <target>Candidat Liste</target>
+      </trans-unit>
+      <trans-unit id="958153f1b8b96ec4c4eb2147429105d9" resname="general">
+        <source>general</source>
+        <target>Général</target>
+      </trans-unit>
+      <trans-unit id="49d1ea640d50b044922f9313a0f8be0e" resname="cat_recipes">
+        <source>cat_recipes</source>
+        <target>Recettes</target>
+      </trans-unit>
+      <trans-unit id="aef6ec2224f7ef3c74b4942b0e7f2969" resname="Recipe">
+        <source>Recipe</source>
+        <target>Recette</target>
+      </trans-unit>
+      <trans-unit id="dda9c06f33071c9b6fc237ee164109d8" resname="Rating">
+        <source>Rating</source>
+        <target>Évaluation</target>
+      </trans-unit>
+      <trans-unit id="91b442d385b54e1418d81adc34871053" resname="Selected">
+        <source>Selected</source>
+        <target>Choisi</target>
+      </trans-unit>
+      <trans-unit id="85144ab5880edc8513c39cfeb1bd5a5e" resname="Winner">
+        <source>Winner</source>
+        <target>Gagnant</target>
+      </trans-unit>
+      <trans-unit id="bec632bf40417e6e827fb59472888008" resname="Applicant">
+        <source>Applicant</source>
+        <target>Candidat</target>
+      </trans-unit>
+      <trans-unit id="1987f11475eb342c073e5cbff932e0f2" resname="Applicant Recipe List">
+        <source>Applicant Recipe List</source>
+        <target>Liste de recettes candidat</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,124 @@
+{% extends 'bootstrap_3_layout.html.twig' %}
+
+{# TODO: REFACTOR checkbox widget to use 1 #}
+{% block _fos_user_registration_form_cgu_widget %}
+    <div class="checkbox">
+        <label  for="{{ id }}" class="checkbox {% if checked %}checked{% endif %}" >
+            <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+            {{ label|trans|raw }}
+        </label>
+    </div>
+{% endblock %}
+
+{% block _fos_user_registration_form_charte_widget %}
+    <div class="checkbox">
+        <label  for="{{ id }}" class="checkbox {% if checked %}checked{% endif %}" >
+            <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+            {{ label|trans|raw }}
+        </label>
+    </div>
+{% endblock %}
+
+{% block _edit_incomplete_authentication_cgu_widget %}
+    <div class="checkbox">
+        <label  for="{{ id }}" class="checkbox {% if checked %}checked{% endif %}" >
+            <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+            {{ label|trans|raw }}
+        </label>
+    </div>
+{% endblock %}
+
+{% block _edit_incomplete_authentication_charte_widget %}
+    <div class="checkbox">
+        <label  for="{{ id }}" class="checkbox {% if checked %}checked{% endif %}" >
+            <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+            {{ label|trans|raw }}
+        </label>
+    </div>
+{% endblock %}
+
+{% block _app_restaurant_gallery_gallery_has_medias_row %}
+    <div class="row">
+        {{- form_widget(form) -}}
+    </div>
+{% endblock %}
+
+{% block _app_restaurant_gallery_gallery_has_medias_entry_row %}
+    <div class="col-sm-3 RestaurantForm__media">
+        {{- form_widget(form) -}}
+    </div>
+{% endblock %}
+
+{% block _app_restaurant_gallery_gallery_has_medias_entry_widget %}
+    {%- for child in form %}
+        {{- form_widget(child, {
+            parent_label_class: label_attr.class|default(''),
+        }) -}}
+    {% endfor -%}
+{% endblock %}
+
+{% block _app_restaurant_gallery_gallery_has_medias_entry_media_row %}
+    {{- form_widget(form) -}}
+{% endblock %}
+
+{% block _app_restaurant_gallery_gallery_has_medias_entry_media_widget %}
+    {% set bgPath %}
+        {%- if form.vars.value.id -%}
+            {%- path form.vars.value, 'small' -%}
+        {%- else -%}
+            {{- asset('images/photo.png') -}}
+        {%- endif -%}
+    {% endset %}
+    <div class="RestaurantForm__image" style="background-image: url({{ bgPath }});">
+
+    </div>
+    {%- for child in form %}
+        {{- form_widget(child, {
+            parent_label_class: label_attr.class|default(''),
+        }) -}}
+        {{- form_label(child) -}}
+    {% endfor -%}
+{% endblock %}
+
+{% block _app_restaurant_gallery_gallery_has_medias_entry_media_binary_content_label %}
+    <label class="Btn green sm full-width" for="{{ form.vars.id }}">{{ 'restaurant.button.add' | trans({}, 'forms') }}</label>
+    <div class="box">
+        <button type="button" class="Btn green sm full-width box cover-button">{{ 'restaurant.button.cover' | trans({}, 'forms') }}</button>
+    </div>
+{% endblock %}
+
+{% block _app_bundle_new_event_type_price_entry_label %}
+
+    {% if widget is defined %}
+        {% if required %}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) %}
+        {% endif %}
+        {% if parent_label_class is defined %}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' ' ~ parent_label_class)|trim}) %}
+        {% endif %}
+        {% if label is not same as(false) and label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+        {{- widget|raw }}
+        <label for="{{ form.vars.id }}" {% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+         {{ label is not same as(false) ? (translation_domain is same as(false) ? label : label|trans({}, translation_domain)) -}}
+        </label>
+    {% endif %}
+
+{% endblock %}
+
+
+{% block time_widget -%}
+    {% if widget == 'single_text' %}
+        {{- block('form_widget_simple') -}}
+    {% else -%}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-inline')|trim}) -%}
+        {% if datetime is not defined or false == datetime -%}
+            <div {{ block('widget_container_attributes') -}}>
+        {%- endif -%}
+        {{- form_widget(form.hour, {'attr': {'class': 'gray-input'}}) }}{% if with_minutes %}:{{ form_widget(form.minute, {'attr': {'class': 'gray-input'}}) }}{% endif %}{% if with_seconds %}:{{ form_widget(form.second, {'attr': {'class': 'gray-input'}}) }}{% endif %}
+        {% if datetime is not defined or false == datetime -%}
+            </div>
+        {%- endif -%}
+    {% endif %}
+{%- endblock time_widget %}

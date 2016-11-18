@@ -1,0 +1,174 @@
+{% extends ':restaurant_owner_admin:index.html.twig' %}
+
+{% trans_default_domain 'restaurant_owner_admin_event_new' %}
+
+{% block owner_page_title %}{{ "title"|trans }}{% endblock %}
+
+{% block owner_body %}
+    <div class="container-fluid">
+
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-sm-5 box text-center">
+                <span class="h5 green">{{ 'form.label.date' | trans }}</span>
+                <span id="NewEvent__datepicker"></span>
+                {{ form_row(form.dates) }}
+                {% if form.dates.vars.errors|length > 0 %}
+                <div class="has-error">
+                    {{ form_errors(form.dates) }}
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-sm-7">
+                <div class="box{% if form.hour.vars.errors|length > 0 %} has-error{% endif %}">
+                    {{ form_label(form.hour, null, {'label_attr': {'class': 'green'}}) }}
+                    {{ form_widget(form.hour) }}
+                    {{ form_errors(form.hour) }}
+                </div>
+                <div class="box{% if form.placesRange.vars.errors|length > 0 %} has-error{% endif %}">
+                    <span class="green">{{ 'form.label.placesRange' | trans }}</span>
+                    {{ form_widget(form.placesRange) }}
+                    {{ form_errors(form.placesRange) }}
+                </div>
+                <div class="box{% if form.price.vars.errors|length > 0 %} has-error{% endif %}">
+                    {{ form_label(form.price, null, {'label_attr': {'class': 'green'}}) }}
+                    <div class="RadioToolbar">
+                    {{ form_widget(form.price) }}
+                    </div>
+                    {{ form_errors(form.price) }}
+
+                </div>
+            </div>
+        </div>
+        {{ form_rest(form) }}
+        {{ form_errors(form) }}
+        <div class="text-center">
+            <button type="submit" class="Btn md green round-corners">{{ 'restaurant.button.submit' | trans }}</button>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link type="text/css" href="{{ asset('vendor/jquery.ui/themes/base/core.css') }}" rel='stylesheet' media='screen'>
+    <link type="text/css" href="{{ asset('vendor/jquery.ui/themes/base/datepicker.css') }}" rel='stylesheet'
+          media='screen'>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('vendor/jquery.ui/ui/core.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.ui/ui/datepicker.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.ui/ui/i18n/datepicker-fr.js') }}"></script>
+    <script>
+        $(function () {
+
+            $("#app_bundle_new_event_type_placesRange").ionRangeSlider({
+                type: "double",
+                grid: true,
+                min: 0,
+                max: 100,
+                from: 20,
+                to: 35,
+                prefix: ""
+            });
+
+
+            var eventDateHandler = (function () {
+                var formField = $('#app_bundle_new_event_type_dates'),
+                        dates = formField.val().split(","),
+                        weeks = []
+                        ;
+
+                var padNumber = function (number) {
+                    var ret = new String(number);
+                    if (ret.length == 1)
+                        ret = "0" + ret;
+                    return ret;
+                };
+
+                var getWeek = function (timestamp) {
+                    var date = new Date(timestamp);
+
+                    if (date.getDay() === 0) {
+                        return getWeek(timestamp - 24 * 3600 * 1000);
+                    }
+
+                    date.setHours(0, 0, 0, 0);
+                    // Thursday in current week decides the year.
+                    date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
+                    // January 4 is always in week 1.
+                    var week1 = new Date(date.getFullYear(), 0, 4);
+                    // Adjust to Thursday in week 1 and count number of weeks from date to week1.
+                    return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000
+                                    - 3 + (week1.getDay() + 6) % 7) / 7);
+
+                };
+
+                var formatDate= function (date) {
+                    var year = date.getFullYear(),
+                            month = padNumber(date.getMonth() + 1),
+                            day = padNumber(date.getDate());
+                    // This depends on the datepicker's date format
+                    return day + "/" + month + "/" + year;
+                };
+
+                return {
+                    toggle: function (data) {
+                        var index = $.inArray(data, dates);
+                        var dateSplit = data.split('/');
+                        var week = getWeek(new Date(dateSplit[2], dateSplit[1] - 1, dateSplit[0], 0, 0, 0).valueOf());
+
+
+                        if (index >= 0) {
+                            dates.splice(index, 1);
+                            weeks.splice($.inArray(week, weeks), 1);
+                        } else {
+                            if ($.inArray(data, dates) < 0) {
+                                dates.push(data);
+                                weeks.push(week);
+                            }
+                        }
+                        formField.val(dates.join());
+                    },
+
+                    isDisabled: function (date) {
+                        var week = getWeek(date.getTime());
+
+                        return ($.inArray(week, weeks) >= 0) && ($.inArray(formatDate(date), dates) < 0);
+                    },
+
+                    isMarked: function (date) {
+                        var formattedDate = formatDate(date);
+
+                        return $.inArray(formattedDate, dates) >= 0;
+                    }
+                }
+            })();
+
+
+            $("#NewEvent__datepicker").datepicker({
+                minDate: "+35D",
+                maxDate: "+10M",
+                onSelect: function (dateText, inst) {
+                    eventDateHandler.toggle(dateText);
+                },
+                beforeShow: function(input, inst) {
+                    // $(inst).center() // not sure if this works
+                    $('.ui-datepicker').center(); // this should work
+                },
+                beforeShowDay: function (date) {
+                    if (eventDateHandler.isDisabled(date)) {
+                        return [false, ""];
+                    }
+
+                    if (eventDateHandler.isMarked(date)) {
+                        return [true, "ui-state-highlight"];
+                    }
+
+                    // is enabled but not selected
+                    return [true, ""];
+                }
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,103 @@
+.form-control {
+    font-size: @text-sm;
+
+    &::-webkit-input-placeholder {
+        color: @color-brown;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+        color: @color-brown;
+    }
+
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: @color-brown;
+    }
+
+    &:-ms-input-placeholder {
+        color: @color-brown;
+    }
+
+    textarea& {
+        height: 5rem;
+        line-height: 1.2rem;
+        background-color: @form-background-color;
+        border: 1px solid @form-border-color;
+        width: 100%;
+        border-radius: @border-radius;
+        resize: none;
+    }
+}
+
+
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=date],
+input[type=number],
+select,
+.gray-input,
+.red-input {
+    height: 2.75rem;
+    line-height: 2rem;
+    background-color: @form-background-color;
+    border: 1px solid @form-border-color;
+    width: 100%;
+    border-radius: @border-radius;
+}
+
+input.red-input, select.red-input {
+    color: @color-white;
+}
+
+.ui-spinner {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    .ui-spinner-button {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .ui-spinner-button:hover {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .ui-spinner-up {
+        top: -1.2rem;
+    }
+
+    .ui-spinner-down {
+        bottom: -1.2rem;
+    }
+
+    input.input_number {
+        width: 3rem;
+        text-align: center;
+
+        &.success {
+            border: 2px solid @color-green;
+        }
+
+        &.error {
+            border: 2px solid @color-red;
+        }
+    }
+}
+
+.ui-icon {
+    text-indent: 0;
+}
+
+.datePicker_trigger[readonly] {
+    background-color: @form-background-color;
+}
+
+.form-inline select {
+    width: inherit;
+    display: inline-block;
+}

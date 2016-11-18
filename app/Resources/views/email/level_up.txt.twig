@@ -1,0 +1,19 @@
+{%- set levelDefinition = constant('\\AppBundle\\Service\\LevelChecker::LEVEL_DEFINITION') -%}
+TOUTE L’EQUIPE FOOD&YOU VOUS REMERCIE
+
+Toute l’équipe vous remercie de votre fidélité ! Votre niveau en cuisine s’améliore à chaque participation,
+
+Nous sommes donc ravis de vous annoncer que, grâce à vos {{ levelDefinition[member.level].participations }} participations et à votre moyenne de {{ levelDefinition[member.level].rating }}/5
+
+vous atteignez le statut de:
+
+<< {{ ('member.level.' ~ member.level) | trans({}, 'member_profile') | upper  }} >>
+
+RENOUVELEZ DES MAINTENANT L’EXPERIENCE
+
+Participez à de nouveaux évènements Food&You et tentez de gagner
+
+10.000€
+
+À très bientôt,
+L'équipe Food & You

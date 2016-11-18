@@ -1,0 +1,31 @@
+{%- set recipeName = '' -%}
+{%- for applicantRecipe in applicant.recipes %}
+    {%- if applicantRecipe.selected -%}
+        {%- set recipeName = applicantRecipe.recipe.name -%}
+    {%- endif -%}
+{%- endfor -%}
+FELICITATIONS {{ applicant.member.fullName | upper }}
+
+    VOUS AVEZ ETE SELECTIONNEE POUR CUISINER LORS D’UNE SOIREE fOOD&YOU !
+
+    A partir de cet instant, votre place est assuré en cuisine : le chef qui vous a selectionné et nous
+    même comptons sur vous ! * Partagez cet évènement avec vos proches et mettez toutes les
+    chances de votre côté pour remporter la victoire !
+
+    L’équipe de Food & You est heureuse de vous annoncer que vous avez été sélectionné par le chef du
+    {{ applicant.event.restaurant.name }} pour votre recette {{ recipeName }} à la date du {{ applicant.event.startDate | date('d/m/Y') }}.
+    Nous sommes ravis de vous compter officiellement parmi les membres de notre brigade
+    Food&You !
+
+
+    1 - APPELLE LE CHEF : validez ensemble ta recette !
+    2 - MET TOI DANS LA PEAU D’UN CHEF ! Prépare ta tenue et si besoin, répète ta recette (F&Y VOUS DONNE UN TABLIER)
+    3 - L’AVENTURE COMMENCE Viens à l’heure indiquée par le chef en restaurant afin de préparer ta recette
+
+    {{ applicant.event.restaurant.name }}
+    {{ applicant.event.restaurant.street }}
+    {{ applicant.event.restaurant.contactInfo.phone }}
+    Chef à contacter : {{ applicant.event.restaurant.owner.fullName }}
+
+
+    {{ url('event_details', { "id": applicant.event.id }) }}

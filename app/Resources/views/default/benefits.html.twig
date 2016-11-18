@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% set headerType = 'benefits' %}
+
+{% trans_default_domain "default_benefits" %}
+
+{% block body %}
+
+    <div class="container box-lg">
+        <div class="row">
+            <h2>{{ 'main1.title' | trans | raw | upper }}</h2>
+
+            <div class="text-center gray box">{{ 'main1.description' | trans }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 box">
+                <div class="Sticker lg shadow">
+                    <img src="{{ asset('images/benefits/icon1.png') }}" class="Sticker__content">
+                </div>
+                <h5 class="green-opaque box">{{ 'block1.title'|trans | raw }}</h5>
+                <p class="gray text-center">{{ 'block1.description'|trans }}</p>
+            </div>
+            <div class="col-sm-4 box">
+                <div class="Sticker lg shadow">
+                    <img src="{{ asset('images/benefits/icon2.png') }}" class="Sticker__content">
+                </div>
+                <h5 class="green-opaque box">{{ 'block2.title'|trans | raw }}</h5>
+                <p class="gray text-center">{{ 'block2.description'|trans }}</p>
+            </div>
+            <div class="col-sm-4 box">
+                <div class="Sticker lg shadow">
+                    <img src="{{ asset('images/benefits/icon3.png') }}" class="Sticker__content">
+                </div>
+                <h5 class="green-opaque box">{{ 'block3.title'|trans | raw }}</h5>
+                <p class="gray text-center">{{ 'block3.description'|trans }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <a href="{{ path('restaurateur_simulateur') }}" class="Btn green sm round-corners">{{ 'main1.button' | trans | upper }}</a>
+            </div>
+        </div>
+    </div>
+<div class="container-fluid box-gray box-lg">
+    <div class="container">
+        <div class="row">
+            <h2>{{ 'main2.title' | trans | raw | upper }}</h2>
+
+            <div class="text-center gray box">{{ 'main2.description' | trans }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 box">
+                <div class="Sticker lg white shadow">
+                    <img src="{{ asset('images/benefits/icon4.png') }}" class="Sticker__content">
+                </div>
+                <h5 class="green-opaque box">{{ 'block4.title'|trans | raw }}</h5>
+                <p class="gray text-center">{{ 'block4.description'|trans }}</p>
+            </div>
+            <div class="col-sm-4 box">
+                <div class="Sticker lg white shadow">
+                    <img src="{{ asset('images/benefits/icon5.png') }}" class="Sticker__content">
+                </div>
+                <h5 class="green-opaque box">{{ 'block5.title'|trans | raw }}</h5>
+                <p class="gray text-center">{{ 'block5.description'|trans }}</p>
+            </div>
+            <div class="col-sm-4 box">
+                <div class="Sticker lg white shadow">
+                    <img src="{{ asset('images/benefits/icon6.png') }}" class="Sticker__content">
+                </div>
+                <h5 class="green-opaque box">{{ 'block6.title'|trans | raw }}</h5>
+                <p class="gray text-center">{{ 'block6.description'|trans }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <a href="{{ path('restaurateur_simulateur') }}" class="Btn green sm border-white round-corners">{{ 'main2.button' | trans | upper }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="container box-lg">
+        <div class="row">
+            <h2>{{ 'main3.title' | trans | raw | upper }}</h2>
+
+            <div class="text-center gray box">{{ 'main3.description' | trans }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 box">
+                <div class="Sticker lg shadow" style="background-image: url({{ asset('images/benefits/chef1.png') }})">
+                </div>
+                <h5 class="green-opaque box">{{ 'block7.title'|trans | raw }}</h5>
+                <p class="gray text-center">{{ 'block7.description'|trans }}</p>
+            </div>
+{#            <div class="col-sm-4 box">
+                <div class="Sticker lg shadow" style="background-image: url({{ asset('images/benefits/user.jpeg') }})">
+                </div>
+                <h5 class="green-opaque box">{{ 'block8.title'|trans | raw }}</h5>
+                <p class="gray">{{ 'block8.description'|trans }}</p>
+            </div>
+            <div class="col-sm-4 box">
+                <div class="Sticker lg shadow" style="background-image: url({{ asset('images/benefits/user.jpeg') }})">
+                </div>
+                <h5 class="green-opaque box">{{ 'block9.title'|trans | raw }}</h5>
+                <p class="gray">{{ 'block9.description'|trans }}</p>
+            </div>#}
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <a href="{{ path('restaurateur_simulateur') }}" class="Btn green sm round-corners">{{ 'main3.button' | trans | upper }}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block title %}{{ 'restaurateur.title' | trans({}, 'seo') }}{% endblock %}
+{% block description %}{{ 'restaurateur.description' | trans({}, 'seo') }}{% endblock %}

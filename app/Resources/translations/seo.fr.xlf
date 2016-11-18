@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="3a5079208b07945d945ab5362af1240d" resname="homepage.title">
+        <source>homepage.title</source>
+        <target><![CDATA[Food & You réveille le chef qui est en vous]]></target>
+      </trans-unit>
+      <trans-unit id="e1ddf86346df89c8a459288832284fe4" resname="homepage.description">
+        <source>homepage.description</source>
+        <target><![CDATA[Plus qu’un cours de cuisine, Food&You c’est une immersion dans le service d’un restaurant ! Le chef est votre coach pour servir en équipe un dîner convivial]]></target>
+      </trans-unit>
+      <trans-unit id="37ff7f713d42dc81127a4c4140164953" resname="search.title">
+        <source>search.title</source>
+        <target><![CDATA[Food & You vous propose les meilleurs restaurants !]]></target>
+      </trans-unit>
+      <trans-unit id="b1a2ed60408d8908a0abd3136518c1b9" resname="search.description">
+        <source>search.description</source>
+        <target>Pour cuisiner aux côtés du chef ou pour jouer aux critiques gastronomiques, de nombreux dîners à la fois insolites et savoureux vous attendent près de chez vous !</target>
+      </trans-unit>
+      <trans-unit id="bbe57f6b6465fab67a63fd38e63eac22" resname="restaurateur_home.title">
+        <source>restaurateur_home.title</source>
+        <target><![CDATA[Food & You augmente votre notoriété et votre chiffre d’affaires]]></target>
+      </trans-unit>
+      <trans-unit id="3f7d0453487868982bf708ba0a7e97e3" resname="restaurateur_home.description">
+        <source>restaurateur_home.description</source>
+        <target>Notre plateforme permet de créer des événements originaux pour remplir votre restaurant, attirer une clientèle nouvelle, et partager votre passion de la cuisine</target>
+      </trans-unit>
+      <trans-unit id="1ab356d78744b5f58be407f606f926ae" resname="restaurateur.title">
+        <source>restaurateur.title</source>
+        <target><![CDATA[Food & You : un partenaire de qualité pour votre restaurant]]></target>
+      </trans-unit>
+      <trans-unit id="3b24af7853de8d4b4e675a3e74e5a469" resname="restaurateur.description">
+        <source>restaurateur.description</source>
+        <target><![CDATA[Développez votre chiffre d’affaires et votre communication en créant des événements Food&You de manière simple et automatisée grâce à notre plateforme dédiée]]></target>
+      </trans-unit>
+      <trans-unit id="400cc08f0e6f7c9c12b83a8b39a4d4da" resname="event.title">
+        <source>event.title</source>
+        <target><![CDATA[Soirée originale Food&You le %date% au %restaurant%]]></target>
+      </trans-unit>
+      <trans-unit id="059fafe95f6d5b2f0369b4ace9941f4a" resname="event.description">
+        <source>event.description</source>
+        <target>Pour cuisiner aux côtés du chef ou pour jouer aux critiques gastronomiques, de nombreux dîners à la fois insolites et savoureux vous attendent près de chez vous !</target>
+      </trans-unit>
+      <trans-unit id="dc19facc4d1617330316a5a3edd479e6" resname="restaurant.title">
+        <source>restaurant.title</source>
+        <target><![CDATA[Food & You vous présente %restaurant%]]></target>
+      </trans-unit>
+      <trans-unit id="9a3750614998a9ad00d185c3650a7acb" resname="restaurant.description">
+        <source>restaurant.description</source>
+        <target>Le %restaurant% vous ouvre ses cuisines pour une immersion aux côtés du chef, dans l’objectif de servir un dîner original, convivial et gourmand !</target>
+      </trans-unit>
+      <trans-unit id="35245e14b031c6468ebf119bff019648" resname="profile.title">
+        <source>profile.title</source>
+        <target><![CDATA[Food & You vous présente %candidat%]]></target>
+      </trans-unit>
+      <trans-unit id="debb5cd157ae44368cf6850c01b4e330" resname="profile.description">
+        <source>profile.description</source>
+        <target><![CDATA[%candidat% vous propose de découvrir ses recettes préférées, ainsi que les dates de ses dîners dans les restaurants Food & You]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="ae18fe4e01e61a9862ceaf165003213a" resname="recipe">
+        <source>recipe</source>
+        <target>Recettes</target>
+      </trans-unit>
+      <trans-unit id="490aa6e856ccf208a054389e47ce0d06" resname="Id">
+        <source>Id</source>
+        <target>Id</target>
+      </trans-unit>
+      <trans-unit id="49ee3087348e8d44e1feda1917443987" resname="Name">
+        <source>Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="f6838deccbefed9f78d9e9acefda2d9c" resname="Member Full Name">
+        <source>Member Full Name</source>
+        <target>Nom de membre</target>
+      </trans-unit>
+      <trans-unit id="a1fa27779242b4902f7ae3bdd5c6d508" resname="Type">
+        <source>Type</source>
+        <target>Type</target>
+      </trans-unit>
+      <trans-unit id="858ba4765e53c712ef672a9570474b1d" resname="Member">
+        <source>Member</source>
+        <target>Membre</target>
+      </trans-unit>
+      <trans-unit id="9737de5eadb18581ee7837c2dfc2cabb" resname="0entry">
+        <source>0entry</source>
+        <target>Entrée</target>
+      </trans-unit>
+      <trans-unit id="bb2f4cae6b160029d0cf8816948e621c" resname="1main">
+        <source>1main</source>
+        <target>Plat</target>
+      </trans-unit>
+      <trans-unit id="bc092d9849172bea6825f3fec930e7fc" resname="2dessert">
+        <source>2dessert</source>
+        <target>Dessert</target>
+      </trans-unit>
+      <trans-unit id="f673ad5428860b9d01573c99dc2c13fc" resname="Recipe List">
+        <source>Recipe List</source>
+        <target>Recettes Liste</target>
+      </trans-unit>
+      <trans-unit id="958153f1b8b96ec4c4eb2147429105d9" resname="general">
+        <source>general</source>
+        <target>Général</target>
+      </trans-unit>
+      <trans-unit id="c03d53b70feba4ea842510abecd6c45e" resname="Photo">
+        <source>Photo</source>
+        <target>Photo</target>
+      </trans-unit>
+      <trans-unit id="67daf92c833c41c95db874e18fcb2786" resname="description">
+        <source>description</source>
+        <target>La description</target>
+      </trans-unit>
+      <trans-unit id="31a9c87c93a4dc3fec9f44d0560f4b11" resname="Public Description">
+        <source>Public Description</source>
+        <target>Description publique</target>
+      </trans-unit>
+      <trans-unit id="c60dfd9f17757b61e1cf6f126b1dcdee" resname="Private Description">
+        <source>Private Description</source>
+        <target>Description privé</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

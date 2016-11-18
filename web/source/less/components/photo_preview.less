@@ -1,0 +1,45 @@
+.photoPreview {
+    .photoPreview_control {
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        opacity: 0.1;
+        overflow: hidden;
+    }
+    .photoPreview_wall {
+        position: relative;
+        color: @color-white;
+        border-radius: 0.2rem;
+
+        box-shadow: inside 0 0 3px rgba(0, 0, 0, 0.5);
+        height: 18rem;
+
+        margin-bottom: 0.5rem;
+
+        background: @color-grey-opaque;
+        background-position: center center;
+        background-size: cover;
+
+        &::before {
+            content: "\f083";
+            color: @color-white;
+            font-family: FontAwesome;
+
+            font-size: 5rem;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    }
+    &.selected {
+        .photoPreview_wall::before {
+            visibility: hidden;
+        }
+    }
+}

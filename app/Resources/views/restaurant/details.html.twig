@@ -1,0 +1,140 @@
+{% extends 'base.html.twig' %}
+
+{% trans_default_domain "restaurant_details" %}
+
+{% block meta %}
+    <meta property="og:image" content="{% path restaurant.gallery.cover, 'big' %}"/>
+    <meta property="og:description" content="{{ restaurant.name }}, {{ restaurant.street }} {{ restaurant.postalCode }} {{ restaurant.city.name }}"/>
+
+    <meta property="og:locale" content="fr_FR"/>
+    <meta property="og:image:width" content="265"/>
+    <meta property="og:image:height" content="265"/>
+{% endblock %}
+
+{% block body %}
+    <script src="{{ asset('vendor/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/owl.carousel/dist/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('vendor/owl.carousel/dist/assets/owl.theme.default.min.css') }}">
+    <div class="container-fluid" style="margin-top: -2rem">
+        <div class="row">
+            <div class="owl-carousel owl-theme">
+                {% for ghm in restaurant.gallery.getGalleryOrdered %}
+                    <div class="item" style="background-image: url({% path ghm.media, 'big' %})"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="container box-lg">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="Event__header">
+                    <div class="Event__title">
+                        <span class="restaurant">{{ 'restaurant' | trans({}, 'base') }}</span>
+                        <h1 class="h2 name">{{ restaurant.name }}</h1>
+                    </div>
+                    <div class="Event__social">
+                        <a target="_blank" href="https://www.instagram.com/foodandyouofficiel/" class="social"><i class="fa fa-instagram"></i></a>
+                        <a href="http://www.facebook.com/sharer.php?u={{ url('restaurant_details', {'id': restaurant.id }) }}&title=Découvrez Food%26You au {{ restaurant.name }} !"
+                           class="social"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/share?url={{ url('restaurant_details', {'id': restaurant.id }) }}&text=Découvrez Food%26You au {{ restaurant.name }} !"
+                           class="social"><i class="fa fa-twitter"></i></a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="Event__group">
+                    <span class="Event__contact">
+                        <span class="sprite sprite-location"></span><span class="content">
+                            {{ restaurant.street }} {{ restaurant.postalCode }} {{ restaurant.city.name }}<br>
+                            <a href="tel:{{ restaurant.contactInfo.phone }}" class="content">
+                               {{ restaurant.contactInfo.phone }}
+                            </a>
+                        </span>
+                    </span>
+                </div>
+                {% if restaurant.socialInfo.facebook or restaurant.socialInfo.tripAdvisor %}
+                <div class="Event__group">
+                    <span class="Event__contact block">
+                       {% if restaurant.socialInfo.site %}
+                           <a href="{{ restaurant.socialInfo.site }}" class="content" target="_blank">
+                               <span class="fa fa-globe fa-2x"></span>
+                           </a>
+                       {% endif %}
+                        {% if restaurant.socialInfo.facebook %}
+                            <a href="{{ restaurant.socialInfo.facebook }}" class="content" target="_blank">
+                                <span class="fa fa-facebook fa-2x"></span>
+                            </a>
+                        {% endif %}
+                        {% if restaurant.socialInfo.tripAdvisor %}
+                            <a href="{{ restaurant.socialInfo.tripAdvisor }}" class="content" target="_blank">
+                                <span class="fa fa-tripadvisor fa-2x"></span>
+                            </a>
+                        {% endif %}
+                    </span>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-sm-7">
+                <span class="Event__description">
+                    {{ restaurant.description }}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 Event__map">
+                <iframe
+                        width="100%"
+                        height="350"
+                        frameborder="0"
+                        style="border:0;"
+                        class="grayscale"
+                        src="https://www.google.com/maps/embed/v1/place?key={{ google_map_api }}&q={{ restaurant.street|url_encode }},{{ restaurant.postalCode }}%20{{ restaurant.city }}%20France" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+    {% if upcomingEvents|length > 0 %}
+        <div class="container box-lg">
+            <h2>{{ 'next_event.title' | trans }}</h2>
+            <p class="text-center">{{ 'next_event.description' | trans }}</p>
+            {% for event in upcomingEvents %}
+                {% include ':partials/event:reserve_restaurant.html.twig' with {'event': event} only %}
+            {% endfor %}
+            <div class="text-center">
+                <a href="{{ path('event_list') }}" class="Btn wide border-green">{{ 'next_event.button' | trans }}</a>
+            </div>
+        </div>
+    {% endif %}
+    <div class="Promo__chef--vie">
+        <div class="Promo__chef--vie__text">
+            <h3>{{ 'devenir_chef.title' | trans | raw }}</h3>
+            <p class="box">{{ 'devenir_chef.description'|trans }}</p>
+            <button id="Promo__chef__button" class="Btn green md round-corners border-white">
+                {{- 'devenir_chef.button' | trans -}}
+            </button>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    <script>
+        $('#Promo__chef__button').click(function() {
+            $.redirectPost(
+                Routing.generate('event_list'),
+                {
+                    'app_search[participatorType]': 'applicant_registration_open'
+                }
+            );
+        })
+    </script>
+{% endblock %}
+
+{% block title %}{{ 'restaurant.title' | trans({'%restaurant%': restaurant.name}, 'seo') }}{% endblock %}
+{% block description %}{{ 'restaurant.description' | trans({'%restaurant%': restaurant.name}, 'seo') }}{% endblock %}

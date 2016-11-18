@@ -1,0 +1,94 @@
+{% trans_default_domain 'member_profile' %}
+
+{% set diffStartEvent = date(event.startDate).diff(date('now')) %}
+{% set timeToEventStart = (diffStartEvent.format('%d') * 24 + diffStartEvent.format('%h')) %}
+
+{% if event.reservations.first.tableOwner %}
+    {% set tableCode = event.reservations.first.tableOwner.tableCode %}
+{% elseif member is defined %}
+    {% set tableCode = member.tableCode %}
+{% else %}
+    {% set tableCode = null %}
+{% endif %}
+<div class="container-fluid Reservation" id="reservation{{ event.id }}">
+    <div class="row">
+        <div class="col-sm-6 flex-center">
+            <div class="Reservation__date Sticker xs green">
+                <div class="Sticker__content">
+                    <h3>{{ event.startDate |date('d') }}</h3>
+                    <div>{{ event.startDate |date('M')|trans({}, 'messages') }}</div>
+                </div>
+            </div>
+            <div class="Reservation__title">
+                {% block reserve_title %}
+                    <a href="{{ path('restaurant_details', {'id': event.restaurant.id}) }}">
+                        <h3 class="h5">{{ event.restaurant.name }}</h3>
+                    </a>
+                    <address>{{ event.restaurant.street }}, {{ event.restaurant.city }}</address>
+                {% endblock %}
+            </div>
+        </div>
+        <div class="col-sm-6 hidden-xs">
+            <div class="Reservation__title__social">
+                {% if member is defined and app.user == member.authentication %}
+                    <a target="_blank" href="https://www.instagram.com/foodandyouofficiel/" class="social"><i class="fa fa-instagram"></i></a>
+                    <a href="http://www.facebook.com/sharer.php?u={{ url('member_profile', {'slug': app.user.member.slug }) }}%23{{ "reservation" ~ event.id }}&title=Venez avec moi, je participe à une soirée insolite Utilisez le code {{ tableCode }} pour être à ma même table."
+                       class="social"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/share?url={{ url('member_profile', {'slug': app.user.member.slug }) }}%23{{ "reservation" ~ event.id }}&text=Venez avec moi, je participe à une soirée insolite Utilisez le code {{ tableCode }} pour être à ma même table."
+                       class="social"><i class="fa fa-twitter"></i></a>
+
+                    {% if timeToEventStart > 48 %}
+                        <a class="Btn grey xs border-white text-grey" href="{{ path('event_reserve_cancel', {'id': event.reservations.first.id}) }}">
+                            {{ block('reserve_cancel_button_label') }}
+                        </a>
+                    {% endif %}
+                {% else %}
+                    <a class="Btn green xs border-white" href="{{ path('event_details', {'id': event.id}) }}">
+                        {{ block('reserve_button_label') }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row Reservation__dishes">
+        <div class="col-sm-4"
+             style="background-image: url({% path event.applicants[0].recipes[0].recipe.photo, 'big' %})">
+            <span class="type">{{ ('dish.' ~ event.applicants[0].recipes[0].recipe.type) |trans({}, 'base') }}</span>
+        </div>
+        <div class="col-sm-4"
+             style="background-image: url({% path event.applicants[1].recipes[0].recipe.photo, 'big' %})">
+            <span class="type">{{ ('dish.' ~ event.applicants[1].recipes[0].recipe.type) |trans({}, 'base') }}</span>
+        </div>
+        <div class="col-sm-4"
+             style="background-image: url({% path event.applicants[2].recipes[0].recipe.photo, 'big' %})">
+            <span class="type">{{ ('dish.' ~ event.applicants[2].recipes[0].recipe.type) |trans({}, 'base') }}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="box text-center visible-xs-block">
+            {% if member is defined and app.user == member.authentication %}
+                <a target="_blank" href="https://www.instagram.com/foodandyouofficiel/" class="social"><i class="fa fa-instagram"></i></a>
+                <a href="http://www.facebook.com/sharer.php?u={{ url('member_profile', {'slug': app.user.member.slug }) }}%23{{ "reservation" ~ event.id }}&title=Venez avec moi, je participe à une soirée insolite Utilisez le code {{ member.tableCode }} pour être à ma même table."
+                   class="social"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/share?url={{ url('member_profile', {'slug': app.user.member.slug }) }}%23{{ "reservation" ~ event.id }}&text=Venez avec moi, je participe à une soirée insolite Utilisez le code {{ member.tableCode }} pour être à ma même table."
+                   class="social"><i class="fa fa-twitter"></i></a>
+                {% if timeToEventStart > 48 %}
+                    <a class="Btn grey xs border-white text-grey" href="{{ path('event_reserve_cancel', {'id': event.reservations.first.id}) }}">
+                        {% block reserve_cancel_button_label %}
+                            {{- 'jy.vais.reserver_cancel' | trans | upper -}}
+                        {% endblock %}
+                    </a>
+                {% endif %}
+            {% else %}
+                <a class="Btn green xs border-white">
+                    {% block reserve_button_label %}
+                        {{- 'jy.vais.reserver' | trans | upper -}}
+                    {% endblock %}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+

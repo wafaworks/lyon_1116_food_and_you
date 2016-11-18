@@ -1,0 +1,196 @@
+.memberProfile__image {
+    border-radius: 50%;
+    border: 3px solid #FFF;
+    box-shadow: 0 0 0 3px @color-green;
+    height: 16rem;
+    width: 16rem;
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+.memberProfile__nextLevel {
+    background-color: @color-grey;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    font-size: @text-lg;
+    text-align: center;
+}
+
+.memberProfile_details *{
+    text-align: left;
+}
+
+.memberProfile__name__block {
+    padding: 0 0 1rem 0;
+}
+
+.memberProfile__name {
+    text-align: left;
+
+    .first {
+        color: @color-green;
+        font-weight: 300;
+    }
+}
+
+@media (max-width: @grid-sm-max) {
+    .memberProfile__name__block {
+        padding: 1rem 0;
+
+        &.align_center_between {
+            display: block;
+            text-align: center;
+        }
+    }
+
+    .memberProfile__name {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+.memberProfile__stars,
+.memberProfile__participations,
+.memberProfile__places {
+    margin: 0.5rem 0;
+}
+
+
+@media (max-width: @grid-sm-max) {
+    .memberProfile__stars,
+    .memberProfile__participations,
+    .memberProfile__places {
+        text-align: center;
+    }
+}
+
+@media (max-width: @grid-sm-max) {
+    .Member__profile__details__stats {
+        text-align: center;
+    }
+}
+
+@media (max-width: @grid-md) {
+    .memberProfile_details * {
+        text-align: center;
+    }
+
+    .memberProfile_details ul {
+        width: 25rem;
+        margin:0 auto;
+
+        & li {
+            text-align: left;
+        }
+    }
+}
+
+.memberProfile__participations {
+    img {
+        margin-right: 0.5rem;
+        vertical-align: top;
+    }
+}
+
+.memberProfile__stars .starrr {
+    background-color: @color-grey;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.625rem;
+}
+
+.memberProfile__signature {
+    display: table;
+
+    .info-cell {
+        vertical-align: middle;
+        display: table-cell;
+        padding: 0 2rem;
+
+        .title {
+            color: @color-green;
+        }
+        .info {
+            font-size: @text-xlg;
+            font-weight: bold;
+        }
+    }
+
+    .sticker-cell {
+        vertical-align: middle;
+        display: table-cell;
+        padding: 0 1rem;
+    }
+}
+
+.memberProfile__biography {
+    color: @color-gray;
+    margin: 0.5rem 0;
+}
+
+@media (max-width: @grid-xl) {
+    .memberProfile__image {
+        width: 13rem;
+        height: 13rem;
+    }
+}
+
+@media (max-width: @grid-lg) {
+    .memberProfile__image {
+        width: 12rem;
+        height: 12rem;
+    }
+}
+
+/* applicantCurrentRecipe */
+.applicantCurrentRecipe {
+    .carousel-inner-img-bg {
+        height: 16.5625rem;
+    }
+}
+
+.applicantCurrentRecipe__content__vote {
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        > div:first-child {
+            margin: 0 2rem;
+
+            .h2 {
+                font-size: 45px;
+            }
+
+            .text-xxlg {
+                line-height: 0.1;
+            }
+        }
+    }
+}
+
+.applicantCurrentRecipe__content__events__title {
+    vertical-align: baseline;
+    line-height: 1.5rem;
+}
+
+.applicantCurrentRecipe__content__events__list {
+    margin-bottom: 0;
+    padding-left: 15px;
+}
+
+.recipe_title {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.5);
+    width: 100%;
+    padding: 0.5rem;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+}
+
+.infoModal{
+    color: #EB5F5F;
+    cursor: pointer;
+}

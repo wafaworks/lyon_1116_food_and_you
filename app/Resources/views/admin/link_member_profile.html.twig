@@ -1,0 +1,11 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% trans_default_domain 'SonataAdminMember' %}
+
+{% block field %}
+    <div>
+        <a class="btn btn-sm btn-primary" href="{{ path('member_profile', {'slug': object.slug}) }}">
+            {{ 'view.profile' | trans }}
+        </a>
+    </div>
+{% endblock %}

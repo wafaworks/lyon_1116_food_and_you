@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="d0280f8f113dede2192cb3095c0a43eb" resname="homepage.last.events.just.place-left">
+        <source>homepage.last.events.just.place-left</source>
+        <target><![CDATA[{0}Plus que <strong>%placeLeft% places !</strong>|{1}Plus que <strong>%placeLeft% place !</strong>|[2,Inf]Plus que <strong>%placeLeft% places !</strong>]]></target>
+      </trans-unit>
+      <trans-unit id="c16d199d36846c54c3e3c01d1f5c4cda" resname="homepage.last.events.still.place-left">
+        <source>homepage.last.events.still.place-left</source>
+        <target><![CDATA[{0}Encore <strong>%placeLeft% places !</strong>|{1}Encore <strong>%placeLeft% place !</strong>|[2,Inf]Encore <strong>%placeLeft% places !</strong>]]></target>
+      </trans-unit>
+      <trans-unit id="d74d8e5a98c844cdbd74a2e1c713c00c" resname="homepage.last.events.more.place-left">
+        <source>homepage.last.events.more.place-left</source>
+        <target><![CDATA[{0}<strong>%placeLeft% places </strong> disponible|{1}<strong>%placeLeft% place </strong> disponible|[2,Inf]<strong>%placeLeft% places </strong> disponibles]]></target>
+      </trans-unit>
+      <trans-unit id="e3e6cfdeb12e91390427e758e1d8e612" resname="homepage.last.events.days-left">
+        <source>homepage.last.events.days-left</source>
+        <target><![CDATA[{0}Plus que <strong>%days% jour </strong>pour postuler|{1}Plus que <strong>%days% jour </strong>pour postuler|[2,Inf]Plus que <strong>%days% jours </strong>pour postuler]]></target>
+      </trans-unit>
+      <trans-unit id="4f4dfeefb50db28aab7f4e10aafebc54" resname="homepage.last.events.reserve">
+        <source>homepage.last.events.reserve</source>
+        <target>RÉSERVEZ pour déguster</target>
+      </trans-unit>
+      <trans-unit id="64b8f9ef697b8ad024f0af2316a62a39" resname="homepage.last.events.apply">
+        <source>homepage.last.events.apply</source>
+        <target>POSTULEZ pour cuisiner</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,123 @@
+<modal-block>
+    <content>
+        {{ render(controller('FOSUserBundle:Profile:edit')) }}
+    </content>
+    {% set fileWrongFormat = "form.file.upload.wrong.format"|trans({}, "forms") %}
+    <script type="text/modal-template" language="JavaScript">
+
+        $(document).ready(function () {
+            $('.fileSubmit').on('click', function () {
+                $('.fileUpload input[type="file"]').click();
+
+            })
+
+            $(document).on('change', '.fileUpload input[type="file"]', function () {
+                var ext = this.value.match(/\.([^\.]+)$/)[1],
+                    input = this;
+                ext = ext.toLowerCase();
+                if(ext !== 'jpg' && ext !== 'png' && ext !== 'jpeg') {
+                    $('.fileErrors').html("<p class='text-center help-block'>{{ fileWrongFormat }}</p>");
+                    $('.fileErrors').addClass("has-error");
+                    return;
+                }
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var img = new Image;
+
+                    img.onload = function() {
+                       // image size validation if needed
+                    };
+                    img.src = reader.result;
+
+                    getOrientation(input.files[0], function(orientation) {
+                        switch(orientation) {
+                            case 3:
+                                degrees = 180;
+                                break;
+                            case 6:
+                                degrees = 90;
+                                break;
+                            case 8:
+                                degrees = -90;
+                                break;
+                            default:
+                                degrees = 0;
+                        }
+                        $('.fileUpload .memberProfile__image').css({
+                            '-webkit-transform': 'rotate(' + degrees + 'deg)',
+                            '-moz-transform': 'rotate(' + degrees + 'deg)',
+                            '-ms-transform': 'rotate(' + degrees + 'deg)',
+                            '-o-transform': 'rotate(' + degrees + 'deg)',
+                            'transform': 'rotate(' + degrees + 'deg)'
+                        })
+                    });
+
+                    $('.fileUpload .memberProfile__image').css("background-image", "url(" + img.src + ")");
+                };
+
+                reader.readAsDataURL(this.files[0]);
+            });
+
+            $('.fos_user_profile_edit').validate(validatorTemplates({
+                submitHandler: function (formElement) {
+                    var form = $(formElement);
+                    var data  = new FormData(form[0]);
+                    displaySpinner($('body'));
+                    $.ajax({
+                        type        : form.attr( 'method' ),
+                        url         : '{{ path("fos_user_profile_edit") }}',
+                        data        : data,
+                        contentType: false,
+                        processData: false,
+                        success     : function(data) {
+                            if (data.status === 'success') {
+                                window.location.reload(false);
+                            } else {
+                                ajaxErrorHandler.display(form, data.errors);
+                            }
+                        },
+                        error: function(data){
+                        },
+                        complete: function(){
+                            hideSpinner($('body'));
+                        }
+                    });
+                },
+                rules: {
+                    "fos_user_profile_form[member][biography]": {
+                        required: false,
+                        maxlength: 5000
+                    },
+                    "fos_user_profile_form[member][signature]": {
+                        required: false,
+                        maxlength: 2000
+                    },
+                    "fos_user_profile_form[plainPassword][first]": {
+                        equalTo: "#fos_user_profile_form_plainPassword_second",
+                        required: false,
+                    },
+                    "fos_user_profile_form[plainPassword][second]": {
+                        required: false,
+                        minlength: 8,
+                    }
+                },
+                messages: {
+                    "fos_user_profile_form[member][biography]": {
+                        maxlength: '{{ 'app.member.edit.biography.long'|trans({}, 'validators') }}'
+                    },
+                    "fos_user_profile_form[member][signature]": {
+                        maxlength: '{{ 'app.member.edit.signature.long'|trans({}, 'validators') }}'
+                    },
+                    "fos_user_profile_form[plainPassword][first]": {
+                        equalTo: '{{ 'app.member.edit.password.equalTo'|trans({}, 'validators') }}'
+                    },
+                    "fos_user_profile_form[plainPassword][second]": {
+                        minlength: '{{ 'app.member.edit.password.short'|trans({}, 'validators') }}'
+                    },
+                }
+            }));
+        });
+    </script>
+</modal-block>
+

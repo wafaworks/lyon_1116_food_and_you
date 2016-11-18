@@ -1,0 +1,410 @@
+.Event__date {
+    margin: 0.5rem 2rem 0 0;
+}
+
+.Event__header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.Event__title {
+
+    flex: 1;
+    flex-grow: 100;
+    .restaurant {
+        color: @color-green;
+        font-size: @text-lg;;
+    }
+
+    .name {
+        text-align: left;
+    }
+}
+
+.Event__social {
+    text-align: right;
+    flex-grow: 1;
+    padding: 0.5rem 0;
+}
+
+@media (max-width: @grid-xs-max) {
+    .Event__social {
+        text-align: center;
+    }
+}
+
+
+.Event__info {
+
+    display: flex;
+    flex-wrap: nowrap;
+    .hour {
+        margin-right: 0.5rem;
+    }
+
+    .price, .hour {
+        align-items: center;
+        display: inline-block;
+        background-color: @color-grey;
+        padding: 0.5rem;
+        flex-grow: 1;
+
+        .sprite {
+            margin: 0.7rem 0;
+            vertical-align: middle;
+        }
+
+        .content {
+            display: inline-block;
+
+            vertical-align: middle;
+        }
+    }
+}
+
+.Event__description {
+    color: @color-gray;
+}
+
+.Event__group {
+    background-color: @color-green-opaque;
+    margin: 1rem 0;
+}
+
+.Event__contact {
+    background-color: @color-green-opaque;
+    //padding: 0.5rem 0;
+    //margin: 0.5rem 0;
+    border-bottom: 1px solid #FFF;
+    display: flex;
+    color: #FFF;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+    align-items: center;
+
+    &.block {
+        display: block;
+        text-align: center;
+    }
+
+    .fa{
+        width: 3rem;
+    }
+    .sprite, .fa {
+        margin: 0.7rem 1rem;
+        vertical-align: middle;
+        flex-shrink: 0;
+        text-align: center;
+    }
+
+    .content {
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 0.5rem;
+        //font-size: @text-sm;
+    }
+}
+
+.Event__status {
+    background-color: @color-pink;
+    border-radius: 1.5rem;
+    padding: 0.25rem 1rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    font-size: @text-xs;
+    font-weight: bold;
+    color: #FFF;
+
+    a&:hover,
+    a&:visited,
+    a&:focus{
+        color: #FFFFFF;
+    }
+
+    &.green {
+        background-color: @color-green;
+    }
+}
+
+.Event__reserve {
+    background-color: @color-green-opaque;
+    height: 350px;
+    color: #FFF;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    & > div {
+        flex: 1;
+    }
+
+    .Btn {
+        margin: 1rem 0;
+        text-transform: uppercase;
+    }
+}
+
+.Event__map {
+    padding: 0;
+}
+
+.Widget.eventDetails__box {
+
+    min-height: 20rem;
+    position: relative;
+    margin-top: 7rem;
+
+    .eventDetails__userPhoto .Sticker__content {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        background-size: cover;
+    }
+
+    .Widget__header {
+        height: 14.5rem;
+        position: relative;
+    }
+
+    .applicantCarousel {
+        .carousel-inner-img-bg {
+            height: 14.5rem;
+        }
+    }
+    .Widget__caption {
+        font-weight: bold;
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.4);
+        width: 100%;
+        padding: 0.5rem 1rem;
+    }
+
+    .Widget__footer {
+        display: flex;
+        align-items: center;
+
+        .eventDetails__votes {
+            flex-basis: 28%;
+            display: block;
+            div {
+                &:first-child {
+                    font-size: 1.6rem;
+                    line-height: 0.8;
+                }
+
+                &:last-child {
+                    font-weight: normal;
+                    line-height: 1;
+                }
+            }
+        }
+
+        .eventDetails__info {
+            flex: 1;
+            text-align: center;
+        }
+
+        .eventDetails__vote {
+            padding: 0 0.2rem;
+
+            .fa {
+                color: @color-green;
+                font-size: 3rem;
+                padding-right: 0.5rem;
+            }
+        }
+
+        .eventDetails__info_rating {
+            display: inline-block;
+            background-color: #c5c5c5;
+            border-radius: 0.625rem;
+            padding: 0.1rem 0.5rem;
+            line-height: 1;
+        }
+
+        .eventDetails__info_status {
+            display: inline-block;
+            background-color: @color-orange;
+            color: #FFF;
+            font-weight: bold;
+            font-size: @text-sm;
+            border-radius: 0.625rem;
+            padding: 0.2rem 0.5rem;
+            line-height: 1;
+        }
+
+    }
+
+    .Widget__body {
+        padding-top: 4rem;
+        .Widget__subtitle {
+            color: @color-green;
+        }
+
+        .Widget__title,
+        .Widget__subtitle {
+            text-align: center;
+        }
+
+        hr {
+            max-width: 80%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .Widget__description {
+            height: 12.5rem;
+            overflow: hidden;
+            h4 {
+                font-size: 1.1rem;
+                padding: 0.6rem 0.7rem;
+                line-height: 1.5rem;
+                text-align: left;
+                text-transform: uppercase;
+            }
+            p {
+                font-size: 0.9rem;
+                padding: 0 0.9rem;
+                margin-top: -0.42rem;
+                margin-bottom: 0.7rem;
+                line-height: 1.5rem;
+                text-align: justify;
+            }
+        }
+    }
+
+    .eventDetails__userPhoto {
+        position: absolute;
+        top: 0;
+        left: 50%;
+
+        margin: 0;
+
+        height: 10rem;
+        width: 10rem;
+
+        border: 1px solid #FFF;
+        box-shadow: 0 0 0 3px #00938c;
+
+        -webkit-transform: translate(-50%, -64%);
+        -ms-transform: translate(-50%, -64%);
+        -o-transform: translate(-50%, -64%);
+        transform: translate(-50%, -64%);
+    }
+}
+
+
+.eventApplication_propose {
+    background: @color-green-dark2;
+    border-radius: 0.3rem;
+    min-height: 5.7rem;
+    margin: 1rem 0;
+    & > div:first-child {
+        float: left;
+        margin: 1rem;
+        padding-bottom: 0.5rem;
+        background-image: url("/images/event-application/icon3.png");
+        background-position: left center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        & > h5 {
+            color: @color-white;
+            font-size: 1.45rem;
+            width: 18rem;
+            margin-left: 6rem;
+        }
+    }
+    & > button {
+        float: right;
+        margin: 1.5rem;
+    }
+}
+
+.modal .modal-body form .form-group label[for].error {
+    color: darken(@color-red-opaque, 25%);
+
+    &::before {
+        content: "";
+        position: relative;
+        top: 2px;
+        display: inline-block;
+        padding-right: 5px;
+        font-family: "Glyphicons Halflings";
+        font-weight: 400;
+        line-height: 1;
+    }
+
+    line-height: 1.5;
+}
+
+label.groupRadioButton {
+    margin-right: 1rem;
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        -webkit-transform: scale(0.01);
+        -ms-transform: scale(0.01);
+        -o-transform: scale(0.01);
+        transform: scale(0.01);
+    }
+
+    border: 0;
+    background: transparent;
+
+    input[type="checkbox"] + div,
+    input[type="radio"] + div {
+        background: @color-green-dark2;
+        color: @color-white;
+
+        font-weight: bold;
+        font-size: 0.8rem;
+
+        padding: 0.4rem 1.6rem 0.4rem 0.1rem;
+        -webkit-border-radius: 0.2rem;
+        -moz-border-radius: 0.2rem;
+        -ms-border-radius: 0.2rem;
+        -o-border-radius: 0.2rem;
+        border-radius: 0.2rem;
+
+        &::before {
+            color: transparent;
+            font-family: FontAwesome;
+            content: "\f105";
+            display: inline-block;
+            padding: 0 0.6rem
+        }
+    }
+
+    input[type="checkbox"]:checked + div,
+    input[type="radio"]:checked + div {
+        background: @color-green;
+        color: @color-white;
+
+        &::before {
+            color: @color-white;
+        }
+    }
+}
+
+.recipe-template-block:first-child .close-action {
+    display: none;
+}
+.recipe-template-block.recipe-object:first-child .close-action {
+    display: block;
+}
+
+.Event__photoImage {
+    background-position: center;
+    background-size: cover;
+    height: 15rem;
+    margin-bottom: 2rem;
+}
+
+#NewEvent__datepicker {
+    display: inline-block;
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="ac063bee1cabffb517d747a37d9cbc90" resname="devenir_chef.title">
+        <source>devenir_chef.title</source>
+        <target><![CDATA[Envie de vivre<br>la vie d'un chef ?]]></target>
+      </trans-unit>
+      <trans-unit id="8efe59299d9a48b9f6ab9b4695d5a8a1" resname="devenir_chef.description">
+        <source>devenir_chef.description</source>
+        <target>Accompagné par un chef, apprenez à cuisiner différemment : accédez à des équipements de professionnels et vivez un vrai service pour de vrais clients ! Accessible à tous, ce « cours de cuisine » particulier est encadré par un professionnel aguerri et pédagogue, garant de la qualité des plats servis.</target>
+      </trans-unit>
+      <trans-unit id="e416811c6d44b75ec013ee480676708e" resname="devenir_chef.button">
+        <source>devenir_chef.button</source>
+        <target>DEVENIR CUISINIER AMATEUR</target>
+      </trans-unit>
+      <trans-unit id="bafc7b9b7bb00bc26631d45c9ee448cf" resname="next_event.title">
+        <source>next_event.title</source>
+        <target>PROCHAIN EVENEMENT</target>
+      </trans-unit>
+      <trans-unit id="2bdce302a4b0f8d276a564799a9abe46" resname="next_event.description">
+        <source>next_event.description</source>
+        <target>Vivez une soirée ludique et gourmande au restaurant</target>
+      </trans-unit>
+      <trans-unit id="b482e8b397db840f8b4683cc5d99212e" resname="next_event.button">
+        <source>next_event.button</source>
+        <target>Voir plus d'evenements</target>
+      </trans-unit>
+      <trans-unit id="62e156faaa66488387e2b4a4ba96e442" resname="reserve.quick">
+        <source>reserve.quick</source>
+        <target>Je réserve vite !</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

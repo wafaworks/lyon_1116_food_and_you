@@ -1,0 +1,140 @@
+{% trans_default_domain "event_details" %}
+
+<modal-block>
+    <content>
+        <h2 class="h2">{{ 'reserve.place'|trans }}</h2>
+        <div class="container-fluid Reservation Reservation--modal">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="Reservation__date Sticker xs green">
+                        <div class="Sticker__content">
+                            <h3>{{ event.startDate|date('d') }}</h3>
+                            <div>{{ event.startDate|date('M')|trans({}, 'messages') }}</div>
+                        </div>
+                    </div>
+                    <div class="Reservation__title">
+                        <span class="green">{{ 'restaurant' | trans({}, 'base') }}</span>
+                        <h3 class="h5">{{ event.restaurant.name }}</h3>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <hr>
+                    <span class="row-icon"> <i class="fa fa-map-marker green"></i></span> {{ event.restaurant.street }}
+                    {{ event.restaurant.postalCode }} {{ event.restaurant.city.name }}<br>
+                    <span class="row-icon"><i
+                                class="fa fa-phone green"></i></span> {{ event.restaurant.contactInfo.phone }}
+                    <hr class="at40"/>
+                    <span class="green">{{ 'code.table'|trans }}</span>
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="Reserve__tableCode" placeholder="FY0000000"
+                               data-id="{{ event.id }}">
+                    </div>
+                    <p class="text-sm">{{ 'code.table.desc'|trans }}</p>
+                </div>
+                <div class="col-sm-4">
+                    <div class="Reservation__info">
+                        <div class="info">
+                            <span class="sprite sprite-hour"></span>
+                            <span class="content">
+                                <span class="h5">{{ event.startDate|date('G') }}h</span>
+                            </span>
+                        </div>
+                        <div class="info">
+                            <span class="sprite sprite-menu"></span>
+                            <span class="content">
+                                {{ 'menu.unique'|trans }}<br>
+                                <span class="h5"><span class="price">{{ event.price|number_format(2, ',', '.') }}</span> &euro;</span>
+                            </span>
+                        </div>
+                        <div class="info">
+                            <i class="fa fa-male"></i>
+                            <span class="content">
+                                <input class="input_number" name="capacity" value="1">
+                            </span>
+                            <span class="pers">{{ 'person.abr'|trans({},'base') }}</span>
+                            <div class='has-error'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <div id="reservationModalError">
+
+                    </div>
+                    <button id="Reserve__submit" class="Btn wide green">{{ 'reserve'|trans }}</button>
+                </div>
+            </div>
+        </div>
+    </content>
+    <script type="text/modal-template" language="JavaScript">
+        modal.content().find('.close').on('click', function() {
+            var link = $(this).data('link');
+            if (link != undefined) {
+                window.location.assign(link);
+            } else {
+                modal.hide();
+            }
+        });
+        modal.content().find('#Reserve__submit').on('click', function() {
+            var $ReserveTableCode = $('#Reserve__tableCode');
+            var tableCode = $ReserveTableCode.val();
+            var eventId = $ReserveTableCode.data('id');
+            var places = parseInt(modal.content().find('input.input_number').val());
+            var errorMessages = {
+                already_reserved: '{{ 'error.already_reserved'| trans }}',
+                event_full: '{{ 'error.event_full'| trans }}',
+                wrong_table_code: '{{ 'error.wrong_table_code'| trans }}',
+                no_reservation: '{{ 'error.no_reservation'| trans }}'
+            };
+            $.ajax({
+                url: Routing.generate('event_reserve_process', {'id': eventId, 'places': places}),
+                method: 'POST',
+                data: {
+                    tableCode: tableCode
+                }
+            })
+            .done(function(data) {
+                if (data.status == 'success') {
+                    $('.Reservation--modal').html(data.message);
+                }
+
+                if (data.status == 'error') {
+                    $('#reservationModalError').addClass('alert alert-danger').html(errorMessages[data.message]);
+                }
+            });
+        })
+
+        $('input.input_number').on('change', function() {
+            var input = $(this);
+            var value = parseInt(input.val());
+            var price = parseFloat('{{ event.price|number_format(2, '.') }}');
+            var maxCapacity = parseInt('{{ (event.capacity.maximum) - (event.confirmedReservations) }}');
+
+            if (isNaN(price) || !value || value <= 0) {
+                input.val(1);
+                value = 1;
+            }
+
+
+            if (value > parseInt('{{ constant('\\AppBundle\\Entity\\Event::MAX_LIMIT_RESERVATION') }}')) {
+                $('#Reserve__submit').addClass('disabled');
+                modal.content().find('.has-error').html('<div class="help-block">{{ "error.capacity.limit"|trans }}</div>');
+                return;
+            }
+
+            if (value > maxCapacity) {
+                $('#Reserve__submit').addClass('disabled');
+                modal.content().find('.has-error').html('<div class="help-block">{{ "error.capacity.max"|trans }}</div>');
+                return;
+            }
+
+            $('#Reserve__submit').removeClass('disabled');
+            modal.content().find('.has-error').html('');
+
+            var newPrice = price * value;
+
+            modal.content().find('.price').html(newPrice.toFixed(2).toString().replace('.', ','));
+        });
+    </script>
+</modal-block>

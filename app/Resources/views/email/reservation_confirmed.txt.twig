@@ -1,0 +1,27 @@
+MERCI POUR VOTRE RÉSERVATION FOOD & YOU !
+
+Votre réservation pour {{ reservation.places }} personne(s) a été correctement enregistrée.
+
+{{ reservation.event.startDate|date('d') }} {{ reservation.event.startDate|date('m')|trans({}, 'messages') }} {{ reservation.event.startDate|date('Y') }}
+
+{{ reservation.event.restaurant.name }}
+
+{{ reservation.event.restaurant.street }} {{ reservation.event.restaurant.postalCode }} {{ reservation.event.restaurant.city.name }}
+
+Partagez une soirée insolite avec vos amis ! Invitez-les à votre table en partageant le code :
+
+{{ reservation.tableOwner.tableCode }}
+
+Vous pouvez revoir votre réservation à tout moment en vous rendant sur votre page profil, section "J'y vais bientôt" :
+
+{{ url('member_profile', { "slug": reservation.member.slug }) }}.
+
+Votre facture
+
+Numéro de facture: FY{{ reservation.event.startDate|date('Y') }}{{ reservation.event.startDate|date('m') }}{{ reservation.event.startDate|date('d')}}{{ reservation.transaction.id }}
+Produit: Réservation pour {{ reservation.places }} personne(s)
+Total HT: {{ (reservation.transaction.amount / 100 * 0.88)|number_format(2, ',', '') }} €
+TVA 12%: {{ (reservation.transaction.amount / 100 * 0.12)|number_format(2, ',', '') }} €
+Total TTC: {{ reservation.transaction.formattedAmount }} €
+
+informations légales

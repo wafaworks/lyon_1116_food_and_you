@@ -1,0 +1,5 @@
+{% trans_default_domain 'SonataAdminRestaurant' %}
+
+{% if object.status == constant('\\AppBundle\\Entity\\Restaurant::STATUS_PENDING') %}
+<a class="btn btn-sm btn-danger" href="{{ admin.generateObjectUrl('reject', object) }}">{{ 'restaurant.reject' | trans }}</a>
+{% endif %}

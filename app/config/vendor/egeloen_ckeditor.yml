@@ -1,0 +1,28 @@
+ivory_ck_editor:
+    default_config: blog
+    plugins:
+        wpmore:
+            path:     "/bundles/xabenblog/wpmore/"
+            filename: "plugin.js"
+    configs:
+        blog:
+            allowedContent: true
+            extraPlugins: "wpmore"
+            toolbar:  [ [ 'Format', 'Bold', 'Italic', 'Underline', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote','-', 'Image', 'Link', 'Unlink', 'Table'],  [ 'Maximize', 'DisplayBlocks', 'Source' ], [ 'WPMore' ] ]
+            height: 500px
+            enterMode: CKEDITOR.ENTER_BR
+            shiftEnterMode: CKEDITOR.ENTER_P
+
+            filebrowserBrowseRoute: admin_app_media_browser
+            filebrowserImageBrowseRoute: admin_app_media_browser
+            # Display images by default when clicking the image dialog browse button
+            filebrowserImageBrowseRouteParameters:
+                provider: sonata.media.provider.image
+            filebrowserUploadRoute: admin_app_media_upload
+            filebrowserUploadRouteParameters:
+                provider: sonata.media.provider.file
+            # Upload file as image when sending a file from the image dialog
+            filebrowserImageUploadRoute: admin_app_media_upload
+            filebrowserImageUploadRouteParameters:
+                provider: sonata.media.provider.image
+                context: default # Optional, to upload in a custom context

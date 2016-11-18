@@ -1,0 +1,17 @@
+{% spaceless %}
+{% if photos %}
+    <div class="row box">
+        {% for photo in photos %}
+            <div class="col-sm-4">
+                <div class="Event__photoImage" style="background-image: url('{% path photo.media, 'reference' %}')"></div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    {% if page == 1 %}
+        <p class="text-center stop-list">{{ "photos.notfound"|trans({"%url%": "#"}, "event_details")|raw }}</p>
+    {% else %}
+        <p class="text-center stop-list">{{ "photos.nomore"|trans({"%url%": "#"}, "event_details")|raw }}</p>
+    {% endif %}
+{% endif %}
+{% endspaceless %}

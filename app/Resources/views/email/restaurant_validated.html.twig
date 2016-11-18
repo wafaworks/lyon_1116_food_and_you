@@ -1,0 +1,55 @@
+{% extends ':email:layout.html.twig' %}
+
+{% block title %}
+    <h1 style="text-align: center; color: #FFF; font-weight: 400;font-family: Arial Black, Arial, sans-serif">FÉLICITATIONS !</h1>
+{% endblock %}
+
+{% block subtitle %}
+    <h2 style="text-align: center; color: #008F8A; font-weight: 300; margin: 0; font-size: 20px;font-family: Verdana, Arial, sans-serif">Votre restaurant a été validé par Food & You.</h2>
+{% endblock %}
+
+{% block content %}
+    <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+        <tr>
+            <td>
+                <div class="innerbg">
+                </div>
+                <table width="650" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
+                    <tbody>
+                    <tr>
+                        <td width="100%">
+                            <table width="650" align="center" cellspacing="0" cellpadding="0" border="0" class="devicewidth">
+                                <tbody>
+                                <tr>
+                                    <td align="left" style="padding: 30px 0; color: #000">
+                                        <div style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; line-height: 1.5;">
+                                            <p style="padding-top: 20px">
+                                                Vos événements sont maintenant visibles sur le site <a href="{{ url('homepage') }}">www.foodandyou.fr</a><br>
+                                            </p>
+                                            <p style="padding-top: 20px">
+                                                Pour gérer vos événements connectez-vous ici :
+                                            </p>
+                                            <p>
+                                                <a href="{{ url('restaurant_owner_admin_event_list') }}">
+                                                    {{ url('restaurant_owner_admin_event_list') }}
+                                                </a>
+                                            </p>
+                                            <p style="padding-top: 20px">
+                                                Cordialement,<br>
+                                                L'équipe Food and You"
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

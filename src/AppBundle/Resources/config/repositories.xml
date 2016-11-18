@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="app.repository.applicant_recipe_rating"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\ApplicantRecipeRatingRepository" >
+            <argument>AppBundle\Entity\ApplicantRecipeRating</argument>
+        </service>
+
+        <service id="app.repository.applicant_cook_with"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\ApplicantCookWithRepository" >
+            <argument>AppBundle\Entity\ApplicantCookWith</argument>
+        </service>
+
+        <service id="app.repository.applicant_recipe"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\ApplicantRecipeRepository" >
+            <argument>AppBundle\Entity\ApplicantRecipe</argument>
+        </service>
+
+        <service id="app.repository.applicant_vote"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\ApplicantVoteRepository" >
+            <argument>AppBundle\Entity\ApplicantVote</argument>
+        </service>
+
+        <service id="app.repository.applicant"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\ApplicantRepository" >
+            <argument>AppBundle\Entity\Applicant</argument>
+        </service>
+
+        <service id="app.repository.city"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\CityRepository" >
+            <argument>AppBundle\Entity\City</argument>
+        </service>
+
+        <service id="app.repository.cuisine"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\CuisineRepository" >
+            <argument>AppBundle\Entity\Cuisine</argument>
+        </service>
+
+        <service id="app.repository.event"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\EventRepository" >
+            <argument>AppBundle\Entity\Event</argument>
+        </service>
+
+        <service id="app.repository.member"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\MemberRepository" >
+            <argument>AppBundle\Entity\Member</argument>
+        </service>
+
+        <service id="app.repository.recipe"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\RecipeRepository" >
+            <argument>AppBundle\Entity\Recipe</argument>
+        </service>
+
+        <service id="app.repository.reservation"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\ReservationRepository" >
+            <argument>AppBundle\Entity\Reservation</argument>
+        </service>
+
+        <service id="app.repository.restaurant"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\RestaurantRepository" >
+            <argument>AppBundle\Entity\Restaurant</argument>
+        </service>
+
+        <service id="app.repository.authentication"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\AuthenticationRepository">
+            <argument>AppBundle\Entity\Authentication</argument>
+        </service>
+
+        <service id="app.repository.device"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\DeviceRepository">
+            <argument>AppBundle\Entity\Device</argument>
+        </service>
+
+        <service id="app.repository.member.event.ratings"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\MemberEventRatingsRepository">
+            <argument>AppBundle\Entity\MemberEventRatings</argument>
+        </service>
+
+        <service id="app.repository.member.event.media"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\MemberEventMediaRepository">
+            <argument>AppBundle\Entity\MemberEventMedia</argument>
+        </service>
+
+        <service id="app.repository.notification"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="AppBundle\Entity\Repository\NotificationRepository">
+            <argument>AppBundle\Entity\Notification</argument>
+        </service>
+    </services>
+</container>

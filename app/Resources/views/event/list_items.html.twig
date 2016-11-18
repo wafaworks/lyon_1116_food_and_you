@@ -1,0 +1,22 @@
+{% spaceless %}
+{% if events %}
+    <div class="row box">
+        {% for event in events %}
+            <div class="col-lg-4 col-sm-6">
+                {% include ':partials/widget:event.html.twig' with {'event': event} %}
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    {% if app.user and app.user.member.restaurants|length > 0 %}
+        {% set eventsNotFoundUrl = path('restaurant_owner_admin_event_new') %}
+    {% else %}
+        {% set eventsNotFoundUrl = path('restaurateur_simulateur') %}
+    {% endif %}
+    {% if page == 1 %}
+        <p class="text-center stop-list">{{ "homepage.last.events.notfound"|trans({"%url%": eventsNotFoundUrl}, "default_index")|raw }}</p>
+    {% else %}
+        <p class="text-center stop-list">{{ "homepage.last.events.nomore"|trans({"%url%": eventsNotFoundUrl}, "default_index")|raw }}</p>
+    {% endif %}
+{% endif %}
+{% endspaceless %}

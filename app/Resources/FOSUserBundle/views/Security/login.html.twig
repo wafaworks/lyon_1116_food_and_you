@@ -1,0 +1,51 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+    <form id="login_form" action="{{ path("fos_user_security_check") }}" method="post">
+        {% if error %}
+            <div class="has-error text-center">
+                <span class="help-block">
+                    {{ error.messageKey|trans(error.messageData, 'security') }}
+                </span>
+            </div>
+        {% endif %}
+        <h5 class="box">{{ 'header.login' | trans }}</h5>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+
+        <a class="Btn empty xs border-none Btn--icon green full-width" href="{{ path('hwi_oauth_service_redirect', {'service': "facebook"}) }}">
+            <i class="fa fa-facebook fa-2x"></i>
+            <span>{{ 'connect.facebook' | trans }}</span>
+        </a>
+        <div class="text-center box">
+            OU
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.username'|trans }}" />
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" id="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans }}" />
+        </div>
+
+        <div class="has-error">
+            <p class="help-block global-errors"></p>
+        </div>
+
+        <div class="form-group">
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+        </div>
+
+        <div class="box">
+            <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="Btn green xs full-width round-corners"/>
+        </div>
+
+        <div class="form-group text-center">
+            <a href="javascript: void(0);" onclick="displayModal('modal_resetting_request')" class="close">{{ 'reset' | trans }}</a>
+        </div>
+    </form>
+{% endblock fos_user_content %}

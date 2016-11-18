@@ -1,0 +1,419 @@
+{% extends 'base.html.twig' %}
+
+{% import ":macros:member_level.html.twig" as member_level %}
+{% set levels = constant('AppBundle\\Service\\LevelChecker::LEVEL_DEFINITION') %}
+
+{% trans_default_domain 'member_profile' %}
+
+{% block meta %}
+    <meta property="og:image" content="{% if member.photo %}{% path member.photo, 'default' %}{% else %}{{ gravatar(member.authentication.email) }}{% endif %}"/>
+    <meta property="og:description" content="{{ member.firstName }} participe bientôt à un évènement Food&You. Venez nombreux ! Les cuisiner amateur ont besoin de votre soutien ! Venez goûter leurs recettes."/>
+
+    <meta property="og:locale" content="fr_FR"/>
+    <meta property="og:image:width" content="265"/>
+    <meta property="og:image:height" content="265"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container box-lg memberProfile">
+        {% if app.user == member.authentication %}
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class="BreadcrumbWizzard BreadcrumbWizzard--Level">
+                        <li>
+                            <span class="BreadcrumbWizzard__item active">
+                                <span class="text">{{ 'member.my_level' | trans }}</span>
+                            </span>
+                        </li>
+                        {% for level, setting in levels %}
+                            <li class="{% if member.level == level %}current{% endif %}">
+                                <span class="BreadcrumbWizzard__item{% if member.level >= level %} completed{% endif %}">
+                                    <span class="text">{{ ('member.level.'~level) | trans }}</span>
+                                </span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-xs-12">
+                    <div class="memberProfile__nextLevel">
+                        {{ member_level.getNextLevelDescription(member) }}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="memberProfile__image"
+                     style="background-image: url({% if member.photo %}{% path member.photo, 'default' %}{% else %}{{ gravatar(member.authentication.email) }}{% endif %})"></div>
+            </div>
+            <div class="col-sm-9">
+                <div class="memberProfile__name__block align_center_between">
+                    <h2 class="memberProfile__name">
+                        <span class="first">{{ member.firstName }}</span>
+                        {% if app.user is not null and app.user.member == member %}
+                            {{ member.lastName }}
+                        {% endif %}
+                    </h2>
+                    {% if app.user and app.user.member.id == member.id %}
+                        <button onclick="displayModal('modal_simple', {'template': 'member-edit'});"
+                                class="Btn green xs">{{ "member.edit"|trans({}, "member_profile") }}</button>
+                    {% endif %}
+                </div>
+                <hr>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4 Member__profile__details__stats">
+                            <div class="memberProfile__participations">
+                                <img src="{{ asset('images/icon/icon1.png') }}">
+                                {{ member.participations }}&nbsp;{{ 'participations' | trans }}</div>
+                            {% if member.rating is not null %}
+                                <div class="memberProfile__stars">
+                                    <span class="starrr" data-rating='{{ member.rating|number_format(2) }}'></span>
+                                </div>
+                            {% endif %}
+                            {% if app.user == member.authentication %}
+                                <p><i class="fa fa-question-circle infoModal" onclick="displayModal('modal_simple', {'template': 'info-table-code'});"></i> {{ 'table.code' | trans }} :
+                                    <strong>{{ member.tableCode }}</strong></p>
+                            {% endif %}
+                            <div>
+                                <div class="member__status">
+                                    {{ member_level.toString(member.level) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="memberProfile__biography">
+                                {% if member.profession %}
+                                    <strong>{{ 'i.am'|trans({'%profession%': (member.profession|lower)}) }}</strong><br>
+                                {% endif %}
+                                {% if member.biography %}
+                                    {{ member.biography }}
+                                {% else %}
+                                    {{ 'welcome.to.my.page'| trans }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if member.signature %}
+                    <hr>
+                    <div class="memberProfile__signature">
+                        <div class="sticker-cell">
+                            <div class="Sticker xs green-opaque">
+                                <img class="Sticker__content" src="{{ asset('images/sticker/icon4.png') }}">
+                            </div>
+                        </div>
+                        <div class="info-cell">
+                            <span class="title">{{ 'my.signature' | trans }}</span><br>
+                            <span class="info">{{ member.signature }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% if openedEvents is not empty %}
+        <div class="container-fluid box-lg bg-grey applicantCurrentRecipe">
+            <div class="container">
+                <div class="row">
+                    <h2>{{ "member.applicant-current-recipe.title"|trans({}, "member_profile")|lower|capitalize }}</h2>
+                    <p class="text-center text-gray">{{ "member.applicant-current-recipe.subtitle"|trans({}, "member_profile") }}</p>
+                </div>
+                {% for event in openedEvents %}
+                    {# @var event \AppBundle\Entity\Event #}
+                    <div id="recipe{{ event.id }}" class="row applicantCurrentRecipe__body box">
+                        <div class="col-sm-12 col-md-4 box">
+                            {% for applicant in event.applicants %}
+                                <div class="carousel slide carousel-example-generic-{{ applicant.id }}"
+                                     data-ride="carousel" data-interval="false">
+                                    <div class="carousel-inner" role="listbox">
+                                        {% for applicantRecipe in applicant.recipes %}
+                                            <div class="item{% if loop.first %} active{% endif %}">
+                                                <div class="carousel-inner-img-bg"
+                                                     style="background-image: url('{% path applicantRecipe.recipe.photo, 'big' %}')"></div>
+                                                <div class="recipe_title">{{ applicantRecipe.recipe.name }}</div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+
+                                    {% if applicant.recipes.count > 1 %}
+                                        <a class="left carousel-control"
+                                           href=".carousel-example-generic-{{ applicant.id }}" role="button"
+                                           data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                            <span class="sr-only">{{ "member.applicant-current-recipe.previous"|trans({}, "member_profile") }}</span>
+                                        </a>
+                                        <a class="right carousel-control"
+                                           href=".carousel-example-generic-{{ applicant.id }}" role="button"
+                                           data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                            <span class="sr-only">{{ "member.applicant-current-recipe.next"|trans({}, "member_profile") }}</span>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <div class="row box applicantCurrentRecipe__content__events">
+                                <div class="col-xs-3 col-sm-2 col-md-3 col-lg-2">
+                                    <div class="Sticker sm green-opaque">
+                                        <div class="Sticker__content">
+                                            <h3>{{ event.startDate|date('d') }}</h3>
+                                            <div>{{ event.startDate|date('M')|trans({}, 'messages') }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-9 col-sm-10 col-md-9 col-lg-10">
+                                    <div class="row applicantCurrentRecipe__content__events__title">
+                                        <div class="col-md-8 text-xxlg bold">{{ 'member.applicant-current-recipe.my-recipe'|trans({}, "member_profile") }}</div>
+                                        <a href="{{ path('event_details', {'id': event.id}) }}"
+                                           class="col-md-4 text-sm italic text-right">
+                                            {{ 'member.applicant-current-recipe.see.event.page'|trans({}, "member_profile") }}
+                                        </a>
+                                    </div>
+                                    <hr>
+                                    {% for applicant in event.applicants %}
+                                        <ul class="applicantCurrentRecipe__content__events__list">
+                                            {% for applicantRecipe in applicant.recipes %}
+                                                <li>{{ applicantRecipe.recipe.name }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="applicantCurrentRecipe__content__vote">
+                                <div class="col-sm-12 box round-corners bg-silver">
+                                    {% for applicant in event.applicants %}
+                                        <div>
+                                            <p class="h2 voteNr">{{ applicant.nrVotes }}</p>
+                                            <p class="text-xxlg text-center">
+                                                {{ "member.applicant-current-recipe.votes"|transchoice(applicant.nrVotes, {}, "member_profile") }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            {% if not app.user %}
+                                                <button class="Btn green sm border-white text-uppercase" onclick="displayModal('modal_login')">
+                                                    {{ "member.applicant-current-recipe.vote.me"|trans({}, "member_profile") }}
+                                                </button>
+                                            {% elseif applicant.id in votedFor %}
+                                                <i class="fa fa-check-circle-o fa-3x"></i>
+                                            {% else %}
+                                                <button class="Btn green sm border-white text-uppercase voteMe" data-applicant-id="{{ applicant.id }}">
+                                                    {{ "member.applicant-current-recipe.vote.me"|trans({}, "member_profile") }}
+                                                </button>
+                                            {% endif %}
+
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-sm-12 box text-center">
+                                    <a target="_blank" href="https://www.instagram.com/foodandyouofficiel/" class="social"><i class="fa fa-instagram"></i></a>
+                                    {% if app.user == member.authentication %}
+                                        <a href="http://www.facebook.com/sharer.php?u={{ url('member_profile', {'slug': app.user.member.slug }) }}%23{{ "recipe" ~ event.id }}&title=Votez pour moi :)"
+                                           class="social"><i class="fa fa-facebook"></i></a>
+                                        <a href="https://twitter.com/share?url={{ url('member_profile', {'slug': app.user.member.slug }) }}%23{{ "recipe" ~ event.id }}&text=Votez pour moi :)"
+                                           class="social"><i class="fa fa-twitter"></i></a>
+                                    {% else %}
+                                        <a href="http://www.facebook.com/sharer.php?u={{ url('member_profile', {'slug': member.slug }) }}%23{{ "recipe" ~ event.id }}&title=Votez pour {{ member.firstName }}"
+                                           class="social"><i class="fa fa-facebook"></i></a>
+                                        <a href="https://twitter.com/share?url={{ url('member_profile', {'slug': member.slug }) }}%23{{ "recipe" ~ event.id }}&text=Votez pour {{ member.firstName }}"
+                                           class="social"><i class="fa fa-twitter"></i></a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    {# ------------------------ EVENTS WHERE MEMBER WILL COOK ------------------------ #}
+    {% if getEventsWhereMemberWillCook|length > 0 %}
+        <div class="container box-lg">
+            <h2>{{ 'member.events-where-member-will-cook.title' | trans | lower|capitalize }}</h2>
+            <p class="text-center">{{ 'member.events-where-member-will-cook.subtitle' | trans }}</p>
+            {# @var event \AppBundle\Entity\Event #}
+            {% for event in getEventsWhereMemberWillCook %}
+                <div class="container-fluid Reservation" id="cook{{ event.id }}">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="Reservation__date Sticker xs green">
+                                <div class="Sticker__content">
+                                    <h3>{{ event.startDate |date('d') }}</h3>
+                                    <div>{{ event.startDate |date('M')|trans({}, 'messages') }}</div>
+                                </div>
+                            </div>
+                            <div class="Reservation__title">
+                                <a href="{{ path('restaurant_details', {'id': event.restaurant.id}) }}">
+                                    <h3 class="h5">{{ event.restaurant.name }}</h3>
+                                </a>
+                                <address>{{ event.restaurant.street }}, {{ event.restaurant.city }}</address>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 hidden-xs">
+                            <div class="Reservation__title__social">
+                                <a target="_blank" href="https://www.instagram.com/foodandyouofficiel/" class="social"><i class="fa fa-instagram"></i></a>
+                                {% if app.user == member.authentication %}
+                                    <a href="http://www.facebook.com/sharer.php?u={{ url('member_profile', {'slug': app.user.member.slug }) }}%23{{ "cook" ~ event.id }}&title=Je vais être aux fourneaux {{ event.restaurant.name }} / {{ event.startDate |localizeddate('none', 'none', app.request.locale, null, "d-MMMM-Y") }} !"
+                                       class="social"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://twitter.com/share?url={{ url('member_profile', {'slug': app.user.member.slug }) }}%23{{ "cook" ~ event.id }}&text=Je vais être aux fourneaux {{ event.restaurant.name }} / {{ event.startDate |localizeddate('none', 'none', app.request.locale, null, "d-MMMM-Y") }} !"
+                                       class="social"><i class="fa fa-twitter"></i></a>
+                                {% else %}
+                                    <a href="http://www.facebook.com/sharer.php?u={{ url('member_profile', {'slug': member.slug }) }}%23{{ "cook" ~ event.id }}&title={{ member.firstName }} sera aux fourneaux !"
+                                       class="social"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://twitter.com/share?url={{ url('member_profile', {'slug': member.slug }) }}%23{{ "cook" ~ event.id }}&text={{ member.firstName }} sera aux fourneaux !"
+                                       class="social"><i class="fa fa-twitter"></i></a>
+                                {% endif %}
+                                <a class="Btn green xs border-white"
+                                   href="{{ path('event_details', {'id': event.id}) }}">{{ "je.reserve.vit"|trans|upper }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row Reservation__dishes">
+                        {% for applicant in event.applicants %}
+                            <div class="col-sm-4"
+                                 style="background-image: url({% path applicant.recipes.first.recipe.photo, 'big' %})">
+                                <span class="type">{{ ('dish.' ~ applicant.recipes.first.recipe.type) |trans({}, 'base') }}</span>
+                                {% if applicant.member.id == member.id %}
+                                    <div class="label black bottom-right">
+                                        {{ "ma.recette"|trans }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {# ------------------------ EVENTS WHERE MEMBER HAS RESERVATION -------------- #}
+    {% if nextReservedEvents|length > 0 %}
+        <div class="container box-lg">
+            <h2>{{ 'jy.vais' | trans }}</h2>
+            <p class="text-center">{{ 'jy.vais.desc' | trans }}</p>
+            {% for event in nextReservedEvents %}
+                {% include ':partials/event:reserve.html.twig' with {'event': event, 'member': member} only %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {# ------------------------ EVENTS WHERE MEMBER COOKED ------------------------ #}
+
+    {% if eventsWhereMemberCooked is not empty %}
+        <div class="container-fluid box-lg bg-grey eventsWhereMemberCooked">
+            <div class="container">
+                <div class="row">
+                    <h2>{{ "member.events-where-member-cooked.title"|trans({}, "member_profile") }}</h2>
+                    <p class="text-center text-gray">{{ "member.events-where-member-cooked.subtitle"|trans({}, "member_profile")|lower|capitalize }}</p>
+                </div>
+                <div class="row">
+                    {% set memberCookedNr = eventsWhereMemberCooked|length %}
+                    {% for event in eventsWhereMemberCooked %}
+                        {# @var event \AppBundle\Entity\Event #}
+                        <div class="col-lg-4 col-sm-6{% if memberCookedNr == 1 %} col-lg-offset-4{% endif %}">
+                            {% include ':partials/widget:event.html.twig'  with {
+                            'event': event,
+                            'widget_body_bg_color': 'bg-white',
+                            'star': event.applicants.first.recipes.first.rating|number_format(2)
+                            } %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if pastReservedEvents|length > 0 %}
+        <div class="container box-lg">
+            <h2>{{ 'jy.etais' |trans|lower|capitalize }}</h2>
+            <p class="text-center">{{ 'jy.etais.desc' | trans }}</p>
+            {% for event in pastReservedEvents %}
+                <div class="container-fluid Reservation">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="Reservation__date Sticker xs green">
+                                <div class="Sticker__content">
+                                    <h3>{{ event.startDate |date('d') }}</h3>
+                                    <div>{{ event.startDate |date('M')|trans({}, 'messages') }}</div>
+                                </div>
+                            </div>
+                            <div class="Reservation__title">
+                                <h3 class="h5">{{ event.restaurant.name }}</h3>
+                                <address>{{ event.restaurant.street }}, {{ event.restaurant.city }}</address>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row Reservation__dishes Reservation__dishes--finished">
+                        {% for index in 0..2 %}
+                            {% if event.applicants[index] is defined %}
+                                {% set currentApplicant =  event.applicants[index] %}
+                                {% for currentApplicantRecipe in currentApplicant.recipes %}
+                                <div class="col-sm-4"
+                                     style="background-image: url({% path currentApplicantRecipe.recipe.photo, 'big' %})">
+                                    <span class="type">{{ ('dish.' ~ currentApplicantRecipe.recipe.type) |trans({}, 'base') }}</span>
+                                    <span class="starrr"
+                                          data-rating='{{ currentApplicantRecipe.rating|number_format(2) }}'></span>
+                                    <div class="visual">
+                                        <i class="fa fa-eye"></i>
+                                        {{ 'vote.visual' | trans({}, 'base') }}: <span
+                                                class="my-rate">{% if givenRates[currentApplicantRecipe.id] is defined %}
+                                                {{ givenRates[currentApplicantRecipe.id].visualRating }}
+                                            {% else %}-{% endif %}</span><span class="total-rate">/5</span>
+                                    </div>
+                                    <div class="taste">
+                                        <i class="icon-lips"></i>
+                                        {{ 'vote.taste' | trans({}, 'base') }}: <span
+                                                class="my-rate">{% if givenRates[currentApplicantRecipe.id] is defined %}
+                                                {{ givenRates[currentApplicantRecipe.id].tasteRating }}
+                                            {% else %}-{% endif %}</span><span class="total-rate">/5</span>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        {% if modal == 'reservation-confirmed' %}
+        displayModal('modal_reservation_confirmed', {'id' : {{reservationId}}});
+        {% endif %}
+        $('.voteMe').on('click', function () {
+            var button = $(this);
+            var applicantId = $(this).data('applicant-id');
+            var counter = $(this).closest('.applicantCurrentRecipe__content__vote').find('.voteNr');
+
+            $.ajax({
+                type        : 'POST',
+                url         : '{{ path("event_applicant_vote") }}',
+                data        : {
+                    applicantId: applicantId
+                },
+                dataType    : "json",
+                success     : function(data) {
+                    if (data.status === 'voted') {
+                        counter.html(data.voteCount);
+                        button.parent().html('<i class="fa fa-check-circle-o fa-3x"></i>');
+                    } else {
+                        console.log(data);
+                    }
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block title %}{{ 'profile.title' | trans({'%candidat%': member.firstName}, 'seo') }}{% endblock %}
+{% block description %}{{ 'profile.description' | trans({'%candidat%': member.firstName}, 'seo') }}{% endblock %}

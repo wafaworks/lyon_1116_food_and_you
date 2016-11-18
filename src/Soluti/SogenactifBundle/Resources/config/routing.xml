@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="soluti_sogenactif_normal" path="/callback">
+        <default key="_controller">SolutiSogenactifBundle:Payment:normal</default>
+    </route>
+
+    <route id="soluti_sogenactif_cancel" path="/cancel">
+        <default key="_controller">SolutiSogenactifBundle:Payment:cancel</default>
+    </route>
+
+    <route id="soluti_sogenactif_auto" path="/auto-callback">
+        <default key="_controller">SolutiSogenactifBundle:Payment:auto</default>
+    </route>
+</routes>

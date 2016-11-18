@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="05ca988dd619e97ac39f8be451da4522" resname="app.owner_admin.index.menu.my.profile">
+        <source>app.owner_admin.index.menu.my.profile</source>
+        <target>Mon profil</target>
+      </trans-unit>
+      <trans-unit id="1fca3128c510f71654742a77ac5fc23b" resname="app.owner_admin.index.menu.events.list">
+        <source>app.owner_admin.index.menu.events.list</source>
+        <target>Gérer mes événements</target>
+      </trans-unit>
+      <trans-unit id="475249937f9da12fa99a43239d012098" resname="app.owner_admin.index.menu.events.new">
+        <source>app.owner_admin.index.menu.events.new</source>
+        <target>Nouvel événement</target>
+      </trans-unit>
+      <trans-unit id="5100f34d8d483616a21aff5dddf149cd" resname="app.owner_admin.index.menu.restaurant.view">
+        <source>app.owner_admin.index.menu.restaurant.view</source>
+        <target>Voir ma page restaurant</target>
+      </trans-unit>
+      <trans-unit id="a68c92bff4fb662a22744cb1b29a4db4" resname="app.owner_admin.index.menu.restaurant.edit">
+        <source>app.owner_admin.index.menu.restaurant.edit</source>
+        <target>Modifier ma page restaurant</target>
+      </trans-unit>
+      <trans-unit id="1b259b504b2831e5f7bf4067c881d69b" resname="app.owner_admin.index.menu.contact">
+        <source>app.owner_admin.index.menu.contact</source>
+        <target>Contacter Food You</target>
+      </trans-unit>
+      <trans-unit id="f3cd7461d445d5c581a9c6c17c94f640" resname="app.owner_admin.index.title">
+        <source>app.owner_admin.index.title</source>
+        <target>Mon compte</target>
+      </trans-unit>
+      <trans-unit id="e7411bf2fc582b3d5be8cba014639dab" resname="app.owner_admin.event.list.table.head.date">
+        <source>app.owner_admin.event.list.table.head.date</source>
+        <target>Date</target>
+      </trans-unit>
+      <trans-unit id="efc44a6c6dce9b4c2e94b8b709b78c2f" resname="app.owner_admin.event.list.table.head.status">
+        <source>app.owner_admin.event.list.table.head.status</source>
+        <target>Statut</target>
+      </trans-unit>
+      <trans-unit id="fe5695d93b73f0666b433cf8da62a29f" resname="app.owner_admin.event.list.table.head.capacity_min">
+        <source>app.owner_admin.event.list.table.head.capacity_min</source>
+        <target>Couverts minimum</target>
+      </trans-unit>
+      <trans-unit id="c21897943857b25bba48a92fefed873d" resname="app.owner_admin.event.list.table.head.capacity_max">
+        <source>app.owner_admin.event.list.table.head.capacity_max</source>
+        <target>Couverts ouverts</target>
+      </trans-unit>
+      <trans-unit id="5dde2a88c0f44b1479e6c68f2d704e1a" resname="app.owner_admin.event.list.table.head.reservations">
+        <source>app.owner_admin.event.list.table.head.reservations</source>
+        <target>Réservations faites</target>
+      </trans-unit>
+      <trans-unit id="409c9f1b2519660bb44e7e69cf3c9fb0" resname="app.owner_admin.event.list.table.head.applicants">
+        <source>app.owner_admin.event.list.table.head.applicants</source>
+        <target>Candidats</target>
+      </trans-unit>
+      <trans-unit id="de6a832b59ff118e935cca2543850e19" resname="app.owner_admin.event.list.table.head.total">
+        <source>app.owner_admin.event.list.table.head.total</source>
+        <target>CA</target>
+      </trans-unit>
+      <trans-unit id="974071db1d2efd4053946440a110367d" resname="app.owner_admin.event.list.table.head.buttons">
+        <source>app.owner_admin.event.list.table.head.buttons</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="8f7098f9977cbbfa4e5311f947acd36b" resname="app.owner_admin.event.list.manage">
+        <source>app.owner_admin.event.list.manage</source>
+        <target>Gérer</target>
+      </trans-unit>
+      <trans-unit id="2c483052f0568497e30702d12502fe02" resname="app.owner_admin.event.exit.impersonation">
+        <source>app.owner_admin.event.exit.impersonation</source>
+        <target>Sortie imitation</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

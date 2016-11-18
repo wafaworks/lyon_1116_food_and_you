@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <imports>
+        <import resource="admin.xml"/>
+        <import resource="repositories.xml"/>
+        <import resource="notifications.xml"/>
+        <import resource="events.xml"/>
+        <import resource="forms.xml"/>
+    </imports>
+
+    <services>
+        <service id="app.security.oauth_user_provider" class="AppBundle\Security\OauthUserProvider"
+                 parent="hwi_oauth.user.provider.fosub_bridge.def">
+            <argument type="collection">
+                <argument key="facebook">facebook_id</argument>
+            </argument>
+            <argument type="service" id="event_dispatcher"/>
+            <argument>%kernel.root_dir%</argument>
+        </service>
+
+        <service id="app.security.authentication_handler" class="AppBundle\Security\AuthenticationHandler">
+            <argument type="service" id="router" />
+            <argument type="service" id="translator" />
+        </service>
+
+        <service id="app.api.oauth.facebook.extension" class="AppBundle\Security\Api\Extensions\FacebookGrantExtension">
+            <tag name="fos_oauth_server.grant_extension" uri="http://fy.com/facebook" />
+            <argument type="service" id="app.repository.authentication"/>
+            <argument type="service" id="hwi_oauth.resource_owner.facebook"/>
+        </service>
+
+        <service id="app.manager.reservation" class="AppBundle\Service\ReservationManager">
+            <argument type="service" id="app.repository.reservation" />
+            <argument type="service" id="app.manager.table_token" />
+            <argument type="service" id="soluti_sogenactif.transaction_manager" />
+            <argument type="service" id="event_dispatcher" />
+        </service>
+
+        <service id="app.manager.application" class="AppBundle\Service\ApplicationManager">
+            <argument type="service" id="app.repository.member" />
+            <argument type="service" id="app.repository.applicant" />
+            <argument type="service" id="app.repository.applicant_cook_with" />
+            <argument type="service" id="app.repository.applicant_recipe" />
+        </service>
+
+        <service id="app.manager.restaurant" class="AppBundle\Service\RestaurantManager">
+            <argument type="service" id="app.repository.restaurant" />
+        </service>
+
+        <service id="app.manager.table_token" class="AppBundle\Service\TableTokenManager">
+            <argument type="service" id="app.repository.member" />
+            <argument type="service" id="app.utils.hash_generator" />
+        </service>
+
+        <service id="app.manager.application_recipe" class="AppBundle\Service\ApplicationRecipeManager">
+            <argument type="service" id="app.repository.applicant_recipe" />
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+
+        <service id="app.manager.event" class="AppBundle\Service\EventManager">
+            <argument type="service" id="app.repository.restaurant" />
+            <argument type="service" id="app.repository.event" />
+        </service>
+
+        <service id="app.level.checker" class="AppBundle\Service\LevelChecker">
+            <argument type="service" id="app.repository.member" />
+            <argument type="service" id="event_dispatcher" />
+        </service>
+
+        <service id="app.utils.hash_generator" class="AppBundle\Service\HashGenerator">
+        </service>
+
+        <service id="app.api.event" class="AppBundle\Service\Api\Event">
+            <argument type="service" id="app.repository.event"></argument>
+            <argument type="service" id="app.repository.applicant"></argument>
+            <argument type="service" id="app.repository.applicant_recipe_rating"></argument>
+            <argument type="service" id="app.repository.member.event.ratings"></argument>
+            <argument type="service" id="app.repository.member.event.media"></argument>
+            <argument type="service" id="sonata.media.provider.image"></argument>
+        </service>
+
+        <service id="app.api.exception" class="AppBundle\Service\Api\ApiException">
+            <tag name="kernel.event_listener" event="kernel.exception" />
+        </service>
+
+        <service id="app.service.mailer" class="AppBundle\Service\Mailer">
+            <argument type="service" id="mailer" />
+        </service>
+
+        <service id="app.service.fos_user_mailer" class="AppBundle\Service\FOSUserMailer">
+            <argument type="service" id="event_dispatcher" />
+        </service>
+
+        <service id="user_redirect_listener" class="AppBundle\Event\Listener\RouterListener">
+            <argument type="service" id="security.token_storage" />
+            <argument type="service" id="security.authorization_checker" />
+            <argument type="service" id="router" />
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" />
+        </service>
+    </services>
+</container>

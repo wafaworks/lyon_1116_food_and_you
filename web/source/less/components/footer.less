@@ -1,0 +1,36 @@
+.SiteFooter {
+    clear: both;
+}
+
+.SiteFooter__title {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin: 1.25rem 0;
+    color: @color-green-dark1;
+}
+
+.SiteFooter__menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: 14px;
+}
+
+.SiteFooter__menu > li {
+    padding: 0 0.5rem;
+    line-height: 2.5rem;
+
+    &.SiteFooter__menu__separator {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: @grid-xl) {
+    .SiteFooter__menu__separator {
+        display: none;
+        padding: 0;
+    }
+}

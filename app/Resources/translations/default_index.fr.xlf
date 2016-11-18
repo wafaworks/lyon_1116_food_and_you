@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="7d9be5374df9916234e672ec532ed7d0" resname="soir_resto.title">
+        <source>soir_resto.title</source>
+        <target><![CDATA[FOOD & YOU : COMMENT ÇA MARCHE ?]]></target>
+      </trans-unit>
+      <trans-unit id="6926c53bb2cb2eb8948d6d8dc6760ee8" resname="soir_resto.description">
+        <source>soir_resto.description</source>
+        <target>La recette originale en 3 étapes gourmandes </target>
+      </trans-unit>
+      <trans-unit id="b7ae8fe2d88abc6a56e2c9d85354b7f2" resname="soir_resto.reason1.title">
+        <source>soir_resto.reason1.title</source>
+        <target>Des chefs vous ouvrent leur cuisine </target>
+      </trans-unit>
+      <trans-unit id="a927a3f51147820f5c2bd03d8485ddaf" resname="soir_resto.reason1.description">
+        <source>soir_resto.reason1.description</source>
+        <target>Nos restaurants partenaires proposent à des cuisiniers amateurs de vivre le coup de feu aux côtés du chef</target>
+      </trans-unit>
+      <trans-unit id="101f10890ae394a4c6d0910ca015a8d9" resname="soir_resto.reason2.title">
+        <source>soir_resto.reason2.title</source>
+        <target>Vous êtes sélectionnés en tant que cuisinier amateur </target>
+      </trans-unit>
+      <trans-unit id="1d93f5218b163a0e071231d72631d62f" resname="soir_resto.reason2.description">
+        <source>soir_resto.reason2.description</source>
+        <target>Pour réaliser et réussir votre propre recette, profitez de l’expérience et des astuces de nos chefs</target>
+      </trans-unit>
+      <trans-unit id="f9e99ac6fec226e89e975dc365315a8c" resname="soir_resto.reason3.title">
+        <source>soir_resto.reason3.title</source>
+        <target><![CDATA[Les critiques Food & You notent votre recette]]></target>
+      </trans-unit>
+      <trans-unit id="12dbfdbaa21b23c04b4448c631b42423" resname="soir_resto.reason3.description">
+        <source>soir_resto.reason3.description</source>
+        <target><![CDATA[Grâce à notre application mobile, les critiques Food&You dégustent votre recette et vivent une expérience culinaire inédite]]></target>
+      </trans-unit>
+      <trans-unit id="f1652308cd410e398ef00e6603434bbb" resname="promochef.event_btn">
+        <source>promochef.event_btn</source>
+        <target>Vivez la vie d’un chef</target>
+      </trans-unit>
+      <trans-unit id="056d9b6c6eab3b064766186359745d27" resname="promochef.desc">
+        <source>promochef.desc</source>
+        <target>Ce « cours de cuisine » particulier, accessible à tous, est encadré par un professionnel aguerri
+          et pédagogue, garant de la qualité des plats servis.
+        </target>
+      </trans-unit>
+      <trans-unit id="b65f1d7573e21f0ba8d49956247fa3ca" resname="promoevents.event_btn">
+        <source>promoevents.event_btn</source>
+        <target><![CDATA[Devenez Critique Food&You]]></target>
+      </trans-unit>
+      <trans-unit id="5a7c1f56a9ca9d55d52a5c3ce5d23def" resname="promoevents.desc">
+        <source>promoevents.desc</source>
+        <target><![CDATA[Jouez au critique gastronomique en dégustant et notant les recettes de vos amis et d’autres
+         passionnés lors d’un diner insolite. Installez l’application F&Y et donnez votre avis sur le visuel et
+         le goût des plats que vous aurez découverts.]]></target>
+      </trans-unit>
+      <trans-unit id="bd76b1f4dd75ee7e7894b685f7621850" resname="promoevents.btn">
+        <source>promoevents.btn</source>
+        <target>Voir les événements</target>
+      </trans-unit>
+      <trans-unit id="9952ee99f73c5f69ad52a7ddb1d9acc0" resname="promocommunity.title1">
+        <source>promocommunity.title1</source>
+        <target><![CDATA[Rejoignez<br>la communauté Food&You]]></target>
+      </trans-unit>
+      <trans-unit id="d77ab3b2fc3a3fabcfdc677b11ec3f36" resname="promocommunity.title2">
+        <source>promocommunity.title2</source>
+        <target><![CDATA[Partagez<br>gastronomie et convivialité]]></target>
+      </trans-unit>
+      <trans-unit id="bb265680d2dffd1cd40688d3f5ffb1ef" resname="promocommunity.desc">
+        <source>promocommunity.desc</source>
+        <target><![CDATA[
+                    Vous êtes passionnés de cuisine ? Vous aimez tester de nouvelles recettes ?<br>
+            Vous aimez cuisiner des recettes qui ravissent vos amis et vos proches ? <br>Faites partie de la communauté !]]></target>
+      </trans-unit>
+      <trans-unit id="b328a0ee2ec2bff01e1484eaaacff3a7" resname="promocommunity.register_btn">
+        <source>promocommunity.register_btn</source>
+        <target>INSCRIVEZ-VOUS</target>
+      </trans-unit>
+      <trans-unit id="16b691593a0753f29ebcc6a742322f64" resname="homepage.last.events.title">
+        <source>homepage.last.events.title</source>
+        <target>Les 3 prochains événements</target>
+      </trans-unit>
+      <trans-unit id="5efd05274f43e496730c1ad7e32757a5" resname="homepage.last.events.description">
+        <source>homepage.last.events.description</source>
+        <target>Participez à une soirée originale à Lyon (et prochainement dans d’autres villes)</target>
+      </trans-unit>
+      <trans-unit id="83e2f8d9ff18b5498c26936db72449e5" resname="homepage.last.events.more">
+        <source>homepage.last.events.more</source>
+        <target>Voir tous les événements</target>
+      </trans-unit>
+      <trans-unit id="c1f37a640cada8740bfb55ba5dfe139f" resname="homepage.last.events.notfound">
+        <source>homepage.last.events.notfound</source>
+        <target><![CDATA[
+            <p class="text-center">Aucun événement n'est programmé dans les prochains jours. Vous êtes restaurateur ?<br><br>
+                <a href="%url%" class="Btn sm wide border-black">Proposer un événement</a>
+            </p>
+                    ]]></target>
+      </trans-unit>
+      <trans-unit id="23e24a69d442f22750eabe0e3d8cf6fa" resname="blog.title">
+        <source>blog.title</source>
+        <target>Le blog</target>
+      </trans-unit>
+      <trans-unit id="74fe0f374583d7d7b45eb26f28dbf572" resname="blog.description">
+        <source>blog.description</source>
+        <target>Nos bons plans et nos coups de Food</target>
+      </trans-unit>
+      <trans-unit id="58a7e3078f32162dcf05d3d0d5a1e07e" resname="blog.read_more">
+        <source>blog.read_more</source>
+        <target>Lire la suite</target>
+      </trans-unit>
+      <trans-unit id="eaed8103efb1d8657b59666c0ec013dc" resname="blog.more_articles">
+        <source>blog.more_articles</source>
+        <target>Plus d'articles</target>
+      </trans-unit>
+      <trans-unit id="fa1b1cff4a3645c16c595236f7baf422" resname="homepage.last.events.nomore">
+        <source>homepage.last.events.nomore</source>
+        <target>C'est bon, vous êtes tout en bas.</target>
+      </trans-unit>
+      <trans-unit id="428038a24fba1d01f4a78e15a1070f11" resname="homepage.play">
+        <source>homepage.play</source>
+        <target><![CDATA[Food & You en vidéo !]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

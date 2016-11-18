@@ -1,0 +1,88 @@
+// Homepage
+.BlogPost--home {
+    &__title {
+        text-transform: uppercase;
+    }
+}
+.BlogPost--home__image {
+    height: 15rem;
+    background-position: center;
+    background-size: cover;
+
+}
+
+// Blog posts list
+.BlogItem{
+    padding: 1rem 0;
+
+    &__image {
+        height: 17rem;
+        background-position: center;
+        background-size: cover;
+    }
+
+    &__title {
+        text-align: left;
+        font-weight: normal;
+        display: block;
+        height: 4.125rem;
+        overflow: hidden;
+    }
+
+    &__time {
+        color: @color-green;
+        padding: 0.5rem 0;
+        display: block;
+        font-size: @text-sm;
+    }
+
+    &__description {
+        display: block;
+        height: 4.29rem;
+        overflow: hidden !important;
+        color: @color-gray;
+    }
+
+    .BlogItem &__btn.xs {
+        margin: 0.5rem 0;
+        padding: 0.25rem 2rem;
+        font-weight: normal;
+    }
+
+    &__social {
+        float: right;
+        padding: 0.7rem 0;
+    }
+}
+
+// Blog Post page
+.BlogPost{
+    &__image{
+        max-width: 36rem;
+        width: 100%;
+        float: left;
+        padding: 0 1rem 1rem 0;
+    }
+
+    &__title {
+        text-align: left;
+        font-weight: normal;
+    }
+
+    &__body {
+        color: @color-gray;
+
+        h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+            color: @color-brown;
+            font-weight: normal;
+            text-align: left;
+        }
+    }
+}
+
+@media (max-width: @grid-md-max) {
+
+    .BlogPost__image{
+        max-width: initial;
+    }
+}

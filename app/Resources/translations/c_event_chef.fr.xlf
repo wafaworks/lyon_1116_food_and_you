@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="ce8b87bb3df382c21a97d384e044bee9" resname="cooks.0entry">
+        <source>cooks.0entry</source>
+        <target>cuisine l'entrée</target>
+      </trans-unit>
+      <trans-unit id="b6e7210e5171142842b41809a5c1d596" resname="cooks.1main">
+        <source>cooks.1main</source>
+        <target>cuisine le plat</target>
+      </trans-unit>
+      <trans-unit id="21851d07754e7f030ade722b1f2660a0" resname="cooks.2dessert">
+        <source>cooks.2dessert</source>
+        <target>cuisine le dessert</target>
+      </trans-unit>
+      <trans-unit id="0d5162fb40600a9fdbc1ce93abc874e7" resname="view.profile">
+        <source>view.profile</source>
+        <target>Voir sa fiche</target>
+      </trans-unit>
+      <trans-unit id="c30d7a0776645b187b3e63d3ea35db22" resname="i.vote">
+        <source>i.vote</source>
+        <target>JE VOTE !</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

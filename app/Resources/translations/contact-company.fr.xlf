@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="b51845bc603075259ad8c9440a6fcf76" resname="app.form.contact-company.title">
+        <source>app.form.contact-company.title</source>
+        <target>Vous souhaitez organiser un événement d’entreprise autour de la cuisine et de la gastronomie ?</target>
+      </trans-unit>
+      <trans-unit id="1365ced8ced457bee7a5b2e1c05b50ad" resname="app.form.contact-company.label.firstName">
+        <source>app.form.contact-company.label.firstName</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="a09881c82070862e8a7e230c90060051" resname="app.form.contact-company.label.lastName">
+        <source>app.form.contact-company.label.lastName</source>
+        <target>Prénom</target>
+      </trans-unit>
+      <trans-unit id="b6f0e41f472fb38adb711dbc63578906" resname="app.form.contact-company.label.email">
+        <source>app.form.contact-company.label.email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="713a99ae60e2fd3c6221a8d2db941116" resname="app.form.contact-company.label.phone">
+        <source>app.form.contact-company.label.phone</source>
+        <target>Téléphone</target>
+      </trans-unit>
+      <trans-unit id="c9c260b318796c72cd3515dbebfe3614" resname="app.form.contact-company.label.capacity">
+        <source>app.form.contact-company.label.capacity</source>
+        <target>Taille de l’événement (nombre de participants)</target>
+      </trans-unit>
+      <trans-unit id="5a0fb05fb2256bcb4daa8a38e0f6f2dc" resname="app.form.contact-company.label.notice">
+        <source>app.form.contact-company.label.notice</source>
+        <target>Remarques</target>
+      </trans-unit>
+      <trans-unit id="1826442ef1a7a28659458e49e3d9d292" resname="app.form.contact-company.label.company">
+        <source>app.form.contact-company.label.company</source>
+        <target>Entreprise</target>
+      </trans-unit>
+      <trans-unit id="c742c41543e0e2551cae92f76f613772" resname="app.form.contact-company.label.submit">
+        <source>app.form.contact-company.label.submit</source>
+        <target>Envoyer</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

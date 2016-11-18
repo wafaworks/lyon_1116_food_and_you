@@ -1,0 +1,19 @@
+{% trans_default_domain "event_details" %}
+
+{% macro toString(status) %}
+    {% if status == constant('AppBundle\\Entity\\Event::STATUS_APPLICANT_REGISTRATION_OPENED') %}
+        {{ 'status.application.open' | trans }}
+    {% elseif status == constant('AppBundle\\Entity\\Event::STATUS_APPLICANT_REGISTRATION_CLOSED') %}
+        {{ 'status.application.closed' | trans }}
+    {% elseif status == constant('AppBundle\\Entity\\Event::STATUS_RESERVATIONS_OPENED') %}
+        {{ 'status.reservations.open' | trans }}
+    {% elseif status == constant('AppBundle\\Entity\\Event::STATUS_RESERVATIONS_CLOSED') %}
+        {{ 'status.reservations.closed' | trans }}
+    {% elseif status == constant('AppBundle\\Entity\\Event::STATUS_IN_PROGRESS') %}
+        {{ 'status.in_progress' | trans }}
+    {% elseif status == constant('AppBundle\\Entity\\Event::STATUS_CANCELLED') %}
+        {{ 'status.cancelled' | trans }}
+    {% elseif status == constant('AppBundle\\Entity\\Event::STATUS_FINISHED') %}
+        {{ 'status.finished' | trans }}
+    {% endif %}
+{% endmacro %}

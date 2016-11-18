@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="e636d1028b4bfa18244f00a5894604a3" resname="restaurateur.register.step1">
+        <source>restaurateur.register.step1</source>
+        <target>Estimez votre chiffre d’affaires</target>
+      </trans-unit>
+      <trans-unit id="bca49ccfc0a73b701b62d71bde7e1cf6" resname="restaurateur.register.step2">
+        <source>restaurateur.register.step2</source>
+        <target>Votre fiche restaurant</target>
+      </trans-unit>
+      <trans-unit id="d8a88c0a23b488c4406a97f66d32fb60" resname="restaurateur.register.step3">
+        <source>restaurateur.register.step3</source>
+        <target>Création de l'evenement</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

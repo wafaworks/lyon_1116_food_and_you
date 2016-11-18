@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="adc31e0c8c68dd42ab1dad5714a694e2" resname="event.start">
+        <source>event.start</source>
+        <target><![CDATA[Bienvenue foodie ! N'oubliez pas de lancer l'app F&Y pour évaluer, prendre des photos et participer au jeu F&Y !]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

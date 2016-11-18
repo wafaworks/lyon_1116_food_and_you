@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="soluti_sogenactif.transaction_manager" class="Soluti\SogenactifBundle\Service\TransactionManager">
+            <argument type="service" id="soluti_sogenactif.request_generator" />
+            <argument type="service" id="soluti_sogenactif.repository.transaction" />
+            <argument type="service" id="soluti_sogenactif.repository.transaction.callback" />
+            <argument>%soluti_sogenactif.config%</argument>
+        </service>
+
+        <service id="soluti_sogenactif.request_generator" class="Soluti\SogenactifBundle\Service\RequestGenerator">
+            <argument type="service" id="router" />
+        </service>
+
+        <service id="soluti_sogenactif.repository.transaction"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="Soluti\SogenactifBundle\Entity\TransactionRepository" >
+            <argument>Soluti\SogenactifBundle\Entity\Transaction</argument>
+        </service>
+
+        <service id="soluti_sogenactif.repository.transaction.callback"
+                 factory-service="doctrine.orm.default_entity_manager"
+                 factory-method="getRepository"
+                 class="Soluti\SogenactifBundle\Entity\Repository\TransactionCallbackRepository" >
+            <argument>Soluti\SogenactifBundle\Entity\TransactionCallback</argument>
+        </service>
+    </services>
+</container>

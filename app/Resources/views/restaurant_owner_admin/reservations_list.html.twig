@@ -1,0 +1,59 @@
+{% trans_default_domain 'restaurant_owner_admin_reservations_list' %}
+
+{% set eventFinished = (event.status == constant('\\AppBundle\\Entity\\Event::STATUS_FINISHED')) %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="text-xxlg h5 text-left">{{ "app.owner_admin.reservations.list.title"|trans() }}</div>
+    </div>
+</div>
+
+
+<div class="box">
+    <div class="table">
+        <table class="owner_table">
+            <thead>
+                <tr>
+                    <td>{{ "app.owner_admin.reservations.list.head.table_code"|trans }}</td>
+                    <td>{{ "app.owner_admin.reservations.list.head.firstname"|trans }}</td>
+                    <td>{{ "app.owner_admin.reservations.list.head.lastname"|trans }}</td>
+                    <td>{{ "app.owner_admin.reservations.list.head.places"|trans }}</td>
+                    <td>{{ "app.owner_admin.reservations.list.head.reservation"|trans }}</td>
+                </tr>
+            </thead>
+            <tbody>
+                {# @var reservation \AppBundle\Entity\Reservation #}
+                {% for reservation in reservations %}
+                    <tr>
+                        <td>
+                            {% if reservation.tableOwner %}
+                                {{ reservation.tableOwner.tableCode }}
+                            {% endif %}
+                        </td>
+                        <td>{{ reservation.member.firstName}}</td>
+                        <td>{{ reservation.member.lastName}}</td>
+                        <td>{{ reservation.places}}</td>
+                        <td>
+                            {% if reservation.status == constant('\\AppBundle\\Entity\\Reservation::STATUS_CONFIRMED') %}
+                                {% if not eventFinished %}
+                                <input class="reservation_input" type="checkbox" data-id="{{ reservation.id }}">
+                                {% endif %}
+                            {% else %}
+                                {{ 'cancelled'|trans({}, 'SonataAdminReservation') }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% if not eventFinished %}
+    <div class="box row control">
+        <div class="col-sm-12 text-right">
+            <div class="Btn wide green round-corners cancel_reservation disabled" data-id="{{ event.id }}">
+                {{ "app.owner_admin.reservations.list.buttons.cancel"|trans|upper|raw }}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,10 @@
+soluti_sogenactif:
+  request_bin: %kernel.root_dir%/../src/Soluti/SogenactifBundle/Resources/bin/request
+  response_bin: %kernel.root_dir%/../src/Soluti/SogenactifBundle/Resources/bin/response
+  settings:
+    pathfile: %kernel.root_dir%/config/payment_config/pathfile
+    merchant_id: %merchant_id%
+    merchant_country: 'fr'
+    logo_id: 'foodandyoulogo.jpg'
+    payment_means: 'CB,2,VISA,2,MASTERCARD,2'
+    data: '<USE_CSS>;https://paiement.sogenactif.com/images/logo_serveur/foodandyou/payment.css</USE_CSS>;'

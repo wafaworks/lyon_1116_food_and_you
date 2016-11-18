@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="69de5c6ee3c3bd2fe0808fcb7674dd9c" resname="forms.search.title">
+        <source>forms.search.title</source>
+        <target>CHERCHER UN ÉVÉNEMENT</target>
+      </trans-unit>
+      <trans-unit id="e9f3da99f9e26183477e63e3aad335f9" resname="forms.search.restaurant.placeholder">
+        <source>forms.search.restaurant.placeholder</source>
+        <target>Nom du restaurant</target>
+      </trans-unit>
+      <trans-unit id="675f383623c021ec9073dcc96cae291d" resname="forms.search.participate_as.placeholder">
+        <source>forms.search.participate_as.placeholder</source>
+        <target>Participez en tant que ...</target>
+      </trans-unit>
+      <trans-unit id="1f0dbd015590ef42700f44ad806a307a" resname="forms.search.participate_as.visitor">
+        <source>forms.search.participate_as.visitor</source>
+        <target><![CDATA[Critique Food&You]]></target>
+      </trans-unit>
+      <trans-unit id="a63f8c3fa6571301a82069141d0ee587" resname="forms.search.participate_as.cook">
+        <source>forms.search.participate_as.cook</source>
+        <target>Cuisinier amateur</target>
+      </trans-unit>
+      <trans-unit id="08e6338676734a0c77f527048abf8429" resname="forms.search.submit">
+        <source>forms.search.submit</source>
+        <target>TROUVER UN ÉVÉNEMENT</target>
+      </trans-unit>
+      <trans-unit id="9d3296731a42926e07ebd0fa7cd685e8" resname="form.member.biography">
+        <source>form.member.biography</source>
+        <target>Biographie</target>
+      </trans-unit>
+      <trans-unit id="b1cbd15cf1e4c91354d42dcb41927b07" resname="form.member.profession">
+        <source>form.member.profession</source>
+        <target>Dans la vie de tous les jours je suis</target>
+      </trans-unit>
+      <trans-unit id="e4f01d2cef09bba56d6390ef8e41abbd" resname="form.member.signature">
+        <source>form.member.signature</source>
+        <target>Mon plat signature</target>
+      </trans-unit>
+      <trans-unit id="f2a6d57b3dfb474223df744869037253" resname="form.member.password">
+        <source>form.member.password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="f331a82856e8b3ec58e40c715252e380" resname="form.member.password.repeat">
+        <source>form.member.password.repeat</source>
+        <target>Confirmer votre nouveau mot de passe</target>
+      </trans-unit>
+      <trans-unit id="14f927c3e798bbf0a9d77b789c4ca9af" resname="form.file.upload.wrong.format">
+        <source>form.file.upload.wrong.format</source>
+        <target>Mauvais format de fichier</target>
+      </trans-unit>
+      <trans-unit id="ddbc99b3829fe0549423eb4baf468ceb" resname="event.apply_to.signature.placeholder">
+        <source>event.apply_to.signature.placeholder</source>
+        <target>Nom de mon plat signature</target>
+      </trans-unit>
+      <trans-unit id="6b13c7031fb312ebc328bc4d627d26b5" resname="event.apply_to.profession.placeholder">
+        <source>event.apply_to.profession.placeholder</source>
+        <target>Sportif confirmé</target>
+      </trans-unit>
+      <trans-unit id="42a419199edd5774fd2653be2480c200" resname="event.apply_to.biography.placeholder">
+        <source>event.apply_to.biography.placeholder</source>
+        <target>Raconte nous des salades !</target>
+      </trans-unit>
+      <trans-unit id="941150489aab592201bae6d1d4326327" resname="__/__/__/__/__">
+        <source>__/__/__/__/__</source>
+        <target>__ __ __ __ __ </target>
+      </trans-unit>
+      <trans-unit id="91b265b66c553285bfdcf75f0730e17f" resname="restaurant.label.name">
+        <source>restaurant.label.name</source>
+        <target>Nom de votre restaurant</target>
+      </trans-unit>
+      <trans-unit id="c8b093daebce64d3be61f1b2d896253f" resname="restaurant.label.openingDate">
+        <source>restaurant.label.openingDate</source>
+        <target>Date de création du restaurant</target>
+      </trans-unit>
+      <trans-unit id="956f9d69d72d18523b52bcfb1d870122" resname="restaurant.label.cuisine">
+        <source>restaurant.label.cuisine</source>
+        <target>Type de cuisine</target>
+      </trans-unit>
+      <trans-unit id="83deb5e7493d82ee7916da33dc76b19e" resname="restaurant.placeholder.cuisine">
+        <source>restaurant.placeholder.cuisine</source>
+        <target>Options</target>
+      </trans-unit>
+      <trans-unit id="708ce29203f7c948bab9b72f804e0b5f" resname="restaurant.label.description">
+        <source>restaurant.label.description</source>
+        <target>Description (1000 caractères)</target>
+      </trans-unit>
+      <trans-unit id="0c02f6a9d23bc91079a851820e6a1820" resname="restaurant.placeholder.description">
+        <source>restaurant.placeholder.description</source>
+        <target>Description de votre restaurant</target>
+      </trans-unit>
+      <trans-unit id="fc58670ddebd66db532e45091eb8be0f" resname="restaurant.label.street">
+        <source>restaurant.label.street</source>
+        <target>Rue</target>
+      </trans-unit>
+      <trans-unit id="872a1de560e5fcf9daf6c043e6157e62" resname="restaurant.label.postalCode">
+        <source>restaurant.label.postalCode</source>
+        <target>CP</target>
+      </trans-unit>
+      <trans-unit id="30f56cfc2c557e40aa029fbc58b86c44" resname="restaurant.label.city">
+        <source>restaurant.label.city</source>
+        <target>Ville</target>
+      </trans-unit>
+      <trans-unit id="f32aff0edc1520d024b69e74eb2553d6" resname="restaurant.placeholder.city">
+        <source>restaurant.placeholder.city</source>
+        <target>Sélectionner la ville</target>
+      </trans-unit>
+      <trans-unit id="940f8014862c9ed8706e0f48f90d007b" resname="restaurant.label.site">
+        <source>restaurant.label.site</source>
+        <target>Site internet</target>
+      </trans-unit>
+      <trans-unit id="800968ed5e37f0d95b6b465f0236cd3c" resname="restaurant.placeholder.site">
+        <source>restaurant.placeholder.site</source>
+        <target>http://www.exemple.com</target>
+      </trans-unit>
+      <trans-unit id="25f43a01627adf74b658448682604725" resname="restaurant.label.tripAdvisor">
+        <source>restaurant.label.tripAdvisor</source>
+        <target>Lien TripAdvisor</target>
+      </trans-unit>
+      <trans-unit id="4483f9d7907de41d97e3031f8e815093" resname="restaurant.placeholder.tripAdvisor">
+        <source>restaurant.placeholder.tripAdvisor</source>
+        <target>copier-coller votre lien de page Trip Advisor</target>
+      </trans-unit>
+      <trans-unit id="f2bc6820d75954b74a1cbd9f7ed6ad7d" resname="restaurant.label.facebook">
+        <source>restaurant.label.facebook</source>
+        <target>Page Facebook</target>
+      </trans-unit>
+      <trans-unit id="50b5c00b3db81661affce7f7bc7d03c4" resname="restaurant.placeholder.facebook">
+        <source>restaurant.placeholder.facebook</source>
+        <target>copier-coller votre lien de page Facebook</target>
+      </trans-unit>
+      <trans-unit id="8391fa55c27755b930b3e9494223ed6c" resname="restaurant.label.phone">
+        <source>restaurant.label.phone</source>
+        <target>Tél</target>
+      </trans-unit>
+      <trans-unit id="c9eee58f1b007ba1b8f455df9d63e684" resname="restaurant.label.mobilePhone">
+        <source>restaurant.label.mobilePhone</source>
+        <target>Mobile</target>
+      </trans-unit>
+      <trans-unit id="01e74eb5245c42f87c080a2e4b3e757f" resname="restaurant.label.email">
+        <source>restaurant.label.email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="3cd0313ee28ecf4dea564afef9bdec0b" resname="restaurant.button.add">
+        <source>restaurant.button.add</source>
+        <target>Ajouter</target>
+      </trans-unit>
+      <trans-unit id="d2deab964848e29a9c93b2e1f65e0a58" resname="restaurant.button.cover">
+        <source>restaurant.button.cover</source>
+        <target>Photo principale</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

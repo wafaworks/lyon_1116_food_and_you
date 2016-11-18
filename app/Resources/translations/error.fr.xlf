@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="49a8c3fb969e6a832bcd16bfc5611ffa" resname="error.title">
+        <source>error.title</source>
+        <target>Erreur</target>
+      </trans-unit>
+      <trans-unit id="35c858b1abab0f0463bf0a4add232503" resname="error403.desc">
+        <source>error403.desc</source>
+        <target>Foodie curieux et gourmand ! Vous n'avez pas l'autorisation d'accéder à la page demandée</target>
+      </trans-unit>
+      <trans-unit id="f5aa55687cab9a23bc3f176b9e42c9f1" resname="error404.desc">
+        <source>error404.desc</source>
+        <target>Oops ! Cher foodie, la page que vous désirez visualiser n'existe pas ou plus</target>
+      </trans-unit>
+      <trans-unit id="55872ab598ac2d2f6f11c2d7dec3026b" resname="error500.desc">
+        <source>error500.desc</source>
+        <target><![CDATA[Erreur interne du serveur. La brigade Food & You essaye de gérer toutes vos demandes en même temps :)]]></target>
+      </trans-unit>
+      <trans-unit id="2f8a6bf31f3bd67bd2d9720c58b19c9a" resname="contact">
+        <source>contact</source>
+        <target>Contactez-nous si le problème persiste</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

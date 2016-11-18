@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="fos.registration.init" type="constant">FOS\UserBundle\FOSUserEvents::REGISTRATION_INITIALIZE</parameter>
+        <parameter key="fos_user.profile.edit" type="constant">FOS\UserBundle\FOSUserEvents::PROFILE_EDIT_INITIALIZE</parameter>
+    </parameters>
+
+    <services>
+        <service id="app.notification.contact_listener" class="AppBundle\Notification\Listener\ContactEventListener">
+            <argument type="service" id="app.service.mailer"/>
+            <argument type="service" id="templating"/>
+            <argument type="service" id="translator"/>
+            <argument>%contact_email%</argument>
+            <tag name="kernel.event_listener" event="app.event.contact" method="handle" />
+        </service>
+
+        <service id="app.subscriber.registration" class="AppBundle\Notification\Subscriber\RegistrationSubscriber">
+            <tag name="kernel.event_subscriber"/>
+            <argument type="service" id="app.service.mailer"/>
+            <argument type="service" id="templating"/>
+            <argument type="service" id="translator"/>
+            <argument>%sender_address%</argument>
+        </service>
+
+        <service id="app.notification.restaurant_validated_listener" class="AppBundle\Notification\Listener\RestaurantValidatedEventListener">
+            <argument type="service" id="app.service.mailer"/>
+            <argument type="service" id="templating"/>
+            <argument type="service" id="translator"/>
+            <argument>%sender_address%</argument>
+            <tag name="kernel.event_listener" event="app.event.restaurant_validated" method="handle" />
+        </service>
+
+        <service id="app.notification.leve_up_listener" class="AppBundle\Notification\Listener\LevelUpEventListener">
+            <argument type="service" id="app.service.mailer"/>
+            <argument type="service" id="templating"/>
+            <argument type="service" id="translator"/>
+            <argument>%sender_address%</argument>
+            <tag name="kernel.event_listener" event="app.event.level_up" method="handle" />
+        </service>
+
+        <service id="app.notification.password_reset_listener" class="AppBundle\Notification\Listener\PasswordResetEventListener">
+            <argument type="service" id="app.service.mailer"/>
+            <argument type="service" id="templating"/>
+            <argument type="service" id="translator"/>
+            <argument>%sender_address%</argument>
+            <tag name="kernel.event_listener" event="app.event.password_reset" method="handle" />
+        </service>
+
+        <service id="app.notification.applicant_chosen_listener" class="AppBundle\Notification\Listener\ApplicantChosenEventListener">
+            <argument type="service" id="app.service.mailer"/>
+            <argument type="service" id="templating"/>
+            <argument type="service" id="translator"/>
+            <argument>%sender_address%</argument>
+            <tag name="kernel.event_listener" event="app.event.applicant_chosen" method="handle" />
+        </service>
+
+        <service id="app.notification.reservation_confirmed_listener" class="AppBundle\Notification\Listener\ReservationConfirmedEventListener">
+            <argument type="service" id="app.service.mailer"/>
+            <argument type="service" id="templating"/>
+            <argument type="service" id="translator"/>
+            <argument>%sender_address%</argument>
+            <tag name="kernel.event_listener" event="app.event.reservation_confirmed" method="handle" />
+        </service>
+
+        <service id="app.notification.reservation_cancelled_listener" class="AppBundle\Notification\Listener\ReservationCancelledEventListener">
+            <argument type="service" id="app.service.mailer"/>
+            <argument type="service" id="templating"/>
+            <argument type="service" id="translator"/>
+            <argument>%sender_address%</argument>
+            <tag name="kernel.event_listener" event="app.event.reservation_cancelled" method="handle" />
+        </service>
+
+        <service id="app.notification.reservation_to_refund" class="AppBundle\Notification\Listener\ReservationsToRefundEventListener">
+            <argument type="service" id="app.service.mailer"/>
+            <argument type="service" id="templating"/>
+            <argument type="service" id="translator"/>
+            <argument>%sender_address%</argument>
+            <argument>%admin_addresses%</argument>
+            <tag name="kernel.event_listener" event="app.event.reservations_to_refund" method="handle" />
+        </service>
+
+        <!-- AT THE MOMENT WE DISABLE THE SENDING OF THE MAIL FOR CANCELED EVENTS -->
+        <!--<service id="app.notification.event_cancelled_listener" class="AppBundle\Notification\Listener\EventCancelledListener">-->
+            <!--<argument type="service" id="app.service.mailer"/>-->
+            <!--<argument type="service" id="templating"/>-->
+            <!--<argument type="service" id="translator"/>-->
+            <!--<argument>%sender_address%</argument>-->
+            <!--<tag name="kernel.event_listener" event="app.event.event_cancelled" method="handle" />-->
+        <!--</service>-->
+
+        <service id="app.notification.min_capacity_not_reached" class="AppBundle\Notification\Listener\MinCapacityNotReachedListener">
+            <argument type="service" id="app.service.mailer"/>
+            <argument type="service" id="templating"/>
+            <argument type="service" id="translator"/>
+            <argument>%sender_address%</argument>
+            <argument>%admin_addresses%</argument>
+            <tag name="kernel.event_listener" event="app.event.min_capacity_not_reached" method="handle" />
+        </service>
+    </services>
+</container>

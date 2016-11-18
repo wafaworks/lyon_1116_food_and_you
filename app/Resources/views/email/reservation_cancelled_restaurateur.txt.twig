@@ -1,0 +1,11 @@
+Bonjour,
+
+Veuillez bien prendre en compte l’annulation de la réservation :
+{{ reservation.member.fullName }}.
+table N° {{ reservation.tableOwner.tableCode }}
+pour la soirée du {{ reservation.event.startDate|date('d') }} {{ reservation.event.startDate|date('M')|trans({}, 'messages') }} {{ reservation.event.startDate|date('Y') }}
+Rassurez vous, ces annulations ne seront pas déduites du montant reversé.
+
+Merci et à bientôt,
+
+L’équipe Food&You

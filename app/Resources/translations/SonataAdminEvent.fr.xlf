@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="4119639092e62c55ea8be348e4d9260d" resname="event">
+        <source>event</source>
+        <target>Événement</target>
+      </trans-unit>
+      <trans-unit id="490aa6e856ccf208a054389e47ce0d06" resname="Id">
+        <source>Id</source>
+        <target>Id</target>
+      </trans-unit>
+      <trans-unit id="db3794c7d704611ce61c9d8cc09cd806" resname="Start Date">
+        <source>Start Date</source>
+        <target>Date de début</target>
+      </trans-unit>
+      <trans-unit id="bc6561da211d0d58325ab6608f22c535" resname="Restaurant Name">
+        <source>Restaurant Name</source>
+        <target>Nom du restaurant</target>
+      </trans-unit>
+      <trans-unit id="3b8f7696879f77dfc8c74aa8df8db24b" resname="Capacity">
+        <source>Capacity</source>
+        <target>Capacité</target>
+      </trans-unit>
+      <trans-unit id="3601146c4e948c32b6424d2c0a7f0118" resname="Price">
+        <source>Price</source>
+        <target>Prix</target>
+      </trans-unit>
+      <trans-unit id="f606bd83c23b957f8d2e8bf9dfc5c8b7" resname="Nr Reservations">
+        <source>Nr Reservations</source>
+        <target>Nombre de Réservations</target>
+      </trans-unit>
+      <trans-unit id="6f79387accb44bd8a56b7415732034a5" resname="Nr Applicants">
+        <source>Nr Applicants</source>
+        <target>Nombre de Candidats</target>
+      </trans-unit>
+      <trans-unit id="5396494d1b80b40350c72f35e7049569" resname="Evening Rating">
+        <source>Evening Rating</source>
+        <target>Soirée Evaluation</target>
+      </trans-unit>
+      <trans-unit id="72f7d174b05a16e83e84c7cef1b39c2b" resname="Restaurant Rating">
+        <source>Restaurant Rating</source>
+        <target>Restaurant Evaluation</target>
+      </trans-unit>
+      <trans-unit id="ec53a8c4f07baed5d8825072c89799be" resname="Status">
+        <source>Status</source>
+        <target>Statut</target>
+      </trans-unit>
+      <trans-unit id="e197a9ccf40b776f31368105d1aa8c4b" resname="Restaurant">
+        <source>Restaurant</source>
+        <target>Restaurant</target>
+      </trans-unit>
+      <trans-unit id="5def053ff334b2d5d9a0ebf97f76b765" resname="Event List">
+        <source>Event List</source>
+        <target>Événement Liste</target>
+      </trans-unit>
+      <trans-unit id="0db377921f4ce762c62526131097968f" resname="General">
+        <source>General</source>
+        <target>Général</target>
+      </trans-unit>
+      <trans-unit id="eb9032224d7e6586e620ce01c7ff1d8a" resname="Application End Date">
+        <source>Application End Date</source>
+        <target>Postulez date de fin</target>
+      </trans-unit>
+      <trans-unit id="33c15b7a05c198bf27919b4c62cfaf2e" resname="29.90">
+        <source>29.90</source>
+        <target>29.90</target>
+      </trans-unit>
+      <trans-unit id="82cfadd4246e6c94fc53c5d3bfd8220b" resname="34.90">
+        <source>34.90</source>
+        <target>34.90</target>
+      </trans-unit>
+      <trans-unit id="65845497a3736e43c0036e6bd57bb583" resname="39.90">
+        <source>39.90</source>
+        <target>39.90</target>
+      </trans-unit>
+      <trans-unit id="a8a66e19f26de6352a04dc402a993ab6" resname="applicant_registration_open">
+        <source>applicant_registration_open</source>
+        <target>Enregistrement candidat est ouverte</target>
+      </trans-unit>
+      <trans-unit id="cea5c2ae3fbe8414b4c8269ad399775a" resname="applicant_registration_closed">
+        <source>applicant_registration_closed</source>
+        <target>Enregistrement candidat est fermé</target>
+      </trans-unit>
+      <trans-unit id="5b1ddfebbb84451024edca26cf4f455b" resname="reservations_opened">
+        <source>reservations_opened</source>
+        <target>Réservation est ouverte</target>
+      </trans-unit>
+      <trans-unit id="619286a1b297a419938521e87131e23a" resname="reservations_closed">
+        <source>reservations_closed</source>
+        <target>Réservation est fermé</target>
+      </trans-unit>
+      <trans-unit id="f7222d1de86ad4d56764a2be21b792e2" resname="in_progress">
+        <source>in_progress</source>
+        <target>En cours</target>
+      </trans-unit>
+      <trans-unit id="a5d7ceb2c59b8cee46c2953fec9abc19" resname="finished">
+        <source>finished</source>
+        <target>Fini</target>
+      </trans-unit>
+      <trans-unit id="38881e0a24039dc2621e1d6f86cb71f7" resname="cancelled">
+        <source>cancelled</source>
+        <target>Annulé</target>
+      </trans-unit>
+      <trans-unit id="e850ae58f3a51260eb065ddd40f0b0ec" resname="Applicants">
+        <source>Applicants</source>
+        <target>Candidats</target>
+      </trans-unit>
+      <trans-unit id="220691b0541da11c804196f98fa321dd" resname="Start date (d/m/y)">
+        <source>Start date (d/m/y)</source>
+        <target>Date de début (d/m/y)</target>
+      </trans-unit>
+      <trans-unit id="0490cc3e3ba426d8ab382bc215072648" resname="view.applicants">
+        <source>view.applicants</source>
+        <target>Voir candidats</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

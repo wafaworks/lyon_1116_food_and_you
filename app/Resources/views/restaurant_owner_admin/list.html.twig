@@ -1,0 +1,409 @@
+{% extends ':restaurant_owner_admin:index.html.twig' %}
+
+{% trans_default_domain 'restaurant_owner_admin_list' %}
+
+{% import ":macros:event_status.html.twig" as macroEventStatus %}
+
+{% if app.request.query.get('direction') is null or app.request.query.get('direction') == "DESC" %}
+    {% set direction = "ASC" %}
+{% else %}
+    {% set direction = "DESC" %}
+{% endif %}
+
+{% block owner_body %}
+    {% if restaurant is not null and restaurant.status == constant('\\AppBundle\\Entity\\Restaurant::STATUS_PENDING') %}
+        <div class="alert alert-danger">
+            {{ 'restaurant.not_validated' | trans }}
+        </div>
+    {% endif %}
+
+    <div class="text-xxlg h5 text-left">{{ "app.owner_admin.event.list.title"|trans }}</div>
+
+    <div id="bo_events" class="box">
+        <div class="table">
+            <table class="owner_table">
+                <thead>
+                <tr>
+                    <td>
+                        <a href="{{ path('restaurant_owner_admin_event_list', {'page': events.params.page, 'direction': direction}) }}">
+                            {{ "app.owner_admin.event.list.table.head.date"|trans }}
+                            {% if direction == "DESC" %}
+                                <i class="fa fa-chevron-up"></i>
+                            {% else %}
+                                <i class="fa fa-chevron-down"></i>
+                            {% endif %}
+                        </a>
+                    </td>
+                    <td>{{ "app.owner_admin.event.list.table.head.status"|trans }}</td>
+                    <td>{{ "app.owner_admin.event.list.table.head.capacity_min"|trans }}</td>
+                    <td>{{ "app.owner_admin.event.list.table.head.capacity_max"|trans }}</td>
+                    <td>{{ "app.owner_admin.event.list.table.head.reservations"|trans }}</td>
+                    <td>{{ "app.owner_admin.event.list.table.head.applicants"|trans }}</td>
+                    <td>{{ "app.owner_admin.event.list.table.head.total"|trans }}</td>
+                    <td>{{ "app.owner_admin.event.list.table.head.buttons"|trans }}</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for event in events %}
+                    <tr>
+                        <td>{{ event.startDate|localizeddate('none', 'none', app.request.locale, null, "d-MMMM-Y") }}</td>
+                        <td>{{ macroEventStatus.toString(event.status) }}</td>
+                        <td>
+                            <input class="input_number" name="min" value="{{ event.capacity.minimum }}"
+                                   data-id="{{ event.id }}">
+                        </td>
+                        <td>
+                            <input class="input_number" name="max" value="{{ event.capacity.maximum }}"
+                                   data-id="{{ event.id }}">
+                        </td>
+                        <td>{{ event.confirmedReservations }}</td>
+                        <td>{{ event.applicants.count }}</td>
+                        <td>{{ (event.price * event.confirmedReservations)|number_format(2, ',', '.') }} &euro;</td>
+                        <td>
+                            <div class="Btn green wide mt02 applicants" data-id="{{ event.id }}">
+                                {{ 'app.owner_admin.event.list.applicants'|trans|upper }}
+                            </div>
+                            <div class="Btn green opaque wide mt02 reservations" data-id="{{ event.id }}">
+                                {{ 'app.owner_admin.event.list.reservations'|trans|upper }}
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="navigation">
+            {{ knp_pagination_render(events) }}
+        </div>
+    </div>
+
+    <div id="bo_content" class="box"></div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function () {
+            var validate = function (inputNumber) {
+                var elementVal = parseInt(inputNumber.val());
+                var elementName = inputNumber.attr('name');
+
+                if (elementName == 'min') {
+                    var neighbor = inputNumber.parents('tr').find('input[name="max"]');
+                    var neighborVal = parseInt(neighbor.val());
+
+                    if(elementVal < 0) {
+                        inputNumber.val(0);
+                    }
+
+                    inputNumber.spinner('option', 'max', neighborVal);
+
+                    if (elementVal >= neighborVal) {
+                        inputNumber.val(neighborVal);
+                        inputNumber.siblings('.ui-spinner-up').hide();
+                        neighbor.siblings('.ui-spinner-down').hide();
+                    } else {
+                        inputNumber.siblings('.ui-spinner-up').show();
+                        neighbor.siblings('.ui-spinner-down').show();
+                    }
+
+                }
+
+                if (elementName == 'max') {
+                    var neighbor = inputNumber.parents('tr').find('input[name="min"]');
+                    var neighborVal = parseInt(neighbor.val());
+
+                    if(elementVal < 0) {
+                        inputNumber.val(0);
+                    }
+                    inputNumber.spinner('option', 'min', neighborVal);
+
+                    if (elementVal <= neighborVal) {
+                        inputNumber.val(neighborVal);
+                        inputNumber.siblings('.ui-spinner-down').hide();
+                        neighbor.siblings('.ui-spinner-up').hide();
+                    } else {
+                        inputNumber.siblings('.ui-spinner-down').show();
+                        neighbor.siblings('.ui-spinner-up').show();
+                    }
+                }
+            }
+
+            var save = function (inputNumber) {
+
+                var url = Routing.generate('restaurant_owner_admin_edit_capacity', {'event': inputNumber.data('id')});
+
+                var data = {};
+                data[inputNumber.attr('name')] = parseInt(inputNumber.val());
+                displaySpinner(inputNumber.parents('td'));
+                $.ajax({
+                    url: url,
+                    data: data,
+                    dataType: "json",
+                    method: "POST",
+                    success: function () {
+                        inputNumber.addClass('success');
+                        setTimeout(function () {
+                            inputNumber.removeClass('success');
+                        }, 1000);
+                    },
+                    error: function () {
+                        inputNumber.addClass('error');
+                        inputNumber.val(inputNumber[0].defaultValue);
+                        setTimeout(function () {
+                            inputNumber.removeClass('error');
+                        }, 2000);
+
+                    },
+                    complete: function () {
+                        hideSpinner(inputNumber.parents('td'));
+                    }
+                });
+            }
+
+            $('input.input_number').spinner({
+                create: function () {
+                    validate($(this));
+                },
+                change: function () {
+                    validate($(this));
+                    save($(this));
+                },
+                spin: function () {
+                    var node = this;
+                    setTimeout(function () {
+                        node.blur();
+                    }, 100);
+                }
+            });
+
+
+            /* Applicants */
+            $(document).on('click', '.applicants', function (e) {
+                if ($("#bo_content").is(':empty')) {
+                    displaySpinner($("#bo_events"));
+                    $('html,body').animate({scrollTop: $("#bo_events").offset().top});
+                } else {
+                    $('html,body').animate({scrollTop: $("#bo_content").offset().top});
+                    displaySpinner($("#bo_content"));
+                }
+
+                var url = Routing.generate('restaurant_owner_admin_applicants_list', {'event': $(this).data('id')});
+
+                $.ajax({
+                    url: url,
+                    dataType: "html",
+                    method: "POST",
+                    success: function (data) {
+                        $('#bo_content').html(data);
+
+                        if ($('.applicant_select:checked').length >= 3) {
+                            $('.applicant_select').each(function () {
+                                $(this).attr('disabled', true)
+                            });
+                        }
+                    },
+                    complete: function () {
+                        hideSpinner($("#bo_content"));
+                        hideSpinner($("#bo_events"));
+                        $('html,body').animate({
+                            scrollTop: $("#bo_content").offset().top
+                        });
+                        $(".starrr").starrr()
+                    }
+
+                })
+
+            });
+
+            $(document).on('click', '#bo_content .navigation a', function (e) {
+                e.preventDefault();
+                var url = $(this).attr("href");
+                $('html,body').animate({scrollTop: $("#bo_content").offset().top});
+                displaySpinner($('#bo_content'));
+                $.ajax({
+                    url: url,
+                    dataType: "html",
+                    method: "POST",
+                    success: function (data) {
+                        $('#bo_content').html(data);
+                    },
+                    complete: function () {
+                        hideSpinner($('#bo_content'));
+                    }
+                });
+            });
+
+            $(document).on('change', '.applicant_select', function (e) {
+                var currentTypeSelected = $(this).data('type');
+                var id = $(this).data('id');
+
+                $('.applicant_select[data-type="' + currentTypeSelected + '"]').each(function(){
+                    if($(this).data('id') !== id) {
+                        $(this).prop('checked', false);
+                    }
+                });
+
+                if ($('.applicant_select:checked').length >= 3) {
+                    $('.control .validate').removeAttr('disabled');
+                } else {
+                    $('.control .validate').attr('disabled', true);
+                }
+            });
+
+            $(document).on('click', '.control .validate', function (e) {
+                e.preventDefault();
+                var applicantsIds = [];
+                $('.applicant_select:checked').each(function () {
+                    applicantsIds.push(parseInt($(this).data('id')));
+                })
+
+                var url = Routing.generate('restaurant_owner_admin_applicants_save', {'event': $(this).data('id')});
+                $('html,body').animate({scrollTop: $("#bo_content").offset().top});
+                displaySpinner($('#bo_content'));
+                $.ajax({
+                    url: url,
+                    dataType: "html",
+                    method: "POST",
+                    data: {'ids': applicantsIds},
+                    success: function (data) {
+                        $('#bo_content').html(data);
+
+                        if ($('.applicant_select:checked').length >= 3) {
+                            $('.applicant_select').each(function () {
+                                $(this).attr('disabled', true)
+                            });
+                        }
+                    },
+                    complete: function () {
+                        hideSpinner($('#bo_content'));
+                    }
+                });
+            });
+
+            $(document).on('click', '.control .cancel', function (e) {
+                e.preventDefault()
+                $(this).addClass('disabled');
+                $('.control .validate').removeClass('disabled');
+
+                $('.applicant_select').each(function () {
+                    $(this).removeAttr('disabled');
+                });
+            });
+
+            $(document).on('click', '.close_event', function (e) {
+                var url = Routing.generate('restaurant_owner_admin_event_close', {'event': $(this).data('id')});
+                $('html,body').animate({scrollTop: $("#bo_content").offset().top});
+                displaySpinner($('#bo_content'));
+                $.ajax({
+                    url: url,
+                    dataType: "html",
+                    method: "POST",
+                    success: function (data) {
+                        $('#bo_content').html(data);
+
+                        if ($('.applicant_select:checked').length >= 3) {
+                            $('.applicant_select').each(function () {
+                                $(this).attr('disabled', true);
+                            });
+                        }
+                    },
+                    complete: function () {
+                        hideSpinner($('#bo_content'));
+                        $(".starrr").starrr()
+                    }
+                });
+            });
+
+            $(document).on('click', '#bo_content thead a', function (e) {
+                e.preventDefault();
+                var url = $(this).attr("href");
+                $('html,body').animate({scrollTop: $("#bo_content").offset().top});
+                displaySpinner($('#bo_content'));
+                $.ajax({
+                    url: url,
+                    dataType: "html",
+                    method: "POST",
+                    success: function (data) {
+                        $('#bo_content').html(data);
+
+                        if ($('.applicant_select:checked').length >= 3) {
+                            $('.applicant_select').each(function () {
+                                $(this).attr('disabled', true);
+                            });
+                        }
+                    },
+                    complete: function () {
+                        hideSpinner($('#bo_content'));
+                        $(".starrr").starrr()
+                    }
+                });
+            });
+
+            /*Reservation*/
+            $(document).on('click', '.reservations', function (e) {
+                if ($("#bo_content").is(':empty')) {
+                    displaySpinner($("#bo_events"));
+                    $('html,body').animate({scrollTop: $("#bo_events").offset().top});
+                } else {
+                    $('html,body').animate({scrollTop: $("#bo_content").offset().top});
+                    displaySpinner($("#bo_content"));
+                }
+
+                var url = Routing.generate('restaurant_owner_admin_reservations_list', {'event': $(this).data('id')});
+
+                $.ajax({
+                    url: url,
+                    dataType: "html",
+                    method: "POST",
+                    success: function (data) {
+                        $('html,body').animate({scrollTop: $("#bo_content").offset().top});
+                        $('#bo_content').html(data);
+                    },
+                    complete: function () {
+                        hideSpinner($("#bo_content"));
+                        hideSpinner($("#bo_events"));
+                    }
+
+                })
+            });
+
+            $(document).on('change', '.reservation_input', function(e) {
+                if($('.reservation_input:checked').length > 0) {
+                    $('.cancel_reservation').removeClass('disabled');
+                } else {
+                    $('.cancel_reservation').addClass('disabled');
+                }
+            });
+
+            $(document).on('click', '.cancel_reservation', function (e){
+                var cancelReservationsIds = {};
+                $('.reservation_input:checked').each(function(){
+                    cancelReservationsIds[$(this).data('id')] = $(this).data('id')
+                })
+
+                displaySpinner($("#bo_content"));
+
+                var url = Routing.generate('restaurant_owner_admin_reservations_cancel', {'event': $(this).data('id')});
+
+                $.ajax({
+                    url: url,
+                    dataType: "html",
+                    method: "POST",
+                    data: cancelReservationsIds,
+                    success: function (data) {
+                        $('#bo_content').html(data);
+                        $('html,body').animate({
+                            scrollTop: $("#bo_content").offset().top
+                        });
+                    },
+                    complete: function () {
+                        hideSpinner($("#bo_content"));
+                    }
+
+                })
+            });
+        })
+    </script>
+{% endblock %}

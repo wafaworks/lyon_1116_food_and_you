@@ -1,0 +1,120 @@
+# Group
+group:
+    edit:
+        submit: Mettre à jour le groupe
+    show:
+        name: Nom du groupe
+    new:
+        submit: Créer le groupe
+    flash:
+        updated: Le groupe a été mis à jour
+        created: Le groupe a été créé
+        deleted: Le groupe a été supprimé
+
+# Security
+security:
+    login:
+        username: Nom d'utilisateur
+        password: Mot de passe
+        remember_me: Se souvenir de moi
+        submit: Connectez-vous
+
+# Profile
+profile:
+    show:
+        username: Nom d'utilisateur
+        email: Adresse e-mail
+    edit:
+        submit: Mettre à jour
+    flash:
+        updated: Le profil a été mis à jour
+
+# Password change
+change_password:
+    submit: Modifier le mot de passe
+    flash:
+        success: Le mot de passe a été modifié
+
+# Registration
+registration:
+    check_email: Un e-mail a été envoyé à l'adresse %email%. Il contient un lien d'activation sur lequel il vous faudra cliquer afin d'activer votre compte.
+    confirmed: Félicitations %username%, votre compte est maintenant activé.
+    back: Retour à la page d'origine.
+    submit: Créez votre compte
+    flash:
+        user_created: L'utilisateur a été créé avec succès
+    email:
+        subject: Bienvenue %username% !
+        message: |
+            Bonjour %username% !
+
+            Pour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%
+
+            Cordialement,
+            L'équipe Food & You.
+
+# Password resetting
+resetting:
+    password_already_requested: Un nouveau mot de passe a déjà été demandé pour cet utilisateur dans les dernières 24 heures.
+    check_email: Un e-mail a été envoyé à l'adresse %email%. Il contient un lien sur lequel il vous faudra cliquer afin de réinitialiser votre mot de passe.
+    request:
+        invalid_username: Le nom d'utilisateur ou l'adresse e-mail "%username%" n'existe pas.
+        username: Adresse e-mail
+        submit: Réinitialiser le mot de passe
+        title: Réinitialisation de mot de passe
+    reset:
+        title: Réinitialisation de votre mot de passe
+        submit: Modifier le mot de passe
+    flash:
+        invalid_token: La clé fournie pour la réinitialisation est invalide
+        error: Une erreur est survenue. Merci de réessayer.
+        success: Le mot de passe a été réinitialisé avec succès
+    email:
+        subject: Réinitialisation Food & You
+        message: |
+            Bonjour,
+
+            Nous avons reçu une demande de réinitialisation de mot de passe.
+            Si vous n'avez pas demandé à réinitialiser votre mot de passe, veuillez ignorer ce mail.
+
+            Si c'était vous :
+
+            Veuillez cliquer sur le lien ci-dessous ou copiez-collez l'URL dans votre navigateur :
+            %confirmationUrl%
+
+            Ceci va réinitialiser votre mot de passe. Vous pourrez ensuite vous connecter et le changer pour mieux vous en souvenir.
+            Cordialement,
+            L'équipe Food & You
+
+# Global strings
+layout:
+    logout: Déconnexion
+    login: Connexion
+    register: Inscription
+    logged_in_as: Connecté en tant que %username%
+
+# Form field labels
+form:
+    group_name: Nom du groupe
+    username: Nom d'utilisateur
+    email: Adresse e-mail
+    current_password: Mot de passe actuel
+    password: Mot de passe
+    password_confirmation: Vérification
+    new_password: Nouveau mot de passe
+    new_password_confirmation: Vérification
+    firstName: Prénom
+    lastName: Nom
+    birthDate: Date de naissance
+
+
+connect:
+    facebook: Connexion avec Facebook
+
+header:
+    login: Vous avez déjà un compte
+    register: Inscrivez-vous maintenant
+
+cgu: J'ai lu et accepté les <a href="%url%" target="_blank">CGU </a>
+accept: J'ai lu et accepté la <a href="%url%" target="_blank">charte Food & You</a>
+reset: OOPS ! mot de passe oublié ?

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="1aee439faee10d3786d774341528c7f7" resname="Est égal à">
+        <source>Est égal à</source>
+        <target>Est égal à</target>
+      </trans-unit>
+      <trans-unit id="14e41dfd40b2fb2e1a230872ab8590e1" resname="Ne contient pas">
+        <source>Ne contient pas</source>
+        <target>Ne contient pas</target>
+      </trans-unit>
+      <trans-unit id="3adbdb3ac060038aa0e6e6c138ef9873" resname="Category">
+        <source>Category</source>
+        <target>Catégorie</target>
+      </trans-unit>
+      <trans-unit id="03d947a2158373c3b9d74325850cb8b9" resname="Post">
+        <source>Post</source>
+        <target>Post</target>
+      </trans-unit>
+      <trans-unit id="c101058e7ea21bbbf2a5ac893088e90b" resname="Tag">
+        <source>Tag</source>
+        <target>Étiquette</target>
+      </trans-unit>
+      <trans-unit id="b9c4caf50324633892c2fdb94fbebb89" resname="capacity.label.minimum">
+        <source>capacity.label.minimum</source>
+        <target>Minimum</target>
+      </trans-unit>
+      <trans-unit id="1e9760b3d05ec5c93032994ef8f8f8d6" resname="capacity.label.maximum">
+        <source>capacity.label.maximum</source>
+        <target>Maximum</target>
+      </trans-unit>
+      <trans-unit id="43ec3e5dee6e706af7766fffea512721" resname="=">
+        <source>=</source>
+        <target>=</target>
+      </trans-unit>
+      <trans-unit id="3a1e9b87c94b54dec1202b5ca6539806" resname="&gt;=">
+        <source>&gt;=</source>
+        <target><![CDATA[>=]]></target>
+      </trans-unit>
+      <trans-unit id="cedf8da05466bb54708268b3c694a78f" resname="&gt;">
+        <source>&gt;</source>
+        <target><![CDATA[>]]></target>
+      </trans-unit>
+      <trans-unit id="a7eeaea90b4e8312b88abcd178019929" resname="&lt;=">
+        <source>&lt;=</source>
+        <target><![CDATA[<=]]></target>
+      </trans-unit>
+      <trans-unit id="524a50782178998021a88b8cd4c8dcd8" resname="&lt;">
+        <source>&lt;</source>
+        <target><![CDATA[<]]></target>
+      </trans-unit>
+      <trans-unit id="4e293d53d1f35d44781b2e2beafcae5b" resname="contient">
+        <source>contient</source>
+        <target>contient</target>
+      </trans-unit>
+      <trans-unit id="dc0fffa8abe70be5d8e69e02e5dc30f4" resname="ne contient pas">
+        <source>ne contient pas</source>
+        <target>ne contient pas</target>
+      </trans-unit>
+      <trans-unit id="898b332c1de94a306186555112a9b475" resname="est égal à">
+        <source>est égal à</source>
+        <target>est égal à</target>
+      </trans-unit>
+      <trans-unit id="4b0434aaa8c9fd8900c74aa89a1b0e1f" resname="est entre">
+        <source>est entre</source>
+        <target>est entre</target>
+      </trans-unit>
+      <trans-unit id="7774c06071af8d56a0423da3ad846544" resname="n'est pas entre">
+        <source>n'est pas entre</source>
+        <target>n'est pas entre</target>
+      </trans-unit>
+      <trans-unit id="e76cf8a691823107e27238a4976cd98e" resname="Du">
+        <source>Du</source>
+        <target>Du</target>
+      </trans-unit>
+      <trans-unit id="515322af1eb924f2a4cee609d1f39bfa" resname="Au">
+        <source>Au</source>
+        <target>Au</target>
+      </trans-unit>
+      <trans-unit id="e68564f23e0e939acea76dc3d2bc01bf" resname="Jan">
+        <source>Jan</source>
+        <target>janv</target>
+      </trans-unit>
+      <trans-unit id="ea171d540ccd5f0669171ef06d3cd848" resname="Feb">
+        <source>Feb</source>
+        <target>févr</target>
+      </trans-unit>
+      <trans-unit id="7ce6b2286a5396e614b8484105d277e0" resname="Mar">
+        <source>Mar</source>
+        <target>mars</target>
+      </trans-unit>
+      <trans-unit id="6d7215c4b3bc4716d026ac46c6d9ae64" resname="Apr">
+        <source>Apr</source>
+        <target>avr</target>
+      </trans-unit>
+      <trans-unit id="195fbb57ffe7449796d23466085ce6d8" resname="May">
+        <source>May</source>
+        <target>mai</target>
+      </trans-unit>
+      <trans-unit id="688937ccaf2a2b0c45a1c9bbba09698d" resname="June">
+        <source>June</source>
+        <target>juin</target>
+      </trans-unit>
+      <trans-unit id="1b539f6f34e8503c97f6d3421346b63c" resname="July">
+        <source>July</source>
+        <target>juil</target>
+      </trans-unit>
+      <trans-unit id="22f1a4667604b8557c9b209c201b4bc6" resname="Aug">
+        <source>Aug</source>
+        <target>août</target>
+      </trans-unit>
+      <trans-unit id="ff07559bc06ba6ed552dfc6ad46ef943" resname="Sept">
+        <source>Sept</source>
+        <target>sept</target>
+      </trans-unit>
+      <trans-unit id="594be08882c8e9d5efb9eeb62f303744" resname="Oct">
+        <source>Oct</source>
+        <target>oct</target>
+      </trans-unit>
+      <trans-unit id="343e6957be77c6247aa2b8d0deb68bd6" resname="Nov">
+        <source>Nov</source>
+        <target>nov</target>
+      </trans-unit>
+      <trans-unit id="d207b4e0bce42a8f1555ce3a05e287f6" resname="Dec">
+        <source>Dec</source>
+        <target>déc</target>
+      </trans-unit>
+      <trans-unit id="8c0893dce76c7b4feaeae3dad0b8d130" resname="api.error.email_invalid">
+        <source>api.error.email_invalid</source>
+        <target>Erreur l'e-mail de votre voisin est invalide</target>
+      </trans-unit>
+      <trans-unit id="8f2e6e33481395ae0c0b69f5f8172dc7" resname="api.error.user_not_attending">
+        <source>api.error.user_not_attending</source>
+        <target>Cet utilisateur n'est pas enregistré pour cet événement</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

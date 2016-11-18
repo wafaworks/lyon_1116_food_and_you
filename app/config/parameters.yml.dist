@@ -1,0 +1,47 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+    # You should uncomment this if you want use pdo_sqlite
+    # database_path: "%kernel.root_dir%/data.db3"
+
+    mailer_transport: gmail
+    mailer_host: null
+    mailer_user: karen@foodandyou.fr
+    mailer_password: karenfood
+
+    # A secret key that's used to generate certain security-related tokens
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # Facebook
+    facebook_app_id: 423791437820498
+    facebook_app_secret: ca33cbb1b3aeefd9b4ef39c89fbed28b
+
+    contact_email: contact@foodandyou.fr
+    contact_company_email: karen@foodandyou.fr
+    delivery_address: alexandru@soluti.fr
+    sender_address: contact@foodandyou.fr
+    admin_addresses: ['karen@foodandyou.fr', 'jc.menz@foodandyou.fr']
+
+    base_cdn: 'http://foodandyou.soluti.fr'
+
+    google_map_api: AIzaSyAc8KYVr_x_j0H_yTLSPTENjY0B5t1yWWY
+
+
+    # Merchant ID
+    merchant_id: '014213245611111'  # Dev
+    #merchant_id: '081766172100016' # Prod
+
+    # Memcached
+    memcached_server: 127.0.0.1
+    memcached_port:   11211
+
+    # iOS certificate passphrase
+    push.certificates.ios:             %kernel.root_dir%/certificates/ios-push-dev.pem
+    push.certificates.passphrase.ios:  FoodAndYouSoluti
+    push.sandbox: true

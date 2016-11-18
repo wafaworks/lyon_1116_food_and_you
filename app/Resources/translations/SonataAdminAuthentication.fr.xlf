@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="f6039d44b29456b20f8f373155ae4973" resname="Username">
+        <source>Username</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="ce8ae9da5b7cd6c3df2929543a9af92d" resname="Email">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="4b6b680381aabeccf64a2e271f720a19" resname="Plain Password">
+        <source>Plain Password</source>
+        <target>Nouveau mot de passe</target>
+      </trans-unit>
+      <trans-unit id="c0747f4c326683a913e46aa9feba237a" resname="Facebook Id">
+        <source>Facebook Id</source>
+        <target>Facebook Id</target>
+      </trans-unit>
+      <trans-unit id="4c8a6f9f7d907b26848d48d4aff69640" resname="Facebook Access Token">
+        <source>Facebook Access Token</source>
+        <target>Facebook jeton d'accès</target>
+      </trans-unit>
+      <trans-unit id="d0f2e5376298c880665077b565ffd7dd" resname="Locked">
+        <source>Locked</source>
+        <target>Fermé</target>
+      </trans-unit>
+      <trans-unit id="24fe48030f7d3097d5882535b04c3fa8" resname="Expired">
+        <source>Expired</source>
+        <target>Expiré</target>
+      </trans-unit>
+      <trans-unit id="00d23a76e43b46dae9ec7aa9dcbebb32" resname="Enabled">
+        <source>Enabled</source>
+        <target>Activé</target>
+      </trans-unit>
+      <trans-unit id="c955590c0728bfacaf74f148e4e561e6" resname="Credentials Expired">
+        <source>Credentials Expired</source>
+        <target>Pouvoirs Périmé</target>
+      </trans-unit>
+      <trans-unit id="006646e5554af5041d1e169236d655a4" resname="form.label_roles">
+        <source>form.label_roles</source>
+        <target>Les rôles</target>
+      </trans-unit>
+      <trans-unit id="6fa691d2c07bea6ae78b7022c80e9d20" resname="authentication">
+        <source>authentication</source>
+        <target>Authentification</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

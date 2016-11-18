@@ -1,0 +1,29 @@
+parameters:
+    memcache_hosts:
+        -
+            dsn: %memcached_server%
+            port: %memcached_port%
+
+services:
+    memcached:
+        class: Memcached
+        calls:
+            - [ addServers, [%memcache_hosts%] ]
+
+    doctrine.cache.memcached:
+        class: Doctrine\Common\Cache\MemcachedCache
+        calls:
+            - [ setMemcached, [ @memcached ] ]
+
+
+doctrine:
+    orm:
+        metadata_cache_driver:
+            type: service
+            id: doctrine.cache.memcached
+        query_cache_driver:
+            type: service
+            id: doctrine.cache.memcached
+        result_cache_driver:
+            type: service
+            id: doctrine.cache.memcached

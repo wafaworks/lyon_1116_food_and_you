@@ -1,0 +1,35 @@
+.FlexColumns {
+    display: flex;
+    flex-wrap: nowrap;
+
+    > div {
+        display: flex;
+        justify-content: center;
+        padding: 0 15px;
+
+        &:first-child {
+            border-right: 1px solid @color-grey;
+        }
+    }
+}
+
+@media (max-width: @grid-md) {
+    .FlexColumns {
+        flex-wrap: wrap;
+
+        .flex-col-sm-2 {
+            flex-basis: 100%;
+            &:first-child {
+                border: none;
+            }
+        }
+    }
+}
+
+@media (min-width: @grid-md) {
+    .FlexColumns {
+        .flex-col-sm-2 {
+            flex-basis: 50%;
+        }
+    }
+}

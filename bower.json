@@ -1,0 +1,35 @@
+{
+  "name": "food_and_you",
+  "version": "0.0.1",
+  "authors": [
+    "Alexandru Benzari <alexandru@soluti.fr>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "dependencies": {
+    "jquery": "~2.1",
+    "jquery.ui": "1.11.4",
+    "datatables": "1.10.10",
+    "font-awesome": "fontawesome#4.5.0",
+    "bootstrap": "v3.3.6",
+    "jquery-validation": "~1.14.0",
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37",
+    "moment": "~2.10.6",
+    "bootstrap3-typeahead": "~3.1",
+    "owl.carousel": "~2.0.0",
+    "jquery-mask-plugin": "1.13.4",
+    "select2": "~3.5",
+    "ion.rangeslider": "~2.1.2",
+    "smooth-scroll": "~1.0.1",
+    "blueimp-load-image": "~2.6.0"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,11 @@
+{% trans_default_domain "dish_type" %}
+
+{% macro toString(type) %}
+    {% if type == constant('AppBundle\\Entity\\Recipe::TYPE_ENTRY') %}
+        {{ 'dish.type.entry' | trans }}
+    {% elseif type == constant('AppBundle\\Entity\\Recipe::TYPE_MAIN') %}
+        {{ 'dish.type.main' | trans }}
+    {% elseif type == constant('AppBundle\\Entity\\Recipe::TYPE_DESSERT') %}
+        {{ 'dish.type.dessert' | trans }}
+    {% endif %}
+{% endmacro %}

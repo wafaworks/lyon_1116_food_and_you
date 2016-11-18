@@ -1,0 +1,87 @@
+{% trans_default_domain "contact-company" %}
+<modal-block>
+    <content>
+        <h5 class="box">{{ 'app.form.contact-company.title'|trans({}, 'contact') }}</h5>
+        <p>{{ 'app.form.contact-company.subtitle'|trans({}, 'contact') }}</p>
+        {{ form_start(form, {'attr': {'method': 'post', 'id': 'contact_company_type'}}) }}
+        {{ form_row(form.firstName, {'label': 'app.form.contact-company.label.firstName'}) }}
+        {{ form_row(form.lastName, {'label': 'app.form.contact-company.label.lastName'}) }}
+        {{ form_row(form.company, {'label': 'app.form.contact-company.label.company'}) }}
+        {{ form_row(form.email, {'label': 'app.form.contact-company.label.email'}) }}
+        {{ form_row(form.phone, {'label': 'app.form.contact-company.label.phone'}) }}
+        {{ form_row(form.capacity, {'label': 'app.form.contact-company.label.capacity'}) }}
+        {{ form_row(form.notice, {'label': 'app.form.contact-company.label.notice'}) }}
+        {{ form_row(form.submit, {'label': 'app.form.contact-company.label.submit', 'attr': {'class': 'Btn sm green'}}) }}
+        {{ form_end(form) }}
+    </content>
+    <script type="text/modal-template" language="JavaScript">
+        $(document).ready(function () {
+
+            $('#contact_company_type').validate(validatorTemplates({
+                submitHandler: function (formElement) {
+                    var form = $(formElement);
+                    $.ajax({
+                        type: form.attr('method'),
+                        url: '{{ path("contact_company") }}',
+                        data: form.serialize(),
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.status === 'success') {
+                                window.location.reload(false);
+                            } else {
+                                ajaxErrorHandler.display(form, data.errors);
+                            }
+                        }
+                    });
+                },
+                rules: {
+                    "contact_company[firstName]": {
+                        required: true
+                    },
+                    "contact_company[lastName]": {
+                        required: true
+                    },
+                    "contact_company[email]": {
+                        required: true
+                    },
+                    "contact_company[phone]": {
+                        required: true
+                    },
+                    "contact_company[capacity]": {
+                        required: true
+                    },
+                    "contact_company[notice]": {
+                        required: true
+                    },
+                    "contact_company[company]": {
+                        required: true
+                    },
+                },
+                messages: {
+                    "contact_company[firstName]": {
+                        required: '{{ 'app.contact_company.firstName.required'|trans({}, 'validators') }}'
+                    },
+                    "contact_company[lastName]": {
+                        required: '{{ 'app.contact_company.lastName.required'|trans({}, 'validators') }}'
+                    },
+                    "contact_company[email]": {
+                        required: '{{ 'app.contact_company.email.required'|trans({}, 'validators') }}'
+                    },
+                    "contact_company[phone]": {
+                        required: '{{ 'app.contact_company.phone.required'|trans({}, 'validators') }}'
+                    },
+                    "contact_company[capacity]": {
+                        required: '{{ 'app.contact_company.capacity.required'|trans({}, 'validators') }}'
+                    },
+                    "contact_company[notice]": {
+                        required: '{{ 'app.contact_company.notice.required'|trans({}, 'validators') }}'
+                    },
+                    "contact_company[company]": {
+                        required: '{{ 'app.contact_company.company.required'|trans({}, 'validators') }}'
+                    },
+                }
+            }));
+        });
+    </script>
+</modal-block>
+

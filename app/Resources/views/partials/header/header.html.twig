@@ -1,0 +1,11 @@
+<header class="Site__header--default">
+    <div class="container">
+        <div class="row jc-center">
+            {% include ':partials/menu:desktop.html.twig' %}
+        </div>
+        {% include ':partials/menu:mobile.html.twig' %}
+    </div>
+</header>
+{% if app.request.attributes.get('_route') != 'event_list' %}
+{% include ":partials/forms:search.html.twig" %}
+{% endif %}

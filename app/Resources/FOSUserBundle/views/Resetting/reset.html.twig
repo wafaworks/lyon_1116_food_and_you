@@ -1,0 +1,65 @@
+{% extends "::base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+    <div class="container box">
+        <div class="row">
+            <div class="col-xs-12 box">
+                <h1 class="h3">{{ 'resetting.reset.title'|trans() }}</h1>
+            </div>
+            <div class="col-md-6 col-md-offset-3">
+                {% include "FOSUserBundle:Resetting:reset_content.html.twig" %}
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#resetting_reset_form').validate(validatorTemplates({
+                submitHandler: function (formElement) {
+                    var form = $(formElement);
+
+                    $.ajax({
+                        type        : form.attr( 'method' ),
+                        url         : form.attr( 'action' ),
+                        data        : form.serialize(),
+                        dataType    : "json",
+                        success     : function(data) {
+                            if (data.status === 'success') {
+                                displayMessageModal(data.message, 'Ok', function() {
+                                    location.href = '{{ path('homepage') }}';
+                                });
+                            } else {
+                                ajaxErrorHandler.display(form, data.errors);
+                            }
+                        },
+                        error: function(data){
+                            console.log(data.message);
+                        }
+                    });
+                },
+                rules: {
+                    "fos_user_resetting_form[plainPassword][first]": {
+                        required: true,
+                        minlength: 8
+                    },
+                    "fos_user_resetting_form[plainPassword][second]": {
+                        required: true,
+                        equalTo: "#fos_user_resetting_form_plainPassword_first"
+                    }
+                },
+                messages: {
+                    "fos_user_resetting_form[plainPassword][first]": {
+                        required: '{{ 'fos_user.password.blank'|trans({}, 'validators') }}',
+                        minlength: '{{ 'fos_user.password.short'|transchoice(0, {}, 'validators') }}'
+                    },
+                    "fos_user_resetting_form[plainPassword][second]": {
+                        required: '{{ 'fos_user.password.blank'|trans({}, 'validators') }}',
+                        equalTo: '{{ 'fos_user.password.mismatch'|trans({}, 'validators') }}'
+                    }
+                }
+            }));
+        });
+    </script>
+{% endblock %}

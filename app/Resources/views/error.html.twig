@@ -1,0 +1,33 @@
+{% if app.environment != 'prod' %}
+    {% set cacheBusting = '?' ~ date().timestamp  %}
+{% else %}
+    {% set cacheBusting = '?v1.0.0' %}
+{% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
+    <title>{% block title %}{{ 'homepage.title' | trans({}, 'seo') }}{% endblock %}</title>
+    <link type='text/css' href='{{ asset('css/00-vendor.css') ~ cacheBusting }}' rel='stylesheet' media='screen' />
+    <link type='text/css' href='{{ asset('css/01-app.css') ~ cacheBusting }}' rel='stylesheet' media='screen' />
+    <script src="{{ asset('vendor/jquery/dist/jquery.min.js') }}"></script>
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
+</head>
+<body>
+    {% include 'partials/header/header-error.html.twig' %}
+    <div class="container box-lg">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1 class="box">{% block code %}Erreur{% endblock %}</h1>
+                <p class="h4 box">{% block codeDescription %}Erreur interne du serveur. La brigade Food & You essaye de gérer toutes vos demandes en même temps :){% endblock %}</p>
+                <button onclick="displayModal('modal_contact');" class="Btn green xs">{{ 'contact'|trans({}, 'error') }}</button>
+            </div>
+        </div>
+    </div>
+    {% include 'partials/footer/footer.html.twig' %}
+    <script src="{{ asset('js/00-vendor.js') ~ cacheBusting }}"></script>
+    <script src="{{ asset('js/01-app.js') ~ cacheBusting }}"></script>
+</body>
+</html>

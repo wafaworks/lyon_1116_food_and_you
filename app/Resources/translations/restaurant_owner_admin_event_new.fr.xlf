@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="d5d3db1765287eef77d7927cc956f50a" resname="title">
+        <source>title</source>
+        <target>Nouvel événement</target>
+      </trans-unit>
+      <trans-unit id="151e9b2bba0461969d44ac235b6c3fff" resname="restaurant.button.submit">
+        <source>restaurant.button.submit</source>
+        <target>Sauvegarder événement</target>
+      </trans-unit>
+      <trans-unit id="533d6bd6b0cc8775ac905064fc4bddfc" resname="form.label.date">
+        <source>form.label.date</source>
+        <target>Choix de la date</target>
+      </trans-unit>
+      <trans-unit id="41cbf855860db0dd3fd41aa68df3ed3b" resname="form.label.placesRange">
+        <source>form.label.placesRange</source>
+        <target>Nombre de couverts</target>
+      </trans-unit>
+      <trans-unit id="4293b61627bbec2d23ea2de795e167f4" resname="form.new_event.hour">
+        <source>form.new_event.hour</source>
+        <target>Choix de l'heure</target>
+      </trans-unit>
+      <trans-unit id="ec62fb41fec5b10dee46aaafdb18938a" resname="form.new_event.price">
+        <source>form.new_event.price</source>
+        <target>Prix annoncé</target>
+      </trans-unit>
+      <trans-unit id="33c15b7a05c198bf27919b4c62cfaf2e" resname="29.90">
+        <source>29.90</source>
+        <target>29,90</target>
+      </trans-unit>
+      <trans-unit id="82cfadd4246e6c94fc53c5d3bfd8220b" resname="34.90">
+        <source>34.90</source>
+        <target>34,90</target>
+      </trans-unit>
+      <trans-unit id="65845497a3736e43c0036e6bd57bb583" resname="39.90">
+        <source>39.90</source>
+        <target>39,90</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,45 @@
+<div class="row Site__header-menu-mobile">
+    <button class="navbar-toggle" type="button" data-toggle="collapse"
+            data-target="#collapsingNavbar">&#9776;</button>
+    <ul class="collapse" id="collapsingNavbar">
+        <li><a href="javascript:void(0);" class="listRestaurantsTrigger">{{ 'our_restaurants'|trans({}, "base") }}</a></li>
+        <li><a href="{{ path('restaurateur_benefits') }}">{{ 'become_restaurator'|trans({}, "base") }}</a></li>
+        {% if app.user %}
+            {% if app.user.member.restaurants|length > 0 %}
+                {% set monCompte = path('restaurant_owner_admin_event_list' ) %}
+            {% else %}
+                {% set monCompte = path('member_profile', { 'slug': app.user.member.slug } ) %}
+            {% endif %}
+        <li>
+            <a href="{{ monCompte }}">
+                <span>{{ 'my.profile'|trans({}, "base") }}</span>
+            </a>
+        </li>
+        {% if is_granted('ROLE_SONATA_ADMIN') %}
+            <li>
+                <a href="{{ path('sonata_admin_dashboard') }}">
+                    <span>{{ 'admin'|trans({}, "base") }}</span>
+                </a>
+            </li>
+        {% endif %}
+        <li>
+            <a href="{{ path('fos_user_security_logout') }}">
+                {{- 'logout'|trans({}, "base") -}}
+            </a>
+        </li>
+        {% else %}
+        <li>
+            <a class="Btn empty xs border-white Btn--icon green"
+               href="{{ path('hwi_oauth_service_redirect', { 'service': 'facebook' }) }}">
+                <i class="fa fa-facebook"></i>
+                <span>{{ 'connection'|trans({}, "base") }}</span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" onclick="displayModal('modal_login');">
+                {{- 'connection_inscription'|trans({}, "base") -}}
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</div>

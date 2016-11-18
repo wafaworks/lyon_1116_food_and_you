@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="2904a63832d05b2262daa166fda7d91c" resname="menu.unique">
+        <source>menu.unique</source>
+        <target>Menu unique</target>
+      </trans-unit>
+      <trans-unit id="4ba34cbde42ddbe9bd7ad76bd273dc1e" resname="event.status.application.closed">
+        <source>event.status.application.closed</source>
+        <target>En cours de sélection</target>
+      </trans-unit>
+      <trans-unit id="08250b596f94bc695c702a423ed9929d" resname="event.only.left">
+        <source>event.only.left</source>
+        <target>Il ne reste plus que</target>
+      </trans-unit>
+      <trans-unit id="3394e87feb9a31132eb41e2816c9b533" resname="event.days.to.apply">
+        <source>event.days.to.apply</source>
+        <target>jours pour postuler</target>
+      </trans-unit>
+      <trans-unit id="86e7905cbe8a3dd4c0c2184a40f9108f" resname="event.apply">
+        <source>event.apply</source>
+        <target>Je postule !</target>
+      </trans-unit>
+      <trans-unit id="6098bdc7a5618404cce51047d455970b" resname="event.reserve">
+        <source>event.reserve</source>
+        <target>Je réserve vite !</target>
+      </trans-unit>
+      <trans-unit id="4dde0729f6f6cee5344c556b0f4645a5" resname="event.places.left">
+        <source>event.places.left</source>
+        <target>{0}places disponibles|{1}place disponible|[2,Inf]places disponibles</target>
+      </trans-unit>
+      <trans-unit id="527b1a73f0da4d5e922fb59b7c129fa2" resname="event.status.finished">
+        <source>event.status.finished</source>
+        <target>Merci d'avoir participé</target>
+      </trans-unit>
+      <trans-unit id="d92252c51571216be343287488599db3" resname="event.chef.choosing">
+        <source>event.chef.choosing</source>
+        <target>Le chef délibère</target>
+      </trans-unit>
+      <trans-unit id="349d7b7fc073e937e313a879b63b637c" resname="event.status.reservation.closed">
+        <source>event.status.reservation.closed</source>
+        <target>Reservations fermées</target>
+      </trans-unit>
+      <trans-unit id="d4e398090df014029558afa649419c3e" resname="event.view.all">
+        <source>event.view.all</source>
+        <target>Voir tous les événements</target>
+      </trans-unit>
+      <trans-unit id="21df2a253911ecb2556f387f16838090" resname="status.reservations.open">
+        <source>status.reservations.open</source>
+        <target>Réservez et encouragez nos amateurs !</target>
+      </trans-unit>
+      <trans-unit id="e54dbcd5a01ac235a918a790195cb2c5" resname="status.reservations.closed">
+        <source>status.reservations.closed</source>
+        <target>Reservations fermées</target>
+      </trans-unit>
+      <trans-unit id="92bd696fc09af18019d6be4c2084c6bb" resname="status.finished">
+        <source>status.finished</source>
+        <target>Événement terminé</target>
+      </trans-unit>
+      <trans-unit id="6259a933bf8ac6eab33ea8866fcd78fb" resname="status.application.open">
+        <source>status.application.open</source>
+        <target>En cours de sélection</target>
+      </trans-unit>
+      <trans-unit id="ab210ab186bbeda54694945cad2cd8c0" resname="status.application.closed">
+        <source>status.application.closed</source>
+        <target>En cours de sélection</target>
+      </trans-unit>
+      <trans-unit id="5c9db9cef47b97ba9e36319c47d75b62" resname="code.table">
+        <source>code.table</source>
+        <target>Code table (*)</target>
+      </trans-unit>
+      <trans-unit id="4df29b3b44500d28f9cbf7cb6a7473ac" resname="code.table.desc">
+        <source>code.table.desc</source>
+        <target>(*) Un(e) ami(e) a déjà réservé pour cet événement ? Entrez ci-dessus son code table pour diner ensemble ! (code table disponible sur sa page profil)</target>
+      </trans-unit>
+      <trans-unit id="9c3b62949032a7361e2f0642fcb118d6" resname="reserve">
+        <source>reserve</source>
+        <target>Réserver</target>
+      </trans-unit>
+      <trans-unit id="4405bdbc743d8b93e7e5a16189a09407" resname="error.already_reserved">
+        <source>error.already_reserved</source>
+        <target>Vous avez déjà une réservation pour cet événement</target>
+      </trans-unit>
+      <trans-unit id="12d8e9dbc56ef95432b5baf5f4b4593b" resname="error.event_full">
+        <source>error.event_full</source>
+        <target><![CDATA[Il ne reste plus de place disponible pour cet événement Food & You.]]></target>
+      </trans-unit>
+      <trans-unit id="2d0b1f211b953b9c41ec7267bce16a4c" resname="error.wrong_table_code">
+        <source>error.wrong_table_code</source>
+        <target>Oops ! Ce code table n'existe pas. Vérifiez le code qui vous a été fourni ;)</target>
+      </trans-unit>
+      <trans-unit id="f39adcf37902bdcb747ecbf11983a6b0" resname="error.no_reservation">
+        <source>error.no_reservation</source>
+        <target><![CDATA[Le membre Food & You possédant ce code n'a pas encore une réservation pour cet événement.]]></target>
+      </trans-unit>
+      <trans-unit id="be71006fc8fdd32e680ca539a86d47d6" resname="reserve.place">
+        <source>reserve.place</source>
+        <target>Réservez votre place</target>
+      </trans-unit>
+      <trans-unit id="effc184e3cc1475adb52203480b1b122" resname="event.full">
+        <source>event.full</source>
+        <target>Complet !</target>
+      </trans-unit>
+      <trans-unit id="6cd0aa6331e5e6b758527a7a35bace02" resname="event.left">
+        <source>event.left</source>
+        <target>Plus que</target>
+      </trans-unit>
+      <trans-unit id="0b42e003f7cbfcc35acceb691c2d1778" resname="your.chefs.title">
+        <source>your.chefs.title</source>
+        <target>VOS CUISINIERS AMATEURS</target>
+      </trans-unit>
+      <trans-unit id="7ef3291e0523f95b51c1ef19c742ee8a" resname="your.chefs.description">
+        <source>your.chefs.description</source>
+        <target>Consultez, salivez, partagez !</target>
+      </trans-unit>
+      <trans-unit id="753321b8cc3cd39eaba38ab91e952cb2" resname="your.chefs.in.competition.title">
+        <source>your.chefs.in.competition.title</source>
+        <target>Candidats en lice</target>
+      </trans-unit>
+      <trans-unit id="fedec4f4d2b2366f0772bfc981009c39" resname="event.already.reserved">
+        <source>event.already.reserved</source>
+        <target>Vous avez déjà réservé votre place pour cet événement :)</target>
+      </trans-unit>
+      <trans-unit id="61a5ac743e31488b05a3f9a3b72caf7c" resname="photo.gallery.title">
+        <source>photo.gallery.title</source>
+        <target>Galerie photo</target>
+      </trans-unit>
+      <trans-unit id="c3eaa8676ee19480809ab4e68b0ef876" resname="photo.gallery.description">
+        <source>photo.gallery.description</source>
+        <target><![CDATA[<p>Revivez votre soirée food & you !</p><p>Retrouvez vos meilleurs</p>]]></target>
+      </trans-unit>
+      <trans-unit id="b66e0880ae0d83b3e5bf6ecc6705be1d" resname="photos.notfound">
+        <source>photos.notfound</source>
+        <target>Aucun photo pour cet événement.</target>
+      </trans-unit>
+      <trans-unit id="1796c7c8e6b4fb74c722d98ef027d4be" resname="photos.nomore">
+        <source>photos.nomore</source>
+        <target>C'est bon, vous êtes tout en bas.</target>
+      </trans-unit>
+      <trans-unit id="99de0c8cdf965d9d8dcb2461fd5cfd93" resname="status.in_progress">
+        <source>status.in_progress</source>
+        <target>En cours</target>
+      </trans-unit>
+      <trans-unit id="6e8e765d149f63f8a07db8ae3ff8229d" resname="status.cancelled">
+        <source>status.cancelled</source>
+        <target>Annulé</target>
+      </trans-unit>
+      <trans-unit id="e0dbba4977948593f56e832c27aefa26" resname="our.event.is">
+        <source>our.event.is</source>
+        <target>Notre événement est</target>
+      </trans-unit>
+      <trans-unit id="7ae4b9cb3cf573ce053e4ee478f9e847" resname="event.status.reservation.closed.see.more">
+        <source>event.status.reservation.closed.see.more</source>
+        <target>Rendez-vous au prochain événement</target>
+      </trans-unit>
+      <trans-unit id="457fd7af9de5358c3692863995fd87ee" resname="event.reservations.open.in">
+        <source>event.reservations.open.in</source>
+        <target>Les réservations ouvrent dans</target>
+      </trans-unit>
+      <trans-unit id="1ff81eba8c2702f94e652ea00d18956b" resname="event.reservations.come.back">
+        <source>event.reservations.come.back</source>
+        <target>revenez vite !</target>
+      </trans-unit>
+      <trans-unit id="3ab37cc6c64f694b9a87ed6ab1058c5e" resname="vote.candidate">
+        <source>vote.candidate</source>
+        <target>Votez pour votre candidat préféré!</target>
+      </trans-unit>
+      <trans-unit id="13a3f4213d5243ded6a5d5e246f42523" resname="event.already.applied">
+        <source>event.already.applied</source>
+        <target>Vous avez déjà postulé pour cet événement</target>
+      </trans-unit>
+      <trans-unit id="8d9d33e1bfb6249db4581c04decf7144" resname="error.capacity.max">
+        <source>error.capacity.max</source>
+        <target>Oops !pas assez de places disponibles</target>
+      </trans-unit>
+      <trans-unit id="3afa402c6108c378be35d0d3b7d7f75a" resname="error.capacity.limit">
+        <source>error.capacity.limit</source>
+        <target>Maximum de 6 personnes atteint</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

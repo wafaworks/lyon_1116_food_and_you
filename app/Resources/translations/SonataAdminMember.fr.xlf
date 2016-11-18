@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="aa08769cdcb26674c6706093503ff0a3" resname="member">
+        <source>member</source>
+        <target>Membre</target>
+      </trans-unit>
+      <trans-unit id="490aa6e856ccf208a054389e47ce0d06" resname="Id">
+        <source>Id</source>
+        <target>Id</target>
+      </trans-unit>
+      <trans-unit id="630058029627ce58e7571e7a5b6ec591" resname="Full Name">
+        <source>Full Name</source>
+        <target>Nom complet</target>
+      </trans-unit>
+      <trans-unit id="bc910f8bdf70f29374f496f05be0330c" resname="First Name">
+        <source>First Name</source>
+        <target>Prénom</target>
+      </trans-unit>
+      <trans-unit id="77587239bf4c54ea493c7033e1dbf636" resname="Last Name">
+        <source>Last Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="90baa2a6a4156a6a4222512ae3875ab7" resname="Member List">
+        <source>Member List</source>
+        <target>Liste des membres</target>
+      </trans-unit>
+      <trans-unit id="858ba4765e53c712ef672a9570474b1d" resname="Member">
+        <source>Member</source>
+        <target>Membre</target>
+      </trans-unit>
+      <trans-unit id="c75f7811d70d17dbcd88e9d03752cbed" resname="Authentication">
+        <source>Authentication</source>
+        <target>Authentification</target>
+      </trans-unit>
+      <trans-unit id="0cea578e6129986e369e0052fdb89c2c" resname="Birth Date">
+        <source>Birth Date</source>
+        <target>Date de naissance</target>
+      </trans-unit>
+      <trans-unit id="c03d53b70feba4ea842510abecd6c45e" resname="Photo">
+        <source>Photo</source>
+        <target>Photo</target>
+      </trans-unit>
+      <trans-unit id="9100c7317c2f55730e163e7e710c0a52" resname="Biography">
+        <source>Biography</source>
+        <target>Biographie</target>
+      </trans-unit>
+      <trans-unit id="8c09001c99ecb6fdd8d6023fcf039054" resname="Signature">
+        <source>Signature</source>
+        <target>Signature</target>
+      </trans-unit>
+      <trans-unit id="15dd5fdf05cb721f9b8466cb7ed3a397" resname="Member Info">
+        <source>Member Info</source>
+        <target>Info membre</target>
+      </trans-unit>
+      <trans-unit id="ca7d4a82d3359c3e57fe0745a1a03674" resname="Table Code">
+        <source>Table Code</source>
+        <target>Code table</target>
+      </trans-unit>
+      <trans-unit id="dda9c06f33071c9b6fc237ee164109d8" resname="Rating">
+        <source>Rating</source>
+        <target>Evaluation</target>
+      </trans-unit>
+      <trans-unit id="a0db49ba470c1c9ae2128c3470339153" resname="Level">
+        <source>Level</source>
+        <target>Niveau</target>
+      </trans-unit>
+      <trans-unit id="91d5b9ba03e3831fcb538be9385d4bd0" resname="Authentication Email">
+        <source>Authentication Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="bcc254b55c4a1babdf1dcb82c207506b" resname="Phone">
+        <source>Phone</source>
+        <target>Téléphone</target>
+      </trans-unit>
+      <trans-unit id="f0232aca0d87e773834d852970413fa0" resname="Nr Applications">
+        <source>Nr Applications</source>
+        <target>Nombre d'applications</target>
+      </trans-unit>
+      <trans-unit id="145f62e989b5061bfc09361f9a3d9253" resname="Participations">
+        <source>Participations</source>
+        <target>Nombre de participations</target>
+      </trans-unit>
+      <trans-unit id="7c69aca8383ec5e03f2dc8c50c150aae" resname="Nr Recipes">
+        <source>Nr Recipes</source>
+        <target>Nombre de recettes</target>
+      </trans-unit>
+      <trans-unit id="f606bd83c23b957f8d2e8bf9dfc5c8b7" resname="Nr Reservations">
+        <source>Nr Reservations</source>
+        <target>Nombre de réservations</target>
+      </trans-unit>
+      <trans-unit id="cce99c598cfdb9773ab041d54c3d973a" resname="Profile">
+        <source>Profile</source>
+        <target>Profil</target>
+      </trans-unit>
+      <trans-unit id="0d5162fb40600a9fdbc1ce93abc874e7" resname="view.profile">
+        <source>view.profile</source>
+        <target>Voir le profil</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="fos.registration.init" type="constant">FOS\UserBundle\FOSUserEvents::REGISTRATION_INITIALIZE</parameter>
+        <parameter key="fos_user.profile.edit" type="constant">FOS\UserBundle\FOSUserEvents::PROFILE_EDIT_INITIALIZE</parameter>
+    </parameters>
+
+    <services>
+        <!-- Event Listeners -->
+        <service id="app.exception_listener" class="AppBundle\Event\Listener\RegistrationListener">
+            <tag name="kernel.event_listener" event="%fos.registration.init%" method="onRegistrationInitialise" />
+            <argument type="service" id="fos_user.registration.form.factory" />
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="router" />
+            <argument type="service" id="app.form.error_serializer" />
+        </service>
+
+        <service id="app.member.edit.listener" class="AppBundle\Event\Listener\MemberEditListener">
+            <tag name="kernel.event_listener" event="%fos_user.profile.edit%" method="onProfileEdit" />
+            <argument type="service" id="fos_user.profile.form.factory" />
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="router" />
+            <argument type="service" id="app.form.error_serializer" />
+        </service>
+
+
+        <service id="app.listener.entity.member" class="AppBundle\Event\Listener\MemberListener">
+            <tag name="doctrine.orm.entity_listener" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
+        <service id="app.listener.entity.gallery" class="AppBundle\Event\Listener\GalleryListener">
+            <tag name="doctrine.orm.entity_listener" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
+        <service id="app.listener.transaction_updated" class="AppBundle\Event\Listener\TransactionUpdatedListener">
+            <tag name="kernel.event_listener" event="soluti_sogenactif.transaction.updated" method="onTransactionUpdate" />
+            <argument type="service" id="app.repository.reservation"/>
+            <argument type="service" id="router"/>
+            <argument type="service" id="app.manager.reservation"/>
+        </service>
+        
+        <!-- Event Subscribers -->
+        <service id="app.subscriber.reservation" class="AppBundle\Event\Subscriber\ReservationSubscriber">
+            <argument type="service" id="app.repository.event"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+    </services>
+</container>

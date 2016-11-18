@@ -1,0 +1,202 @@
+// TODO Refactor Search bloc
+.Search--block {
+    background-color: @color-green;
+    z-index: 3;
+
+    &--default {
+        background-color: @color-green;
+        margin-bottom: 2rem;
+
+        & > div:first-child {
+            display: flex;
+            align-items: center;
+            max-height: 3rem;
+        }
+
+        .Sticker {
+            position: relative;
+            top: 1rem;
+        }
+    }
+
+    input[type="text"], input[type="date"], select {
+        border-radius: 0;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+        width: 50%;
+        display: inline-block;
+        float: left;
+        background-color: @color-white;
+        color: @color-black;
+        //border-color: @color-green-dark2;
+        border-right: 0;
+
+        &:focus {
+            outline: none;
+            //border-color: @color-green-dark2;
+        }
+    }
+
+
+
+    .input-group {
+        input[type="text"] {
+            width: 100%;
+        }
+    }
+
+    .input-group-addon {
+        background-color: @color-white;
+        color: @color-black;
+    }
+
+    .form-control {
+        &:focus {
+            border-top: 1px solid #d8d8d8;
+            border-bottom: 1px solid #d8d8d8;
+            border-left: 1px solid #d8d8d8;
+            border-right: 0;
+            box-shadow: none;
+        }
+
+        &::-moz-placeholder {
+            color: @color-white;
+        }
+
+        &::-webkit-input-placeholder {
+            color: @color-white;
+        }
+
+        &:-ms-input-placeholder {
+            color: @color-white;
+        }
+    }
+
+    .Btn {
+        &.sm {
+            padding-bottom: 0.5rem;
+            padding-top: 0.5rem;
+            position: relative;
+            width: 100%;
+            line-height: 1.44444444;
+            border-radius: 0;
+            -webkit-border-radius: 0;
+        }
+        background-color: @color-green-dark2;
+    }
+
+    .col-sm-4 {
+        padding: 0;
+        margin: 0;
+        margin-left: -1px;
+    }
+
+    .Sticker {
+        margin-top: -3.125rem;
+        cursor: pointer;
+        display: none;
+    }
+
+    h5 {
+        color: @color-white;
+        padding: 5px 0 10px 0;
+    }
+
+    .Search--block-title {
+        display: none;
+        :hover {
+            cursor: pointer;
+        }
+    }
+
+    .dropdown-menu {
+        background-color: @color-white;
+        color: @color-black;
+        font-size: @text-sm;
+        > li > a {
+            color: @color-black;
+        }
+        z-index: 3;
+    }
+
+    .bootstrap-datetimepicker-widget.dropdown-menu {
+        width: 25rem;
+    }
+    .bootstrap-datetimepicker-widget table td.day {
+        padding: 0.5rem;
+    }
+    .bootstrap-datetimepicker-widget table th {
+        padding: 1rem;
+    }
+    
+    .bootstrap-datetimepicker-widget.dropdown-menu.top:before,
+    .bootstrap-datetimepicker-widget.dropdown-menu.top:after,
+    .bootstrap-datetimepicker-widget.dropdown-menu.bottom:before,
+    .bootstrap-datetimepicker-widget.dropdown-menu.bottom:after {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: @grid-md) {
+    .Search--block {
+        .Btn {
+            background-color: @color-green-dark2;
+        }
+
+        .Search--block-row {
+            margin-bottom: 0.625rem;
+
+            &:after {
+                content: '';
+                clear: both;
+                display: block;
+                height: 0;
+                visibility: hidden;
+            }
+        }
+        .Sticker {
+            display: flex;
+        }
+        .Search--block-title {
+            display: block;
+        }
+        .Search--block-collapsable {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: (@grid-md + 1px)) {
+    .homepage {
+        .Search--block {
+            background-color: transparent;
+            position: absolute;
+            bottom: 6rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .Btn {
+            background-color: @color-green;
+        }
+    }
+}
+
+
+#app_search_restaurant{
+    &::-webkit-input-placeholder {
+        color: #000;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+        color: #000;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+        color: #000;
+    }
+
+    &:-ms-input-placeholder {
+        color: #000;
+    }
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="937f7f8cf12392227c085d2591da31f1" resname="contact.subject">
+        <source>contact.subject</source>
+        <target><![CDATA[Mail de contact Food & You]]></target>
+      </trans-unit>
+      <trans-unit id="435d246f1e47d6eeac0d357d37b40352" resname="user_registered.subject">
+        <source>user_registered.subject</source>
+        <target><![CDATA[Food & You vous souhaite la bienvenue !]]></target>
+      </trans-unit>
+      <trans-unit id="a940b29f148794dbdbfeec8df1a918c5" resname="restaurant_validated.subject">
+        <source>restaurant_validated.subject</source>
+        <target><![CDATA[Votre Restaurant fait maintenant partie de Food & You]]></target>
+      </trans-unit>
+      <trans-unit id="3be3ef6b112c583ab6eadcdbe00a79b1" resname="level_up.subject">
+        <source>level_up.subject</source>
+        <target><![CDATA[Bravo ! Vous êtes maintenant %level% Food & You]]></target>
+      </trans-unit>
+      <trans-unit id="9a42e111f531edc4c0ed9b417d0e8626" resname="applicant_chosen.subject">
+        <source>applicant_chosen.subject</source>
+        <target><![CDATA[Bravo ! Vous avez été sélectionné pour cuisiner lors d’une soiree Food & You !]]></target>
+      </trans-unit>
+      <trans-unit id="75c1e97490cbe3349c3ec6107697f723" resname="contact_company.subject">
+        <source>contact_company.subject</source>
+        <target>contact entreprise sur Food and You</target>
+      </trans-unit>
+      <trans-unit id="0cb4088069f22ff799376c74316058d4" resname="password_reset.subject">
+        <source>password_reset.subject</source>
+        <target><![CDATA[Réinitialisation Food & You]]></target>
+      </trans-unit>
+      <trans-unit id="7e07ebded611cb9eb1d3bf0ea13a11ab" resname="reservation_confirmed.subject">
+        <source>reservation_confirmed.subject</source>
+        <target><![CDATA[Réservation Food & You enregistrée !]]></target>
+      </trans-unit>
+      <trans-unit id="c424a16c0152b581e8fa919efb0e8c58" resname="reservation_cancelled.subject">
+        <source>reservation_cancelled.subject</source>
+        <target><![CDATA[Réservation Food & You annulée]]></target>
+      </trans-unit>
+      <trans-unit id="1f0c5f052a9a75d2af8ef30fd109bc50" resname="reservation_to_refund.subject">
+        <source>reservation_to_refund.subject</source>
+        <target>Annulations à rembourser</target>
+      </trans-unit>
+      <trans-unit id="607864411d97a81743ce192c825b9cfb" resname="event_cancelled.subject">
+        <source>event_cancelled.subject</source>
+        <target><![CDATA[ATTENTION : événement Food & You ANNULÉ]]></target>
+      </trans-unit>
+      <trans-unit id="0b178a3bbd603fd5226592dbf6789685" resname="min_capacity_not_reached.subject">
+        <source>min_capacity_not_reached.subject</source>
+        <target>ATTENTION : événement pas assez rempli !</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

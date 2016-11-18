@@ -1,0 +1,90 @@
+{% import ":macros:member_level.html.twig" as member_level %}
+
+{% trans_default_domain 'c_event_chef' %}
+
+<div class="Widget eventDetails__box">
+    <a class="no-decoration" href="{{ path('member_profile', {'slug': applicant.member.slug}) }}">
+        <div class="Sticker sm eventDetails__userPhoto">
+            <div class="Sticker__content" style="background-image: url({% if applicant.member.photo %}{% path applicant.member.photo, 'default' %}{% else %}{{ gravatar(applicant.member.authentication.email) }}{% endif %})"></div>
+            <div class="Sticker__overlay" style="">
+                <span>
+                    <i class="icon-vcard"></i><br>
+                    {{ 'view.profile'|trans }}
+                </span>
+            </div>
+        </div>
+    </a>
+    <div class="Widget__body bg-grey">
+        <div class="Widget__title">{{ applicant.member.firstName}}
+            {% if app.user is not null and app.user.member == applicant.member %}
+                {{ applicant.member.lastName }}
+            {% endif %}
+        </div>
+
+    </div>
+    <div class="Widget__header applicantCarousel">
+        <div class="carousel slide carousel-example-generic-{{ applicant.id }}"
+             data-ride="carousel" data-interval="false">
+            <div class="carousel-inner" role="listbox">
+                {% for applicantRecipe in applicant.recipes %}
+                    <div class="item{% if loop.first %} active{% endif %}">
+                        <div class="carousel-inner-img-bg"
+                             style="background-image: url('{% path applicantRecipe.recipe.photo, 'big' %}')">
+                            <div class="Widget__caption">{{ applicantRecipe.recipe.name | upper }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if applicant.recipes.count > 1 %}
+                <a class="left carousel-control"
+                   href=".carousel-example-generic-{{ applicant.id }}" role="button"
+                   data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">{{ "member.applicant-current-recipe.previous"|trans({}, "member_profile") }}</span>
+                </a>
+                <a class="right carousel-control"
+                   href=".carousel-example-generic-{{ applicant.id }}" role="button"
+                   data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">{{ "member.applicant-current-recipe.next"|trans({}, "member_profile") }}</span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="Widget__footer bg-grey">
+        <div class="Btn green block Btn--image eventDetails__votes no-click">
+            <div class="voteNr">{{ applicant.nrVotes }}</div>
+            <div>{{ 'votes'|transchoice(applicant.nrVotes, {}, 'base') }}</div>
+        </div>
+        <div class="eventDetails__info">
+            <span class="eventDetails__info_rating">
+                <span class="starrr" data-rating='{{ applicant.member.rating|number_format(2) }}'></span>
+            </span><br>
+            <div class="text-center">
+                <div class="member__status">
+                    {{ member_level.toString(applicant.member.level) }}
+                </div>
+            </div>
+        </div>
+        <div class="eventDetails__vote">
+            {% if applicant.id in votedFor %}
+                <i class="fa fa-check-circle-o"></i>
+            {% else %}
+                {% if app.user %}
+                    <button class="Btn green-dark2 border-white xs eventDetails__vote__button" data-applicant-id="{{ applicant.id }}">{{ 'i.vote'|trans }}</button>
+                {% else %}
+                    <button class="Btn green-dark2 border-white xs" onclick="displayModal('modal_login');">{{ 'i.vote'|trans }}</button>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="text-center box">
+        <a target="_blank" href="https://www.instagram.com/foodandyouofficiel/" class="social"><i class="fa fa-instagram"></i></a>
+        <a href="http://www.facebook.com/sharer.php?u={{ url('event_details', {'id': event.id }) }}%23applicants&title=Découvrez les cuisiniers amateurs du prochain évènement Food%26You ! {{ event.startDate|localizeddate('none', 'none', app.request.locale, null, "d-MMMM-Y") }} / {{ event.restaurant.name }}"
+           class="social"><i class="fa fa-facebook"></i></a>
+        <a href="https://twitter.com/share?url={{ url('event_details', {'id': event.id }) }}%2323applicants&text=Découvrez les cuisiniers amateurs du prochain évènement Food%26You ! {{ event.startDate|localizeddate('none', 'none', app.request.locale, null, "d-MMMM-Y") }} / {{ event.restaurant.name }}"
+           class="social"><i class="fa fa-twitter"></i></a>
+    </div>
+</div>

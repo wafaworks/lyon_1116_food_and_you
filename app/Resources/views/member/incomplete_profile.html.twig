@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+    <div class="container box-md">
+        <div class="row">
+            <h5>{{ 'header.register' | trans }}</h5>
+        </div>
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="box-md">
+                {{ form_start(form, {'attr': {'id': 'user_incomplete_form'}}) }}
+                <div class="fileUpload">
+                    <div class="memberProfile__image" style="background-image: url({% if app.user.member.photo %}{% path app.user.member.photo, 'default' %}{% else %}{{ gravatar(app.user.member.authentication.email) }}{% endif %})"></div>
+                    <div class="box text-center">
+                        <div class="fileSubmit Btn xs green">{{ "member.edit.photo.btn"|trans({},'member_profile') }}</div>
+                    </div>
+                    <ul class="text-sm">
+                        <li>{{ "member.edit.photo.rule1"|trans({},'member_profile') }}</li>
+                        <li>{{ "member.edit.photo.rule2"|trans({},'member_profile') }}</li>
+                    </ul>
+                    <div class="fileErrors"></div>
+                    {{ form_row(form.member.uploaded_image, {'attr': {'class': 'hidden', 'accept': '.png,.gif,.jpeg,.jpg' }}) }}
+                </div>
+                {{ form_row(form.member.firstName, { 'attr': {'placeholder': 'form.firstName'|trans }, 'label': false }) }}
+                {{ form_row(form.member.lastName, { 'attr': {'placeholder': 'form.lastName'|trans }, 'label': false }) }}
+                {{ form_row(form.member.birthDate, { 'attr': {'placeholder': 'form.birthDate'|trans, 'class': 'datePicker_trigger' }, 'label': false }) }}
+                {{ form_row(form.email, { 'attr': {'placeholder': 'form.email'|trans }, 'label': false, 'value': '' }) }}
+                {{ form_row(form.cgu, {'label': 'cgu'|trans({'%url%': path('cgu')}) }) }}
+                {{ form_row(form.charte, {'label': 'accept'|trans({'%url%': path('charte')}) }) }}
+
+                {{ form_rest(form) }}
+
+                <div class="has-error">
+                    <p class="help-block global-errors"></p>
+                </div>
+
+                <div class="box">
+                    <input type="submit" value="{{ 'registration.submit'|trans }}" class="Btn green xs full-width round-corners" />
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {% set fileWrongFormat = "form.file.upload.wrong.format"|trans({}, "forms") %}
+    <script>
+        $(document).ready(function() {
+            $('.datePicker_trigger').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "c-90:c",
+            });
+
+            $('.fileSubmit').on('click', function () {
+                $('.fileUpload input[type="file"]').click();
+
+            })
+
+            $(document).on('change', '.fileUpload input[type="file"]', function () {
+                var ext = this.value.match(/\.([^\.]+)$/)[1],
+                        input = this;
+                ext = ext.toLowerCase();
+                if(ext !== 'jpg' && ext !== 'png' && ext !== 'jpeg') {
+                    $('.fileErrors').html("<p class='text-center help-block'>{{ fileWrongFormat }}</p>");
+                    $('.fileErrors').addClass("has-error");
+                    return;
+                }
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var img = new Image;
+
+                    img.onload = function() {
+                        // image size validation if needed
+                    };
+                    img.src = reader.result;
+
+                    getOrientation(input.files[0], function(orientation) {
+                        switch(orientation) {
+                            case 3:
+                                degrees = 180;
+                                break;
+                            case 6:
+                                degrees = 90;
+                                break;
+                            case 8:
+                                degrees = -90;
+                                break;
+                            default:
+                                degrees = 0;
+                        }
+                        $('.fileUpload .memberProfile__image').css({
+                            '-webkit-transform': 'rotate(' + degrees + 'deg)',
+                            '-moz-transform': 'rotate(' + degrees + 'deg)',
+                            '-ms-transform': 'rotate(' + degrees + 'deg)',
+                            '-o-transform': 'rotate(' + degrees + 'deg)',
+                            'transform': 'rotate(' + degrees + 'deg)'
+                        })
+                    });
+
+                    $('.fileUpload .memberProfile__image').css("background-image", "url(" + img.src + ")");
+                };
+
+                reader.readAsDataURL(this.files[0]);
+            });
+        });
+    </script>
+{% endblock %}

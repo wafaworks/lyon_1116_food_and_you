@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="5daa60ab53b8ba68109698172891c9d7" resname="app.member.firstName.blank">
+        <source>app.member.firstName.blank</source>
+        <target>S'il vous plaît entrer votre prénom</target>
+      </trans-unit>
+      <trans-unit id="d2fb7d3f9cf01aa6096ad976fe0cfe26" resname="app.member.firstName.short">
+        <source>app.member.firstName.short</source>
+        <target>Le prénom doit contenir 3 caractères minimum</target>
+      </trans-unit>
+      <trans-unit id="cd2a6720f1cde56e58ed01f70dfe6133" resname="app.member.firstName.long">
+        <source>app.member.firstName.long</source>
+        <target>Vous ne pouvez pas rentrer plus que le maximum de 255 caractères</target>
+      </trans-unit>
+      <trans-unit id="b494e38776f91dd3260f3b474337b41e" resname="app.member.lastName.blank">
+        <source>app.member.lastName.blank</source>
+        <target>S'il vous plaît entrez votre nom de famille</target>
+      </trans-unit>
+      <trans-unit id="0743cebf34ccc96fb1736f16f7628c1c" resname="app.member.lastName.short">
+        <source>app.member.lastName.short</source>
+        <target>Le nom doit contenir 3 caractères minimum</target>
+      </trans-unit>
+      <trans-unit id="c0682cab6dc07af51ec108b88b694482" resname="app.member.lastName.long">
+        <source>app.member.lastName.long</source>
+        <target>Vous ne pouvez pas rentrer plus que le maximum de 255 caractères</target>
+      </trans-unit>
+      <trans-unit id="40d6fbac53396d72584adf674ca2f688" resname="app.member.birthDate.blank">
+        <source>app.member.birthDate.blank</source>
+        <target>S'il vous plaît entrez votre date de naissance</target>
+      </trans-unit>
+      <trans-unit id="240350da6df2e34fb74c78c8448f5c27" resname="app.member.birthDate.notValidDate">
+        <source>app.member.birthDate.notValidDate</source>
+        <target>Date non valide</target>
+      </trans-unit>
+      <trans-unit id="c9d69dbc956a4b295c2f71886d014522" resname="app.member.birthDate.tooOld">
+        <source>app.member.birthDate.tooOld</source>
+        <target>Date non valide</target>
+      </trans-unit>
+      <trans-unit id="e6976b9f5c9c4e9387648702fb099586" resname="app.member.birthDate.tooYoung">
+        <source>app.member.birthDate.tooYoung</source>
+        <target>Date non valide</target>
+      </trans-unit>
+      <trans-unit id="18ef24b6d948e62dcbce34996a3ac6a4" resname="app.member.cgu">
+        <source>app.member.cgu</source>
+        <target>Merci d'accepter les CGU</target>
+      </trans-unit>
+      <trans-unit id="2ccc02a247cb4b225a3c510c4de74d25" resname="app.member.charte">
+        <source>app.member.charte</source>
+        <target><![CDATA[Merci d'accepter la charte Food & You]]></target>
+      </trans-unit>
+      <trans-unit id="6ff439fdb45d5bd0d58e8d210df8be77" resname="fos_user.email.blank">
+        <source>fos_user.email.blank</source>
+        <target>S'il vous plaît, entrez votre adresse e-mail</target>
+      </trans-unit>
+      <trans-unit id="fc6c24981b4c0a57ce247c8687a585ea" resname="fos_user.email.invalid">
+        <source>fos_user.email.invalid</source>
+        <target>Attention, entrez une adresse email valide</target>
+      </trans-unit>
+      <trans-unit id="f21278704589f38c6334b87af1479cf9" resname="fos_user.email.short">
+        <source>fos_user.email.short</source>
+        <target>[-Inf,Inf]L'adresse e-mail est trop courte</target>
+      </trans-unit>
+      <trans-unit id="966201b57a32472001eeb20f251cce59" resname="fos_user.email.long">
+        <source>fos_user.email.long</source>
+        <target>[-Inf,Inf]L'adresse e-mail est trop longue</target>
+      </trans-unit>
+      <trans-unit id="dcd6d14d0786e48363cedfda2f1ae893" resname="fos_user.password.blank">
+        <source>fos_user.password.blank</source>
+        <target>S'il vous plaît, entrez votre mot de passe</target>
+      </trans-unit>
+      <trans-unit id="208830cde0e30a97e31cae31d1815c35" resname="fos_user.password.short">
+        <source>fos_user.password.short</source>
+        <target>[-Inf,Inf]Le mot de passe doit contenir 8 caractères minimum</target>
+      </trans-unit>
+      <trans-unit id="3667cc0b146684942ce0704d5e42a9b2" resname="fos_user.password.mismatch">
+        <source>fos_user.password.mismatch</source>
+        <target>La confirmation de mot de passe ne correspond pas</target>
+      </trans-unit>
+      <trans-unit id="8da30d164f753a570c570eafa9a10ea8" resname="app.member.edit.biography.long">
+        <source>app.member.edit.biography.long</source>
+        <target>Vous ne pouvez pas rentrer plus que le maximum de 5000 caractères</target>
+      </trans-unit>
+      <trans-unit id="0dd5fe35a25c65b3eee0eaf395255368" resname="app.member.edit.signature.long">
+        <source>app.member.edit.signature.long</source>
+        <target>Vous ne pouvez pas rentrer plus que le maximum de 2000 caractères</target>
+      </trans-unit>
+      <trans-unit id="87ec1f77aa44b4f41bdbb464ca312e69" resname="app.member.edit.password.equalTo">
+        <source>app.member.edit.password.equalTo</source>
+        <target>Les mots de passe doivent être identiques</target>
+      </trans-unit>
+      <trans-unit id="1947b1fe16afbdbdfd8b2285bfd336e3" resname="app.member.edit.password.short">
+        <source>app.member.edit.password.short</source>
+        <target>Le mot de passe est trop court</target>
+      </trans-unit>
+      <trans-unit id="dd190e4ca7f4d1c3e5186fb17646c674" resname="app.application.biography.required">
+        <source>app.application.biography.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="a34da17ad8bbc0c77b04f568b37e2835" resname="app.application.biography.maxlength">
+        <source>app.application.biography.maxlength</source>
+        <target>Texte dépasse la limite permise. La limite maximale est de 5000 caractères.</target>
+      </trans-unit>
+      <trans-unit id="69a09eda313e04357db15117f96ec76c" resname="app.application.profession.required">
+        <source>app.application.profession.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="657065f5b909a304154caf55607d9398" resname="app.application.profession.maxlength">
+        <source>app.application.profession.maxlength</source>
+        <target>Texte dépasse la limite permise. La limite maximale est de 255 caractères.</target>
+      </trans-unit>
+      <trans-unit id="f051b053bc83abf7479999c981e08379" resname="app.application.signature.required">
+        <source>app.application.signature.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="0c2fac76907c828731248363cc2eaf49" resname="app.application.signature.maxlength">
+        <source>app.application.signature.maxlength</source>
+        <target>Texte dépasse la limite permise. La limite maximale est de 2000 caractères.</target>
+      </trans-unit>
+      <trans-unit id="521492f27edf638309a34839955fc21b" resname="app.application.phone.required">
+        <source>app.application.phone.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="3540bde8e613d1ad8b86f909e906b125" resname="app.application.image.format">
+        <source>app.application.image.format</source>
+        <target>Format de fichier non valide</target>
+      </trans-unit>
+      <trans-unit id="754ac6daf4eb9246e75cc4f99e009862" resname="form.new_event.dates.blank">
+        <source>form.new_event.dates.blank</source>
+        <target>S'il vous plaît choisir vos dates</target>
+      </trans-unit>
+      <trans-unit id="4a6366613eb7a0f2152eae5cd6d1b482" resname="form.new_event.hour.invalid">
+        <source>form.new_event.hour.invalid</source>
+        <target>Vous avez entré une heure invalide</target>
+      </trans-unit>
+      <trans-unit id="421185c67302693cfa1f7805b2e960f1" resname="app.contact.mail.required">
+        <source>app.contact.mail.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="1674dffd5eb3af2e31ab57e253fcf306" resname="app.contact.mail.short">
+        <source>app.contact.mail.short</source>
+        <target>Le mot de passe est trop court</target>
+      </trans-unit>
+      <trans-unit id="2c51a62eef9d8aa5684b685cb958bee3" resname="app.contact.mail.long">
+        <source>app.contact.mail.long</source>
+        <target>Vous ne pouvez pas rentrer plus que le maximum de 255 caractères</target>
+      </trans-unit>
+      <trans-unit id="6b45b18d304cc549f1444a7986185c29" resname="app.contact.subject.required">
+        <source>app.contact.subject.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="8efc8335ad786e621c578c1246007a3a" resname="app.contact.subject.short">
+        <source>app.contact.subject.short</source>
+        <target>Le mot de passe est trop court</target>
+      </trans-unit>
+      <trans-unit id="ab588f9da9a13855bd53b6753431e664" resname="app.contact.subject.long">
+        <source>app.contact.subject.long</source>
+        <target>Vous ne pouvez pas rentrer plus que le maximum de 255 caractères</target>
+      </trans-unit>
+      <trans-unit id="c4cde8764c5a764764ade5a9d6fb1ae4" resname="app.contact.message.required">
+        <source>app.contact.message.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="cce42de1fbd37b20b18756bf8f3ae37f" resname="app.contact.message.short">
+        <source>app.contact.message.short</source>
+        <target>Le mot de passe est trop court</target>
+      </trans-unit>
+      <trans-unit id="c91883d7e09641a6dcf8a367f9429576" resname="fos_user.email.exist">
+        <source>fos_user.email.exist</source>
+        <target>Email est déjà utilisée</target>
+      </trans-unit>
+      <trans-unit id="f7147645fcb2cb093d4c3714c30478bc" resname="app.contact_company.mail.required">
+        <source>app.contact_company.mail.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="2526672dcdaf2edd68fcbedf42432abd" resname="app.contact_company.firstName.required">
+        <source>app.contact_company.firstName.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="ad6700c13b20fef7fe21a9785c930cc6" resname="app.contact_company.lastName.required">
+        <source>app.contact_company.lastName.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="e7d68bae3f6c5970211098f4d5832709" resname="app.contact_company.email.required">
+        <source>app.contact_company.email.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="65bef8e9bcc9a74079284438a6459965" resname="app.contact_company.phone.required">
+        <source>app.contact_company.phone.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="0ae789267d4d77801f9c17c5c4ea9e7f" resname="app.contact_company.capacity.required">
+        <source>app.contact_company.capacity.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="ae0c08b841d640ced37aa5c11013fbea" resname="app.contact_company.notice.required">
+        <source>app.contact_company.notice.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="bddbe3566cd0ec7c91d910db975f9c91" resname="app.contact_company.company.required">
+        <source>app.contact_company.company.required</source>
+        <target>S'il vous plaît remplir ce champ</target>
+      </trans-unit>
+      <trans-unit id="87cd1369883f49f681a62cd20335b4a8" resname="app.apply_to.filesize">
+        <source>app.apply_to.filesize</source>
+        <target>Oops ! taille maximale de l'image atteinte. Impossible de joindre le fichier. Vous avez eu les yeux plus gros que le ventre</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,305 @@
+{% extends 'base.html.twig' %}
+
+{% trans_default_domain "event_details" %}
+
+{% block meta %}
+    <meta property="og:image" content="{% path event.restaurant.gallery.cover, 'big' %}"/>
+    <meta property="og:description" content="Participez à un évènement insolite Food&You. Dégustez les plats de 3 chefs amateurs et notez les sur l’application. Rdv le {{ event.startDate|localizeddate('none', 'none', app.request.locale, null, "d-MMMM-Y") }}"/>
+
+    <meta property="og:locale" content="fr_FR"/>
+    <meta property="og:image:width" content="265"/>
+    <meta property="og:image:height" content="265"/>
+{% endblock %}
+
+{% block body %}
+    <script src="{{ asset('vendor/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/owl.carousel/dist/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('vendor/owl.carousel/dist/assets/owl.theme.default.min.css') }}">
+    <div class="container-fluid" style="margin-top: -2rem">
+        <div class="row">
+            <div class="owl-carousel owl-theme">
+                {% for ghm in event.restaurant.gallery.getGalleryOrdered %}
+                    <div class="item" style="background-image: url({% path ghm.media, 'big' %})"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="container box-lg" id="event{{ event.id }}">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="Event__header">
+                    <div class="Event__date Sticker sm green">
+                        <div class="Sticker__content">
+                            <h3 class="lighter">{{ event.startDate|date('d') }}</h3>
+                            <div class="lighter">{{ event.startDate|date('M')|trans({}, 'messages') }}</div>
+                        </div>
+                    </div>
+                    <div class="Event__title">
+                        <span class="restaurant">{{ 'restaurant' | trans({}, 'base') }}</span>
+                        <h1 class="h2 name">
+                            <a href="{{ path('restaurant_details', {'id': event.restaurant.id}) }}">
+                                {{ event.restaurant.name }}
+                            </a>
+                        </h1>
+                    </div>
+                    <div class="Event__social">
+                        <a target="_blank" href="https://www.instagram.com/foodandyouofficiel/" class="social"><i class="fa fa-instagram"></i></a>
+                        <a href="http://www.facebook.com/sharer.php?u={{ url('event_details', {'id': event.id }) }}%23{{ "event" ~ event.id }}&title=Découvrez Food%26You au {{ event.restaurant.name }} !"
+                           class="social"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/share?url={{ url('event_details', {'id': event.id }) }}%23{{ "event" ~ event.id }}&text=Découvrez Food%26You au {{ event.restaurant.name }} !"
+                           class="social"><i class="fa fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="Event__info">
+                    <div class="hour">
+                        <span class="sprite sprite-hour"></span>
+                        <span class="content"><span class="h5">{{ event.startDate|date('G') }}h</span></span>
+                    </div>
+                    <div class="price">
+                        <span class="sprite sprite-menu"></span>
+                        <span class="content">
+                            {{ 'menu.unique'|trans }}<br>
+                            <span class="h5">{{ event.price|number_format(2, ',', '.') }} &euro;</span>
+                        </span>
+                    </div>
+                </div>
+                <span class="Event__contact">
+                    <span class="sprite sprite-location"></span><span class="content">
+                        {{ event.restaurant.street }}<br>
+                        {{ event.restaurant.postalCode }} {{ event.restaurant.city.name }}
+                    </span>
+                </span>
+                <span class="Event__contact">
+                    <span class="sprite sprite-phone"></span>
+                    <span class="content">
+                        {{ event.restaurant.contactInfo.mobilePhone }}
+                    </span>
+                </span>
+            </div>
+            <div class="col-sm-7">
+                <a class="Event__status no-decoration" href="#status_block">
+                    {% if event.status == constant('AppBundle\\Entity\\Event::STATUS_APPLICANT_REGISTRATION_OPENED') %}
+                        {{ 'status.application.open' | trans }}
+                    {% elseif event.status == constant('AppBundle\\Entity\\Event::STATUS_APPLICANT_REGISTRATION_CLOSED') %}
+                        {{ 'status.application.closed' | trans }}
+                    {% elseif event.status == constant('AppBundle\\Entity\\Event::STATUS_RESERVATIONS_OPENED') %}
+                        {{ 'status.reservations.open' | trans }}
+                    {% elseif event.status == constant('AppBundle\\Entity\\Event::STATUS_RESERVATIONS_CLOSED') or
+                    event.status is constant("AppBundle\\Entity\\Event::STATUS_IN_PROGRESS") %}
+                        {{ 'status.reservations.closed' | trans }}
+                    {% elseif event.status == constant('AppBundle\\Entity\\Event::STATUS_FINISHED') %}
+                        {{ 'status.finished' | trans }}
+                    {% endif %}
+                </a><br>
+                <span class="Event__description">
+                    {{ event.restaurant.description }}
+                </span>
+
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" id="status_block">
+        <div class="row">
+            <div class="col-sm-6 Event__reserve">
+                {% if event.status == constant('AppBundle\\Entity\\Event::STATUS_APPLICANT_REGISTRATION_OPENED') %}
+                    <div>
+                        <div class="text-xxlg">
+                            {{ 'event.left' | trans }}
+                        </div>
+                        <div class="Sticker sm white">
+                            <div class="Sticker__content">
+                                <h2 class="lighter">{{ date(event.applicationEndDate).diff(date('now')).days }}</h2>
+                            </div>
+                        </div>
+                        <h4 class="lighter">{{ 'event.days.to.apply' | trans }}</h4>
+                        {% if applied %}
+                            <button onclick="displayMessageModal('{{ 'event.already.applied' | trans }}', 'ok');" class="Btn red md round-corners border-white">{{ 'event.apply' | trans }}</button>
+                        {% elseif app.user %}
+                            <a href="{{ path('event_apply_to', {'id': event.id}) }}" class="Btn red md round-corners border-white">{{ 'event.apply' | trans }}</a>
+                        {% else %}
+                            <button onclick="displayModal('modal_login');" class="Btn red md round-corners border-white">{{ 'event.apply' | trans }}</button>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                {% if event.status == constant('AppBundle\\Entity\\Event::STATUS_APPLICANT_REGISTRATION_CLOSED') %}
+                    <div>
+                        <div class="text-xxlg">
+                            {{ 'event.reservations.open.in' | trans }}
+                        </div>
+                        <div class="Sticker sm white">
+                            <div class="Sticker__content">
+                                {% set timeToReservationOpen = date(event.applicationEndDate).diff(date('-2 days')) %}
+                                <h2 class="lighter">{{ timeToReservationOpen.format('%d') * 24 + timeToReservationOpen.format('%h') }}h</h2>
+                            </div>
+                        </div>
+                        <div class="text-xxlg">
+                            {{ 'event.reservations.come.back' | trans }}
+                        </div>
+                        <a href="#voteNow" class="Btn red md round-corners border-white">{{ 'vote.candidate' | trans }}</a>
+                    </div>
+                {% endif %}
+                {% if event.status == constant('AppBundle\\Entity\\Event::STATUS_RESERVATIONS_OPENED') %}
+                    <div>
+                        {% set isFull = (event.capacity.maximum) - (event.confirmedReservations) <= 0 %}
+                        {% if isFull %}
+                            <div class="text-xxlg">
+                                {{ 'our.event.is'|trans }}
+                            </div>
+                            <div class="Sticker md-plus white">
+                                <div class="Sticker__content">
+                                    <h5 class="lighter">{{ "event.full"|trans }}</h5>
+                                </div>
+                            </div>
+                            <a href="{{ path('event_list') }}" class="Btn red md round-corners border-white">{{ 'event.view.all'| trans }}</a>
+                        {% elseif reserved == true %}
+                            <span class="text-xxlg">
+                                {{ 'event.already.reserved' | trans }}
+                            </span>
+                            <button class="Btn red md round-corners border-white gouteurs">{{ 'event.view.all'| trans }}</button>
+                        {% else %}
+                            <div class="text-xxlg">
+                                {{ 'event.only.left' | trans }}
+                            </div>
+                            <div class="Sticker sm white">
+                                <div class="Sticker__content">
+                                    <h2 class="lighter">{{ (event.capacity.maximum) - (event.confirmedReservations) }}</h2>
+                                </div>
+                            </div>
+                            <h4 class="lighter">{{ 'event.places.left' | transchoice((event.capacity.maximum) - (event.confirmedReservations)) }}</h4>
+                            <a href="javascript: void(0);" onclick="{% if app.user %}displayModal('event_reserve', {'id': {{ event.id }} });{% else %}displayModal('modal_login');{% endif %}" class="Btn red md round-corners border-white{% if isFull %} disabled{% endif %}">{{ 'event.reserve'|trans }}</a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                {% if event.status == constant('AppBundle\\Entity\\Event::STATUS_RESERVATIONS_CLOSED') or
+                event.status is constant("AppBundle\\Entity\\Event::STATUS_IN_PROGRESS") %}
+                    <div class="text-xxlg">
+                        {{ 'event.status.reservation.closed.see.more' | trans }}<br>
+                        <div class="Sticker sm white">
+                            <div class="Sticker__content">
+                                <h5 class="lighter">Food & You</h5>
+                            </div>
+                        </div>
+                        {{ 'event.status.reservation.closed' | trans }}<br>
+                        <button class="Btn red md round-corners border-white gouteurs">{{ 'event.view.all'| trans }}</button>
+                    </div>
+                {% endif %}
+                {% if event.status == constant('AppBundle\\Entity\\Event::STATUS_FINISHED') %}
+                    <div class="text-xxlg">
+                        {{ 'event.status.finished' | trans }}<br>
+                        <a href="{{ path('event_list') }}" class="Btn red md round-corners border-white">{{ 'event.view.all'| trans }}</a>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-sm-6 Event__map">
+                <iframe
+                        width="100%"
+                        height="350"
+                        frameborder="0"
+                        style="border:0;"
+                        class="grayscale"
+                        src="https://www.google.com/maps/embed/v1/place?key={{ google_map_api }}&q={{ event.restaurant.street|url_encode }},{{ event.restaurant.postalCode }}%20{{ event.restaurant.city }}%20France" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <div class="container box-lg" id="applicants">
+        <div class="row" id="voteNow">
+            {% if event.votingPossible %}
+                <h2>{{ 'your.chefs.in.competition.title' | trans | upper }}</h2>
+            {% else %}
+                <h2>{{ 'your.chefs.title' | trans | upper }}</h2>
+            {% endif %}
+
+            <div class="text-center gray">{{ 'your.chefs.description' | trans }}</div>
+        </div>
+        <div class="row box">
+            {% if event.votingPossible %}
+                {% for applicant in applicants %}
+                    <div class="col-sm-4">
+                        {% include ':partials/widget:event_chef_vote.html.twig' with {'event': event, 'votedFor': votedFor} %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                {% for applicant in applicants %}
+                    {% for applicantRecipe in applicant.recipes %}
+                        <div class="col-sm-4">
+                            {% include ':partials/widget:event_chef.html.twig' with {'event': event, 'applicantRecipe': applicantRecipe} %}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    {% if event.arePhotosAvailable %}
+        <div class="container box-lg">
+            <div class="row">
+                <h2>{{ 'photo.gallery.title' | trans | upper }}</h2>
+                <div class="text-center gray">{{ 'photo.gallery.description' | trans | upper | raw }}</div>
+            </div>
+            <div class="row box" id="eventPhotoGallery">
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+{% block javascripts %}
+    <script>
+        {% if modal == 'reservation-cancelled' %}
+            displayModal('modal_simple', {'template': 'reservation-cancelled'});
+        {% endif %}
+        $('.eventDetails__vote__button').on('click', function () {
+            var button = $(this);
+            var applicantId = $(this).data('applicant-id');
+            var counter = $(this).closest('.Widget__footer').find('.voteNr');
+
+            $.ajax({
+                type        : 'POST',
+                url         : '{{ path("event_applicant_vote") }}',
+                data        : {
+                    applicantId: applicantId
+                },
+                dataType    : "json",
+                success     : function(data) {
+                    if (data.status === 'voted') {
+                        counter.html(data.voteCount);
+                        button.parent().html('<i class="fa fa-check-circle-o"></i>');
+                    } else {
+                        console.log(data);
+                    }
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        });
+
+        $('#eventPhotoGallery').infiniteScroll({
+            url: Routing.generate('event_photo_items', {'id': {{ event.id }}}),
+            watchMode: 'window',
+            bottomOffset: [ $('.SiteFooter') ],
+            loadPageOnInit: true
+        });
+
+        $('.gouteurs').click(function(){
+            $.redirectPost(
+                    Routing.generate('event_list'),
+                    {
+                    }
+            );
+        });
+    </script>
+{% endblock %}
+
+{% block title %}{{ 'event.title' | trans({'%date%': event.startDate | date('d/m'),'%restaurant%': event.restaurant.name}, 'seo') }}{% endblock %}
+{% block description %}{{ 'event.description' | trans({}, 'seo') }}{% endblock %}

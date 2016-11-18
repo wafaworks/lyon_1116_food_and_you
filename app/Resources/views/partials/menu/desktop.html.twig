@@ -1,0 +1,49 @@
+<ul class="Site__header-menu">
+    <li class="Site__header-menu-web">
+        <a href="javascript:void(0);" class="listRestaurantsTrigger">{{ 'our_restaurants'|trans({}, "base") }}</a>
+    </li>
+    <li class="Site__header-menu-web">
+        <a href="{{ path('restaurateur_benefits') }}">{{ 'become_restaurator'|trans({}, "base") }}</a>
+    </li>
+    <li>
+        <a href="{{ path('homepage') }}" class="Site__header-menu-web-logo">
+            <div class="Logo">&nbsp;</div>
+        </a>
+    </li>
+    {% if app.user %}
+        <li class="Site__header-menu-web">
+            {% if app.user.member.restaurants|length > 0 %}
+                {% set monCompte = path('restaurant_owner_admin_event_list' ) %}
+            {% else %}
+                {% set monCompte = path('member_profile', { 'slug': app.user.member.slug } ) %}
+            {% endif %}
+            <a href="{{ monCompte }}">
+                <span>{{ 'my.profile'|trans({}, "base") }}</span>
+            </a>
+
+            {% if is_granted('ROLE_SONATA_ADMIN') %} |
+            <a href="{{ path('sonata_admin_dashboard') }}">
+                <span>{{ 'admin'|trans({}, "base") }}</span>
+            </a>
+            {% endif %}
+        </li>
+        <li class="Site__header-menu-web">
+            <a href="{{ path('fos_user_security_logout') }}">
+                {{- 'logout'|trans({}, "base") -}}
+            </a>
+        </li>
+    {% else %}
+        <li class="Site__header-menu-web">
+            <a class="Btn empty xs border-white Btn--icon green"
+               href="{{ path('hwi_oauth_service_redirect', { 'service': 'facebook' } ) }}">
+                <i class="fa fa-facebook"></i>
+                <span>{{ 'connection'|trans({}, "base") }}</span>
+            </a>
+        </li>
+        <li class="Site__header-menu-web">
+            <a href="javascript:void(0);" onclick="displayModal('modal_login');">
+                {{- 'connection_inscription'|trans({}, "base") -}}
+            </a>
+        </li>
+    {% endif %}
+</ul>

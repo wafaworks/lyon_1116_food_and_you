@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="app.admin.restaurant" class="AppBundle\Admin\RestaurantAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="site" label="restaurant"/>
+            <argument/>
+            <argument>AppBundle\Entity\Restaurant</argument>
+            <argument>AppBundle:Admin/RestaurantAdmin</argument>
+            <call method="setTranslationDomain">
+                <argument>SonataAdminRestaurant</argument>
+            </call>
+        </service>
+
+        <service id="app.admin.authentication" class="AppBundle\Admin\AuthenticationAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="site" label="authentication" show_in_dashboard="false"/>
+            <argument/>
+            <argument>AppBundle\Entity\Authentication</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SonataAdminAuthentication</argument>
+            </call>
+        </service>
+
+        <service id="sonata.user.editable_role_builder" class="AppBundle\Security\EditableRolesBuilder">
+            <argument type="service" id="security.context" />
+            <argument type="service" id="sonata.admin.pool" />
+            <argument>%security.role_hierarchy.roles%</argument>
+        </service>
+
+        <service id="sonata.user.form.type.security_roles" class="AppBundle\Form\Type\SecurityRolesType">
+            <tag name="form.type" />
+
+            <argument type="service" id="sonata.user.editable_role_builder" />
+        </service>
+
+        <service id="app.admin.member" class="AppBundle\Admin\MemberAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="site" label="member"/>
+            <argument/>
+            <argument>AppBundle\Entity\Member</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SonataAdminMember</argument>
+            </call>
+        </service>
+
+        <service id="app.admin.event" class="AppBundle\Admin\EventAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="site" label="event"/>
+            <argument/>
+            <argument>AppBundle\Entity\Event</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SonataAdminEvent</argument>
+            </call>
+        </service>
+
+        <service id="app.admin.applicant" class="AppBundle\Admin\ApplicantAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="site" label="applicant"/>
+            <argument/>
+            <argument>AppBundle\Entity\Applicant</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SonataAdminApplicant</argument>
+            </call>
+        </service>
+
+        <service id="app.admin.applicant_recipe" class="AppBundle\Admin\ApplicantRecipeAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="site" label="applicant recipe" show_in_dashboard="false"/>
+            <argument/>
+            <argument>AppBundle\Entity\ApplicantRecipe</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SonataAdminApplicant</argument>
+            </call>
+        </service>
+
+        <service id="app.admin.recipe" class="AppBundle\Admin\RecipeAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="site" label="recipe"/>
+            <argument/>
+            <argument>AppBundle\Entity\Recipe</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SonataAdminRecipe</argument>
+            </call>
+        </service>
+
+        <service id="app.admin.city" class="AppBundle\Admin\CityAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="site" label="city"/>
+            <argument/>
+            <argument>AppBundle\Entity\City</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SonataAdminCity</argument>
+            </call>
+        </service>
+
+        <service id="app.admin.cuisine" class="AppBundle\Admin\CuisineAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="site" label="cuisine"/>
+            <argument/>
+            <argument>AppBundle\Entity\Cuisine</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SonataAdminCuisine</argument>
+            </call>
+        </service>
+
+        <service id="app.admin.reservation" class="AppBundle\Admin\ReservationAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="site" label="reservation"/>
+            <argument/>
+            <argument>AppBundle\Entity\Reservation</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SonataAdminReservation</argument>
+            </call>
+            <call method="setTemplate">
+                <argument>show</argument>
+                <argument>:admin:show_reservation.html.twig</argument>
+            </call>
+        </service>
+    </services>
+</container>

@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row body">
+        <div class="picture col-sm-5">
+            <a target="_blank" href="">
+                <div class="img" style='background-image: url("{% path firstRestaurant.gallery.getCover, 'big' %}")'>
+                    <div class='Sticker__overlay'>
+                        <div class='Logo'></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="content col-sm-7">
+            <div class="all">
+                {% for key, group in list %}
+                    {% for page in group %}
+                        <ul class="ul {{ key }}">
+                            <li class="alpha">{% if loop.first %}{{ key|upper }}{% else %}{{ '&nbsp;' }}{% endif %}</li>
+                            {# @var restaurant \AppBundle\Entity\Restaurant #}
+                            {% for restaurant in page %}
+                                <li data-img="{% path restaurant.gallery.getCover, 'big' %}"
+                                    data-link="{{ path('restaurant_details', {'id': restaurant.id}) }}">
+                                    <a target="_blank" href="{{ path('restaurant_details', {'id': restaurant.id}) }}">
+                                        {{ restaurant.name }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

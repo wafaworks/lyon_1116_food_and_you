@@ -1,0 +1,9 @@
+{% extends ':restaurant_owner_admin:index.html.twig' %}
+
+{% block owner_body %}
+    {% include ':partials/forms:restaurant.html.twig' with {'form': form, 'admin': true} only %}
+{% endblock %}
+
+{% block javascripts %}
+    {% include ':partials/forms:restaurant_js.html.twig' with {} only %}
+{% endblock %}

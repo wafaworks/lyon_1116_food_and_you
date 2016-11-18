@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include ':partials/forms:restaurant.html.twig' with {'form': form} only %}
+{% endblock %}
+
+{% block javascripts %}
+    {% include ':partials/forms:restaurant_js.html.twig' with {} only %}
+{% endblock %}

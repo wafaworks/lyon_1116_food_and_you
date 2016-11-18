@@ -1,0 +1,48 @@
+.select2-container {
+    border: none;
+
+    .select2-choice {
+        background-image: none;
+        background-color: #e6e0e0;
+        border: 1px solid #d8d8d8;
+        border-radius: 0.25rem;
+        height: 2.75rem;
+        line-height: 2rem;
+        width: 100%;
+        margin-bottom: 1rem;
+
+        .select2-chosen{
+            line-height: 2.75rem;
+
+            &::before{
+                content: '\f002';
+                font-family: 'FontAwesome';
+                display: inline-block;
+                font-size: 1.4rem;
+                color: @color-brown;
+                margin: 0 0.5rem 0 0;
+            }
+        }
+        .select2-arrow{
+            display: none;
+        }
+    }
+
+}
+
+.select2-results .select2-ajax-error,
+.select2-results .select2-no-results,
+.select2-results .select2-searching,
+.select2-results .select2-selection-limit {
+    background-color: #e6e0e0;
+}
+
+.select2-drop{
+    background-color: #e6e0e0;
+    border: none;
+    box-shadow: none;
+}
+
+.select2-search .select2-input {
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #fff 85%, #eee 99%) repeat scroll 0 0
+}

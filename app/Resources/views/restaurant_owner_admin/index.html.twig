@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% trans_default_domain 'restaurant_owner_admin_index' %}
+
+{% block body %}
+    <div class="Owner container-fluid">
+        <div class="align_center_between">
+            <h1 class="text-left">{% block owner_page_title %}{{ "app.owner_admin.index.title"|trans }}{% endblock %}</h1>
+            {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+                <a class="Btn sm red" href="{{ path('sonata_admin_dashboard', {'_switch_user': '_exit'}) }}">{{ "app.owner_admin.event.exit.impersonation"|trans }}</a>
+            {% endif %}
+        </div>
+        <hr>
+        <div class="row">
+            <div class="box col-lg-3">
+                {% include ':partials/menu:restaurant_owner_admin.html.twig' %}
+            </div>
+            <div class="box col-lg-9">
+                <div class="body">
+                    {% block owner_body %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block title %}{{ 'restaurateur_home.title' | trans({}, 'seo') }}{% endblock %}
+{% block description %}{{ 'restaurateur_home.description' | trans({}, 'seo') }}{% endblock %}

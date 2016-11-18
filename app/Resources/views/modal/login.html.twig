@@ -1,0 +1,169 @@
+<modal-block>
+    <content>
+        <div class="FlexColumns">
+            <div class="flex-col-sm-2">
+                {{ render(controller('FOSUserBundle:Security:login')) }}
+            </div>
+            <div class="flex-col-sm-2">
+                {{ render(controller('FOSUserBundle:Registration:register')) }}
+            </div>
+        </div>
+    </content>
+    <script type="text/modal-template" language="JavaScript">
+        modal.content().find('.close').on('click', function () {
+            var link = $(this).data('link');
+            if (link != undefined) {
+                window.location.assign(link);
+            } else {
+                modal.hide();
+            }
+        });
+
+        $(document).ready(function () {
+            $('.datePicker_trigger').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-100:+0",
+            });
+
+            if($('#ui-datepicker-div').parents('hasDatepicker').length ==0 ) {
+                $('#ui-datepicker-div').wrap('<div class="hasDatepicker">');
+            }
+
+
+            $('#login_form').submit(function (e) {
+                var form = $(this);
+                e.preventDefault();
+                $.ajax({
+                    type: form.attr('method'),
+                    url: '{{ path("fos_user_security_check") }}',
+                    data: form.serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.status === 'logged_in') {
+                            if (window.location.hash.match(/login/)) {
+                                window.location.replace('/');
+                            } else {
+                                window.location.reload(false);
+                            }
+                        } else {
+                            ajaxErrorHandler.display(form, data.errors);
+                            console.log(data);
+                        }
+                    },
+                    error: function (data) {
+                        console.log(data.message);
+                    }
+                });
+            });
+
+            $('#register_form').validate(validatorTemplates({
+                submitHandler: function (formElement) {
+                    var form = $(formElement);
+
+                    $.ajax({
+                        type: form.attr('method'),
+                        url: '{{ path("fos_user_registration_register") }}',
+                        data: form.serialize(),
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.status === 'success') {
+                                window.location.reload(false);
+                                //window.location.href = data.redirect;
+                            } else {
+                                ajaxErrorHandler.display(form, data.errors);
+                                console.log(data.errors);
+                            }
+                        },
+                        error: function (data) {
+                            console.log(data.message);
+                        }
+                    });
+                },
+                rules: {
+                    "fos_user_registration_form[member][firstName]": {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 254
+                    },
+                    "fos_user_registration_form[member][lastName]": {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 254
+                    },
+//                    "fos_user_registration_form[member][birthDate]": {
+//                        required: true,
+//                        customDate: true
+//                    },
+                    "fos_user_registration_form[email]": {
+                        required: true,
+                        email: true,
+                        minlength: 5,
+                        maxlength: 254,
+                        remote: {
+                            url: "{{ path('user_exist') }}",
+                            type: "post",
+                            data: {
+                                "email": function () {
+                                    return $("#fos_user_registration_form_email").val()
+                                }
+                            },
+                        }
+                    },
+                    "fos_user_registration_form[plainPassword][first]": {
+                        required: true,
+                        minlength: 8
+                    },
+                    "fos_user_registration_form[plainPassword][second]": {
+                        required: true,
+                        equalTo: "#fos_user_registration_form_plainPassword_first"
+                    },
+                    "fos_user_registration_form[cgu]": {
+                        required: true
+                    },
+                    "fos_user_registration_form[charte]": {
+                        required: true
+                    }
+                },
+                messages: {
+                    "fos_user_registration_form[member][firstName]": {
+                        required: '{{ 'app.member.firstName.blank'|trans({}, 'validators') }}',
+                        minlength: '{{ 'app.member.firstName.short'|trans({}, 'validators') }}',
+                        maxlength: '{{ 'app.member.firstName.long'|trans({}, 'validators') }}'
+                    },
+                    "fos_user_registration_form[member][lastName]": {
+                        required: '{{ 'app.member.lastName.blank'|trans({}, 'validators') }}',
+                        minlength: '{{ 'app.member.lastName.short'|trans({}, 'validators') }}',
+                        maxlength: '{{ 'app.member.lastName.long'|trans({}, 'validators') }}'
+                    },
+                    {#"fos_user_registration_form[member][birthDate]": {#}
+                        {#required: '{{ 'app.member.birthDate.blank'|trans({}, 'validators') }}',#}
+                        {#customDate: '{{ 'app.member.birthDate.notValidDate'|trans({}, 'validators') }}'#}
+                    {#},#}
+                    "fos_user_registration_form[email]": {
+                        required: '{{ 'fos_user.email.blank'|trans({}, 'validators') }}',
+                        email: '{{ 'fos_user.email.invalid'|trans({}, 'validators') }}',
+                        minlength: '{{ 'fos_user.email.short'|transchoice(0, {}, 'validators') }}',
+                        maxlength: '{{ 'fos_user.email.long'|transchoice(0, {}, 'validators') }}',
+                        remote: '{{ 'fos_user.email.exist'|transchoice(0, {}, 'validators') }}'
+                    },
+                    "fos_user_registration_form[plainPassword][first]": {
+                        required: '{{ 'fos_user.password.blank'|trans({}, 'validators') }}',
+                        minlength: '{{ 'fos_user.password.short'|transchoice(0, {}, 'validators') }}'
+                    },
+                    "fos_user_registration_form[plainPassword][second]": {
+                        required: '{{ 'fos_user.password.blank'|trans({}, 'validators') }}',
+                        equalTo: '{{ 'fos_user.password.mismatch'|trans({}, 'validators') }}'
+                    },
+                    "fos_user_registration_form[cgu]": {
+                        required: '{{ 'app.member.cgu'|trans({}, 'validators') }}'
+                    },
+                    "fos_user_registration_form[charte]": {
+                        required: '{{ 'app.member.charte'|trans({}, 'validators') }}'
+                    }
+                }
+            }));
+        });
+    </script>
+</modal-block>
+

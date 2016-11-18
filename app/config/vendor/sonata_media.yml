@@ -1,0 +1,81 @@
+doctrine:
+    dbal:
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+
+    orm:
+        entity_managers:
+            default:
+                mappings:
+                    SonataMediaBundle: ~
+
+sonata_media:
+    db_driver: doctrine_orm
+    providers:
+        image:
+            resizer: sonata.media.resizer.square
+    class:
+        media:              AppBundle\Entity\Media
+        gallery:            AppBundle\Entity\Gallery
+        gallery_has_media:  AppBundle\Entity\GalleryHasMedia
+
+    default_context: default
+    contexts:
+        default:
+            download:
+                strategy: sonata.media.security.superadmin_strategy
+                mode: http
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+        restaurant:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                small: { width: 360 , quality: 90}
+                big:   { width: 720 , quality: 90}
+        recipe:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                small: { width: 360 , quality: 90}
+                big:   { width: 720 , quality: 90}
+
+        event_photo:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                small: { width: 360 , quality: 80}
+        user:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                default: { width: 360 , quality: 90}
+
+        blog:
+            download:
+                strategy: sonata.media.security.public_strategy
+                mode: http
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                default: { width: 1920 , quality: 80}
+    cdn:
+        server:
+            path: %base_cdn%/uploads/media
+
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     false

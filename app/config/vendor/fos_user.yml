@@ -1,0 +1,13 @@
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: AppBundle\Entity\Authentication
+    registration:
+        form:
+            type: AppBundle\Form\Type\RegistrationType
+            validation_groups: [AppRegistration]
+    profile:
+        form:
+            type: AppBundle\Form\Type\EditAuthenticationType
+    service:
+        mailer: app.service.fos_user_mailer

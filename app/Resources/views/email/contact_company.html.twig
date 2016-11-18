@@ -1,0 +1,35 @@
+{% extends ':email:layout.html.twig' %}
+
+{% trans_default_domain "contact-company" %}
+
+{% block title %}
+{% endblock %}
+
+{% block subtitle %}
+{% endblock %}
+
+{% block content %}
+    <ul>
+        <li>
+            {{ 'app.form.contact-company.label.firstName'|trans }} : {{ form.firstName }}
+        </li>
+        <li>
+            {{ 'app.form.contact-company.label.lastName'|trans }} : {{ form.lastName }}
+        </li>
+        <li>
+            {{ 'app.form.contact-company.label.company'|trans }} : {{ form.company }}
+        </li>
+        <li>
+            {{ 'app.form.contact-company.label.email'|trans }} : {{ form.email }}
+        </li>
+        <li>
+            {{ 'app.form.contact-company.label.phone'|trans }} : {{ form.phone }}
+        </li>
+        <li>
+            {{ 'app.form.contact-company.label.capacity'|trans }} : {{ form.capacity }}
+        </li>
+        <li>
+            {{ 'app.form.contact-company.label.notice'|trans }} : {{ form.notice }}
+        </li>
+    </ul>
+{% endblock %}

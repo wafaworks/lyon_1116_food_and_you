@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% trans_default_domain "event_list" %}
+
+{% block search %}
+    <!-- Search block -->
+    {% include ':partials/forms:event_search.html.twig' with {'searchType': searchType} %}
+{% endblock %}
+
+{% block body %}
+    <div class="container box-lg">
+        <div class="row">
+            <h2>{{ 'event.list.title' | trans }}</h2>
+        </div>
+        <div id="eventInfiniteScrollBox">
+
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function () {
+            $('#eventInfiniteScrollBox').infiniteScroll({
+                url: Routing.generate('event_list'),
+                watchMode: 'window',
+                bottomOffset: [ $('.SiteFooter') ],
+                form: $('#SearchType'),
+                loadPageOnInit: true,
+                preProcessData: function (data) {
+                    data['app_search[eventDate]'] = moment(data['app_search[eventDate]'], 'DD MMM YYYY').format('YYYY-MM-DD');
+
+                    return data;
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block title %}{{ 'search.title' | trans({}, 'seo') }}{% endblock %}
+{% block description %}{{ 'search.description' | trans({}, 'seo') }}{% endblock %}

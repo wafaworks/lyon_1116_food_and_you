@@ -1,0 +1,17 @@
+{% trans_default_domain 'modal' %}
+<modal-block>
+    <content>
+        <h5 class="box">{{ 'modal.reservation_cancelled.title'|trans }}</h5>
+        <p>{{ 'modal.reservation_cancelled.message'|trans }}</p>
+    </content>
+    <script type="text/modal-template" language="JavaScript">
+        modal.content().find('.close').on('click', function () {
+            var link = $(this).data('link');
+            if (link != undefined) {
+                window.location.assign(link);
+            } else {
+                modal.hide();
+            }
+        });
+    </script>
+</modal-block>

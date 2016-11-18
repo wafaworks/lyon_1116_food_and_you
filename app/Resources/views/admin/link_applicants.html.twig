@@ -1,0 +1,13 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% trans_default_domain 'SonataAdminEvent' %}
+
+{% block field %}
+    <div>
+        <a class="btn btn-sm btn-primary" href="{{ path('admin_app_applicant_list', {
+            'filter[event__id][value]': object.id
+        }) }}">
+            {{ 'view.applicants' | trans }}
+        </a>
+    </div>
+{% endblock %}

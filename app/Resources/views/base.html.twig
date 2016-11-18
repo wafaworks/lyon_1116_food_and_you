@@ -1,0 +1,67 @@
+{% if app.environment != 'prod' %}
+    {% set cacheBusting = '?' ~ date().timestamp  %}
+{% else %}
+    {% set cacheBusting = '?v1.0.0' %}
+{% endif %}
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
+        {% block meta %}
+        {% endblock %}
+        <title>{% block title %}{{ 'homepage.title' | trans({}, 'seo') }}{% endblock %}</title>
+        <meta name="google" content="notranslate" />
+        <meta name="description" content="{% block description %}{{ 'homepage.description' | trans({}, 'seo') }}{% endblock %}">
+        <link type='text/css' href='{{ asset('css/00-vendor.css') ~ cacheBusting }}' rel='stylesheet' media='screen' />
+        <link type='text/css' href='{{ asset('css/01-app.css') ~ cacheBusting }}' rel='stylesheet' media='screen' />
+        {% block stylesheets %}{% endblock %}
+        <script src="{{ asset('vendor/jquery/dist/jquery.min.js') }}"></script>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
+    </head>
+    <body>
+        {% if app.environment == 'prod' %}
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/56cb1412bef0d446364abea3/default';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+            })();
+        </script>
+        <!--End of Tawk.to Script-->
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TMDZJD"
+                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+                    {'gtm.start': new Date().getTime(),event:'gtm.js'}
+
+            );var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-TMDZJD');</script>
+        <!-- End Google Tag Manager -->
+        {% endif %}
+        <div class="relative">
+            {% if headerType is defined %}
+                {% include 'partials/header/header-' ~ headerType ~ '.html.twig' %}
+            {% else %}
+                {% include 'partials/header/header.html.twig' %}
+            {% endif %}
+            {% block search %}
+            {% endblock %}
+            {% include 'partials/header/list-restaurants.html.twig' %}
+        </div>
+
+        {% block body %}{% endblock %}
+        {% include 'partials/footer/footer.html.twig' %}
+        <script src="{{ asset('js/00-vendor.js') ~ cacheBusting }}"></script>
+        <script src="{{ asset('js/01-app.js') ~ cacheBusting }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

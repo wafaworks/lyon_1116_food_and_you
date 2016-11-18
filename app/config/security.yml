@@ -1,0 +1,60 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+        AppBundle\Entity\User:
+            algorithm:        sha1
+            encode_as_base64: false
+            iterations:       1
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        api:
+            pattern:    ^/api
+            fos_oauth:  true
+            stateless:  true
+
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                success_handler: app.security.authentication_handler
+                failure_handler: app.security.authentication_handler
+                csrf_provider: security.csrf.token_manager
+
+            logout:       true
+            anonymous:    true
+            switch_user:  true
+            oauth:
+                resource_owners:
+                    facebook:           "/oauth/login/check-facebook"
+                login_path:        /#login
+                use_forward:       false
+                failure_path:      /#login
+
+                oauth_user_provider:
+                    service: app.security.oauth_user_provider
+
+
+
+    role_hierarchy:
+        ROLE_OWNER: ROLE_USER
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_SONATA_ADMIN, ROLE_OWNER, ROLE_ALLOWED_TO_SWITCH]
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/oauth, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/administrateur/, role: ROLE_OWNER }
+        - { path: ^/oauth2/v2/auth, roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
+        - { path: ^/oauth2/v2/token, roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
+        - { path: ^/user/oauth/register, roles: [ ROLE_INCOMPLETE_USER ] }

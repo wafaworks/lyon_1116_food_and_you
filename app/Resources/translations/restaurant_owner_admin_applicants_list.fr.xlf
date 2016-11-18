@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="b8e3ccc9262d903cfc765a5ba3d71037" resname="app.owner_admin.applicant.list.head.info">
+        <source>app.owner_admin.applicant.list.head.info</source>
+        <target>Informations personnelles</target>
+      </trans-unit>
+      <trans-unit id="6fa7787495d15385d7c7af561f043bee" resname="app.owner_admin.applicant.list.head.appliedAt">
+        <source>app.owner_admin.applicant.list.head.appliedAt</source>
+        <target>Date de candidature</target>
+      </trans-unit>
+      <trans-unit id="50d3d463c9f6277c86a2a3a35371d72d" resname="app.owner_admin.applicant.list.head.recipe">
+        <source>app.owner_admin.applicant.list.head.recipe</source>
+        <target>Recette</target>
+      </trans-unit>
+      <trans-unit id="46731578566efbc18e50e8fa6da25dea" resname="app.owner_admin.applicant.list.head.votes">
+        <source>app.owner_admin.applicant.list.head.votes</source>
+        <target>Votes</target>
+      </trans-unit>
+      <trans-unit id="6833f82ecf495ef4565987ae9d1e9142" resname="app.owner_admin.applicant.list.head.cookWith">
+        <source>app.owner_admin.applicant.list.head.cookWith</source>
+        <target>Il veut cuisiner avec</target>
+      </trans-unit>
+      <trans-unit id="1a8006c2f911b94517a2ed9d80a6d120" resname="app.owner_admin.applicant.list.head.status">
+        <source>app.owner_admin.applicant.list.head.status</source>
+        <target>Valider la candidature</target>
+      </trans-unit>
+      <trans-unit id="76016f994130ebe3e53d3c7ca274fd3e" resname="app.owner_admin.applicant.list.title">
+        <source>app.owner_admin.applicant.list.title</source>
+        <target>Événements du %date%</target>
+      </trans-unit>
+      <trans-unit id="65e8bf5b48eab1ae79989b3d490ee9dc" resname="app.owner_admin.applicant.list.head.recipe.type">
+        <source>app.owner_admin.applicant.list.head.recipe.type</source>
+        <target>Cuisine</target>
+      </trans-unit>
+      <trans-unit id="7fa06e6f46546c04548828c292caa216" resname="app.owner_admin.applicant.list.buttons.cancel">
+        <source>app.owner_admin.applicant.list.buttons.cancel</source>
+        <target><![CDATA[J'ai eu une annulation <br><strong>MODIFIER MON CHOIX</strong>]]></target>
+      </trans-unit>
+      <trans-unit id="7f5f0ccd5ab670baec63c92fa7ad5715" resname="app.owner_admin.applicant.list.buttons.validate">
+        <source>app.owner_admin.applicant.list.buttons.validate</source>
+        <target><![CDATA[<strong>VALIDER<br>DÉFINITIVEMENT</strong>]]></target>
+      </trans-unit>
+      <trans-unit id="f3e4d19048977920f79156f3c684e3ef" resname="app.owner_admin.applicant.list.buttons.close">
+        <source>app.owner_admin.applicant.list.buttons.close</source>
+        <target>Clore les votes</target>
+      </trans-unit>
+      <trans-unit id="792412b0240718ac054f6f8b97b1b34e" resname="app.owner_admin.applicant.list.winner">
+        <source>app.owner_admin.applicant.list.winner</source>
+        <target>GAGNANT !</target>
+      </trans-unit>
+      <trans-unit id="7a8d6189167e2060c9b009953833a34a" resname="app.owner_admin.applicant.list.head.image">
+        <source>app.owner_admin.applicant.list.head.image</source>
+        <target>Image de la recette</target>
+      </trans-unit>
+      <trans-unit id="1eca43299d8d8c2946b58f0e579dc55e" resname="app.owner_admin.applicant.list.phone">
+        <source>app.owner_admin.applicant.list.phone</source>
+        <target>Téléphone</target>
+      </trans-unit>
+      <trans-unit id="613305469f0fd42adaa67cbc47aa3abf" resname="app.owner_admin.applicant.list.email">
+        <source>app.owner_admin.applicant.list.email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="65ab10d02a0d5f7dbbadf267bd40ed5e" resname="app.owner_admin.applicant.list.subtitle">
+        <source>app.owner_admin.applicant.list.subtitle</source>
+        <target><![CDATA[Choisissez une entrée, un plat et un dessert pour votre soirée Food&You.]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

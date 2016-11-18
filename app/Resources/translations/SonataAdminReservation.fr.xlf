@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="490aa6e856ccf208a054389e47ce0d06" resname="Id">
+        <source>Id</source>
+        <target>Id</target>
+      </trans-unit>
+      <trans-unit id="232f4b53f1b82ae84b71b38eb70958e1" resname="Transaction Id">
+        <source>Transaction Id</source>
+        <target>Transaction Id</target>
+      </trans-unit>
+      <trans-unit id="fdabf4e63a3cc1fe987269ff4e629148" resname="Transaction Amount">
+        <source>Transaction Amount</source>
+        <target>Transaction Montant</target>
+      </trans-unit>
+      <trans-unit id="858ba4765e53c712ef672a9570474b1d" resname="Member">
+        <source>Member</source>
+        <target>Membre</target>
+      </trans-unit>
+      <trans-unit id="a4ecfc70574394990cf17bd83df499f7" resname="Event">
+        <source>Event</source>
+        <target>Événement</target>
+      </trans-unit>
+      <trans-unit id="78d77a0b8ec57890944b8cfce506b113" resname="Places">
+        <source>Places</source>
+        <target>Places</target>
+      </trans-unit>
+      <trans-unit id="886f2c8bfb86e8b331ec6ce110e7b516" resname="Event Status">
+        <source>Event Status</source>
+        <target>Statut de l'événement</target>
+      </trans-unit>
+      <trans-unit id="ec53a8c4f07baed5d8825072c89799be" resname="Status">
+        <source>Status</source>
+        <target>Statut</target>
+      </trans-unit>
+      <trans-unit id="f91b2829bf8603e358094e1dedb6f947" resname="draft">
+        <source>draft</source>
+        <target>Brouillon</target>
+      </trans-unit>
+      <trans-unit id="eda721c5f8c61daee37ca15ce3c4d881" resname="confirmed">
+        <source>confirmed</source>
+        <target>Confirmé</target>
+      </trans-unit>
+      <trans-unit id="38881e0a24039dc2621e1d6f86cb71f7" resname="cancelled">
+        <source>cancelled</source>
+        <target>Annulée</target>
+      </trans-unit>
+      <trans-unit id="786f8d926d7f42d6441c1d1457930356" resname="to_refund">
+        <source>to_refund</source>
+        <target>Remboursement requis</target>
+      </trans-unit>
+      <trans-unit id="ad32204fca182b862a5f97a5534c03a2" resname="refunded">
+        <source>refunded</source>
+        <target>Remboursé</target>
+      </trans-unit>
+      <trans-unit id="80aa5413877818f3adb69dbbcb7220dd" resname="Event date (d/m/y)">
+        <source>Event date (d/m/y)</source>
+        <target>Date de l'événement (d/m/y)</target>
+      </trans-unit>
+      <trans-unit id="696efe0426a2919d9bf9bd2140a74f7d" resname="Transaction date (d/m/y)">
+        <source>Transaction date (d/m/y)</source>
+        <target>Date de la transaction (d/m/y)</target>
+      </trans-unit>
+      <trans-unit id="b4c0cc6824f15f7038a921accec7d004" resname="Reservation List">
+        <source>Reservation List</source>
+        <target>Liste de réservation</target>
+      </trans-unit>
+      <trans-unit id="88332df2e04bcd4c541ad49c6c03eecf" resname="reservation">
+        <source>reservation</source>
+        <target>Réservation</target>
+      </trans-unit>
+      <trans-unit id="004bf6c9a40003140292e97330236c53" resname="Action">
+        <source>Action</source>
+        <target>Action</target>
+      </trans-unit>
+      <trans-unit id="0db377921f4ce762c62526131097968f" resname="General">
+        <source>General</source>
+        <target>Général</target>
+      </trans-unit>
+      <trans-unit id="8fe6e0ff857c2a4a9f552601bad93520" resname="Table Owner">
+        <source>Table Owner</source>
+        <target>Tableau propriétaire</target>
+      </trans-unit>
+      <trans-unit id="6a23a02f615e6e0f4142c8b14746558b" resname="Transaction Formatted Amount">
+        <source>Transaction Formatted Amount</source>
+        <target>Montant de la transaction</target>
+      </trans-unit>
+      <trans-unit id="e57e813bbea83899204fdb5a3a1d39bc" resname="Transaction Created">
+        <source>Transaction Created</source>
+        <target>Transaction créé</target>
+      </trans-unit>
+      <trans-unit id="f8d87ce4618ad45d4a875b8dfcbf3622" resname="Transaction Updated">
+        <source>Transaction Updated</source>
+        <target>Transaction mise à jour</target>
+      </trans-unit>
+      <trans-unit id="a778852db526e36b6b817f44e2212155" resname="Transaction Merchant Id">
+        <source>Transaction Merchant Id</source>
+        <target>Marchand Id</target>
+      </trans-unit>
+      <trans-unit id="7cccb43245e928e48a4a12755f2e136a" resname="Transaction Merchant Country">
+        <source>Transaction Merchant Country</source>
+        <target>Pays du marchand</target>
+      </trans-unit>
+      <trans-unit id="dc380ef76422ce30a00d750f2eba3021" resname="Transaction Payment Means">
+        <source>Transaction Payment Means</source>
+        <target>Moyens de paiement</target>
+      </trans-unit>
+      <trans-unit id="b891c218a376da72157ea2ead42f76db" resname="Transaction Response Code">
+        <source>Transaction Response Code</source>
+        <target>Code de réponse</target>
+      </trans-unit>
+      <trans-unit id="4d5cd2b8e588a68bf1671c2e2c3be710" resname="Transaction Payment Certificate">
+        <source>Transaction Payment Certificate</source>
+        <target>Certificat de paiement</target>
+      </trans-unit>
+      <trans-unit id="d406342bcdd237f8a8a34b2518830d78" resname="Transaction Authorisation Id">
+        <source>Transaction Authorisation Id</source>
+        <target>Autorisation Id</target>
+      </trans-unit>
+      <trans-unit id="806b82ef14fac8a51d119bb92bfef63c" resname="Transaction Currency Code">
+        <source>Transaction Currency Code</source>
+        <target>Code de devise</target>
+      </trans-unit>
+      <trans-unit id="1e04dd2f60d9ed210388fcb176afac81" resname="Transaction Card Number">
+        <source>Transaction Card Number</source>
+        <target>Numéro de carte</target>
+      </trans-unit>
+      <trans-unit id="a8f61bb78eb204c955180a392aec6ac3" resname="Transaction Card Validity">
+        <source>Transaction Card Validity</source>
+        <target>Carte validité</target>
+      </trans-unit>
+      <trans-unit id="852b905debfa8b0285360bf111c2cde5" resname="Transaction Cvv Flag">
+        <source>Transaction Cvv Flag</source>
+        <target>Flag CVV</target>
+      </trans-unit>
+      <trans-unit id="d05268eb658b440974058a4dd1694778" resname="Transaction Cvv Response Code">
+        <source>Transaction Cvv Response Code</source>
+        <target>CVV code de réponse</target>
+      </trans-unit>
+      <trans-unit id="c9c8c53635aeed670a162fde1ecc363b" resname="Transaction Bank Response Code">
+        <source>Transaction Bank Response Code</source>
+        <target>Code de réponse de la Banque</target>
+      </trans-unit>
+      <trans-unit id="817af08ee2a8ef8c1118f0246cbcfefd" resname="Transaction Capture Mode">
+        <source>Transaction Capture Mode</source>
+        <target>Mode de capture</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

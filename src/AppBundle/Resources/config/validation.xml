@@ -1,0 +1,228 @@
+<?xml version="1.0" ?>
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
+        http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
+
+    <class name="AppBundle\Entity\Authentication">
+        <property name="member">
+            <constraint name="Valid"/>
+        </property>
+    </class>
+
+    <class name="AppBundle\Entity\Member">
+
+        <property name="firstName">
+            <constraint name="NotBlank">
+                <option name="message">app.member.firstName.blank</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">app.member.firstName.short</option>
+                <option name="max">254</option>
+                <option name="maxMessage">app.member.firstName.long</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="lastName">
+            <constraint name="NotBlank">
+                <option name="message">app.member.lastName.blank</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">app.member.lastName.short</option>
+                <option name="max">254</option>
+                <option name="maxMessage">app.member.lastName.long</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="birthDate">
+            <constraint name="NotBlank">
+                <option name="message">app.member.birthDate.blank</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+            <constraint name="Date" >
+                <option name="message">app.member.birthDate.notValidDate</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+            <constraint name="GreaterThan">
+                <option name="value">-100 years</option>
+                <option name="message">app.member.birthDate.tooOld</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+            <constraint name="LessThanOrEqual">
+                <option name="value">-7 years</option>
+                <option name="message">app.member.birthDate.tooYoung</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+        </property>
+
+    </class>
+
+
+    <class name="FOS\UserBundle\Model\User">
+
+        <property name="email">
+            <constraint name="NotBlank">
+                <option name="message">fos_user.email.blank</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">5</option>
+                <option name="minMessage">fos_user.email.short</option>
+                <option name="max">254</option>
+                <option name="maxMessage">fos_user.email.long</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+            <constraint name="Email">
+                <option name="message">fos_user.email.invalid</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="plainPassword">
+            <constraint name="NotBlank">
+                <option name="message">fos_user.password.blank</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>ResetPassword</value>
+                    <value>ChangePassword</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">8</option>
+                <option name="max">4096</option>
+                <option name="minMessage">fos_user.password.short</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                    <value>ResetPassword</value>
+                    <value>ChangePassword</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
+    <class name="FOS\UserBundle\Model\Group">
+        <property name="name">
+            <constraint name="NotBlank">
+                <option name="message">fos_user.group.blank</option>
+                <option name="groups">AppRegistration</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">fos_user.group.short</option>
+                <option name="max">255</option>
+                <option name="maxMessage">fos_user.group.long</option>
+                <option name="groups">AppRegistration</option>
+            </constraint>
+        </property>
+    </class>
+
+    <!-- Propel classes. This should stay in sync with the Model classes -->
+
+    <class name="FOS\UserBundle\Propel\User">
+        <property name="email">
+            <constraint name="NotBlank">
+                <option name="message">fos_user.email.blank</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">fos_user.email.short</option>
+                <option name="max">255</option>
+                <option name="maxMessage">fos_user.email.long</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+            <constraint name="Email">
+                <option name="message">fos_user.email.invalid</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="plainPassword">
+            <constraint name="NotBlank">
+                <option name="message">fos_user.password.blank</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>ResetPassword</value>
+                    <value>ChangePassword</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="max">4096</option>
+                <option name="minMessage">fos_user.password.short</option>
+                <option name="groups">
+                    <value>AppRegistration</value>
+                    <value>AppProfile</value>
+                    <value>ResetPassword</value>
+                    <value>ChangePassword</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
+    <class name="FOS\UserBundle\Propel\Group">
+        <property name="name">
+            <constraint name="NotBlank">
+                <option name="message">fos_user.group.blank</option>
+                <option name="groups">AppRegistration</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">fos_user.group.short</option>
+                <option name="max">255</option>
+                <option name="maxMessage">fos_user.group.long</option>
+                <option name="groups">AppRegistration</option>
+            </constraint>
+        </property>
+    </class>
+
+</constraint-mapping>

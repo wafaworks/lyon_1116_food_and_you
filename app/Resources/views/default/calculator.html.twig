@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% trans_default_domain "default_calculator" %}
+
+{% if isOwner %}
+    {% set submitHref = path('restaurant_owner_admin_event_list') %}
+    {% set submitClick = '' %}
+{% elseif app.user %}
+    {% set submitHref = path('restaurant_create') %}
+    {% set submitClick = '' %}
+{% else %}
+    {% set submitHref = 'javascript: void(0);' %}
+    {% set submitClick = "displayModal('modal_login');" %}
+{% endif %}
+
+
+{% block body %}
+
+    <div class="container box-lg">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-left">{{ 'calculator.title' | trans }}</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="Sticker md shadow right">
+                    <img src="{{ asset('images/benefits/icon1.png') }}" class="Sticker__content">
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <p class="box-md">{{ 'calculator.description'|trans|raw }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {% include ':partials/wizzard:restaurateur_register.html.twig' with {'step': 1} %}
+            </div>
+        </div>
+        <div class="row box-lg">
+            <div class="col-sm-8">
+                <div class="container-fluid">
+                    <div class="row box">
+                        <div class="col-sm-6">
+                            <h5 class="text-left">{{ 'price.label' | trans }}</h5>
+                            <p class="gray text-sm">{{ 'price.description' | trans }}</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="RadioToolbar">
+
+                                <input type="radio" id="price1" name="price" value="29.90" checked>
+                                <label for="price1">{{ 'price1.value.label' | trans | raw }}</label>
+
+                                <input type="radio" id="price2" name="price" value="34.90">
+                                <label for="price2">{{ 'price2.value.label' | trans | raw }}</label>
+
+                                <input type="radio" id="price3" name="price" value="39.90">
+                                <label for="price3">{{ 'price3.value.label' | trans | raw }}</label>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row box">
+                        <div class="col-sm-6">
+                            <h5 class="text-left">{{ 'frequency.label' | trans }}</h5>
+                            <p class="gray text-sm">{{ 'frequency.description' | trans }}</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="RadioToolbar">
+                                <input type="radio" id="frequency3" name="frequency" value="47">
+                                <label for="frequency3">{{ 'frequncy3.value.label' | trans | raw }}</label>
+
+                                <input type="radio" id="frequency1" name="frequency" value="11" checked>
+                                <label for="frequency1">{{ 'frequncy1.value.label' | trans | raw }}</label>
+
+                                <input type="radio" id="frequency2" name="frequency" value="4">
+                                <label for="frequency2">{{ 'frequncy2.value.label' | trans | raw }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row box">
+                        <div class="col-sm-6">
+                            <h5 class="text-left">{{ 'places.label' | trans }}</h5>
+                            <p class="gray text-sm">{{ 'places.description' | trans }}</p>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="number" name="places" class="form-control" min="1" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="Calculator__priceBox">
+                    <div>
+                        <h3 class="h1"><span id="calculatedPrice">0</span> &euro;</h3>
+                        <h4>{{ 'price.ca.year' | trans }}</h4>
+                        <p class="text-center text-lg">{{ 'price.by' | trans }}</p>
+                    </div>
+                </div>
+                <p class="text-xs text-italic gray box">{{ 'price.calulated.desc' | trans }}</p>
+            </div>
+            <div class="col-xs-12 text-center">
+                <hr>
+                <a href="{{ submitHref }}" onclick="{{ submitClick }}" class="Btn green md round-corners">
+                    {% if app.user %}
+                        {{ 'calculator.button.next' | trans }}
+                    {% else %}
+                        {{ 'calculator.button.login' | trans }}
+                    {% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function() {
+            $("input").on('change keyup', function () {
+                var price = parseFloat($('input[name=price]:checked').val());
+                var freqeuncy = parseFloat($('input[name=frequency]:checked').val());
+                var places = parseFloat($('input[name=places]').val());
+
+                var value = places * (price +15) * freqeuncy * 0.8;
+                $('#calculatedPrice').html(Math.round(value) || 0);
+            });
+        });
+    </script>
+{% endblock %}

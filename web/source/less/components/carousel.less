@@ -1,0 +1,82 @@
+@blur-amount: 4px;
+.owl-carousel {
+    .owl-item{
+        -webkit-filter: blur(@blur-amount);
+        -moz-filter: blur(@blur-amount);
+        -o-filter: blur(@blur-amount);
+        -ms-filter: blur(@blur-amount);
+        filter: blur(@blur-amount);
+
+        transition: filter 1s;
+
+        &.center{
+            -webkit-filter: none;
+            -moz-filter: none;
+            -o-filter: none;
+            -ms-filter: none;
+            filter: none;
+        }
+    }
+
+    .item{
+        height: 20rem;
+        padding: 0;
+        background-size: cover;
+        background-position: center;
+        width: 40rem;
+    }
+}
+
+
+/**
+ * Bootstrap carousel default styling
+ */
+.carousel-control {
+    color: @color-brown;
+    opacity: 1;
+    width: 3rem;
+    height: 3rem;
+    background-color: @color-grey;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+
+    & .glyphicon {
+        width: auto;
+        height: auto;
+        font-size: inherit;
+    }
+
+    &.left {
+        left: -1.5rem;
+
+        .glyphicon {
+            right: 0;
+        }
+    }
+
+    &.right {
+        right: -1.5rem;
+
+        .glyphicon {
+            left: 0;
+        }
+    }
+}
+
+.carousel-inner-img-bg {
+    height: 16.5625rem;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.carousel-control.left {
+    background-image: none;
+}
+.carousel-control.right {
+    background-image: none;
+}
+

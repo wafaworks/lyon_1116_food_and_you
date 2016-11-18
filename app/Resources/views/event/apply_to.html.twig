@@ -1,0 +1,691 @@
+{% extends 'base.html.twig' %}
+
+{% trans_default_domain "event_apply_to" %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="container box-lg apply_to">
+        <div class="row">
+            <div class="col-xs-12 box">
+                <h1 class="h2 text-left">{{ 'event.apply_to.title'|trans }}</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="fileUpload">
+                    <div class="memberProfile__image" style="background-image: url({% if member.photo %}{% path member.photo, 'default' %}{% else %}{{ gravatar(member.authentication.email) }}{% endif %})"></div>
+                </div>
+            </div>
+            <div class="col-sm-8 box">
+                <div class="memberProfile_details">
+                    <h4>{{ 'event.apply_to.image.title'|trans }}</h4>
+                    <p class="text-lg">{{ 'event.apply_to.image.subtitle'|trans }}</p>
+                    <ul class="text-sm gray">
+                        <li>{{ 'event.apply_to.image.size'|trans }}</li>
+                        <li>{{ 'event.apply_to.image.format'|trans }}</li>
+                    </ul>
+                    <div class="fileErrors">
+                        {{ form_errors(form.uploaded_image) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.uploaded_image, {'attr': {'class': 'hidden', 'accept': '.png,.jpeg,.jpg'}}) }}
+                    </div>
+                    <div class="box">
+                        <div class="fileSubmit Btn xs green">{{ 'event.apply_to.image.choose'|trans }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row box">
+            <div class="col-xs-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 class="text-left">{{ 'event.apply_to.biography.title'|trans }}</h4>
+                <ul class="text-sm gray box">
+                    <li>{{ 'event.apply_to.biography.description'|trans }}</li>
+                </ul>
+            </div>
+            <div class="col-sm-8{% if form.biography.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_widget(form.biography, {'attr': {'style': 'height: 250px', 'placeholder': 'event.apply_to.biography.placeholder'}}) }}
+                {{ form_errors(form.biography) }}
+            </div>
+        </div>
+        <div class="row box">
+            <div class="col-xs-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 class="text-left">{{ 'event.apply_to.signature.title'|trans }}</h4>
+            </div>
+            <div class="col-sm-8{% if form.signature.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_widget(form.signature, {'attr': {'style': 'height: 250px', 'placeholder': 'event.apply_to.signature.placeholder'}}) }}
+                {{ form_errors(form.signature) }}
+            </div>
+        </div>
+        <div class="row box">
+            <div class="col-xs-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 class="text-left">{{ 'event.apply_to.profession.title'|trans }}</h4>
+            </div>
+            <div class="col-sm-8{% if form.profession.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_widget(form.profession, {'attr': {'placeholder': 'event.apply_to.profession.placeholder'}}) }}
+                {{ form_errors(form.profession) }}
+            </div>
+        </div>
+        <div class="row box">
+            <div class="col-xs-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 class="text-left">{{ 'event.apply_to.phone.title'|trans }}</h4>
+            </div>
+            <div class="col-sm-8{% if form.phone.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_widget(form.phone) }}
+                {{ form_errors(form.phone) }}
+            </div>
+        </div>
+        <div class="row box">
+            <div class="col-xs-12 text-center">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 class="text-left">{{ 'event.apply_to.cook_with.title'|trans }}</h4>
+                <span class="text-sm gray box">
+                    {{ 'event.apply_to.cook_with.description'|trans|raw }}
+                </span>
+            </div>
+            <div class="col-sm-8{% if form.phone.vars.errors|length > 0 %} has-error{% endif %}">
+                {{ form_widget(form.cookWith) }}
+                {{ form_errors(form.cookWith) }}
+                <a class="Btn green sm" id="secondCook">{{ 'add.second.cook'|trans|raw }}</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+                <h4 class="text-left">{{ 'event.apply_to.recipe.box.title'|trans }}</h4>
+            </div>
+            <div class="col-md-12 text-left box" id="recipe-list-container">
+                <div class="recipe-list"></div>
+                <div class="recipe-box-propose eventApplication_propose green-dark2">
+                    <div class="recipe-box-propose-message">
+                        <h5 class="text-left">{{ 'event.apply_to.recipe.box.propose.message'|trans }}</h5>
+                    </div>
+                    <button class="Btn green xs">{{ 'event.apply_to.recipe.box.propose.2.plus'|trans }}</button>
+                </div>
+                <script type="text/template" name="recipe-template-block">
+                    <div class="row box recipe-template-block">
+                        <div class="col-sm-5 text-center">
+                            <input type="button" class="Btn green-dark2 xs" value="{{ 'event.apply_to.recipe.box.propose.list'|trans }}">
+                        </div>
+                        <div class="col-sm-2 box-sm">
+                            <div class="text-center text-xxlg">
+                                {{ 'event.apply_to.recipe.box.propose.or'|trans }}
+                            </div>
+                        </div>
+                        <div class="col-sm-5 text-center">
+                            <input type="button" class="Btn green xs" value="{{ 'event.apply_to.recipe.box.propose.new'|trans }}">
+                        </div>
+                    </div>
+                </script>
+                <script type="text/template" name="recipe-item">
+                    <div class="box">
+                        <div class="col-sm-12"><hr /></div>
+                        <div class="col-sm-3"><img src="" class="col-sm-12" /></div>
+                        <div class="col-sm-9">
+                            <h4></h4><p></p>
+                            <button class="Btn xs green">{{ 'event.apply_to.recipe.box.propose.select'|trans }}</button>
+                        </div>
+                    </div>
+                </script>
+                <script type="text/template" name="recipe-form">
+                    <form enctype="multipart/form-data" method="post">
+                        <div class="row">
+                            <h2>{{ 'event.apply_to.recipe.box.propose.popup.title'|trans }}</h2>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-12">
+                                <label for="_recipe_type_1" class="groupRadioButton"><input type="radio" name="app_recipe[Type]" checked id="_recipe_type_1" value="0entry"> <div>{{ 'event.apply_to.recipe.box.propose.popup.type.ENTREE'|trans }}</div></label>
+                                <label for="_recipe_type_2" class="groupRadioButton"><input type="radio" name="app_recipe[Type]" id="_recipe_type_2" value="1main"> <div>{{ 'event.apply_to.recipe.box.propose.popup.type.PLAT'|trans }}</div></label>
+                                <label for="_recipe_type_3" class="groupRadioButton"><input type="radio" name="app_recipe[Type]" id="_recipe_type_3" value="2dessert"> <div>{{ 'event.apply_to.recipe.box.propose.popup.type.DESERT'|trans }}</div></label>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-12">
+                                <input required="true" class="form-control" id="app_recipe_Name" name="app_recipe[Name]" value="" required="required" placeholder="{{ 'event.apply_to.recipe.box.propose.popup.name'|trans }}" type="text">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-6">
+                                <textarea required="true" class="form-control" id="app_recipe_PrivateDescription" name="app_recipe[PrivateDescription]" value="" required="required" placeholder="{{ 'event.apply_to.recipe.box.propose.popup.privateDescription'|trans }}" type="text"></textarea>
+                                </div>
+                            <div class="col-sm-6">
+                                <textarea required="true" class="form-control" id="app_recipe_PublicDescription" name="app_recipe[PublicDescription]" value="" required="required" placeholder="{{ 'event.apply_to.recipe.box.propose.popup.publicDescription'|trans }}" type="text"></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-6">
+                                <div class="photoPreview">
+                                    <div class="photoPreview_control">
+                                        <input type="file" name="app_recipe[Photo][binaryContent]" value="" accept=".jpg, .png">
+                                    </div>
+                                    <div class="photoPreview_wall"></div>
+                                    <input required="true" type="button" class="Btn green xs col-sm-12" value="ajouter une photo de votre plat">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-6">
+                                <ul>
+                                    <li>{{ 'event.apply_to.recipe.box.propose.media.size'|trans }}</li>
+                                    <li>{{ 'event.apply_to.recipe.box.propose.media.format'|trans }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="has-error"><div class="global-errors help-block"></div></div>
+                        <div class="row form-group">
+                            <div class="col-sm-12 text-right text-center">
+                                <input type="submit" class="Btn green xs action-save-form" value="{{ 'event.apply_to.recipe.box.propose.select'|trans }}">
+                            </div>
+                        </div>
+                    </form>
+                </script>
+                {{ form_widget(form.recipes) }}
+                {{ form_errors(form) }}
+            </div>
+        </div>
+        <div class="row box">
+            <div class="col-xs-12 text-center">
+                <hr>
+                <button class="Btn green md">{{ 'event.apply_to.submit'|trans|upper }}</button>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('vendor/select2/select2_locale_fr.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var recipesManager = function () {
+                var eventEmiterBuilder = function (methodsExternal) {
+                    var container   = $("<div>play with events</div>");
+                    var _methods     = methodsExternal || {};
+                    _methods.eventContainer   = function () {
+                        return container;
+                    };
+                    _methods.on  = function () {
+                        return container.on.apply(container, arguments);
+                    };
+                    _methods.off  = function () {
+                        return container.off.apply(container, arguments);
+                    };
+                    _methods.emit  = function () {
+                        return container.trigger.apply(container, arguments);
+                    };
+                    _methods.data  = function () {
+                        return container.data.apply(container, arguments);
+                    }
+                };
+                var _public     = {};
+                var _private    = [];
+                var _methods    = {
+                    maxRecipes	: function () {
+                        return 3;
+                    }
+                };
+
+                ((function () {
+                    // recipes modal
+                    var modal   = $.customModal();
+                    modal.destroyOnClose(false);
+                    var _self = _methods;
+                    modal.loadRecipes   = function () {
+                        modal.content('<div class="text-center"><i class="fa fa-spinner fa-spin"></i></span></div>');
+                        _self.recipeList(function (err, data) {
+                            if (err) {
+                                modal.content('Error: ' + err.message || error.toString());
+                            } else {
+                                var list = $("<div></div>");
+                                data = data.map(function (data) {
+                                    var node = $(_self.template("recipe-item"));
+                                    node.data('recipe', data);
+                                    node.find('img').attr("src", data.image);
+                                    node.find('h4').text(data.name);
+                                    node.find('p').text(data.description);
+                                    node.find("button").data("recipe-data", data);
+                                    node.find("button").on('click', function () {
+                                        _self.attachRecipe($(this).data('recipe-data'));
+                                        modal.hide();
+                                    });
+                                    return node;
+                                });
+                                list.css("maxHeight", Math.floor( $(window).height() * 0.8 ) + "px");
+                                list.css("overflow", "auto");
+                                list.append(data);
+                                modal.content(list);
+                                modal.recenter();
+                                console.log(modal, data);
+                            }
+                        })
+                    };
+
+                    _methods.modalRecipeSelect  = function () {
+
+                        return modal;
+                    };
+                })());
+
+
+                ((function () {
+                    // recipes modal
+                    var modal   = $.customModal();
+                    modal.destroyOnClose(false);
+                    var _self    = _methods;
+
+                    modal.createForm    = function () {
+                        modal.content(_self.template("recipe-form"));
+
+                        $.validator.addMethod('filesize', function(value, element, param) {
+                            console.log(element);
+                            return this.optional(element) || (element.files[0].size <= param)
+                        });
+
+                        $(modal.content().find('form').eq(0)).validate(validatorTemplates({
+                            submitHandler: function(formElement) {
+                                var form = $(formElement);
+                                var data = new FormData(form[0]);
+
+                                displaySpinner(form);
+                                $.ajax({
+                                    url: Routing.generate('recipe_add'),
+                                    data: data,
+                                    contentType: false,
+                                    processData: false,
+                                    type: 'POST',
+                                    success: function(data) {
+                                        if (data.status === 'success') {
+                                            _self.attachRecipe(data.recipe);
+                                            modal.hide();
+                                        } else {
+                                            ajaxErrorHandler.display(form, data.errors);
+                                        }
+                                    }
+                                }).always(function() {
+                                    hideSpinner(form);
+                                });
+                            },
+                            rules: {
+                                "app_recipe[Name]": {
+                                    required: true,
+                                    minlength: 3,
+                                    maxlength: 254
+                                },
+                                "app_recipe[PrivateDescription]": {
+                                    required: true,
+                                    minlength: 3,
+                                    maxlength: 254,
+                                },
+                                "app_recipe[PublicDescription]": {
+                                    required: true,
+                                    minlength: 3,
+                                    maxlength: 5000
+                                },
+                                "app_recipe[Photo][binaryContent]": {
+                                    required: true,
+                                    filesize: 5242880
+                                }
+                            },
+                            messages: {
+                                "app_contact[mail]": {
+                                    required: '{{ 'app.contact.mail.required'|trans({}, 'validators') }}',
+                                    minlength: '{{ 'app.contact.mail.short'|trans({}, 'validators') }}',
+                                    maxlength: '{{ 'app.contact.mail.long'|trans({}, 'validators') }}'
+                                },
+                                "app_contact[subject]": {
+                                    required: '{{ 'app.contact.subject.required'|trans({}, 'validators') }}',
+                                    minlength: '{{ 'app.contact.subject.short'|trans({}, 'validators') }}',
+                                    maxlength: '{{ 'app.contact.subject.long'|trans({}, 'validators') }}'
+                                },
+                                "app_contact[message]": {
+                                    required: '{{ 'app.contact.message.required'|trans({}, 'validators') }}',
+                                    minlength: '{{ 'app.contact.message.short'|trans({}, 'validators') }}',
+                                    maxlength: '{{ 'app.contact.subject.long'|trans({}, 'validators') }}'
+                                },
+                                "app_recipe[Photo][binaryContent]": {
+                                    required: '{{ 'app.contact.message.required'|trans({}, 'validators') }}',
+                                    filesize: '{{ 'app.apply_to.filesize'|trans({}, 'validators') }}',
+                                }
+                            },
+                            errorPlacement: function(error, element){
+                                if(element.attr("name") == "app_recipe[Photo][binaryContent]"){
+                                    $(element).parents('.photoPreview').append(error);
+                                    $(error).wrap('<div class="has-error"></div>');
+                                } else {
+                                    $(element).parent().append(error);
+                                }
+                            }
+
+                        }));
+                    };
+
+                    _methods.modalRecipeAdd  = function () {
+
+                        return modal;
+                    };
+                })());
+
+                _methods.debug  = function (status) {
+                    var self    = _methods;
+                    if (typeof(status) === "undefined") {
+                        return !!self.data("debug");
+                    } else {
+                        self.data("debug", !!status);
+                    }
+                };
+
+                _methods.Error  = function (err) {
+                    var self = _methods;
+                    var errChecked  = (err instanceof Error ) ?
+                            err :
+                            ( err ?
+                                            (
+                                                    typeof(err.toString) === "function" ?
+                                                            new Error(err.toString()) : new Error("Unknown Error")
+                                            ) :
+                                            new Error("Unknown Error")
+                            );
+                    if (self.debug()) {
+                        console.error(err);
+                    }
+                    return errChecked;
+                };
+
+                _methods.request    = function (route_name, cb) {
+                    var method  = "get";
+                    var data    = {};
+                    if (route_name && typeof(route_name) === "object") {
+                        if (["get", "post"].indexOf(route_name.method) !== -1) {
+                            method  = route_name.method;
+                        }
+                        data    = ( route_name.data || "" );
+                        route_name  = ( route_name.route || "" );
+                    }
+
+                    var self    = _methods;
+                    return $[method](Routing.generate(route_name), data, function (data) {
+                        if (data) {
+                            if (data.status) {
+                                if (data.status === "ok") {
+                                    cb(undefined, data.data);
+                                } else {
+                                    cb(self.Error("Error: Status " + (data.status || "error") + " ; " + ( data.message || "" )));
+                                }
+                            } else {
+                                cb(self.Error("Unknown Response Status"));
+                            }
+                        } else {
+                            cb(self.Error("Unknown Error"));
+                        }
+                    }).fail(function (err) {
+                        cb(self.Error(err));
+                    })
+                };
+
+                _methods.recipeList = function (cb) {
+                    return _methods.request('recipe_list', cb);
+                };
+
+                _methods.container  = function (name) {
+                    var container   = $("#recipe-list-container").eq(0);
+                    if (name === "list")
+                        container   = container.find(".recipe-list");
+                    if (name === "box")
+                        container   = container.find(".recipe-box-propose");
+                    return container;
+                };
+
+
+                _methods.template   = function (name) {
+                    return ( $("script[type=\"text/template\"][name=\""+name+"\"]").eq(0).text() || '' );
+                };
+
+
+                _methods.addRecipeBlock = function () {
+                    var self    = _methods;
+                    var code = $(self.template("recipe-template-block"));
+
+                    var buttons = code.find("input[type=\"button\"]");
+                    buttons.eq(0).on('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        self.modalRecipeSelect().loadRecipes();
+                        self.modalRecipeSelect().show();
+                    });
+
+                    buttons.eq(1).on('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        self.modalRecipeAdd().createForm();
+                        self.modalRecipeAdd().show();
+                    });
+
+                    self.container("list").append(code);
+
+                    _methods.closeButton(code);
+
+                    if ($(".recipe-template-block").length >= recipes.maxRecipes()) {
+                        recipes.container("box").hide();
+                    }
+                };
+
+                _methods.closeButton	= function ($container) {
+                    var $node = $('<i class="green fa fa-times close-action"></i>');
+                    $container.css({ "position" : "relative" });
+                    $node.css({ "position" : "absolute", "top": "5px", right: "5px", "cursor": "pointer" }).on('click', function () {
+                        $container.remove();
+
+                        if ($(".recipe-template-block").length < _methods.maxRecipes()) {
+                            if ($(".recipe-template-block").length === 0)
+                                _methods.addRecipeBlock();
+                            recipes.container("box").show();
+                        }
+                    });
+                    $container.append($node);
+                };
+
+                _methods.attachRecipe   = function (recipe) {
+                    var $container  = $(".recipe-template-block:not(.recipe-object)").eq(0).addClass("recipe-object");
+                    $container.html([
+                        '<input type="hidden" id="application_recipes_0" name="application[recipes][]" required="required" class="applicant-recipe form-control" value="'+recipe.id+'" />',
+                        '<div class="col-sm-3 text-center">' +
+                        $("<img class=\"col-sm-12\">").attr("src", recipe.image).wrap('<div>').parent().html() +
+                        '</div>',
+                        '<div class="col-sm-9 text-left">' +
+                        $("<h4></h4>").text(recipe.name).wrap('<div>').parent().html() +
+                        $("<p></p>").text(recipe.description).wrap('<div>').parent().html() +
+                        '</div>'
+                    ]);
+                    _methods.closeButton($container);
+
+                };
+
+                eventEmiterBuilder(_methods);
+
+                ;((function () {
+                    var i;
+                    for ( i in _methods )
+                        if ( _private.indexOf(i) === -1 )
+                            ((function (method) {
+                                _public[method]  = function () {
+                                    return _methods[method].apply(_methods, arguments);
+                                };
+                            })(i + ""));
+                })());
+                return _public;
+            };
+            var recipes = new recipesManager();
+            recipes.debug(true);
+            recipes.addRecipeBlock();
+
+            recipes.container("box").find("button").on('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var n = recipes.maxRecipes() - $(".recipe-template-block").length;
+                var i = 0;
+                while (i++ < n) {
+                    recipes.addRecipeBlock();
+                }
+            });
+            window.recipes  = recipes;
+
+            var recipeIds	= $("#application_recipes").find("input[type=\"hidden\"]").get().map(function (node) {
+                return (parseInt(node.value, 10) || 0);
+            });
+
+            if (recipeIds.length) {
+                recipes.recipeList(function (err, list) {
+                    list.forEach(function (recipe) {
+                        if (recipeIds.indexOf(parseInt(recipe.id, 10)) !== -1) {
+                            if ($(".recipe-template-block:not(.recipe-object)").length === 0) {
+                                recipes.addRecipeBlock();
+                            }
+                            recipes.attachRecipe(recipe);
+                        }
+                    })
+                });
+            };
+            $("#application_recipes").html('');
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            (function(){
+                var $buttonSecondCook = $('#secondCook');
+                var $applicationCookWith0 = $("#application_cookWith_0");
+                var $applicationCookWith1 = $("#application_cookWith_1");
+                var bindSelect2ToCook = function (element){
+                    element.select2({
+                        minimumInputLength: 1,
+                        placeholder: " ",
+                        allowClear: true,
+                        ajax: {
+                            url: Routing.generate('member_search'),
+                            dataType: 'json',
+                            quietMillis: 250,
+                            data: function (term, page) {
+                                return {
+                                    query: term
+                                };
+                            },
+                            results: function (data, page) {
+                                return { results: data.items };
+                            },
+                            cache: true
+                        },
+                        initSelection: function(element, callback) {
+                            var id = $(element).val();
+                            if (id !== "") {
+                                $.ajax(Routing.generate('member_search_id'), {
+                                    dataType: "json",
+                                    data: {
+                                        'id': id
+                                    }
+                                }).done(function(data) {
+                                    callback(data);
+                                });
+                            }
+                        },
+                        dropdownCssClass: "bigdrop"
+                    });
+                };
+
+
+
+                $buttonSecondCook.click(function(){
+                    $(this).hide();
+                    bindSelect2ToCook($applicationCookWith1);
+                });
+
+                if ($applicationCookWith1.val()) {
+                    $buttonSecondCook.hide();
+                    bindSelect2ToCook($applicationCookWith1);
+                }
+
+                bindSelect2ToCook($applicationCookWith0);
+            })();
+
+
+        });
+
+        $('.fileSubmit').on('click', function () {
+            $('#application_uploaded_image').click();
+        });
+
+        $(document).on('change', '#application_uploaded_image', function () {
+            var ext = this.value.match(/\.([^\.]+)$/)[1],
+                input = this;
+            ext = ext.toLowerCase();
+            if(ext !== 'jpg' && ext !== 'png' && ext !== 'jpeg') {
+                var $fileErrors = $('.fileErrors');
+                $fileErrors.html("<p class='text-center help-block'>{{ 'app.application.image.format'|trans({}, 'validators') }}</p>");
+                $fileErrors.addClass("has-error");
+                return;
+            }
+
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var img = new Image;
+
+                img.onload = function() {
+                    // image size validation if needed
+                };
+                img.src = reader.result;
+                getOrientation(input.files[0], function(orientation) {
+                    switch(orientation) {
+                        case 3:
+                            degrees = 180;
+                            break;
+                        case 6:
+                            degrees = 90;
+                            break;
+                        case 8:
+                            degrees = -90;
+                            break;
+                        default:
+                            degrees = 0;
+                    }
+                    $('.memberProfile__image').css({
+                        '-webkit-transform': 'rotate(' + degrees + 'deg)',
+                        '-moz-transform': 'rotate(' + degrees + 'deg)',
+                        '-ms-transform': 'rotate(' + degrees + 'deg)',
+                        '-o-transform': 'rotate(' + degrees + 'deg)',
+                        'transform': 'rotate(' + degrees + 'deg)'
+                    })
+                });
+
+                $('.memberProfile__image').css("background-image", "url(" + img.src + ")");
+            };
+
+            reader.readAsDataURL(this.files[0]);
+        });
+    </script>
+{% endblock %}

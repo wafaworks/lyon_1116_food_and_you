@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="8aa0c7c23513fd6ffc936d6eca6c64ef" resname="our_restaurants">
+        <source>our_restaurants</source>
+        <target>Nos restaurants</target>
+      </trans-unit>
+      <trans-unit id="884e4c19e0b74885ffc5a72f1b06ede8" resname="become_restaurator">
+        <source>become_restaurator</source>
+        <target><![CDATA[Devenir restaurateur F&Y]]></target>
+      </trans-unit>
+      <trans-unit id="4717d53ebfdfea8477f780ec66151dcb" resname="connection">
+        <source>connection</source>
+        <target>Se connecter</target>
+      </trans-unit>
+      <trans-unit id="8a3cee074fafa88f2f2fc5c21d43d943" resname="connection_inscription">
+        <source>connection_inscription</source>
+        <target>Connexion / Inscription</target>
+      </trans-unit>
+      <trans-unit id="55cd547e15b4c778e9fc59bd32207815" resname="acc_h2">
+        <source>acc_h2</source>
+        <target>EN PLEIN COEUR DE LA CUISINE</target>
+      </trans-unit>
+      <trans-unit id="8ca08433dec62f848e612f0ddd4b9f69" resname="acc_h4">
+        <source>acc_h4</source>
+        <target>Un chef vous invite dans les coulisses de son restaurant et partage avec vous son savoir-faire</target>
+      </trans-unit>
+      <trans-unit id="8a01824659175738af270309815159bf" resname="acc_concept">
+        <source>acc_concept</source>
+        <target>DÉCOUVRIR LE CONCEPT</target>
+      </trans-unit>
+      <trans-unit id="8f95c065cf065a76edffcc5c4602268a" resname="search.event">
+        <source>search.event</source>
+        <target>Chercher un événement</target>
+      </trans-unit>
+      <trans-unit id="e7bbb3782f69339d6bb0e869a20b13ca" resname="dish.0entry">
+        <source>dish.0entry</source>
+        <target>Entrée</target>
+      </trans-unit>
+      <trans-unit id="4d4752dfdfb9fead744075477d23a220" resname="dish.1main">
+        <source>dish.1main</source>
+        <target>Plat</target>
+      </trans-unit>
+      <trans-unit id="b363f61772ebac246a9510acfe133623" resname="dish.2dessert">
+        <source>dish.2dessert</source>
+        <target>Dessert</target>
+      </trans-unit>
+      <trans-unit id="0d08d996bb6b1e957c3228d96473bd49" resname="vote.visual">
+        <source>vote.visual</source>
+        <target>Visuel</target>
+      </trans-unit>
+      <trans-unit id="c8b21fc03a58dad4b9ea03911242e28a" resname="vote.taste">
+        <source>vote.taste</source>
+        <target>Goût</target>
+      </trans-unit>
+      <trans-unit id="6d4b62960a6aa2b1fff43a9c1d95f7b2" resname="restaurant">
+        <source>restaurant</source>
+        <target>Restaurant</target>
+      </trans-unit>
+      <trans-unit id="8b0a44048f58988b486bdd0d245b22a8" resname="person">
+        <source>person</source>
+        <target>personne</target>
+      </trans-unit>
+      <trans-unit id="0ba621543eb9033e6138e122225f35e4" resname="person.abr">
+        <source>person.abr</source>
+        <target>Pers.</target>
+      </trans-unit>
+      <trans-unit id="dfa5be7e620204da91e72a33294e9798" resname="votes">
+        <source>votes</source>
+        <target>{0}votes|{1}vote|[2,Inf]votes</target>
+      </trans-unit>
+      <trans-unit id="abbdf5f8086f759c80177ec1fba520c2" resname="my.profile">
+        <source>my.profile</source>
+        <target>Mon Compte</target>
+      </trans-unit>
+      <trans-unit id="4236a440a662cc8253d7536e5aa17942" resname="logout">
+        <source>logout</source>
+        <target>Déconnexion</target>
+      </trans-unit>
+      <trans-unit id="21232f297a57a5a743894a0e4a801fc3" resname="admin">
+        <source>admin</source>
+        <target>Admin</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

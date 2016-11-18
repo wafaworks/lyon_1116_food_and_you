@@ -1,0 +1,58 @@
+{% trans_default_domain "footer" %}
+<footer class="SiteFooter">
+    <div class="container box">
+        <div class="row">
+            <div class="col-xs-12">
+                <h4 class="SiteFooter__title">{{ "app.footer.title"|trans }}</h4>
+            </div>
+        </div>
+        <div class="row box">
+            <div class="col-sm-offset-3 col-sm-2 col-xs-4">
+                <a href="https://www.instagram.com/foodandyouofficiel/" class="no-decoration" target="_blank">
+                    <div class="Sticker sm green-opaque">
+                        <i class="Sticker__content fa fa-instagram fa-2x" aria-hidden="true"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-2 col-xs-4">
+                <a href="https://www.facebook.com/foodandyou.fr/?fref=ts" class="no-decoration" target="_blank">
+                    <div class="Sticker sm green-opaque">
+                        <i class="Sticker__content fa fa-facebook fa-2x" aria-hidden="true"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-2 col-xs-4">
+                <a href="https://twitter.com/foodandyoulyon" class="no-decoration" target="_blank">
+                    <div class="Sticker sm green-opaque">
+                        <i class="Sticker__content fa fa-twitter fa-2x" aria-hidden="true"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row box row-xs-center">
+            <div class="col-lg-3 col-xs-12 text-center">
+                <button onclick="displayModal('modal_contact_company');" class="Btn grey xs border-gray">{{ "app.footer.company"|trans }}</button>
+            </div>
+            <div class="col-lg-9 col-xs-12">
+                <ul class="SiteFooter__menu">
+                    <li><a href="{{ path("about_us") }}">{{ "app.footer.who_we_are"|trans }}</a></li>
+                    <li class="SiteFooter__menu__separator">·</li>
+                    <li><a href="javascript: void(0);" onclick="displayModal('modal_contact');">{{ "app.footer.contact"|trans }}</a></li>
+                    <li class="SiteFooter__menu__separator">·</li>
+                    <li><a href="{{ path('rules') }}">{{ "app.footer.rules"|trans }}</a></li>
+                    <li class="SiteFooter__menu__separator">·</li>
+                    <li class="text-italic">
+                        &copy; 2015 Food & You - <a href="javascript: void(0);" onclick="displayModal('modal_simple', {'template': 'legal-notice'});">
+                            {{ "app.footer.legal_notice"|trans }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,115 @@
+{% trans_default_domain "forms" %}
+
+<div class="container-fluid Search--block">
+    <div class="box">
+        <div class="Sticker xs green" id="Search--block-toogle">
+            <span class="Sticker__content fa fa-search fa-2x" aria-hidden="true"></span>
+        </div>
+        <div class="Search--block-title">
+            <h5>{{ 'forms.search.title' | trans }}</h5>
+        </div>
+        <div class="Search--block-collapsable">
+            {{ form_start(searchType, {
+                'method': 'POST',
+                'attr' : {
+                    'id' : 'SearchType',
+                    'novalidate': 'true',
+                    'action': path('event_list')
+                }
+            }) }}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-1 Search--block-row">
+                        {{ form_widget(searchType.city, {'attr': {'class': 'red-input input-group'}}) }}
+                        {{ form_errors(searchType.city) }}
+                        <div class="input-group datetimepicker">
+                            {{ form_widget(searchType.eventDate, {
+                                'attr':
+                                {
+                                    'class': 'red-input date',
+                                    'data-icon': 'calendar'
+                                }
+                            }) }}
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-1 Search--block-row">
+                        {{ form_widget(searchType.restaurant, {
+                            'attr':
+                            {
+                                'class': 'red-input input-group typeahead',
+                                'placeholder': 'forms.search.restaurant.placeholder'|trans,
+                                'data-provide': 'typeahead',
+                                'autocomplete': "off"
+                            }
+                        }) }}
+                        {{ form_errors(searchType.restaurant) }}
+                        {{ form_widget(searchType.participatorType, {
+                            'attr':
+                            {
+                                'class': 'red-input input-group'
+                            }
+                        }) }}
+                        {{ form_errors(searchType.participatorType) }}
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-1 Search--block-row">
+                        <button class="Btn green sm">{{ 'forms.search.submit' | trans }}</button>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(searchType) }}
+        </div>
+    </div>
+</div>
+<script src="{{ asset('vendor/bootstrap3-typeahead/bootstrap3-typeahead.min.js') }}"></script>
+<script>
+    $(function() {
+        $('#SearchType').submit(function () {
+            var dateField = $(this).find('input.date');
+
+            dateField.val(moment(dateField.val(), 'DD MMM YYYY').format('YYYY-MM-DD'));
+        });
+
+        // ugly hack in order for the date to be properly persisted
+        var $appSearchEventDate = $('#app_search_eventDate');
+        var dateValue = $appSearchEventDate.val();
+        $appSearchEventDate.data('date', dateValue);
+        $appSearchEventDate.val('');
+
+        $('.datetimepicker').datetimepicker({
+            format:"DD MMM YYYY",
+            minDate: moment({hour: 0, minute: 0, seconds: 0, milliseconds: 0}),
+            locale: 'fr',
+            useCurrent: false,
+            defaultDate: moment($appSearchEventDate.data('date'), 'YYYY-MM-DD').toDate()
+        });
+
+        $('.typeahead').typeahead({
+            source: function (query, process) {
+                $.ajax({
+                    url: Routing.generate('restaurants_name_list'),
+                    method: 'POST',
+                    data: {
+                        query: query,
+                        city: $('#app_search_city').val()
+                    },
+                    success: function (data) {
+                        process(data);
+                    }
+                });
+            },
+            autoSelect: true
+        });
+
+        $("#Search--block-toogle,.Search--block-title").click(function () {
+            var $collapsedSearch = $('.Search--block-collapsable');
+            if ($collapsedSearch.is(":visible")) {
+                $collapsedSearch.hide();
+            } else {
+                $collapsedSearch.show();
+            }
+        });
+    });
+</script>
