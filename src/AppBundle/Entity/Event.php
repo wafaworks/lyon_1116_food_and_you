@@ -153,7 +153,8 @@ class Event
         $this->notifiedStart = false;
         $this->notifiedMinCapacityNotReached = false;
         $slugify = new Slugify();
-        $this->slug = $slugify->slugify($this->getRestaurant()->getName());
+        $toBeSlugified = $this->getRestaurant()->getName() . ' ' . $this->getStartDate()->format('d-m-Y');
+        $this->slug = $slugify->slugify($toBeSlugified);
     }
 
     public function __toString()

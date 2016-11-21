@@ -283,7 +283,8 @@ class DefaultController extends Controller
         /** @var Event $event */
         foreach ($events as $event){
             $slugify = new Slugify();
-            $event->setSlug($slugify->slugify($event->getRestaurant()->getName()));
+            $toBeSlugified = $event->getRestaurant()->getName() . ' ' . $event->getStartDate()->format('d-m-Y');
+            $event->setSlug($slugify->slugify($toBeSlugified));
             $em->persist($event);
         }
         $em->flush();
