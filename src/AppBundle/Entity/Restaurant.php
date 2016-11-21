@@ -7,6 +7,7 @@ use AppBundle\Entity\Embeddables\SocialInfo;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -55,7 +56,7 @@ class Restaurant
 
     /**
      * @Gedmo\Slug(fields={"name"})
-     * @ORM\Column(length=255, unique=true)
+     * @ORM\Column(length=255)
      */
     private $slug;
 
@@ -215,6 +216,14 @@ class Restaurant
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     /**

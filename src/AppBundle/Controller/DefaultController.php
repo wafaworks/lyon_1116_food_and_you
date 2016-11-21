@@ -15,6 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Cocur\Slugify\Slugify;
 
 class DefaultController extends Controller
 {
@@ -260,4 +261,24 @@ class DefaultController extends Controller
         //TODO: remove after testing
         return $this->render(':email:layout.html.twig');
     }
+
+
+    /**
+     *
+     *
+     * @Route("/slugify/existant/data", name="slugify_existant_data")
+     */
+    public function slugifyExistantDataAction()
+    {
+
+        $restaurants = $this->get('app.repository.restaurant')->findAll();
+        /** @var Restaurant $restaurant */
+        foreach ($restaurants as $restaurant){
+            $slugify = new Slugify();
+            $restaurant->setSlug($slugify->slugify($restaurant->getName()));
+            $this->getDoctrine()->getManager()->persist($restaurant);
+        }
+        $this->getDoctrine()->getManager()->flush();
+    }
+
 }
