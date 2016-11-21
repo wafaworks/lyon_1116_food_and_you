@@ -12,30 +12,30 @@ parameters:
 
     mailer_transport: gmail
     mailer_host: null
-    mailer_user: karen@foodandyou.fr
-    mailer_password: karenfood
+    mailer_user: ~
+    mailer_password: ~
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     # Facebook
-    facebook_app_id: 423791437820498
-    facebook_app_secret: ca33cbb1b3aeefd9b4ef39c89fbed28b
+    facebook_app_id: ~
+    facebook_app_secret: ~
 
-    contact_email: contact@foodandyou.fr
-    contact_company_email: karen@foodandyou.fr
+    contact_email: ~
+    contact_company_email: ~
     delivery_address: alexandru@soluti.fr
-    sender_address: contact@foodandyou.fr
-    admin_addresses: ['karen@foodandyou.fr', 'jc.menz@foodandyou.fr']
+    sender_address: ~
+    admin_addresses: [~, ~]
 
-    base_cdn: 'http://foodandyou.soluti.fr'
+    base_cdn: ~
 
-    google_map_api: AIzaSyAc8KYVr_x_j0H_yTLSPTENjY0B5t1yWWY
+    google_map_api: ~
 
 
     # Merchant ID
-    merchant_id: '014213245611111'  # Dev
-    #merchant_id: '081766172100016' # Prod
+    merchant_id: ~  # Dev
+    #merchant_id: ~ # Prod
 
     # Memcached
     memcached_server: 127.0.0.1
@@ -43,5 +43,5 @@ parameters:
 
     # iOS certificate passphrase
     push.certificates.ios:             %kernel.root_dir%/certificates/ios-push-dev.pem
-    push.certificates.passphrase.ios:  FoodAndYouSoluti
+    push.certificates.passphrase.ios:  ~
     push.sandbox: true
