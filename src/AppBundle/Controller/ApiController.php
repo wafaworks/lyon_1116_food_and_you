@@ -29,7 +29,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ApiController extends Controller
 {
     /**
-     * @Route(path="event/list", name="api_event_list")
+     * @Route(path="evenement/liste", name="api_event_list")
      * @Method(methods={"GET"})
      *
      * @return JsonResponse

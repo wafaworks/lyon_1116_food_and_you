@@ -25,7 +25,7 @@ use Symfony\Component\HttpFoundation\Request;
 class EventController extends Controller
 {
     /**
-     * @Route("/event/list", name="event_list", options={"expose"=true})
+     * @Route("/evenement/liste", name="event_list", options={"expose"=true})
      *
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -72,7 +72,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/event/details/{id}", name="event_details")
+     * @Route("/evenement/details/{id}", name="event_details")
      * @ParamConverter("event", class="AppBundle:Event", options={"repository_method" = "getEvent"})
      *
      * @param Event $event
@@ -128,7 +128,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/event/reserve/{id}", name="event_reserve", options={"expose"=true})
+     * @Route("/evenement/reservation/{id}", name="event_reserve", options={"expose"=true})
      *
      * @param Event $event
      * @return \Symfony\Component\HttpFoundation\Response
@@ -144,7 +144,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/event/vote", name="event_applicant_vote", options={"expose"=true})
+     * @Route("/evenement/vote", name="event_applicant_vote", options={"expose"=true})
      *
      * @param Request $request
      * @return JsonResponse
@@ -191,7 +191,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/event/reserve-process/{id}/{places}", name="event_reserve_process", options={"expose"=true})
+     * @Route("/evenement/processus-de-reservation/{id}/{places}", name="event_reserve_process", options={"expose"=true})
      * @Method({"POST"})
      *
      * @param Request $request
@@ -229,7 +229,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/event/reserve-cancel/{id}", name="event_reserve_cancel", options={"expose"=true})
+     * @Route("/evenement/reservation-annule/{id}", name="event_reserve_cancel", options={"expose"=true})
      *
      * @param Reservation $reservation
      * @return \Symfony\Component\HttpFoundation\Response
@@ -253,7 +253,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/event/apply-to/{id}", name="event_apply_to")
+     * @Route("/evenement/apply-to/{id}", name="event_apply_to")
      *
      * @param Request $request
      * @param Event $event
