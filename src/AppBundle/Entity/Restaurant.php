@@ -54,6 +54,12 @@ class Restaurant
     private $name;
 
     /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=255, unique=true)
+     */
+    private $slug;
+
+    /**
      * @ORM\Column(type="text")
      *
      * @Assert\NotBlank()
@@ -201,6 +207,14 @@ class Restaurant
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**
