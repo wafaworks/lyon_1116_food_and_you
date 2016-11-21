@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\City;
-use AppBundle\Entity\Event;
 use AppBundle\Entity\Restaurant;
 use AppBundle\Form\Type\ContactCompanyType;
 use AppBundle\Form\Type\ContactType;
@@ -16,7 +15,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Cocur\Slugify\Slugify;
 
 class DefaultController extends Controller
 {
