@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\City;
+use AppBundle\Entity\Event;
 use AppBundle\Entity\Restaurant;
 use AppBundle\Form\Type\ContactCompanyType;
 use AppBundle\Form\Type\ContactType;
@@ -270,15 +271,22 @@ class DefaultController extends Controller
      */
     public function slugifyExistantDataAction()
     {
-
+        $em = $this->getDoctrine()->getManager();
         $restaurants = $this->get('app.repository.restaurant')->findAll();
+        $events = $this->get('app.repository.event')->findAll();
         /** @var Restaurant $restaurant */
         foreach ($restaurants as $restaurant){
             $slugify = new Slugify();
             $restaurant->setSlug($slugify->slugify($restaurant->getName()));
-            $this->getDoctrine()->getManager()->persist($restaurant);
+            $em->persist($restaurant);
         }
-        $this->getDoctrine()->getManager()->flush();
+        /** @var Event $event */
+        foreach ($events as $event){
+            $slugify = new Slugify();
+            $event->setSlug($slugify->slugify($event->getRestaurant()->getName()));
+            $em->persist($event);
+        }
+        $em->flush();
     }
 
 }
