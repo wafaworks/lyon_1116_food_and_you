@@ -72,7 +72,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/evenement/details/{id}", name="event_details")
+     * @Route("/evenement/details/{slug}", name="event_details")
      * @ParamConverter("event", class="AppBundle:Event", options={"repository_method" = "getEvent"})
      *
      * @param Event $event
@@ -128,7 +128,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/evenement/reservation/{id}", name="event_reserve", options={"expose"=true})
+     * @Route("/evenement/reservation/{slug}", name="event_reserve", options={"expose"=true})
      *
      * @param Event $event
      * @return \Symfony\Component\HttpFoundation\Response
@@ -191,7 +191,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/evenement/processus-de-reservation/{id}/{places}", name="event_reserve_process", options={"expose"=true})
+     * @Route("/evenement/processus-de-reservation/{slug}/{places}", name="event_reserve_process", options={"expose"=true})
      * @Method({"POST"})
      *
      * @param Request $request
@@ -229,7 +229,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/evenement/reservation-annule/{id}", name="event_reserve_cancel", options={"expose"=true})
+     * @Route("/evenement/reservation-annulee/{slug}", name="event_reserve_cancel", options={"expose"=true})
      *
      * @param Reservation $reservation
      * @return \Symfony\Component\HttpFoundation\Response
@@ -253,7 +253,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/evenement/apply-to/{id}", name="event_apply_to")
+     * @Route("/evenement/apply-to/{slug}", name="event_apply_to")
      *
      * @param Request $request
      * @param Event $event
@@ -293,7 +293,7 @@ class EventController extends Controller
 
 
     /**
-     * @Route("/event/photos/{id}", name="event_photo_items", options={"expose"=true})
+     * @Route("/evenementt/photos/{slug}", name="event_photo_items", options={"expose"=true})
      *
      * @param Request $request
      * @param Event $event

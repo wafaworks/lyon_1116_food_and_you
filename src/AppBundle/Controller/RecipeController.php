@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 class RecipeController extends Controller
 {
     /**
-     * @Route("/my-recipes", name="recipe_list", options={"expose"=true})
+     * @Route("/mes-recettes", name="recipe_list", options={"expose"=true})
      * @Security("has_role('ROLE_USER')")
      *
      * @param Request $request
@@ -75,7 +75,7 @@ class RecipeController extends Controller
     }
 
     /**
-     * @Route("/my-recipes/add", name="recipe_add", options={"expose"=true})
+     * @Route("/mes-recettes/ajouter", name="recipe_add", options={"expose"=true})
      * @Security("has_role('ROLE_USER')")
      *
      * @param Request $request

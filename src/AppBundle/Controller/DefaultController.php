@@ -98,7 +98,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route(path="/reglement_du_jeu ", name="rules")
+     * @Route(path="/reglement-du-jeu", name="rules")
      */
     public function rulesAction()
     {
@@ -106,7 +106,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route(path="/qui_sommes_nous", name="about_us")
+     * @Route(path="/qui-sommes-nous", name="about_us")
      */
     public function aboutUsAction()
     {
@@ -212,7 +212,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route(path="/restaurants/liste", name="restaurants_list", options={"expose"=true})
+     * @Route(path="/restaurants/list", name="restaurants_list", options={"expose"=true})
      *
      * @param Request $request
      * @return string

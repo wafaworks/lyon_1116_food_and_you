@@ -66,7 +66,7 @@ class MemberController extends Controller
     /**
      * Return key value pair id, first + last name for Postulez cook with
      *
-     * @Route(path="/utilisateur/search", name="member_search", options={"expose"=true})
+     * @Route(path="/utilisateur/recherche", name="member_search", options={"expose"=true})
      * @Security("has_role('ROLE_USER')")
      *
      * @param Request $request
@@ -102,7 +102,7 @@ class MemberController extends Controller
     /**
      * Return first name and last name by ID
      *
-     * @Route(path="/utilisateur/search-id", name="member_search_id", options={"expose"=true})
+     * @Route(path="/utilisateur/recherche-id", name="member_search_id", options={"expose"=true})
      * @Security("has_role('ROLE_USER')")
      *
      * @param Request $request
