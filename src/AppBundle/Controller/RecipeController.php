@@ -75,7 +75,7 @@ class RecipeController extends Controller
     }
 
     /**
-     * @Route("/mes-recettes/ajouter", name="recipe_add", options={"expose"=true})
+     * @Route("/my-recipes/add", name="recipe_add", options={"expose"=true})
      * @Security("has_role('ROLE_USER')")
      *
      * @param Request $request
