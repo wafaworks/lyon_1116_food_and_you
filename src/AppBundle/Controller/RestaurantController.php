@@ -18,7 +18,7 @@ class RestaurantController extends Controller
     /**
      * @param $request Request
      *
-     * @Route("/restaurants/name/list", name="restaurants_name_list", options={"expose"=true})
+     * @Route("/restaurants/nom/liste", name="restaurants_name_list", options={"expose"=true})
      *
      * @return JsonResponse
      */
