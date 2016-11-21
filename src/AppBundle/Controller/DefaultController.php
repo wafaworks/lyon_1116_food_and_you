@@ -263,31 +263,4 @@ class DefaultController extends Controller
         return $this->render(':email:layout.html.twig');
     }
 
-
-    /**
-     *
-     *
-     * @Route("/slugify/existant/data", name="slugify_existant_data")
-     */
-    public function slugifyExistantDataAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $restaurants = $this->get('app.repository.restaurant')->findAll();
-        $events = $this->get('app.repository.event')->findAll();
-        /** @var Restaurant $restaurant */
-        foreach ($restaurants as $restaurant){
-            $slugify = new Slugify();
-            $restaurant->setSlug($slugify->slugify($restaurant->getName()));
-            $em->persist($restaurant);
-        }
-        /** @var Event $event */
-        foreach ($events as $event){
-            $slugify = new Slugify();
-            $toBeSlugified = $event->getRestaurant()->getName() . ' ' . $event->getStartDate()->format('d-m-Y');
-            $event->setSlug($slugify->slugify($toBeSlugified));
-            $em->persist($event);
-        }
-        $em->flush();
-    }
-
 }
