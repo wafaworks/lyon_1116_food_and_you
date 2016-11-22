@@ -18,80 +18,79 @@
     {% endfor %}
     <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0">
         <tbody>
-        <tr>
-            <td>
-                <div class="innerbg">
-                </div>
-                <table width="650" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
-                    <tbody>
-                    <tr>
-                        <td width="100%">
-                            <table width="650" align="center" cellspacing="0" cellpadding="0" border="0" class="devicewidth">
-                                <tbody>
-                                    <tr>
-                                        <td align="left" style="padding: 30px 0; color: #000">
-                                            <div style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; line-height: 1.5;">
-                                                A partir de cet instant, votre place est assuré en cuisine : le chef qui vous a selectionné et nous
-                                                même comptons sur vous ! * Partagez cet évènement avec vos proches et mettez toutes les
-                                                chances de votre côté pour remporter la victoire !
-                                            </div>
-                                            <br />
-                                            <br />
-                                            <div style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; line-height: 1.5;">
-                                                L’équipe de Food & You est heureuse de vous annoncer que vous avez été sélectionné par le chef du
-                                                <span style="font-style: italic">{{ applicant.event.restaurant.name }}</span> pour votre recette <span style="font-style: italic">{{ recipeName }}</span> à la date du <span style="font-style: italic">{{ applicant.event.startDate | date('d/m/Y') }}</span>.
-                                                Nous sommes ravis de vous compter officiellement parmi les membres de notre brigade
-                                                Food&You !
-                                            </div>
-                                            <br />
+            <tr>
+                <td>
+                    <div class="innerbg"></div>
+                    <table width="650" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
+                        <tbody>
+                            <tr>
+                                <td width="100%">
+                                    <table width="650" align="center" cellspacing="0" cellpadding="0" border="0" class="devicewidth">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left" style="padding: 30px 0; color: #000">
+                                                    <div style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; line-height: 1.5;">
+                                                        A partir de cet instant, votre place est assuré en cuisine : le chef qui vous a selectionné et nous
+                                                        même comptons sur vous ! * Partagez cet évènement avec vos proches et mettez toutes les
+                                                        chances de votre côté pour remporter la victoire !
+                                                    </div>
+                                                    <br />
+                                                    <br />
+                                                    <div style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; line-height: 1.5;">
+                                                        L’équipe de Food & You est heureuse de vous annoncer que vous avez été sélectionné par le chef du
+                                                        <span style="font-style: italic">{{ applicant.event.restaurant.name }}</span> pour votre recette <span style="font-style: italic">{{ recipeName }}</span> à la date du <span style="font-style: italic">{{ applicant.event.startDate | date('d/m/Y') }}</span>.
+                                                        Nous sommes ravis de vous compter officiellement parmi les membres de notre brigade
+                                                        Food&You !
+                                                    </div>
+                                                    <br />
 
-                                            <img src="{{ base_url ~ asset('images/email/candidat-retenu-process.gif') }}" style="width: 100%; height: auto;">
-                                            <br />
-                                            <br />
+                                                    <img src="{{ base_url ~ asset('images/email/candidat-retenu-process.gif') }}" style="width: 100%; height: auto;">
+                                                    <br />
+                                                    <br />
 
-                                            <div><b>1 - APPELLE LE CHEF :</b> validez ensemble ta recette !</div>
-                                            <div><b>2 - MET TOI DANS LA PEAU D’UN CHEF !</b> Prépare ta tenue et si besoin, répète ta recette (F&Y VOUS DONNE UN TABLIER)</div>
-                                            <div><b>3 - L’AVENTURE COMMENCE</b> Viens à l’heure indiquée par le chef en restaurant afin de préparer ta recette</div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div style="background: #008F8A; color: #fff; padding: 20px 0 60px 0; text-align: center;">
-                    {{ applicant.event.restaurant.name }}
-                    <br />
-                    {{ applicant.event.restaurant.street }}
-                    <br />
-                    {{ applicant.event.restaurant.contactInfo.phone }}
-                    <br />
-                    Chef à contacter : {{ applicant.event.restaurant.owner.fullName }}
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div style="padding: 20px 0 60px 0; text-align: center;">
-                    <!--[if mso]>
-                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ url('event_details', { "id": applicant.event.id }) }}" style="height:40px;font-family:helvetica,arial,sans-serif;v-text-anchor:middle;width:200px;" arcsize="10%" stroke="f" fillcolor="#E6524D">
-                        <w:anchorlock/>
-                        <center style="color:#ffffff;font-family: Helvetica, Arial, sans-serif;font-size:16px;">
-                            J’INVITE MES AMIS
-                        </center>
-                    </v:roundrect>
-                    <![endif]-->
-                    <![if !mso]>
-                        <a href="{{ url('event_details', { "id": applicant.event.id }) }}" style="background: #E6524D; border-radius: 5px; padding: 10px 25px; color: #fff; border: 0; font-weight: bold;">J’INVITE MES AMIS</a>
-                    <![endif]>
-                </div>
-            </td>
-        </tr>
+                                                    <div><b>1 - APPELLE LE CHEF :</b> validez ensemble ta recette !</div>
+                                                    <div><b>2 - MET TOI DANS LA PEAU D’UN CHEF !</b> Prépare ta tenue et si besoin, répète ta recette (F&Y VOUS DONNE UN TABLIER)</div>
+                                                    <div><b>3 - L’AVENTURE COMMENCE</b> Viens à l’heure indiquée par le chef en restaurant afin de préparer ta recette</div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="background: #008F8A; color: #fff; padding: 20px 0 60px 0; text-align: center;">
+                        {{ applicant.event.restaurant.name }}
+                        <br />
+                        {{ applicant.event.restaurant.street }}
+                        <br />
+                        {{ applicant.event.restaurant.contactInfo.phone }}
+                        <br />
+                        Chef à contacter : {{ applicant.event.restaurant.owner.fullName }}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="padding: 20px 0 60px 0; text-align: center;">
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ url('event_details', { "id": applicant.event.id }) }}" style="height:40px;font-family:helvetica,arial,sans-serif;v-text-anchor:middle;width:200px;" arcsize="10%" stroke="f" fillcolor="#E6524D">
+                            <w:anchorlock/>
+                            <center style="color:#ffffff;font-family: Helvetica, Arial, sans-serif;font-size:16px;">
+                                J’INVITE MES AMIS
+                            </center>
+                        </v:roundrect>
+                        <![endif]-->
+                        <![if !mso]>
+                            <a href="{{ url('event_details', { "id": applicant.event.id }) }}" style="background: #E6524D; border-radius: 5px; padding: 10px 25px; color: #fff; border: 0; font-weight: bold;">J’INVITE MES AMIS</a>
+                        <![endif]>
+                    </div>
+                </td>
+            </tr>
         </tbody>
     </table>
 {% endblock %}

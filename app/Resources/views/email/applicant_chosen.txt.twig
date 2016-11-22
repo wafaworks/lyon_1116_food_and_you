@@ -22,6 +22,26 @@ FELICITATIONS {{ applicant.member.fullName | upper }}
     2 - MET TOI DANS LA PEAU D’UN CHEF ! Prépare ta tenue et si besoin, répète ta recette (F&Y VOUS DONNE UN TABLIER)
     3 - L’AVENTURE COMMENCE Viens à l’heure indiquée par le chef en restaurant afin de préparer ta recette
 
+
+{#
+Proposition de remplacement du texte situé ci-dessus
+
+VOTRE INSCRIPTION POUR CUISINER LORS D’UNE SOIREE fOOD&YOU EST BIEN VALIDÉE !
+
+    A partir de cet instant, votre place est assurée en cuisine : le chef du restaurant et nous
+    même comptons sur vous ! * Partagez cet évènement avec vos proches et mettez toutes les
+    chances de votre côté pour remporter la victoire !
+
+    L’équipe de Food & You est heureuse de vous annoncer que vous pourrez rejoindre les cuisines du chef du
+    {{ applicant.event.restaurant.name }} pour ta recette {{ recipeName }} à la date du {{ applicant.event.startDate | date('d/m/Y') }}.
+    Nous sommes ravis de vous compter officiellement parmi les membres de notre brigade Food&You !
+
+
+    1 - APPELLEZ LE CHEF : validez ensemble votre recette !
+    2 - METTEZ VOUS DANS LA PEAU D’UN CHEF ! Préparez votre tenue et si besoin, répétez votre recette (F&Y VOUS DONNERA UN TABLIER)
+    3 - L’AVENTURE COMMENCE ! Venez à l’heure indiquée par le chef en restaurant afin de préparer votre recette
+#}
+
     {{ applicant.event.restaurant.name }}
     {{ applicant.event.restaurant.street }}
     {{ applicant.event.restaurant.contactInfo.phone }}
