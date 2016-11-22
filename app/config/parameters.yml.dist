@@ -24,9 +24,9 @@ parameters:
 
     contact_email: ~
     contact_company_email: ~
-    delivery_address: alexandru@soluti.fr
+    delivery_address: ~
     sender_address: ~
-    admin_addresses: [~, ~]
+    admin_addresses: ~
 
     base_cdn: ~
 
@@ -34,14 +34,14 @@ parameters:
 
 
     # Merchant ID
-    merchant_id: ~  # Dev
-    #merchant_id: ~ # Prod
+    merchant_id: ~
+    #merchant_id: ~
 
     # Memcached
     memcached_server: 127.0.0.1
     memcached_port:   11211
 
     # iOS certificate passphrase
-    push.certificates.ios:             %kernel.root_dir%/certificates/ios-push-dev.pem
+    push.certificates.ios:             ~
     push.certificates.passphrase.ios:  ~
     push.sandbox: true
