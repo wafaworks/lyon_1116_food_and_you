@@ -260,4 +260,5 @@ class DefaultController extends Controller
         //TODO: remove after testing
         return $this->render(':email:layout.html.twig');
     }
+
 }
