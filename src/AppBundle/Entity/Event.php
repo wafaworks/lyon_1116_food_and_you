@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\Embeddables\Capacity;
+use Cocur\Slugify\Slugify;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -37,6 +38,12 @@ class Event
      * @var integer
      */
     private $id;
+
+    /**
+     *
+     * @ORM\Column(length=255)
+     */
+    private $slug;
 
     /**
      * @ORM\Column(type="datetime")
@@ -145,6 +152,9 @@ class Event
         $this->confirmedReservations = 0;
         $this->notifiedStart = false;
         $this->notifiedMinCapacityNotReached = false;
+        $slugify = new Slugify();
+        $toBeSlugified = $this->getRestaurant()->getName() . ' ' . $this->getStartDate()->format('d-m-Y');
+        $this->slug = $slugify->slugify($toBeSlugified);
     }
 
     public function __toString()
@@ -160,6 +170,22 @@ class Event
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     /**
